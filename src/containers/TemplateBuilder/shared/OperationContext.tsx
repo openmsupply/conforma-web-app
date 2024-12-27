@@ -47,11 +47,7 @@ export type TemplatesOperationProps = {
   templates?: TemplateOptions
 }
 export type TemplatesOperation = (props: TemplatesOperationProps) => Promise<boolean>
-export type ImportTemplate = (
-  e: React.ChangeEvent<HTMLInputElement>,
-  refetch: () => void,
-  setInnerState: React.Dispatch<React.SetStateAction<ErrorAndLoadingState>>
-) => any
+export type ImportTemplate = (e: React.ChangeEvent<HTMLInputElement>, refetch: () => void) => any
 export type UpdateTemplate = (template: TemplateState, patch: TemplatePatch) => Promise<boolean>
 export type DeleteTemplate = (id: number) => Promise<boolean>
 export type UpdateTemplateFilterJoin = (

@@ -8,9 +8,9 @@ import {
   commit,
   check,
   duplicate,
-  upload,
+  // upload,
   exportAndDownload,
-  install,
+  // install,
   UnconnectedDataViews,
   ModifiedEntitiesToKeepAPIInput,
   getFullEntityDiff,
@@ -303,59 +303,59 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
     refetch() // Maybe can be conditional -- only need if wasn't committed previously
   }
 
-  const uploadStep = async (state: WorkflowState) => {
-    // Upload and analyze
-    setErrorAndLoadingState({ isLoading: true })
-    const event = state.uploadEvent
-    if (!event) return
-    const result = await upload(event)
-    setErrorAndLoadingState({ isLoading: false })
-    if ('error' in result) {
-      showError('Problem uploading template', result.error)
-      return
-    }
-    const { uid, modifiedEntities, ready } = result
+  // const uploadStep = async (state: WorkflowState) => {
+  //   // Upload and analyze
+  //   setErrorAndLoadingState({ isLoading: true })
+  //   const event = state.uploadEvent
+  //   if (!event) return
+  //   const result = await upload(event)
+  //   setErrorAndLoadingState({ isLoading: false })
+  //   if ('error' in result) {
+  //     showError('Problem uploading template', result.error)
+  //     return
+  //   }
+  //   const { uid, modifiedEntities, ready } = result
 
-    setWorkflowState({
-      ...state,
-      diff: modifiedEntities,
-      installInput: { uid, existingToKeep: {} },
-    })
+  //   setWorkflowState({
+  //     ...state,
+  //     diff: modifiedEntities,
+  //     installInput: { uid, existingToKeep: {} },
+  //   })
 
-    if (!ready) {
-      showModal(
-        'import',
-        async (input) => {
-          const preserveExisting = input as ModifiedEntitiesToKeepAPIInput
-          setWorkflowState({ ...state, installInput: { uid, existingToKeep: preserveExisting } })
-          nextStep()
-        },
-        { modifiedEntities, uid }
-      )
-      return
-    }
+  //   if (!ready) {
+  //     showModal(
+  //       'import',
+  //       async (input) => {
+  //         const preserveExisting = input as ModifiedEntitiesToKeepAPIInput
+  //         setWorkflowState({ ...state, installInput: { uid, existingToKeep: preserveExisting } })
+  //         nextStep()
+  //       },
+  //       { modifiedEntities, uid }
+  //     )
+  //     return
+  //   }
 
-    nextStep()
-  }
+  //   nextStep()
+  // }
 
-  const installStep = async (state: WorkflowState) => {
-    const { installInput, refetch } = state
-    if (!installInput) return
-    const { uid, existingToKeep: preserveExisting } = installInput
-    setErrorAndLoadingState({ isLoading: true })
-    const { versionId, versionNo, status, code, error } = await install(uid, preserveExisting)
-    setErrorAndLoadingState({ isLoading: false })
+  // const installStep = async (state: WorkflowState) => {
+  //   const { installInput, refetch } = state
+  //   if (!installInput) return
+  //   const { uid, existingToKeep: preserveExisting } = installInput
+  //   setErrorAndLoadingState({ isLoading: true })
+  //   const { versionId, versionNo, status, code, error } = await install(uid, preserveExisting)
+  //   setErrorAndLoadingState({ isLoading: false })
 
-    if (error) {
-      showError('Problem installing template', error)
-      return
-    }
-    showSuccess({
-      title: 'Template imported',
-      message: `${code} - v${versionNo} (${versionId})\nStatus: ${status}`,
-    })
-    refetch()
-  }
+  //   if (error) {
+  //     showError('Problem installing template', error)
+  //     return
+  //   }
+  //   showSuccess({
+  //     title: 'Template imported',
+  //     message: `${code} - v${versionNo} (${versionId})\nStatus: ${status}`,
+  //   })
+  //   refetch()
+  // }
 
   return {
     commitTemplate,
