@@ -16,6 +16,9 @@ import {
   getFullEntityDiff,
 } from './apiOperations.ts'
 import { TemplateState } from '../template/TemplateWrapper.tsx'
+import { postRequest } from '../../../utils/helpers/fetchMethods.ts'
+import getServerUrl from '../../../utils/helpers/endpoints/endpointUrlBuilder.ts'
+import { ErrorAndLoadingState } from '../shared/OperationContext.tsx'
 
 type ModalType =
   | 'unlinkedDataViewWarning'
@@ -147,18 +150,40 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
     nextStep()
   }
 
-  const importTemplate = async (e: React.ChangeEvent<HTMLInputElement>, refetch: () => void) => {
-    // console.log('Running Import workflow')
-    setWorkflow([uploadStep, installStep] as WorkflowStep[], {
-      id: 0,
-      code: '',
-      versionId: '',
-      versionHistory: [],
-      status: '',
-      refetch,
-      uploadEvent: e,
-    })
-    nextStep()
+  // LEGACY METHOD JUST FOR v1.4.1 SO WE CAN IMPORT AND CONVERT OLD FORMAT
+  // TEMPLATES
+  const importTemplate = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    refetch: () => void,
+    setInnerState: React.Dispatch<React.SetStateAction<ErrorAndLoadingState>>
+  ) => {
+    setInnerState({ isLoading: true })
+    if (!e.target?.files) return { error: 'No file selected' }
+    const file = e.target.files[0]
+    const snapshotName = file.name.replace('.zip', '')
+    try {
+      const data = new FormData()
+      data.append('file', file)
+
+      await postRequest({
+        url: getServerUrl('snapshot', { action: 'upload', template: true }),
+        otherBody: data,
+      })
+      await postRequest({
+        url: getServerUrl('snapshot', {
+          action: 'use',
+          name: snapshotName,
+          options: 'templateExport',
+        }),
+      })
+      // Delete the snapshot cos we don't want snapshots page cluttered with individual templates
+      await postRequest({ url: getServerUrl('snapshot', { action: 'delete', name: snapshotName }) })
+      setInnerState({ isLoading: false })
+      refetch()
+      return
+    } catch (err) {
+      return { error: (err as Error).message }
+    }
   }
 
   // Individual Steps called as part of the above workflows

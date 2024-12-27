@@ -47,7 +47,11 @@ export type TemplatesOperationProps = {
   templates?: TemplateOptions
 }
 export type TemplatesOperation = (props: TemplatesOperationProps) => Promise<boolean>
-export type ImportTemplate = (e: any) => Promise<boolean>
+export type ImportTemplate = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  refetch: () => void,
+  setInnerState: React.Dispatch<React.SetStateAction<ErrorAndLoadingState>>
+) => any
 export type UpdateTemplate = (template: TemplateState, patch: TemplatePatch) => Promise<boolean>
 export type DeleteTemplate = (id: number) => Promise<boolean>
 export type UpdateTemplateFilterJoin = (
@@ -65,7 +69,7 @@ type OperationContextState = {
   commitTemplate: (template: Template | TemplateState, refetch: () => void) => Promise<void>
   exportTemplate: (template: Template, refetch: () => void) => Promise<void>
   duplicateTemplate: (template: Template, refetch: () => void) => Promise<void>
-  importTemplate: (e: React.ChangeEvent<HTMLInputElement>, refetch: () => void) => Promise<void>
+  importTemplate: ImportTemplate
   getFullEntityDiff: (
     uid: string,
     type: keyof ModifiedEntities,
@@ -136,7 +140,8 @@ const OperationContext: React.FC<{ children: React.ReactNode }> = ({ children })
     exportTemplate,
     getFullEntityDiff,
     duplicateTemplate,
-    importTemplate,
+    importTemplate: (e: React.ChangeEvent<HTMLInputElement>, refetch: () => void) =>
+      importTemplate(e, refetch, setInnerState),
     updateTemplate: updateTemplate(setInnerState, updateTemplateMutation),
     updateTemplateFilterJoin: updateTemplateFilterJoin(
       setInnerState,
