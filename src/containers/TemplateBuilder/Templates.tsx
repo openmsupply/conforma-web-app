@@ -331,7 +331,7 @@ const Templates: React.FC = () => {
             />
             <p className="slightly-smaller-text" style={{ textAlign: 'right' }}>
               <a
-                href="https://github.com/msupply-foundation/conforma-server/wiki/Template-Import_Export"
+                href="https://github.com/msupply-foundation/conforma-server/wiki/Template-Import-Export"
                 target="_blank"
               >
                 Docs <Icon name="external" />
