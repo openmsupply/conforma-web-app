@@ -28,6 +28,7 @@ export async function postRequest({
       body,
     })
     const responseJSON = await response.json()
+    if (response.status !== 200) throw new Error(responseJSON.message)
     return responseJSON
   } catch (err) {
     console.log(err)
@@ -50,6 +51,7 @@ export async function getRequest(endpointUrl: string, headers: object = {}) {
       },
     })
     const responseJSON = await response.json()
+    if (response.status !== 200) throw new Error(responseJSON.message)
     return responseJSON
   } catch (err) {
     console.log(err)

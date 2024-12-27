@@ -225,9 +225,10 @@ export type ActionQueueApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -603,10 +604,10 @@ export type ActionQueueTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -619,6 +620,8 @@ export type ActionQueueTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -812,9 +815,10 @@ export type ActivityLogApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -1130,12 +1134,14 @@ export type Application = Node & {
   assignerList?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** Reads and enables pagination through a set of `DataChangelog`. */
   dataChangelogs: DataChangelogsConnection;
-  /** Reads and enables pagination through a set of `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReactionApplicationJoins: DataTableAdverseDrugReactionApplicationJoinsConnection;
-  /** Reads and enables pagination through a set of `DataTableLicenseApplicationJoin`. */
-  dataTableLicenseApplicationJoins: DataTableLicenseApplicationJoinsConnection;
-  /** Reads and enables pagination through a set of `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedicalApplicationJoins: DataTablePermitMedicalApplicationJoinsConnection;
+  /** Reads and enables pagination through a set of `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturerApplicationJoins: DataTableManufacturerApplicationJoinsConnection;
+  /** Reads and enables pagination through a set of `DataTableManufacturerRepresentativeApplicationJoin`. */
+  dataTableManufacturerRepresentativeApplicationJoins: DataTableManufacturerRepresentativeApplicationJoinsConnection;
+  /** Reads and enables pagination through a set of `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemicalApplicationJoins: DataTablePermitChemicalApplicationJoinsConnection;
+  /** Reads and enables pagination through a set of `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturerApplicationJoins: DataTablePrequalManufacturerApplicationJoinsConnection;
   /** Reads and enables pagination through a set of `DataTableProductApplicationJoin`. */
   dataTableProductApplicationJoins: DataTableProductApplicationJoinsConnection;
   /** Reads and enables pagination through a set of `DataTableProvisionalProductApplicationJoin`. */
@@ -1269,39 +1275,51 @@ export type ApplicationDataChangelogsArgs = {
 };
 
 
-export type ApplicationDataTableAdverseDrugReactionApplicationJoinsArgs = {
+export type ApplicationDataTableManufacturerApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
+  condition?: InputMaybe<DataTableManufacturerApplicationJoinCondition>;
+  filter?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerApplicationJoinsOrderBy>>;
 };
 
 
-export type ApplicationDataTableLicenseApplicationJoinsArgs = {
+export type ApplicationDataTableManufacturerRepresentativeApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableLicenseApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
+  condition?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinCondition>;
+  filter?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableLicenseApplicationJoinsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinsOrderBy>>;
 };
 
 
-export type ApplicationDataTablePermitMedicalApplicationJoinsArgs = {
+export type ApplicationDataTablePermitChemicalApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTablePermitMedicalApplicationJoinCondition>;
-  filter?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
+  condition?: InputMaybe<DataTablePermitChemicalApplicationJoinCondition>;
+  filter?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinsOrderBy>>;
+};
+
+
+export type ApplicationDataTablePrequalManufacturerApplicationJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTablePrequalManufacturerApplicationJoinCondition>;
+  filter?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinsOrderBy>>;
 };
 
 
@@ -1535,18 +1553,22 @@ export type ApplicationFilter = {
   dataChangelogs?: InputMaybe<ApplicationToManyDataChangelogFilter>;
   /** Some related `dataChangelogs` exist. */
   dataChangelogsExist?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `dataTableAdverseDrugReactionApplicationJoins` relation. */
-  dataTableAdverseDrugReactionApplicationJoins?: InputMaybe<ApplicationToManyDataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** Some related `dataTableAdverseDrugReactionApplicationJoins` exist. */
-  dataTableAdverseDrugReactionApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `dataTableLicenseApplicationJoins` relation. */
-  dataTableLicenseApplicationJoins?: InputMaybe<ApplicationToManyDataTableLicenseApplicationJoinFilter>;
-  /** Some related `dataTableLicenseApplicationJoins` exist. */
-  dataTableLicenseApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `dataTablePermitMedicalApplicationJoins` relation. */
-  dataTablePermitMedicalApplicationJoins?: InputMaybe<ApplicationToManyDataTablePermitMedicalApplicationJoinFilter>;
-  /** Some related `dataTablePermitMedicalApplicationJoins` exist. */
-  dataTablePermitMedicalApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `dataTableManufacturerApplicationJoins` relation. */
+  dataTableManufacturerApplicationJoins?: InputMaybe<ApplicationToManyDataTableManufacturerApplicationJoinFilter>;
+  /** Some related `dataTableManufacturerApplicationJoins` exist. */
+  dataTableManufacturerApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `dataTableManufacturerRepresentativeApplicationJoins` relation. */
+  dataTableManufacturerRepresentativeApplicationJoins?: InputMaybe<ApplicationToManyDataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** Some related `dataTableManufacturerRepresentativeApplicationJoins` exist. */
+  dataTableManufacturerRepresentativeApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `dataTablePermitChemicalApplicationJoins` relation. */
+  dataTablePermitChemicalApplicationJoins?: InputMaybe<ApplicationToManyDataTablePermitChemicalApplicationJoinFilter>;
+  /** Some related `dataTablePermitChemicalApplicationJoins` exist. */
+  dataTablePermitChemicalApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `dataTablePrequalManufacturerApplicationJoins` relation. */
+  dataTablePrequalManufacturerApplicationJoins?: InputMaybe<ApplicationToManyDataTablePrequalManufacturerApplicationJoinFilter>;
+  /** Some related `dataTablePrequalManufacturerApplicationJoins` exist. */
+  dataTablePrequalManufacturerApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `dataTableProductApplicationJoins` relation. */
   dataTableProductApplicationJoins?: InputMaybe<ApplicationToManyDataTableProductApplicationJoinFilter>;
   /** Some related `dataTableProductApplicationJoins` exist. */
@@ -1649,9 +1671,10 @@ export type ApplicationInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -2023,9 +2046,10 @@ export type ApplicationNoteApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -2331,20 +2355,27 @@ export type ApplicationNoteOrgIdFkeyOrganisationCreateInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -2696,89 +2727,118 @@ export type ApplicationOnDataChangelogForDataChangelogApplicationIdFkeyUsingAppl
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReactionApplicationJoin` to be connected. */
+export type ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerApplicationJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableAdverseDrugReactionApplicationJoin` being updated. */
-  patch: DataTableAdverseDrugReactionApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `dataTableManufacturerApplicationJoin` being updated. */
+  patch: DataTableManufacturerApplicationJoinPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
+export type ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
   outcomeRegistration: Scalars['String']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingApplicationPkeyUpdate = {
+export type ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate = {
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
+export type ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyPatch;
   serial: Scalars['String']['input'];
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableLicenseApplicationJoin` to be connected. */
+export type ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentativeApplicationJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableLicenseApplicationJoin` being updated. */
-  patch: DataTableLicenseApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `dataTableManufacturerRepresentativeApplicationJoin` being updated. */
+  patch: DataTableManufacturerRepresentativeApplicationJoinPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
+export type ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
   outcomeRegistration: Scalars['String']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate = {
+export type ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingApplicationPkeyUpdate = {
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
+export type ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyPatch;
   serial: Scalars['String']['input'];
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedicalApplicationJoin` to be connected. */
+export type ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemicalApplicationJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTablePermitMedicalApplicationJoin` being updated. */
-  patch: DataTablePermitMedicalApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `dataTablePermitChemicalApplicationJoin` being updated. */
+  patch: DataTablePermitChemicalApplicationJoinPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
+export type ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
   outcomeRegistration: Scalars['String']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate = {
+export type ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate = {
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyPatch;
 };
 
 /** The fields on `application` to look up the row to update. */
-export type ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
+export type ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
   /** An object where the defined keys will be set on the `application` being updated. */
-  patch: UpdateApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyPatch;
+  patch: UpdateApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyPatch;
+  serial: Scalars['String']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturerApplicationJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTablePrequalManufacturerApplicationJoin` being updated. */
+  patch: DataTablePrequalManufacturerApplicationJoinPatch;
+};
+
+/** The fields on `application` to look up the row to update. */
+export type ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate = {
+  outcomeRegistration: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `application` being updated. */
+  patch: UpdateApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyPatch;
+};
+
+/** The fields on `application` to look up the row to update. */
+export type ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingApplicationPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `application` being updated. */
+  patch: UpdateApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyPatch;
+};
+
+/** The fields on `application` to look up the row to update. */
+export type ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingApplicationSerialKeyUpdate = {
+  /** An object where the defined keys will be set on the `application` being updated. */
+  patch: UpdateApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyPatch;
   serial: Scalars['String']['input'];
 };
 
@@ -3111,9 +3171,10 @@ export type ApplicationOrgIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -3215,20 +3276,27 @@ export type ApplicationOrgIdFkeyOrganisationCreateInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -3276,9 +3344,10 @@ export type ApplicationPatch = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -3367,9 +3436,10 @@ export type ApplicationResponseApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -3872,9 +3942,10 @@ export type ApplicationReviewerActionApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -4202,9 +4273,10 @@ export type ApplicationStageHistoryApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -5155,9 +5227,10 @@ export type ApplicationTemplateIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -5249,10 +5322,10 @@ export type ApplicationTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -5265,6 +5338,8 @@ export type ApplicationTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -5346,34 +5421,44 @@ export type ApplicationToManyDataChangelogFilter = {
   some?: InputMaybe<DataChangelogFilter>;
 };
 
-/** A filter to be used against many `DataTableAdverseDrugReactionApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type ApplicationToManyDataTableAdverseDrugReactionApplicationJoinFilter = {
-  /** Every related `DataTableAdverseDrugReactionApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** No related `DataTableAdverseDrugReactionApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** Some related `DataTableAdverseDrugReactionApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
+/** A filter to be used against many `DataTableManufacturerApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type ApplicationToManyDataTableManufacturerApplicationJoinFilter = {
+  /** Every related `DataTableManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
+  /** No related `DataTableManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
+  /** Some related `DataTableManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
 };
 
-/** A filter to be used against many `DataTableLicenseApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type ApplicationToManyDataTableLicenseApplicationJoinFilter = {
-  /** Every related `DataTableLicenseApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
-  /** No related `DataTableLicenseApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
-  /** Some related `DataTableLicenseApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
+/** A filter to be used against many `DataTableManufacturerRepresentativeApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type ApplicationToManyDataTableManufacturerRepresentativeApplicationJoinFilter = {
+  /** Every related `DataTableManufacturerRepresentativeApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** No related `DataTableManufacturerRepresentativeApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** Some related `DataTableManufacturerRepresentativeApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
 };
 
-/** A filter to be used against many `DataTablePermitMedicalApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type ApplicationToManyDataTablePermitMedicalApplicationJoinFilter = {
-  /** Every related `DataTablePermitMedicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
-  /** No related `DataTablePermitMedicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
-  /** Some related `DataTablePermitMedicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
+/** A filter to be used against many `DataTablePermitChemicalApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type ApplicationToManyDataTablePermitChemicalApplicationJoinFilter = {
+  /** Every related `DataTablePermitChemicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
+  /** No related `DataTablePermitChemicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
+  /** Some related `DataTablePermitChemicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
+};
+
+/** A filter to be used against many `DataTablePrequalManufacturerApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type ApplicationToManyDataTablePrequalManufacturerApplicationJoinFilter = {
+  /** Every related `DataTablePrequalManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+  /** No related `DataTablePrequalManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+  /** Some related `DataTablePrequalManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
 };
 
 /** A filter to be used against many `DataTableProductApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
@@ -6668,76 +6753,6 @@ export type CreateDataTableAdministrationRoutePayloadDataTableAdministrationRout
   orderBy?: InputMaybe<Array<DataTableAdministrationRoutesOrderBy>>;
 };
 
-/** All input for the create `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type CreateDataTableAdverseDrugReactionApplicationJoinInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTableAdverseDrugReactionApplicationJoin` to be created by this mutation. */
-  dataTableAdverseDrugReactionApplicationJoin: DataTableAdverseDrugReactionApplicationJoinInput;
-};
-
-/** The output of our create `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type CreateDataTableAdverseDrugReactionApplicationJoinPayload = {
-  __typename?: 'CreateDataTableAdverseDrugReactionApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  application?: Maybe<Application>;
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableAdverseDrugReaction` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  /** The `DataTableAdverseDrugReactionApplicationJoin` that was created by this mutation. */
-  dataTableAdverseDrugReactionApplicationJoin?: Maybe<DataTableAdverseDrugReactionApplicationJoin>;
-  /** An edge for our `DataTableAdverseDrugReactionApplicationJoin`. May be used by Relay 1. */
-  dataTableAdverseDrugReactionApplicationJoinEdge?: Maybe<DataTableAdverseDrugReactionApplicationJoinsEdge>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our create `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type CreateDataTableAdverseDrugReactionApplicationJoinPayloadDataTableAdverseDrugReactionApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinsOrderBy>>;
-};
-
-/** All input for the create `DataTableAdverseDrugReaction` mutation. */
-export type CreateDataTableAdverseDrugReactionInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTableAdverseDrugReaction` to be created by this mutation. */
-  dataTableAdverseDrugReaction: DataTableAdverseDrugReactionInput;
-};
-
-/** The output of our create `DataTableAdverseDrugReaction` mutation. */
-export type CreateDataTableAdverseDrugReactionPayload = {
-  __typename?: 'CreateDataTableAdverseDrugReactionPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableAdverseDrugReaction` that was created by this mutation. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  /** An edge for our `DataTableAdverseDrugReaction`. May be used by Relay 1. */
-  dataTableAdverseDrugReactionEdge?: Maybe<DataTableAdverseDrugReactionsEdge>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our create `DataTableAdverseDrugReaction` mutation. */
-export type CreateDataTableAdverseDrugReactionPayloadDataTableAdverseDrugReactionEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionsOrderBy>>;
-};
-
 /** All input for the create `DataTableAtcCode` mutation. */
 export type CreateDataTableAtcCodeInput = {
   /**
@@ -6769,6 +6784,39 @@ export type CreateDataTableAtcCodePayload = {
 /** The output of our create `DataTableAtcCode` mutation. */
 export type CreateDataTableAtcCodePayloadDataTableAtcCodeEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableAtcCodesOrderBy>>;
+};
+
+/** All input for the create `DataTableContainer` mutation. */
+export type CreateDataTableContainerInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTableContainer` to be created by this mutation. */
+  dataTableContainer: DataTableContainerInput;
+};
+
+/** The output of our create `DataTableContainer` mutation. */
+export type CreateDataTableContainerPayload = {
+  __typename?: 'CreateDataTableContainerPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableContainer` that was created by this mutation. */
+  dataTableContainer?: Maybe<DataTableContainer>;
+  /** An edge for our `DataTableContainer`. May be used by Relay 1. */
+  dataTableContainerEdge?: Maybe<DataTableContainersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTableContainer` mutation. */
+export type CreateDataTableContainerPayloadDataTableContainerEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableContainersOrderBy>>;
 };
 
 /** All input for the create `DataTableCountry` mutation. */
@@ -6804,6 +6852,39 @@ export type CreateDataTableCountryPayloadDataTableCountryEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableCountriesOrderBy>>;
 };
 
+/** All input for the create `DataTableDosageFormGroup` mutation. */
+export type CreateDataTableDosageFormGroupInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTableDosageFormGroup` to be created by this mutation. */
+  dataTableDosageFormGroup: DataTableDosageFormGroupInput;
+};
+
+/** The output of our create `DataTableDosageFormGroup` mutation. */
+export type CreateDataTableDosageFormGroupPayload = {
+  __typename?: 'CreateDataTableDosageFormGroupPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableDosageFormGroup` that was created by this mutation. */
+  dataTableDosageFormGroup?: Maybe<DataTableDosageFormGroup>;
+  /** An edge for our `DataTableDosageFormGroup`. May be used by Relay 1. */
+  dataTableDosageFormGroupEdge?: Maybe<DataTableDosageFormGroupsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTableDosageFormGroup` mutation. */
+export type CreateDataTableDosageFormGroupPayloadDataTableDosageFormGroupEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableDosageFormGroupsOrderBy>>;
+};
+
 /** All input for the create `DataTableDosageForm` mutation. */
 export type CreateDataTableDosageFormInput = {
   /**
@@ -6837,37 +6918,37 @@ export type CreateDataTableDosageFormPayloadDataTableDosageFormEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableDosageFormsOrderBy>>;
 };
 
-/** All input for the create `DataTableEthnicity` mutation. */
-export type CreateDataTableEthnicityInput = {
+/** All input for the create `DataTableGenericIngredient` mutation. */
+export type CreateDataTableGenericIngredientInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTableEthnicity` to be created by this mutation. */
-  dataTableEthnicity: DataTableEthnicityInput;
+  /** The `DataTableGenericIngredient` to be created by this mutation. */
+  dataTableGenericIngredient: DataTableGenericIngredientInput;
 };
 
-/** The output of our create `DataTableEthnicity` mutation. */
-export type CreateDataTableEthnicityPayload = {
-  __typename?: 'CreateDataTableEthnicityPayload';
+/** The output of our create `DataTableGenericIngredient` mutation. */
+export type CreateDataTableGenericIngredientPayload = {
+  __typename?: 'CreateDataTableGenericIngredientPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableEthnicity` that was created by this mutation. */
-  dataTableEthnicity?: Maybe<DataTableEthnicity>;
-  /** An edge for our `DataTableEthnicity`. May be used by Relay 1. */
-  dataTableEthnicityEdge?: Maybe<DataTableEthnicitiesEdge>;
+  /** The `DataTableGenericIngredient` that was created by this mutation. */
+  dataTableGenericIngredient?: Maybe<DataTableGenericIngredient>;
+  /** An edge for our `DataTableGenericIngredient`. May be used by Relay 1. */
+  dataTableGenericIngredientEdge?: Maybe<DataTableGenericIngredientsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our create `DataTableEthnicity` mutation. */
-export type CreateDataTableEthnicityPayloadDataTableEthnicityEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableEthnicitiesOrderBy>>;
+/** The output of our create `DataTableGenericIngredient` mutation. */
+export type CreateDataTableGenericIngredientPayloadDataTableGenericIngredientEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableGenericIngredientsOrderBy>>;
 };
 
 /** All input for the create `DataTable` mutation. */
@@ -6881,74 +6962,41 @@ export type CreateDataTableInput = {
   dataTable: DataTableInput;
 };
 
-/** All input for the create `DataTableLicenseApplicationJoin` mutation. */
-export type CreateDataTableLicenseApplicationJoinInput = {
+/** All input for the create `DataTableManufacturerApplicationJoin` mutation. */
+export type CreateDataTableManufacturerApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTableLicenseApplicationJoin` to be created by this mutation. */
-  dataTableLicenseApplicationJoin: DataTableLicenseApplicationJoinInput;
+  /** The `DataTableManufacturerApplicationJoin` to be created by this mutation. */
+  dataTableManufacturerApplicationJoin: DataTableManufacturerApplicationJoinInput;
 };
 
-/** The output of our create `DataTableLicenseApplicationJoin` mutation. */
-export type CreateDataTableLicenseApplicationJoinPayload = {
-  __typename?: 'CreateDataTableLicenseApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTableLicenseApplicationJoin`. */
+/** The output of our create `DataTableManufacturerApplicationJoin` mutation. */
+export type CreateDataTableManufacturerApplicationJoinPayload = {
+  __typename?: 'CreateDataTableManufacturerApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerApplicationJoin`. */
   application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableLicense` that is related to this `DataTableLicenseApplicationJoin`. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  /** The `DataTableLicenseApplicationJoin` that was created by this mutation. */
-  dataTableLicenseApplicationJoin?: Maybe<DataTableLicenseApplicationJoin>;
-  /** An edge for our `DataTableLicenseApplicationJoin`. May be used by Relay 1. */
-  dataTableLicenseApplicationJoinEdge?: Maybe<DataTableLicenseApplicationJoinsEdge>;
+  /** Reads a single `DataTableManufacturer` that is related to this `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturer?: Maybe<DataTableManufacturer>;
+  /** The `DataTableManufacturerApplicationJoin` that was created by this mutation. */
+  dataTableManufacturerApplicationJoin?: Maybe<DataTableManufacturerApplicationJoin>;
+  /** An edge for our `DataTableManufacturerApplicationJoin`. May be used by Relay 1. */
+  dataTableManufacturerApplicationJoinEdge?: Maybe<DataTableManufacturerApplicationJoinsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our create `DataTableLicenseApplicationJoin` mutation. */
-export type CreateDataTableLicenseApplicationJoinPayloadDataTableLicenseApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableLicenseApplicationJoinsOrderBy>>;
-};
-
-/** All input for the create `DataTableLicense` mutation. */
-export type CreateDataTableLicenseInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTableLicense` to be created by this mutation. */
-  dataTableLicense: DataTableLicenseInput;
-};
-
-/** The output of our create `DataTableLicense` mutation. */
-export type CreateDataTableLicensePayload = {
-  __typename?: 'CreateDataTableLicensePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableLicense` that was created by this mutation. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  /** An edge for our `DataTableLicense`. May be used by Relay 1. */
-  dataTableLicenseEdge?: Maybe<DataTableLicensesEdge>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our create `DataTableLicense` mutation. */
-export type CreateDataTableLicensePayloadDataTableLicenseEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableLicensesOrderBy>>;
+/** The output of our create `DataTableManufacturerApplicationJoin` mutation. */
+export type CreateDataTableManufacturerApplicationJoinPayloadDataTableManufacturerApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerApplicationJoinsOrderBy>>;
 };
 
 /** All input for the create `DataTableManufacturer` mutation. */
@@ -6984,6 +7032,79 @@ export type CreateDataTableManufacturerPayloadDataTableManufacturerEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableManufacturersOrderBy>>;
 };
 
+/** All input for the create `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type CreateDataTableManufacturerRepresentativeApplicationJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTableManufacturerRepresentativeApplicationJoin` to be created by this mutation. */
+  dataTableManufacturerRepresentativeApplicationJoin: DataTableManufacturerRepresentativeApplicationJoinInput;
+};
+
+/** The output of our create `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type CreateDataTableManufacturerRepresentativeApplicationJoinPayload = {
+  __typename?: 'CreateDataTableManufacturerRepresentativeApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerRepresentativeApplicationJoin`. */
+  application?: Maybe<Application>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /**
+   * Reads a single `DataTableManufacturerRepresentative` that is related to this
+   * `DataTableManufacturerRepresentativeApplicationJoin`.
+   */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  /** The `DataTableManufacturerRepresentativeApplicationJoin` that was created by this mutation. */
+  dataTableManufacturerRepresentativeApplicationJoin?: Maybe<DataTableManufacturerRepresentativeApplicationJoin>;
+  /** An edge for our `DataTableManufacturerRepresentativeApplicationJoin`. May be used by Relay 1. */
+  dataTableManufacturerRepresentativeApplicationJoinEdge?: Maybe<DataTableManufacturerRepresentativeApplicationJoinsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type CreateDataTableManufacturerRepresentativeApplicationJoinPayloadDataTableManufacturerRepresentativeApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinsOrderBy>>;
+};
+
+/** All input for the create `DataTableManufacturerRepresentative` mutation. */
+export type CreateDataTableManufacturerRepresentativeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTableManufacturerRepresentative` to be created by this mutation. */
+  dataTableManufacturerRepresentative: DataTableManufacturerRepresentativeInput;
+};
+
+/** The output of our create `DataTableManufacturerRepresentative` mutation. */
+export type CreateDataTableManufacturerRepresentativePayload = {
+  __typename?: 'CreateDataTableManufacturerRepresentativePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableManufacturerRepresentative` that was created by this mutation. */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  /** An edge for our `DataTableManufacturerRepresentative`. May be used by Relay 1. */
+  dataTableManufacturerRepresentativeEdge?: Maybe<DataTableManufacturerRepresentativesEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTableManufacturerRepresentative` mutation. */
+export type CreateDataTableManufacturerRepresentativePayloadDataTableManufacturerRepresentativeEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativesOrderBy>>;
+};
+
 /** The output of our create `DataTable` mutation. */
 export type CreateDataTablePayload = {
   __typename?: 'CreateDataTablePayload';
@@ -7006,74 +7127,74 @@ export type CreateDataTablePayloadDataTableEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTablesOrderBy>>;
 };
 
-/** All input for the create `DataTablePermitMedicalApplicationJoin` mutation. */
-export type CreateDataTablePermitMedicalApplicationJoinInput = {
+/** All input for the create `DataTablePermitChemicalApplicationJoin` mutation. */
+export type CreateDataTablePermitChemicalApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTablePermitMedicalApplicationJoin` to be created by this mutation. */
-  dataTablePermitMedicalApplicationJoin: DataTablePermitMedicalApplicationJoinInput;
+  /** The `DataTablePermitChemicalApplicationJoin` to be created by this mutation. */
+  dataTablePermitChemicalApplicationJoin: DataTablePermitChemicalApplicationJoinInput;
 };
 
-/** The output of our create `DataTablePermitMedicalApplicationJoin` mutation. */
-export type CreateDataTablePermitMedicalApplicationJoinPayload = {
-  __typename?: 'CreateDataTablePermitMedicalApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTablePermitMedicalApplicationJoin`. */
+/** The output of our create `DataTablePermitChemicalApplicationJoin` mutation. */
+export type CreateDataTablePermitChemicalApplicationJoinPayload = {
+  __typename?: 'CreateDataTablePermitChemicalApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTablePermitChemicalApplicationJoin`. */
   application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTablePermitMedical` that is related to this `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  /** The `DataTablePermitMedicalApplicationJoin` that was created by this mutation. */
-  dataTablePermitMedicalApplicationJoin?: Maybe<DataTablePermitMedicalApplicationJoin>;
-  /** An edge for our `DataTablePermitMedicalApplicationJoin`. May be used by Relay 1. */
-  dataTablePermitMedicalApplicationJoinEdge?: Maybe<DataTablePermitMedicalApplicationJoinsEdge>;
+  /** Reads a single `DataTablePermitChemical` that is related to this `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  /** The `DataTablePermitChemicalApplicationJoin` that was created by this mutation. */
+  dataTablePermitChemicalApplicationJoin?: Maybe<DataTablePermitChemicalApplicationJoin>;
+  /** An edge for our `DataTablePermitChemicalApplicationJoin`. May be used by Relay 1. */
+  dataTablePermitChemicalApplicationJoinEdge?: Maybe<DataTablePermitChemicalApplicationJoinsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our create `DataTablePermitMedicalApplicationJoin` mutation. */
-export type CreateDataTablePermitMedicalApplicationJoinPayloadDataTablePermitMedicalApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinsOrderBy>>;
+/** The output of our create `DataTablePermitChemicalApplicationJoin` mutation. */
+export type CreateDataTablePermitChemicalApplicationJoinPayloadDataTablePermitChemicalApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinsOrderBy>>;
 };
 
-/** All input for the create `DataTablePermitMedical` mutation. */
-export type CreateDataTablePermitMedicalInput = {
+/** All input for the create `DataTablePermitChemical` mutation. */
+export type CreateDataTablePermitChemicalInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTablePermitMedical` to be created by this mutation. */
-  dataTablePermitMedical: DataTablePermitMedicalInput;
+  /** The `DataTablePermitChemical` to be created by this mutation. */
+  dataTablePermitChemical: DataTablePermitChemicalInput;
 };
 
-/** The output of our create `DataTablePermitMedical` mutation. */
-export type CreateDataTablePermitMedicalPayload = {
-  __typename?: 'CreateDataTablePermitMedicalPayload';
+/** The output of our create `DataTablePermitChemical` mutation. */
+export type CreateDataTablePermitChemicalPayload = {
+  __typename?: 'CreateDataTablePermitChemicalPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTablePermitMedical` that was created by this mutation. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  /** An edge for our `DataTablePermitMedical`. May be used by Relay 1. */
-  dataTablePermitMedicalEdge?: Maybe<DataTablePermitMedicalsEdge>;
+  /** The `DataTablePermitChemical` that was created by this mutation. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  /** An edge for our `DataTablePermitChemical`. May be used by Relay 1. */
+  dataTablePermitChemicalEdge?: Maybe<DataTablePermitChemicalsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our create `DataTablePermitMedical` mutation. */
-export type CreateDataTablePermitMedicalPayloadDataTablePermitMedicalEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalsOrderBy>>;
+/** The output of our create `DataTablePermitChemical` mutation. */
+export type CreateDataTablePermitChemicalPayloadDataTablePermitChemicalEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalsOrderBy>>;
 };
 
 /** All input for the create `DataTablePreRegisteredProductsProvisional` mutation. */
@@ -7109,37 +7230,107 @@ export type CreateDataTablePreRegisteredProductsProvisionalPayloadDataTablePreRe
   orderBy?: InputMaybe<Array<DataTablePreRegisteredProductsProvisionalsOrderBy>>;
 };
 
-/** All input for the create `DataTablePrimaryContainer` mutation. */
-export type CreateDataTablePrimaryContainerInput = {
+/** All input for the create `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type CreateDataTablePrequalManufacturerApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The `DataTablePrimaryContainer` to be created by this mutation. */
-  dataTablePrimaryContainer: DataTablePrimaryContainerInput;
+  /** The `DataTablePrequalManufacturerApplicationJoin` to be created by this mutation. */
+  dataTablePrequalManufacturerApplicationJoin: DataTablePrequalManufacturerApplicationJoinInput;
 };
 
-/** The output of our create `DataTablePrimaryContainer` mutation. */
-export type CreateDataTablePrimaryContainerPayload = {
-  __typename?: 'CreateDataTablePrimaryContainerPayload';
+/** The output of our create `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type CreateDataTablePrequalManufacturerApplicationJoinPayload = {
+  __typename?: 'CreateDataTablePrequalManufacturerApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTablePrimaryContainer` that was created by this mutation. */
-  dataTablePrimaryContainer?: Maybe<DataTablePrimaryContainer>;
-  /** An edge for our `DataTablePrimaryContainer`. May be used by Relay 1. */
-  dataTablePrimaryContainerEdge?: Maybe<DataTablePrimaryContainersEdge>;
+  /** Reads a single `DataTablePrequalManufacturer` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  /** The `DataTablePrequalManufacturerApplicationJoin` that was created by this mutation. */
+  dataTablePrequalManufacturerApplicationJoin?: Maybe<DataTablePrequalManufacturerApplicationJoin>;
+  /** An edge for our `DataTablePrequalManufacturerApplicationJoin`. May be used by Relay 1. */
+  dataTablePrequalManufacturerApplicationJoinEdge?: Maybe<DataTablePrequalManufacturerApplicationJoinsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our create `DataTablePrimaryContainer` mutation. */
-export type CreateDataTablePrimaryContainerPayloadDataTablePrimaryContainerEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePrimaryContainersOrderBy>>;
+/** The output of our create `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type CreateDataTablePrequalManufacturerApplicationJoinPayloadDataTablePrequalManufacturerApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinsOrderBy>>;
+};
+
+/** All input for the create `DataTablePrequalManufacturer` mutation. */
+export type CreateDataTablePrequalManufacturerInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTablePrequalManufacturer` to be created by this mutation. */
+  dataTablePrequalManufacturer: DataTablePrequalManufacturerInput;
+};
+
+/** The output of our create `DataTablePrequalManufacturer` mutation. */
+export type CreateDataTablePrequalManufacturerPayload = {
+  __typename?: 'CreateDataTablePrequalManufacturerPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTablePrequalManufacturer` that was created by this mutation. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  /** An edge for our `DataTablePrequalManufacturer`. May be used by Relay 1. */
+  dataTablePrequalManufacturerEdge?: Maybe<DataTablePrequalManufacturersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTablePrequalManufacturer` mutation. */
+export type CreateDataTablePrequalManufacturerPayloadDataTablePrequalManufacturerEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturersOrderBy>>;
+};
+
+/** All input for the create `DataTableProcessingStep` mutation. */
+export type CreateDataTableProcessingStepInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTableProcessingStep` to be created by this mutation. */
+  dataTableProcessingStep: DataTableProcessingStepInput;
+};
+
+/** The output of our create `DataTableProcessingStep` mutation. */
+export type CreateDataTableProcessingStepPayload = {
+  __typename?: 'CreateDataTableProcessingStepPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableProcessingStep` that was created by this mutation. */
+  dataTableProcessingStep?: Maybe<DataTableProcessingStep>;
+  /** An edge for our `DataTableProcessingStep`. May be used by Relay 1. */
+  dataTableProcessingStepEdge?: Maybe<DataTableProcessingStepsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTableProcessingStep` mutation. */
+export type CreateDataTableProcessingStepPayloadDataTableProcessingStepEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableProcessingStepsOrderBy>>;
 };
 
 /** All input for the create `DataTableProductApplicationJoin` mutation. */
@@ -7163,8 +7354,6 @@ export type CreateDataTableProductApplicationJoinPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableProduct` that is related to this `DataTableProductApplicationJoin`. */
-  dataTableProduct?: Maybe<DataTableProduct>;
   /** The `DataTableProductApplicationJoin` that was created by this mutation. */
   dataTableProductApplicationJoin?: Maybe<DataTableProductApplicationJoin>;
   /** An edge for our `DataTableProductApplicationJoin`. May be used by Relay 1. */
@@ -7313,6 +7502,39 @@ export type CreateDataTableScheduledChemicalPayload = {
 /** The output of our create `DataTableScheduledChemical` mutation. */
 export type CreateDataTableScheduledChemicalPayloadDataTableScheduledChemicalEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableScheduledChemicalsOrderBy>>;
+};
+
+/** All input for the create `DataTableStorageCondition` mutation. */
+export type CreateDataTableStorageConditionInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `DataTableStorageCondition` to be created by this mutation. */
+  dataTableStorageCondition: DataTableStorageConditionInput;
+};
+
+/** The output of our create `DataTableStorageCondition` mutation. */
+export type CreateDataTableStorageConditionPayload = {
+  __typename?: 'CreateDataTableStorageConditionPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableStorageCondition` that was created by this mutation. */
+  dataTableStorageCondition?: Maybe<DataTableStorageCondition>;
+  /** An edge for our `DataTableStorageCondition`. May be used by Relay 1. */
+  dataTableStorageConditionEdge?: Maybe<DataTableStorageConditionsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `DataTableStorageCondition` mutation. */
+export type CreateDataTableStorageConditionPayloadDataTableStorageConditionEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableStorageConditionsOrderBy>>;
 };
 
 /** All input for the create `DataTableStorageConditionsSimplified` mutation. */
@@ -7544,8 +7766,6 @@ export type CreateFilePayload = {
   fileEdge?: Maybe<FilesEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
 };
 
 
@@ -7585,6 +7805,39 @@ export type CreateFilterPayload = {
 /** The output of our create `Filter` mutation. */
 export type CreateFilterPayloadFilterEdgeArgs = {
   orderBy?: InputMaybe<Array<FiltersOrderBy>>;
+};
+
+/** All input for the create `GrafanaDashboardImage` mutation. */
+export type CreateGrafanaDashboardImageInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `GrafanaDashboardImage` to be created by this mutation. */
+  grafanaDashboardImage: GrafanaDashboardImageInput;
+};
+
+/** The output of our create `GrafanaDashboardImage` mutation. */
+export type CreateGrafanaDashboardImagePayload = {
+  __typename?: 'CreateGrafanaDashboardImagePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `GrafanaDashboardImage` that was created by this mutation. */
+  grafanaDashboardImage?: Maybe<GrafanaDashboardImage>;
+  /** An edge for our `GrafanaDashboardImage`. May be used by Relay 1. */
+  grafanaDashboardImageEdge?: Maybe<GrafanaDashboardImagesEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our create `GrafanaDashboardImage` mutation. */
+export type CreateGrafanaDashboardImagePayloadGrafanaDashboardImageEdgeArgs = {
+  orderBy?: InputMaybe<Array<GrafanaDashboardImagesOrderBy>>;
 };
 
 /** All input for the create `Notification` mutation. */
@@ -8173,6 +8426,43 @@ export type CreateTemplateCategoryPayloadTemplateCategoryEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateCategoriesOrderBy>>;
 };
 
+/** All input for the create `TemplateDataViewJoin` mutation. */
+export type CreateTemplateDataViewJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `TemplateDataViewJoin` to be created by this mutation. */
+  templateDataViewJoin: TemplateDataViewJoinInput;
+};
+
+/** The output of our create `TemplateDataViewJoin` mutation. */
+export type CreateTemplateDataViewJoinPayload = {
+  __typename?: 'CreateTemplateDataViewJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateDataViewJoin` that was created by this mutation. */
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** An edge for our `TemplateDataViewJoin`. May be used by Relay 1. */
+  templateDataViewJoinEdge?: Maybe<TemplateDataViewJoinsEdge>;
+};
+
+
+/** The output of our create `TemplateDataViewJoin` mutation. */
+export type CreateTemplateDataViewJoinPayloadTemplateDataViewJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
 /** All input for the create `TemplateElement` mutation. */
 export type CreateTemplateElementInput = {
   /**
@@ -8206,6 +8496,43 @@ export type CreateTemplateElementPayload = {
 /** The output of our create `TemplateElement` mutation. */
 export type CreateTemplateElementPayloadTemplateElementEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+/** All input for the create `TemplateFileJoin` mutation. */
+export type CreateTemplateFileJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `TemplateFileJoin` to be created by this mutation. */
+  templateFileJoin: TemplateFileJoinInput;
+};
+
+/** The output of our create `TemplateFileJoin` mutation. */
+export type CreateTemplateFileJoinPayload = {
+  __typename?: 'CreateTemplateFileJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateFileJoin` that was created by this mutation. */
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** An edge for our `TemplateFileJoin`. May be used by Relay 1. */
+  templateFileJoinEdge?: Maybe<TemplateFileJoinsEdge>;
+};
+
+
+/** The output of our create `TemplateFileJoin` mutation. */
+export type CreateTemplateFileJoinPayloadTemplateFileJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** All input for the create `TemplateFilterJoin` mutation. */
@@ -8699,9 +9026,10 @@ export type DataChangelogApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -9019,20 +9347,27 @@ export type DataChangelogOrgIdFkeyOrganisationCreateInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -9109,11 +9444,13 @@ export enum DataChangelogsOrderBy {
 
 export type DataTable = Node & {
   __typename?: 'DataTable';
+  checksum?: Maybe<Scalars['String']['output']>;
   dataViewCode?: Maybe<Scalars['String']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   fieldMap?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['Int']['output'];
   isLookupTable?: Maybe<Scalars['Boolean']['output']>;
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   tableName: Scalars['String']['output'];
@@ -9302,495 +9639,6 @@ export enum DataTableAdministrationRoutesOrderBy {
   ShortDescriptionDesc = 'SHORT_DESCRIPTION_DESC'
 }
 
-/** The `dataTableAdverseDrugReactionApplicationJoin` to be created by this mutation. */
-export type DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyDataTableAdverseDrugReactionApplicationJoinCreateInput = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput>;
-  dataTableAdverseDrugReactionToDataTableAdverseDrugReactionId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** The `dataTableAdverseDrugReaction` to be created by this mutation. */
-export type DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyDataTableAdverseDrugReactionCreateInput = {
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInverseInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  medicineDetails?: InputMaybe<Scalars['JSON']['input']>;
-  productName?: InputMaybe<Scalars['String']['input']>;
-  reportDate?: InputMaybe<Scalars['Datetime']['input']>;
-  reportId?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** Input for the nested mutation of `dataTableAdverseDrugReaction` in the `DataTableAdverseDrugReactionApplicationJoinInput` mutation. */
-export type DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput = {
-  /** The primary key(s) for `dataTableAdverseDrugReaction` for the far side of the relationship. */
-  connectById?: InputMaybe<DataTableAdverseDrugReactionDataTableAdverseDrugReactionPkeyConnect>;
-  /** The primary key(s) for `dataTableAdverseDrugReaction` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<DataTableAdverseDrugReactionNodeIdConnect>;
-  /** A `DataTableAdverseDrugReactionInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyDataTableAdverseDrugReactionCreateInput>;
-  /** The primary key(s) for `dataTableAdverseDrugReaction` for the far side of the relationship. */
-  deleteById?: InputMaybe<DataTableAdverseDrugReactionDataTableAdverseDrugReactionPkeyDelete>;
-  /** The primary key(s) for `dataTableAdverseDrugReaction` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<DataTableAdverseDrugReactionNodeIdDelete>;
-  /** The primary key(s) and patch data for `dataTableAdverseDrugReaction` for the far side of the relationship. */
-  updateById?: InputMaybe<DataTableAdverseDrugReactionOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyUsingDataTableAdverseDrugReactionPkeyUpdate>;
-  /** The primary key(s) and patch data for `dataTableAdverseDrugReaction` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyNodeIdUpdate>;
-};
-
-/** Input for the nested mutation of `dataTableAdverseDrugReactionApplicationJoin` in the `DataTableAdverseDrugReactionInput` mutation. */
-export type DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInverseInput = {
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinDataTableAdverseDrugReactionApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinNodeIdConnect>>;
-  /** A `DataTableAdverseDrugReactionApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyDataTableAdverseDrugReactionApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinDataTableAdverseDrugReactionApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTableAdverseDrugReactionApplicationJoin` records that match this relationship should be removed. */
-  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyUsingDataTableAdverseDrugReactionApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<DataTableAdverseDrugReactionOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyNodeIdUpdate>>;
-};
-
-export type DataTableAdverseDrugReaction = Node & {
-  __typename?: 'DataTableAdverseDrugReaction';
-  applicantId?: Maybe<Scalars['Int']['output']>;
-  /** Reads and enables pagination through a set of `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReactionApplicationJoins: DataTableAdverseDrugReactionApplicationJoinsConnection;
-  id: Scalars['Int']['output'];
-  medicineDetails?: Maybe<Scalars['JSON']['output']>;
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars['ID']['output'];
-  productName?: Maybe<Scalars['String']['output']>;
-  reportDate?: Maybe<Scalars['Datetime']['output']>;
-  reportId?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type DataTableAdverseDrugReactionDataTableAdverseDrugReactionApplicationJoinsArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinsOrderBy>>;
-};
-
-/** The `application` to be created by this mutation. */
-export type DataTableAdverseDrugReactionApplicatioApplicationIdFkeyApplicationCreateInput = {
-  actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
-  activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
-  applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
-  applicationResponsesUsingId?: InputMaybe<ApplicationResponseApplicationIdFkeyInverseInput>;
-  applicationReviewerActionsUsingId?: InputMaybe<ApplicationReviewerActionApplicationIdFkeyInverseInput>;
-  applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
-  assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
-  filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  isConfig?: InputMaybe<Scalars['Boolean']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  notificationsUsingId?: InputMaybe<NotificationApplicationIdFkeyInverseInput>;
-  orgId?: InputMaybe<Scalars['Int']['input']>;
-  organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinApplicationIdFkeyInverseInput>;
-  organisationToOrgId?: InputMaybe<ApplicationOrgIdFkeyInput>;
-  outcome?: InputMaybe<ApplicationOutcome>;
-  outcomeRegistration?: InputMaybe<Scalars['String']['input']>;
-  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentApplicationIdFkeyInverseInput>;
-  reviewerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  reviewsUsingId?: InputMaybe<ReviewApplicationIdFkeyInverseInput>;
-  serial?: InputMaybe<Scalars['String']['input']>;
-  sessionId?: InputMaybe<Scalars['String']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<ApplicationTemplateIdFkeyInput>;
-  trigger?: InputMaybe<Trigger>;
-  triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
-  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
-  userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
-  userId?: InputMaybe<Scalars['Int']['input']>;
-  userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
-  verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
-};
-
-/** The `dataTableAdverseDrugReactionApplicationJoin` to be created by this mutation. */
-export type DataTableAdverseDrugReactionApplicatioApplicationIdFkeyDataTableAdverseDrugReactionApplicationJoinCreateInput = {
-  applicationToApplicationId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput>;
-  dataTableAdverseDrugReactionId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionToDataTableAdverseDrugReactionId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** Input for the nested mutation of `application` in the `DataTableAdverseDrugReactionApplicationJoinInput` mutation. */
-export type DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput = {
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  connectById?: InputMaybe<ApplicationApplicationPkeyConnect>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<ApplicationNodeIdConnect>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  connectByOutcomeRegistration?: InputMaybe<ApplicationApplicationOutcomeRegistrationKeyConnect>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  connectBySerial?: InputMaybe<ApplicationApplicationSerialKeyConnect>;
-  /** A `ApplicationInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyApplicationCreateInput>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  deleteById?: InputMaybe<ApplicationApplicationPkeyDelete>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<ApplicationNodeIdDelete>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  deleteByOutcomeRegistration?: InputMaybe<ApplicationApplicationOutcomeRegistrationKeyDelete>;
-  /** The primary key(s) for `application` for the far side of the relationship. */
-  deleteBySerial?: InputMaybe<ApplicationApplicationSerialKeyDelete>;
-  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateById?: InputMaybe<ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingApplicationPkeyUpdate>;
-  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyNodeIdUpdate>;
-  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
-  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateBySerial?: InputMaybe<ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
-};
-
-/** Input for the nested mutation of `dataTableAdverseDrugReactionApplicationJoin` in the `ApplicationInput` mutation. */
-export type DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput = {
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinDataTableAdverseDrugReactionApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinNodeIdConnect>>;
-  /** A `DataTableAdverseDrugReactionApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyDataTableAdverseDrugReactionApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinDataTableAdverseDrugReactionApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTableAdverseDrugReactionApplicationJoin` records that match this relationship should be removed. */
-  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingDataTableAdverseDrugReactionApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTableAdverseDrugReactionApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyNodeIdUpdate>>;
-};
-
-export type DataTableAdverseDrugReactionApplicationJoin = Node & {
-  __typename?: 'DataTableAdverseDrugReactionApplicationJoin';
-  /** Reads a single `Application` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  application?: Maybe<Application>;
-  applicationId: Scalars['Int']['output'];
-  /** Reads a single `DataTableAdverseDrugReaction` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  dataTableAdverseDrugReactionId: Scalars['Int']['output'];
-  id: Scalars['Int']['output'];
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars['ID']['output'];
-};
-
-/**
- * A condition to be used against `DataTableAdverseDrugReactionApplicationJoin`
- * object types. All fields are tested for equality and combined with a logical ‘and.’
- */
-export type DataTableAdverseDrugReactionApplicationJoinCondition = {
-  /** Checks for equality with the object’s `applicationId` field. */
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `dataTableAdverseDrugReactionId` field. */
-  dataTableAdverseDrugReactionId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `id` field. */
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** The fields on `dataTableAdverseDrugReactionApplicationJoin` to look up the row to connect. */
-export type DataTableAdverseDrugReactionApplicationJoinDataTableAdverseDrugReactionApplicationJoinPkeyConnect = {
-  id: Scalars['Int']['input'];
-};
-
-/** The fields on `dataTableAdverseDrugReactionApplicationJoin` to look up the row to delete. */
-export type DataTableAdverseDrugReactionApplicationJoinDataTableAdverseDrugReactionApplicationJoinPkeyDelete = {
-  id: Scalars['Int']['input'];
-};
-
-/** A filter to be used against `DataTableAdverseDrugReactionApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableAdverseDrugReactionApplicationJoinFilter = {
-  /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinFilter>>;
-  /** Filter by the object’s `application` relation. */
-  application?: InputMaybe<ApplicationFilter>;
-  /** Filter by the object’s `applicationId` field. */
-  applicationId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `dataTableAdverseDrugReaction` relation. */
-  dataTableAdverseDrugReaction?: InputMaybe<DataTableAdverseDrugReactionFilter>;
-  /** Filter by the object’s `dataTableAdverseDrugReactionId` field. */
-  dataTableAdverseDrugReactionId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `id` field. */
-  id?: InputMaybe<IntFilter>;
-  /** Negates the expression. */
-  not?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinFilter>>;
-};
-
-/** An input for mutations affecting `DataTableAdverseDrugReactionApplicationJoin` */
-export type DataTableAdverseDrugReactionApplicationJoinInput = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput>;
-  dataTableAdverseDrugReactionId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionToDataTableAdverseDrugReactionId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** The globally unique `ID` look up for the row to connect. */
-export type DataTableAdverseDrugReactionApplicationJoinNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReactionApplicationJoin` to be connected. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to delete. */
-export type DataTableAdverseDrugReactionApplicationJoinNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReactionApplicationJoin` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReaction` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableAdverseDrugReaction` being updated. */
-  patch: DataTableAdverseDrugReactionPatch;
-};
-
-/** The fields on `dataTableAdverseDrugReactionApplicationJoin` to look up the row to update. */
-export type DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyUsingDataTableAdverseDrugReactionApplicationJoinPkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableAdverseDrugReactionApplicationJoin` being updated. */
-  patch: UpdateDataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyPatch;
-};
-
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `application` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `application` being updated. */
-  patch: ApplicationPatch;
-};
-
-/** The fields on `dataTableAdverseDrugReactionApplicationJoin` to look up the row to update. */
-export type DataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyUsingDataTableAdverseDrugReactionApplicationJoinPkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableAdverseDrugReactionApplicationJoin` being updated. */
-  patch: UpdateDataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyPatch;
-};
-
-/** Represents an update to a `DataTableAdverseDrugReactionApplicationJoin`. Fields that are set will be updated. */
-export type DataTableAdverseDrugReactionApplicationJoinPatch = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput>;
-  dataTableAdverseDrugReactionId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionToDataTableAdverseDrugReactionId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** A connection to a list of `DataTableAdverseDrugReactionApplicationJoin` values. */
-export type DataTableAdverseDrugReactionApplicationJoinsConnection = {
-  __typename?: 'DataTableAdverseDrugReactionApplicationJoinsConnection';
-  /** A list of edges which contains the `DataTableAdverseDrugReactionApplicationJoin` and cursor to aid in pagination. */
-  edges: Array<DataTableAdverseDrugReactionApplicationJoinsEdge>;
-  /** A list of `DataTableAdverseDrugReactionApplicationJoin` objects. */
-  nodes: Array<Maybe<DataTableAdverseDrugReactionApplicationJoin>>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `DataTableAdverseDrugReactionApplicationJoin` you could get from the connection. */
-  totalCount: Scalars['Int']['output'];
-};
-
-/** A `DataTableAdverseDrugReactionApplicationJoin` edge in the connection. */
-export type DataTableAdverseDrugReactionApplicationJoinsEdge = {
-  __typename?: 'DataTableAdverseDrugReactionApplicationJoinsEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTableAdverseDrugReactionApplicationJoin` at the end of the edge. */
-  node?: Maybe<DataTableAdverseDrugReactionApplicationJoin>;
-};
-
-/** Methods to use when ordering `DataTableAdverseDrugReactionApplicationJoin`. */
-export enum DataTableAdverseDrugReactionApplicationJoinsOrderBy {
-  ApplicationIdAsc = 'APPLICATION_ID_ASC',
-  ApplicationIdDesc = 'APPLICATION_ID_DESC',
-  DataTableAdverseDrugReactionIdAsc = 'DATA_TABLE_ADVERSE_DRUG_REACTION_ID_ASC',
-  DataTableAdverseDrugReactionIdDesc = 'DATA_TABLE_ADVERSE_DRUG_REACTION_ID_DESC',
-  IdAsc = 'ID_ASC',
-  IdDesc = 'ID_DESC',
-  Natural = 'NATURAL',
-  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
-  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
-}
-
-/**
- * A condition to be used against `DataTableAdverseDrugReaction` object types. All
- * fields are tested for equality and combined with a logical ‘and.’
- */
-export type DataTableAdverseDrugReactionCondition = {
-  /** Checks for equality with the object’s `applicantId` field. */
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `id` field. */
-  id?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `medicineDetails` field. */
-  medicineDetails?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `productName` field. */
-  productName?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `reportDate` field. */
-  reportDate?: InputMaybe<Scalars['Datetime']['input']>;
-  /** Checks for equality with the object’s `reportId` field. */
-  reportId?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The fields on `dataTableAdverseDrugReaction` to look up the row to connect. */
-export type DataTableAdverseDrugReactionDataTableAdverseDrugReactionPkeyConnect = {
-  id: Scalars['Int']['input'];
-};
-
-/** The fields on `dataTableAdverseDrugReaction` to look up the row to delete. */
-export type DataTableAdverseDrugReactionDataTableAdverseDrugReactionPkeyDelete = {
-  id: Scalars['Int']['input'];
-};
-
-/** A filter to be used against `DataTableAdverseDrugReaction` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableAdverseDrugReactionFilter = {
-  /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTableAdverseDrugReactionFilter>>;
-  /** Filter by the object’s `applicantId` field. */
-  applicantId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `dataTableAdverseDrugReactionApplicationJoins` relation. */
-  dataTableAdverseDrugReactionApplicationJoins?: InputMaybe<DataTableAdverseDrugReactionToManyDataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** Some related `dataTableAdverseDrugReactionApplicationJoins` exist. */
-  dataTableAdverseDrugReactionApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `id` field. */
-  id?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `medicineDetails` field. */
-  medicineDetails?: InputMaybe<JsonFilter>;
-  /** Negates the expression. */
-  not?: InputMaybe<DataTableAdverseDrugReactionFilter>;
-  /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTableAdverseDrugReactionFilter>>;
-  /** Filter by the object’s `productName` field. */
-  productName?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `reportDate` field. */
-  reportDate?: InputMaybe<DatetimeFilter>;
-  /** Filter by the object’s `reportId` field. */
-  reportId?: InputMaybe<StringFilter>;
-};
-
-/** An input for mutations affecting `DataTableAdverseDrugReaction` */
-export type DataTableAdverseDrugReactionInput = {
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInverseInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  medicineDetails?: InputMaybe<Scalars['JSON']['input']>;
-  productName?: InputMaybe<Scalars['String']['input']>;
-  reportDate?: InputMaybe<Scalars['Datetime']['input']>;
-  reportId?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The globally unique `ID` look up for the row to connect. */
-export type DataTableAdverseDrugReactionNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReaction` to be connected. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to delete. */
-export type DataTableAdverseDrugReactionNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReaction` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableAdverseDrugReactionOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableAdverseDrugReactionApplicationJoin` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableAdverseDrugReactionApplicationJoin` being updated. */
-  patch: DataTableAdverseDrugReactionApplicationJoinPatch;
-};
-
-/** The fields on `dataTableAdverseDrugReaction` to look up the row to update. */
-export type DataTableAdverseDrugReactionOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyUsingDataTableAdverseDrugReactionPkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableAdverseDrugReaction` being updated. */
-  patch: UpdateDataTableAdverseDrugReactionOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyPatch;
-};
-
-/** Represents an update to a `DataTableAdverseDrugReaction`. Fields that are set will be updated. */
-export type DataTableAdverseDrugReactionPatch = {
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInverseInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  medicineDetails?: InputMaybe<Scalars['JSON']['input']>;
-  productName?: InputMaybe<Scalars['String']['input']>;
-  reportDate?: InputMaybe<Scalars['Datetime']['input']>;
-  reportId?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** A filter to be used against many `DataTableAdverseDrugReactionApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableAdverseDrugReactionToManyDataTableAdverseDrugReactionApplicationJoinFilter = {
-  /** Every related `DataTableAdverseDrugReactionApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** No related `DataTableAdverseDrugReactionApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  /** Some related `DataTableAdverseDrugReactionApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-};
-
-/** A connection to a list of `DataTableAdverseDrugReaction` values. */
-export type DataTableAdverseDrugReactionsConnection = {
-  __typename?: 'DataTableAdverseDrugReactionsConnection';
-  /** A list of edges which contains the `DataTableAdverseDrugReaction` and cursor to aid in pagination. */
-  edges: Array<DataTableAdverseDrugReactionsEdge>;
-  /** A list of `DataTableAdverseDrugReaction` objects. */
-  nodes: Array<Maybe<DataTableAdverseDrugReaction>>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `DataTableAdverseDrugReaction` you could get from the connection. */
-  totalCount: Scalars['Int']['output'];
-};
-
-/** A `DataTableAdverseDrugReaction` edge in the connection. */
-export type DataTableAdverseDrugReactionsEdge = {
-  __typename?: 'DataTableAdverseDrugReactionsEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTableAdverseDrugReaction` at the end of the edge. */
-  node?: Maybe<DataTableAdverseDrugReaction>;
-};
-
-/** Methods to use when ordering `DataTableAdverseDrugReaction`. */
-export enum DataTableAdverseDrugReactionsOrderBy {
-  ApplicantIdAsc = 'APPLICANT_ID_ASC',
-  ApplicantIdDesc = 'APPLICANT_ID_DESC',
-  IdAsc = 'ID_ASC',
-  IdDesc = 'ID_DESC',
-  MedicineDetailsAsc = 'MEDICINE_DETAILS_ASC',
-  MedicineDetailsDesc = 'MEDICINE_DETAILS_DESC',
-  Natural = 'NATURAL',
-  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
-  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
-  ProductNameAsc = 'PRODUCT_NAME_ASC',
-  ProductNameDesc = 'PRODUCT_NAME_DESC',
-  ReportDateAsc = 'REPORT_DATE_ASC',
-  ReportDateDesc = 'REPORT_DATE_DESC',
-  ReportIdAsc = 'REPORT_ID_ASC',
-  ReportIdDesc = 'REPORT_ID_DESC'
-}
-
 export type DataTableAtcCode = Node & {
   __typename?: 'DataTableAtcCode';
   atcCode?: Maybe<Scalars['String']['output']>;
@@ -9799,7 +9647,7 @@ export type DataTableAtcCode = Node & {
   name?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
-  whoAtcId?: Maybe<Scalars['Int']['output']>;
+  whoAtcId?: Maybe<Scalars['String']['output']>;
 };
 
 /**
@@ -9816,7 +9664,7 @@ export type DataTableAtcCodeCondition = {
   /** Checks for equality with the object’s `name` field. */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `whoAtcId` field. */
-  whoAtcId?: InputMaybe<Scalars['Int']['input']>;
+  whoAtcId?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** A filter to be used against `DataTableAtcCode` object types. All fields are combined with a logical ‘and.’ */
@@ -9836,7 +9684,7 @@ export type DataTableAtcCodeFilter = {
   /** Checks for any expressions in this list. */
   or?: InputMaybe<Array<DataTableAtcCodeFilter>>;
   /** Filter by the object’s `whoAtcId` field. */
-  whoAtcId?: InputMaybe<IntFilter>;
+  whoAtcId?: InputMaybe<StringFilter>;
 };
 
 /** An input for mutations affecting `DataTableAtcCode` */
@@ -9845,7 +9693,7 @@ export type DataTableAtcCodeInput = {
   category?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
-  whoAtcId?: InputMaybe<Scalars['Int']['input']>;
+  whoAtcId?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Represents an update to a `DataTableAtcCode`. Fields that are set will be updated. */
@@ -9854,7 +9702,7 @@ export type DataTableAtcCodePatch = {
   category?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
-  whoAtcId?: InputMaybe<Scalars['Int']['input']>;
+  whoAtcId?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** A connection to a list of `DataTableAtcCode` values. */
@@ -9901,6 +9749,8 @@ export enum DataTableAtcCodesOrderBy {
  * for equality and combined with a logical ‘and.’
  */
 export type DataTableCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `dataViewCode` field. */
   dataViewCode?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `displayName` field. */
@@ -9911,9 +9761,107 @@ export type DataTableCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isLookupTable` field. */
   isLookupTable?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `tableName` field. */
   tableName?: InputMaybe<Scalars['String']['input']>;
 };
+
+export type DataTableContainer = Node & {
+  __typename?: 'DataTableContainer';
+  code?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  longDescription?: Maybe<Scalars['String']['output']>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  shortDescription?: Maybe<Scalars['String']['output']>;
+};
+
+/**
+ * A condition to be used against `DataTableContainer` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableContainerCondition = {
+  /** Checks for equality with the object’s `code` field. */
+  code?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `longDescription` field. */
+  longDescription?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `shortDescription` field. */
+  shortDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A filter to be used against `DataTableContainer` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableContainerFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableContainerFilter>>;
+  /** Filter by the object’s `code` field. */
+  code?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `longDescription` field. */
+  longDescription?: InputMaybe<StringFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableContainerFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableContainerFilter>>;
+  /** Filter by the object’s `shortDescription` field. */
+  shortDescription?: InputMaybe<StringFilter>;
+};
+
+/** An input for mutations affecting `DataTableContainer` */
+export type DataTableContainerInput = {
+  code?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  longDescription?: InputMaybe<Scalars['String']['input']>;
+  shortDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Represents an update to a `DataTableContainer`. Fields that are set will be updated. */
+export type DataTableContainerPatch = {
+  code?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  longDescription?: InputMaybe<Scalars['String']['input']>;
+  shortDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A connection to a list of `DataTableContainer` values. */
+export type DataTableContainersConnection = {
+  __typename?: 'DataTableContainersConnection';
+  /** A list of edges which contains the `DataTableContainer` and cursor to aid in pagination. */
+  edges: Array<DataTableContainersEdge>;
+  /** A list of `DataTableContainer` objects. */
+  nodes: Array<Maybe<DataTableContainer>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableContainer` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableContainer` edge in the connection. */
+export type DataTableContainersEdge = {
+  __typename?: 'DataTableContainersEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableContainer` at the end of the edge. */
+  node?: Maybe<DataTableContainer>;
+};
+
+/** Methods to use when ordering `DataTableContainer`. */
+export enum DataTableContainersOrderBy {
+  CodeAsc = 'CODE_ASC',
+  CodeDesc = 'CODE_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  LongDescriptionAsc = 'LONG_DESCRIPTION_ASC',
+  LongDescriptionDesc = 'LONG_DESCRIPTION_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  ShortDescriptionAsc = 'SHORT_DESCRIPTION_ASC',
+  ShortDescriptionDesc = 'SHORT_DESCRIPTION_DESC'
+}
 
 /** A connection to a list of `DataTableCountry` values. */
 export type DataTableCountriesConnection = {
@@ -9943,8 +9891,6 @@ export enum DataTableCountriesOrderBy {
   FlagDesc = 'FLAG_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
-  IntlPhonePrefixAsc = 'INTL_PHONE_PREFIX_ASC',
-  IntlPhonePrefixDesc = 'INTL_PHONE_PREFIX_DESC',
   NameCommonAsc = 'NAME_COMMON_ASC',
   NameCommonDesc = 'NAME_COMMON_DESC',
   NameOfficialAsc = 'NAME_OFFICIAL_ASC',
@@ -9960,7 +9906,6 @@ export type DataTableCountry = Node & {
   __typename?: 'DataTableCountry';
   flag?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
-  intlPhonePrefix?: Maybe<Scalars['Int']['output']>;
   nameCommon?: Maybe<Scalars['String']['output']>;
   nameOfficial?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -9977,8 +9922,6 @@ export type DataTableCountryCondition = {
   flag?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `intlPhonePrefix` field. */
-  intlPhonePrefix?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `nameCommon` field. */
   nameCommon?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `nameOfficial` field. */
@@ -9995,8 +9938,6 @@ export type DataTableCountryFilter = {
   flag?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `intlPhonePrefix` field. */
-  intlPhonePrefix?: InputMaybe<IntFilter>;
   /** Filter by the object’s `nameCommon` field. */
   nameCommon?: InputMaybe<StringFilter>;
   /** Filter by the object’s `nameOfficial` field. */
@@ -10013,7 +9954,6 @@ export type DataTableCountryFilter = {
 export type DataTableCountryInput = {
   flag?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  intlPhonePrefix?: InputMaybe<Scalars['Int']['input']>;
   nameCommon?: InputMaybe<Scalars['String']['input']>;
   nameOfficial?: InputMaybe<Scalars['String']['input']>;
   whoSraPics?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10023,7 +9963,6 @@ export type DataTableCountryInput = {
 export type DataTableCountryPatch = {
   flag?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  intlPhonePrefix?: InputMaybe<Scalars['Int']['input']>;
   nameCommon?: InputMaybe<Scalars['String']['input']>;
   nameOfficial?: InputMaybe<Scalars['String']['input']>;
   whoSraPics?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10071,6 +10010,84 @@ export type DataTableDosageFormFilter = {
   /** Filter by the object’s `shortDescription` field. */
   shortDescription?: InputMaybe<StringFilter>;
 };
+
+export type DataTableDosageFormGroup = Node & {
+  __typename?: 'DataTableDosageFormGroup';
+  dosageFormGroups?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+};
+
+/**
+ * A condition to be used against `DataTableDosageFormGroup` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableDosageFormGroupCondition = {
+  /** Checks for equality with the object’s `dosageFormGroups` field. */
+  dosageFormGroups?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** A filter to be used against `DataTableDosageFormGroup` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableDosageFormGroupFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableDosageFormGroupFilter>>;
+  /** Filter by the object’s `dosageFormGroups` field. */
+  dosageFormGroups?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableDosageFormGroupFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableDosageFormGroupFilter>>;
+};
+
+/** An input for mutations affecting `DataTableDosageFormGroup` */
+export type DataTableDosageFormGroupInput = {
+  dosageFormGroups?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** Represents an update to a `DataTableDosageFormGroup`. Fields that are set will be updated. */
+export type DataTableDosageFormGroupPatch = {
+  dosageFormGroups?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** A connection to a list of `DataTableDosageFormGroup` values. */
+export type DataTableDosageFormGroupsConnection = {
+  __typename?: 'DataTableDosageFormGroupsConnection';
+  /** A list of edges which contains the `DataTableDosageFormGroup` and cursor to aid in pagination. */
+  edges: Array<DataTableDosageFormGroupsEdge>;
+  /** A list of `DataTableDosageFormGroup` objects. */
+  nodes: Array<Maybe<DataTableDosageFormGroup>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableDosageFormGroup` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableDosageFormGroup` edge in the connection. */
+export type DataTableDosageFormGroupsEdge = {
+  __typename?: 'DataTableDosageFormGroupsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableDosageFormGroup` at the end of the edge. */
+  node?: Maybe<DataTableDosageFormGroup>;
+};
+
+/** Methods to use when ordering `DataTableDosageFormGroup`. */
+export enum DataTableDosageFormGroupsOrderBy {
+  DosageFormGroupsAsc = 'DOSAGE_FORM_GROUPS_ASC',
+  DosageFormGroupsDesc = 'DOSAGE_FORM_GROUPS_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
 
 /** An input for mutations affecting `DataTableDosageForm` */
 export type DataTableDosageFormInput = {
@@ -10125,97 +10142,12 @@ export enum DataTableDosageFormsOrderBy {
   ShortDescriptionDesc = 'SHORT_DESCRIPTION_DESC'
 }
 
-/** A connection to a list of `DataTableEthnicity` values. */
-export type DataTableEthnicitiesConnection = {
-  __typename?: 'DataTableEthnicitiesConnection';
-  /** A list of edges which contains the `DataTableEthnicity` and cursor to aid in pagination. */
-  edges: Array<DataTableEthnicitiesEdge>;
-  /** A list of `DataTableEthnicity` objects. */
-  nodes: Array<Maybe<DataTableEthnicity>>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `DataTableEthnicity` you could get from the connection. */
-  totalCount: Scalars['Int']['output'];
-};
-
-/** A `DataTableEthnicity` edge in the connection. */
-export type DataTableEthnicitiesEdge = {
-  __typename?: 'DataTableEthnicitiesEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTableEthnicity` at the end of the edge. */
-  node?: Maybe<DataTableEthnicity>;
-};
-
-/** Methods to use when ordering `DataTableEthnicity`. */
-export enum DataTableEthnicitiesOrderBy {
-  CodeAsc = 'CODE_ASC',
-  CodeDesc = 'CODE_DESC',
-  EthnicityAsc = 'ETHNICITY_ASC',
-  EthnicityDesc = 'ETHNICITY_DESC',
-  IdAsc = 'ID_ASC',
-  IdDesc = 'ID_DESC',
-  Natural = 'NATURAL',
-  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
-  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
-}
-
-export type DataTableEthnicity = Node & {
-  __typename?: 'DataTableEthnicity';
-  code?: Maybe<Scalars['Int']['output']>;
-  ethnicity?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars['ID']['output'];
-};
-
-/**
- * A condition to be used against `DataTableEthnicity` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export type DataTableEthnicityCondition = {
-  /** Checks for equality with the object’s `code` field. */
-  code?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `ethnicity` field. */
-  ethnicity?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `id` field. */
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** A filter to be used against `DataTableEthnicity` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableEthnicityFilter = {
-  /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTableEthnicityFilter>>;
-  /** Filter by the object’s `code` field. */
-  code?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `ethnicity` field. */
-  ethnicity?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `id` field. */
-  id?: InputMaybe<IntFilter>;
-  /** Negates the expression. */
-  not?: InputMaybe<DataTableEthnicityFilter>;
-  /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTableEthnicityFilter>>;
-};
-
-/** An input for mutations affecting `DataTableEthnicity` */
-export type DataTableEthnicityInput = {
-  code?: InputMaybe<Scalars['Int']['input']>;
-  ethnicity?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** Represents an update to a `DataTableEthnicity`. Fields that are set will be updated. */
-export type DataTableEthnicityPatch = {
-  code?: InputMaybe<Scalars['Int']['input']>;
-  ethnicity?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
 /** A filter to be used against `DataTable` object types. All fields are combined with a logical ‘and.’ */
 export type DataTableFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataTableFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `dataViewCode` field. */
   dataViewCode?: InputMaybe<StringFilter>;
   /** Filter by the object’s `displayName` field. */
@@ -10226,6 +10158,8 @@ export type DataTableFilter = {
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isLookupTable` field. */
   isLookupTable?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<DataTableFilter>;
   /** Checks for any expressions in this list. */
@@ -10234,62 +10168,237 @@ export type DataTableFilter = {
   tableName?: InputMaybe<StringFilter>;
 };
 
+export type DataTableGenericIngredient = Node & {
+  __typename?: 'DataTableGenericIngredient';
+  atcCode?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  productEn?: Maybe<Scalars['String']['output']>;
+  productFr?: Maybe<Scalars['String']['output']>;
+  whoAtcId?: Maybe<Scalars['String']['output']>;
+};
+
+/**
+ * A condition to be used against `DataTableGenericIngredient` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableGenericIngredientCondition = {
+  /** Checks for equality with the object’s `atcCode` field. */
+  atcCode?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `category` field. */
+  category?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `productEn` field. */
+  productEn?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `productFr` field. */
+  productFr?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `whoAtcId` field. */
+  whoAtcId?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A filter to be used against `DataTableGenericIngredient` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableGenericIngredientFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableGenericIngredientFilter>>;
+  /** Filter by the object’s `atcCode` field. */
+  atcCode?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `category` field. */
+  category?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: InputMaybe<StringFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableGenericIngredientFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableGenericIngredientFilter>>;
+  /** Filter by the object’s `productEn` field. */
+  productEn?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `productFr` field. */
+  productFr?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `whoAtcId` field. */
+  whoAtcId?: InputMaybe<StringFilter>;
+};
+
+/** An input for mutations affecting `DataTableGenericIngredient` */
+export type DataTableGenericIngredientInput = {
+  atcCode?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  productEn?: InputMaybe<Scalars['String']['input']>;
+  productFr?: InputMaybe<Scalars['String']['input']>;
+  whoAtcId?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Represents an update to a `DataTableGenericIngredient`. Fields that are set will be updated. */
+export type DataTableGenericIngredientPatch = {
+  atcCode?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  productEn?: InputMaybe<Scalars['String']['input']>;
+  productFr?: InputMaybe<Scalars['String']['input']>;
+  whoAtcId?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A connection to a list of `DataTableGenericIngredient` values. */
+export type DataTableGenericIngredientsConnection = {
+  __typename?: 'DataTableGenericIngredientsConnection';
+  /** A list of edges which contains the `DataTableGenericIngredient` and cursor to aid in pagination. */
+  edges: Array<DataTableGenericIngredientsEdge>;
+  /** A list of `DataTableGenericIngredient` objects. */
+  nodes: Array<Maybe<DataTableGenericIngredient>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableGenericIngredient` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableGenericIngredient` edge in the connection. */
+export type DataTableGenericIngredientsEdge = {
+  __typename?: 'DataTableGenericIngredientsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableGenericIngredient` at the end of the edge. */
+  node?: Maybe<DataTableGenericIngredient>;
+};
+
+/** Methods to use when ordering `DataTableGenericIngredient`. */
+export enum DataTableGenericIngredientsOrderBy {
+  AtcCodeAsc = 'ATC_CODE_ASC',
+  AtcCodeDesc = 'ATC_CODE_DESC',
+  CategoryAsc = 'CATEGORY_ASC',
+  CategoryDesc = 'CATEGORY_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  ProductEnAsc = 'PRODUCT_EN_ASC',
+  ProductEnDesc = 'PRODUCT_EN_DESC',
+  ProductFrAsc = 'PRODUCT_FR_ASC',
+  ProductFrDesc = 'PRODUCT_FR_DESC',
+  WhoAtcIdAsc = 'WHO_ATC_ID_ASC',
+  WhoAtcIdDesc = 'WHO_ATC_ID_DESC'
+}
+
 /** An input for mutations affecting `DataTable` */
 export type DataTableInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   dataViewCode?: InputMaybe<Scalars['String']['input']>;
   displayName?: InputMaybe<Scalars['String']['input']>;
   fieldMap?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLookupTable?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   tableName: Scalars['String']['input'];
 };
 
-export type DataTableLicense = Node & {
-  __typename?: 'DataTableLicense';
-  /** Reads and enables pagination through a set of `DataTableLicenseApplicationJoin`. */
-  dataTableLicenseApplicationJoins: DataTableLicenseApplicationJoinsConnection;
-  expiryDate?: Maybe<Scalars['Datetime']['output']>;
+export type DataTableManufacturer = Node & {
+  __typename?: 'DataTableManufacturer';
+  address?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  /** Reads and enables pagination through a set of `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturerApplicationJoins: DataTableManufacturerApplicationJoinsConnection;
   id: Scalars['Int']['output'];
-  inspectionReport?: Maybe<Scalars['JSON']['output']>;
-  isActive?: Maybe<Scalars['Boolean']['output']>;
-  licenseNumber?: Maybe<Scalars['String']['output']>;
+  isAdditional?: Maybe<Scalars['Boolean']['output']>;
+  manufacturer?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
-  orgId?: Maybe<Scalars['Int']['output']>;
-  orgName?: Maybe<Scalars['String']['output']>;
-  profileDoc?: Maybe<Scalars['JSON']['output']>;
-  registrationDate?: Maybe<Scalars['Datetime']['output']>;
-  renewalDate?: Maybe<Scalars['Datetime']['output']>;
-  type?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type DataTableLicenseDataTableLicenseApplicationJoinsArgs = {
+export type DataTableManufacturerDataTableManufacturerApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableLicenseApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
+  condition?: InputMaybe<DataTableManufacturerApplicationJoinCondition>;
+  filter?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableLicenseApplicationJoinsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerApplicationJoinsOrderBy>>;
 };
 
-export type DataTableLicenseApplicationJoin = Node & {
-  __typename?: 'DataTableLicenseApplicationJoin';
-  /** Reads a single `Application` that is related to this `DataTableLicenseApplicationJoin`. */
+/** The `dataTableManufacturerApplicationJoin` to be created by this mutation. */
+export type DataTableManufacturerApplicaDataTableManufacturerIdFkeyDataTableManufacturerApplicationJoinCreateInput = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInput>;
+  dataTableManufacturerToDataTableManufacturerId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `dataTableManufacturer` to be created by this mutation. */
+export type DataTableManufacturerApplicaDataTableManufacturerIdFkeyDataTableManufacturerCreateInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInverseInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isAdditional?: InputMaybe<Scalars['Boolean']['input']>;
+  manufacturer?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Input for the nested mutation of `dataTableManufacturer` in the `DataTableManufacturerApplicationJoinInput` mutation. */
+export type DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput = {
+  /** The primary key(s) for `dataTableManufacturer` for the far side of the relationship. */
+  connectById?: InputMaybe<DataTableManufacturerDataTableManufacturerPkeyConnect>;
+  /** The primary key(s) for `dataTableManufacturer` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<DataTableManufacturerNodeIdConnect>;
+  /** A `DataTableManufacturerInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyDataTableManufacturerCreateInput>;
+  /** The primary key(s) for `dataTableManufacturer` for the far side of the relationship. */
+  deleteById?: InputMaybe<DataTableManufacturerDataTableManufacturerPkeyDelete>;
+  /** The primary key(s) for `dataTableManufacturer` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<DataTableManufacturerNodeIdDelete>;
+  /** The primary key(s) and patch data for `dataTableManufacturer` for the far side of the relationship. */
+  updateById?: InputMaybe<DataTableManufacturerOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyUsingDataTableManufacturerPkeyUpdate>;
+  /** The primary key(s) and patch data for `dataTableManufacturer` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `dataTableManufacturerApplicationJoin` in the `DataTableManufacturerInput` mutation. */
+export type DataTableManufacturerApplicaDataTableManufacturerIdFkeyInverseInput = {
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTableManufacturerApplicationJoinDataTableManufacturerApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTableManufacturerApplicationJoinNodeIdConnect>>;
+  /** A `DataTableManufacturerApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTableManufacturerApplicaDataTableManufacturerIdFkeyDataTableManufacturerApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTableManufacturerApplicationJoinDataTableManufacturerApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTableManufacturerApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTableManufacturerApplicationJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyUsingDataTableManufacturerApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<DataTableManufacturerOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyNodeIdUpdate>>;
+};
+
+export type DataTableManufacturerApplicationJoin = Node & {
+  __typename?: 'DataTableManufacturerApplicationJoin';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerApplicationJoin`. */
   application?: Maybe<Application>;
   applicationId: Scalars['Int']['output'];
-  /** Reads a single `DataTableLicense` that is related to this `DataTableLicenseApplicationJoin`. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  dataTableLicenseId: Scalars['Int']['output'];
+  /** Reads a single `DataTableManufacturer` that is related to this `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturer?: Maybe<DataTableManufacturer>;
+  dataTableManufacturerId: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
 };
 
 /** The `application` to be created by this mutation. */
-export type DataTableLicenseApplicationJoinApplicationIdFkeyApplicationCreateInput = {
+export type DataTableManufacturerApplicationJoinApplicationIdFkeyApplicationCreateInput = {
   actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
   activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
   applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
@@ -10298,9 +10407,10 @@ export type DataTableLicenseApplicationJoinApplicationIdFkeyApplicationCreateInp
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -10330,16 +10440,16 @@ export type DataTableLicenseApplicationJoinApplicationIdFkeyApplicationCreateInp
   verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
 };
 
-/** The `dataTableLicenseApplicationJoin` to be created by this mutation. */
-export type DataTableLicenseApplicationJoinApplicationIdFkeyDataTableLicenseApplicationJoinCreateInput = {
-  applicationToApplicationId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInput>;
-  dataTableLicenseId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableLicenseToDataTableLicenseId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput>;
+/** The `dataTableManufacturerApplicationJoin` to be created by this mutation. */
+export type DataTableManufacturerApplicationJoinApplicationIdFkeyDataTableManufacturerApplicationJoinCreateInput = {
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInput>;
+  dataTableManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerToDataTableManufacturerId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** Input for the nested mutation of `application` in the `DataTableLicenseApplicationJoinInput` mutation. */
-export type DataTableLicenseApplicationJoinApplicationIdFkeyInput = {
+/** Input for the nested mutation of `application` in the `DataTableManufacturerApplicationJoinInput` mutation. */
+export type DataTableManufacturerApplicationJoinApplicationIdFkeyInput = {
   /** The primary key(s) for `application` for the far side of the relationship. */
   connectById?: InputMaybe<ApplicationApplicationPkeyConnect>;
   /** The primary key(s) for `application` for the far side of the relationship. */
@@ -10349,7 +10459,7 @@ export type DataTableLicenseApplicationJoinApplicationIdFkeyInput = {
   /** The primary key(s) for `application` for the far side of the relationship. */
   connectBySerial?: InputMaybe<ApplicationApplicationSerialKeyConnect>;
   /** A `ApplicationInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyApplicationCreateInput>;
+  create?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyApplicationCreateInput>;
   /** The primary key(s) for `application` for the far side of the relationship. */
   deleteById?: InputMaybe<ApplicationApplicationPkeyDelete>;
   /** The primary key(s) for `application` for the far side of the relationship. */
@@ -10359,439 +10469,172 @@ export type DataTableLicenseApplicationJoinApplicationIdFkeyInput = {
   /** The primary key(s) for `application` for the far side of the relationship. */
   deleteBySerial?: InputMaybe<ApplicationApplicationSerialKeyDelete>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateById?: InputMaybe<ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate>;
+  updateById?: InputMaybe<ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyNodeIdUpdate>;
+  updateByNodeId?: InputMaybe<DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyNodeIdUpdate>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
+  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateBySerial?: InputMaybe<ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
+  updateBySerial?: InputMaybe<ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
 };
 
-/** Input for the nested mutation of `dataTableLicenseApplicationJoin` in the `ApplicationInput` mutation. */
-export type DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput = {
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTableLicenseApplicationJoinDataTableLicenseApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTableLicenseApplicationJoinNodeIdConnect>>;
-  /** A `DataTableLicenseApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTableLicenseApplicationJoinApplicationIdFkeyDataTableLicenseApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTableLicenseApplicationJoinDataTableLicenseApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTableLicenseApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTableLicenseApplicationJoin` records that match this relationship should be removed. */
+/** Input for the nested mutation of `dataTableManufacturerApplicationJoin` in the `ApplicationInput` mutation. */
+export type DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput = {
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTableManufacturerApplicationJoinDataTableManufacturerApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTableManufacturerApplicationJoinNodeIdConnect>>;
+  /** A `DataTableManufacturerApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTableManufacturerApplicationJoinApplicationIdFkeyDataTableManufacturerApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTableManufacturerApplicationJoinDataTableManufacturerApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTableManufacturerApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTableManufacturerApplicationJoin` records that match this relationship should be removed. */
   deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingDataTableLicenseApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingDataTableManufacturerApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTableManufacturerApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyNodeIdUpdate>>;
 };
 
 /**
- * A condition to be used against `DataTableLicenseApplicationJoin` object types.
- * All fields are tested for equality and combined with a logical ‘and.’
+ * A condition to be used against `DataTableManufacturerApplicationJoin` object
+ * types. All fields are tested for equality and combined with a logical ‘and.’
  */
-export type DataTableLicenseApplicationJoinCondition = {
+export type DataTableManufacturerApplicationJoinCondition = {
   /** Checks for equality with the object’s `applicationId` field. */
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `dataTableLicenseId` field. */
-  dataTableLicenseId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `dataTableManufacturerId` field. */
+  dataTableManufacturerId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** The fields on `dataTableLicenseApplicationJoin` to look up the row to connect. */
-export type DataTableLicenseApplicationJoinDataTableLicenseApplicationJoinPkeyConnect = {
+/** The fields on `dataTableManufacturerApplicationJoin` to look up the row to connect. */
+export type DataTableManufacturerApplicationJoinDataTableManufacturerApplicationJoinPkeyConnect = {
   id: Scalars['Int']['input'];
 };
 
-/** The fields on `dataTableLicenseApplicationJoin` to look up the row to delete. */
-export type DataTableLicenseApplicationJoinDataTableLicenseApplicationJoinPkeyDelete = {
+/** The fields on `dataTableManufacturerApplicationJoin` to look up the row to delete. */
+export type DataTableManufacturerApplicationJoinDataTableManufacturerApplicationJoinPkeyDelete = {
   id: Scalars['Int']['input'];
 };
 
-/** The `dataTableLicenseApplicationJoin` to be created by this mutation. */
-export type DataTableLicenseApplicationJoinDataTableLicenseIdFkeyDataTableLicenseApplicationJoinCreateInput = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInput>;
-  dataTableLicenseToDataTableLicenseId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** The `dataTableLicense` to be created by this mutation. */
-export type DataTableLicenseApplicationJoinDataTableLicenseIdFkeyDataTableLicenseCreateInput = {
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInverseInput>;
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  inspectionReport?: InputMaybe<Scalars['JSON']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  licenseNumber?: InputMaybe<Scalars['String']['input']>;
-  orgId?: InputMaybe<Scalars['Int']['input']>;
-  orgName?: InputMaybe<Scalars['String']['input']>;
-  profileDoc?: InputMaybe<Scalars['JSON']['input']>;
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  renewalDate?: InputMaybe<Scalars['Datetime']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** Input for the nested mutation of `dataTableLicense` in the `DataTableLicenseApplicationJoinInput` mutation. */
-export type DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput = {
-  /** The primary key(s) for `dataTableLicense` for the far side of the relationship. */
-  connectById?: InputMaybe<DataTableLicenseDataTableLicensePkeyConnect>;
-  /** The primary key(s) for `dataTableLicense` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<DataTableLicenseNodeIdConnect>;
-  /** A `DataTableLicenseInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyDataTableLicenseCreateInput>;
-  /** The primary key(s) for `dataTableLicense` for the far side of the relationship. */
-  deleteById?: InputMaybe<DataTableLicenseDataTableLicensePkeyDelete>;
-  /** The primary key(s) for `dataTableLicense` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<DataTableLicenseNodeIdDelete>;
-  /** The primary key(s) and patch data for `dataTableLicense` for the far side of the relationship. */
-  updateById?: InputMaybe<DataTableLicenseOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyUsingDataTableLicensePkeyUpdate>;
-  /** The primary key(s) and patch data for `dataTableLicense` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyNodeIdUpdate>;
-};
-
-/** Input for the nested mutation of `dataTableLicenseApplicationJoin` in the `DataTableLicenseInput` mutation. */
-export type DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInverseInput = {
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTableLicenseApplicationJoinDataTableLicenseApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTableLicenseApplicationJoinNodeIdConnect>>;
-  /** A `DataTableLicenseApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyDataTableLicenseApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTableLicenseApplicationJoinDataTableLicenseApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTableLicenseApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTableLicenseApplicationJoin` records that match this relationship should be removed. */
-  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyUsingDataTableLicenseApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTableLicenseApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<DataTableLicenseOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyNodeIdUpdate>>;
-};
-
-/** A filter to be used against `DataTableLicenseApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableLicenseApplicationJoinFilter = {
+/** A filter to be used against `DataTableManufacturerApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableManufacturerApplicationJoinFilter = {
   /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTableLicenseApplicationJoinFilter>>;
+  and?: InputMaybe<Array<DataTableManufacturerApplicationJoinFilter>>;
   /** Filter by the object’s `application` relation. */
   application?: InputMaybe<ApplicationFilter>;
   /** Filter by the object’s `applicationId` field. */
   applicationId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `dataTableLicense` relation. */
-  dataTableLicense?: InputMaybe<DataTableLicenseFilter>;
-  /** Filter by the object’s `dataTableLicenseId` field. */
-  dataTableLicenseId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `dataTableManufacturer` relation. */
+  dataTableManufacturer?: InputMaybe<DataTableManufacturerFilter>;
+  /** Filter by the object’s `dataTableManufacturerId` field. */
+  dataTableManufacturerId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Negates the expression. */
-  not?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
+  not?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
   /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTableLicenseApplicationJoinFilter>>;
+  or?: InputMaybe<Array<DataTableManufacturerApplicationJoinFilter>>;
 };
 
-/** An input for mutations affecting `DataTableLicenseApplicationJoin` */
-export type DataTableLicenseApplicationJoinInput = {
+/** An input for mutations affecting `DataTableManufacturerApplicationJoin` */
+export type DataTableManufacturerApplicationJoinInput = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInput>;
-  dataTableLicenseId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableLicenseToDataTableLicenseId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInput>;
+  dataTableManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerToDataTableManufacturerId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
-export type DataTableLicenseApplicationJoinNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTableLicenseApplicationJoin` to be connected. */
+export type DataTableManufacturerApplicationJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerApplicationJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
 };
 
 /** The globally unique `ID` look up for the row to delete. */
-export type DataTableLicenseApplicationJoinNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTableLicenseApplicationJoin` to be deleted. */
+export type DataTableManufacturerApplicationJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerApplicationJoin` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyNodeIdUpdate = {
+export type DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturer` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturer` being updated. */
+  patch: DataTableManufacturerPatch;
+};
+
+/** The fields on `dataTableManufacturerApplicationJoin` to look up the row to update. */
+export type DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyUsingDataTableManufacturerApplicationJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerApplicationJoin` being updated. */
+  patch: UpdateDataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `application` to be connected. */
   nodeId: Scalars['ID']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
   patch: ApplicationPatch;
 };
 
-/** The fields on `dataTableLicenseApplicationJoin` to look up the row to update. */
-export type DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyUsingDataTableLicenseApplicationJoinPkeyUpdate = {
+/** The fields on `dataTableManufacturerApplicationJoin` to look up the row to update. */
+export type DataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyUsingDataTableManufacturerApplicationJoinPkeyUpdate = {
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableLicenseApplicationJoin` being updated. */
-  patch: UpdateDataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyPatch;
+  /** An object where the defined keys will be set on the `dataTableManufacturerApplicationJoin` being updated. */
+  patch: UpdateDataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyPatch;
 };
 
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableLicense` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableLicense` being updated. */
-  patch: DataTableLicensePatch;
-};
-
-/** The fields on `dataTableLicenseApplicationJoin` to look up the row to update. */
-export type DataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyUsingDataTableLicenseApplicationJoinPkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableLicenseApplicationJoin` being updated. */
-  patch: UpdateDataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyPatch;
-};
-
-/** Represents an update to a `DataTableLicenseApplicationJoin`. Fields that are set will be updated. */
-export type DataTableLicenseApplicationJoinPatch = {
+/** Represents an update to a `DataTableManufacturerApplicationJoin`. Fields that are set will be updated. */
+export type DataTableManufacturerApplicationJoinPatch = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInput>;
-  dataTableLicenseId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableLicenseToDataTableLicenseId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInput>;
+  dataTableManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerToDataTableManufacturerId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** A connection to a list of `DataTableLicenseApplicationJoin` values. */
-export type DataTableLicenseApplicationJoinsConnection = {
-  __typename?: 'DataTableLicenseApplicationJoinsConnection';
-  /** A list of edges which contains the `DataTableLicenseApplicationJoin` and cursor to aid in pagination. */
-  edges: Array<DataTableLicenseApplicationJoinsEdge>;
-  /** A list of `DataTableLicenseApplicationJoin` objects. */
-  nodes: Array<Maybe<DataTableLicenseApplicationJoin>>;
+/** A connection to a list of `DataTableManufacturerApplicationJoin` values. */
+export type DataTableManufacturerApplicationJoinsConnection = {
+  __typename?: 'DataTableManufacturerApplicationJoinsConnection';
+  /** A list of edges which contains the `DataTableManufacturerApplicationJoin` and cursor to aid in pagination. */
+  edges: Array<DataTableManufacturerApplicationJoinsEdge>;
+  /** A list of `DataTableManufacturerApplicationJoin` objects. */
+  nodes: Array<Maybe<DataTableManufacturerApplicationJoin>>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
-  /** The count of *all* `DataTableLicenseApplicationJoin` you could get from the connection. */
+  /** The count of *all* `DataTableManufacturerApplicationJoin` you could get from the connection. */
   totalCount: Scalars['Int']['output'];
 };
 
-/** A `DataTableLicenseApplicationJoin` edge in the connection. */
-export type DataTableLicenseApplicationJoinsEdge = {
-  __typename?: 'DataTableLicenseApplicationJoinsEdge';
+/** A `DataTableManufacturerApplicationJoin` edge in the connection. */
+export type DataTableManufacturerApplicationJoinsEdge = {
+  __typename?: 'DataTableManufacturerApplicationJoinsEdge';
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTableLicenseApplicationJoin` at the end of the edge. */
-  node?: Maybe<DataTableLicenseApplicationJoin>;
+  /** The `DataTableManufacturerApplicationJoin` at the end of the edge. */
+  node?: Maybe<DataTableManufacturerApplicationJoin>;
 };
 
-/** Methods to use when ordering `DataTableLicenseApplicationJoin`. */
-export enum DataTableLicenseApplicationJoinsOrderBy {
+/** Methods to use when ordering `DataTableManufacturerApplicationJoin`. */
+export enum DataTableManufacturerApplicationJoinsOrderBy {
   ApplicationIdAsc = 'APPLICATION_ID_ASC',
   ApplicationIdDesc = 'APPLICATION_ID_DESC',
-  DataTableLicenseIdAsc = 'DATA_TABLE_LICENSE_ID_ASC',
-  DataTableLicenseIdDesc = 'DATA_TABLE_LICENSE_ID_DESC',
+  DataTableManufacturerIdAsc = 'DATA_TABLE_MANUFACTURER_ID_ASC',
+  DataTableManufacturerIdDesc = 'DATA_TABLE_MANUFACTURER_ID_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
-
-/**
- * A condition to be used against `DataTableLicense` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export type DataTableLicenseCondition = {
-  /** Checks for equality with the object’s `expiryDate` field. */
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  /** Checks for equality with the object’s `id` field. */
-  id?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `inspectionReport` field. */
-  inspectionReport?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `isActive` field. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Checks for equality with the object’s `licenseNumber` field. */
-  licenseNumber?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `orgId` field. */
-  orgId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `orgName` field. */
-  orgName?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `profileDoc` field. */
-  profileDoc?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `registrationDate` field. */
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  /** Checks for equality with the object’s `renewalDate` field. */
-  renewalDate?: InputMaybe<Scalars['Datetime']['input']>;
-  /** Checks for equality with the object’s `type` field. */
-  type?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The fields on `dataTableLicense` to look up the row to connect. */
-export type DataTableLicenseDataTableLicensePkeyConnect = {
-  id: Scalars['Int']['input'];
-};
-
-/** The fields on `dataTableLicense` to look up the row to delete. */
-export type DataTableLicenseDataTableLicensePkeyDelete = {
-  id: Scalars['Int']['input'];
-};
-
-/** A filter to be used against `DataTableLicense` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableLicenseFilter = {
-  /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTableLicenseFilter>>;
-  /** Filter by the object’s `dataTableLicenseApplicationJoins` relation. */
-  dataTableLicenseApplicationJoins?: InputMaybe<DataTableLicenseToManyDataTableLicenseApplicationJoinFilter>;
-  /** Some related `dataTableLicenseApplicationJoins` exist. */
-  dataTableLicenseApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `expiryDate` field. */
-  expiryDate?: InputMaybe<DatetimeFilter>;
-  /** Filter by the object’s `id` field. */
-  id?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `inspectionReport` field. */
-  inspectionReport?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `isActive` field. */
-  isActive?: InputMaybe<BooleanFilter>;
-  /** Filter by the object’s `licenseNumber` field. */
-  licenseNumber?: InputMaybe<StringFilter>;
-  /** Negates the expression. */
-  not?: InputMaybe<DataTableLicenseFilter>;
-  /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTableLicenseFilter>>;
-  /** Filter by the object’s `orgId` field. */
-  orgId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `orgName` field. */
-  orgName?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `profileDoc` field. */
-  profileDoc?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `registrationDate` field. */
-  registrationDate?: InputMaybe<DatetimeFilter>;
-  /** Filter by the object’s `renewalDate` field. */
-  renewalDate?: InputMaybe<DatetimeFilter>;
-  /** Filter by the object’s `type` field. */
-  type?: InputMaybe<StringFilter>;
-};
-
-/** An input for mutations affecting `DataTableLicense` */
-export type DataTableLicenseInput = {
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInverseInput>;
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  inspectionReport?: InputMaybe<Scalars['JSON']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  licenseNumber?: InputMaybe<Scalars['String']['input']>;
-  orgId?: InputMaybe<Scalars['Int']['input']>;
-  orgName?: InputMaybe<Scalars['String']['input']>;
-  profileDoc?: InputMaybe<Scalars['JSON']['input']>;
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  renewalDate?: InputMaybe<Scalars['Datetime']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The globally unique `ID` look up for the row to connect. */
-export type DataTableLicenseNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTableLicense` to be connected. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to delete. */
-export type DataTableLicenseNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTableLicense` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableLicenseOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableLicenseApplicationJoin` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableLicenseApplicationJoin` being updated. */
-  patch: DataTableLicenseApplicationJoinPatch;
-};
-
-/** The fields on `dataTableLicense` to look up the row to update. */
-export type DataTableLicenseOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyUsingDataTableLicensePkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableLicense` being updated. */
-  patch: UpdateDataTableLicenseOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyPatch;
-};
-
-/** Represents an update to a `DataTableLicense`. Fields that are set will be updated. */
-export type DataTableLicensePatch = {
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInverseInput>;
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  inspectionReport?: InputMaybe<Scalars['JSON']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  licenseNumber?: InputMaybe<Scalars['String']['input']>;
-  orgId?: InputMaybe<Scalars['Int']['input']>;
-  orgName?: InputMaybe<Scalars['String']['input']>;
-  profileDoc?: InputMaybe<Scalars['JSON']['input']>;
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  renewalDate?: InputMaybe<Scalars['Datetime']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** A filter to be used against many `DataTableLicenseApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableLicenseToManyDataTableLicenseApplicationJoinFilter = {
-  /** Every related `DataTableLicenseApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
-  /** No related `DataTableLicenseApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
-  /** Some related `DataTableLicenseApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
-};
-
-/** A connection to a list of `DataTableLicense` values. */
-export type DataTableLicensesConnection = {
-  __typename?: 'DataTableLicensesConnection';
-  /** A list of edges which contains the `DataTableLicense` and cursor to aid in pagination. */
-  edges: Array<DataTableLicensesEdge>;
-  /** A list of `DataTableLicense` objects. */
-  nodes: Array<Maybe<DataTableLicense>>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `DataTableLicense` you could get from the connection. */
-  totalCount: Scalars['Int']['output'];
-};
-
-/** A `DataTableLicense` edge in the connection. */
-export type DataTableLicensesEdge = {
-  __typename?: 'DataTableLicensesEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTableLicense` at the end of the edge. */
-  node?: Maybe<DataTableLicense>;
-};
-
-/** Methods to use when ordering `DataTableLicense`. */
-export enum DataTableLicensesOrderBy {
-  ExpiryDateAsc = 'EXPIRY_DATE_ASC',
-  ExpiryDateDesc = 'EXPIRY_DATE_DESC',
-  IdAsc = 'ID_ASC',
-  IdDesc = 'ID_DESC',
-  InspectionReportAsc = 'INSPECTION_REPORT_ASC',
-  InspectionReportDesc = 'INSPECTION_REPORT_DESC',
-  IsActiveAsc = 'IS_ACTIVE_ASC',
-  IsActiveDesc = 'IS_ACTIVE_DESC',
-  LicenseNumberAsc = 'LICENSE_NUMBER_ASC',
-  LicenseNumberDesc = 'LICENSE_NUMBER_DESC',
-  Natural = 'NATURAL',
-  OrgIdAsc = 'ORG_ID_ASC',
-  OrgIdDesc = 'ORG_ID_DESC',
-  OrgNameAsc = 'ORG_NAME_ASC',
-  OrgNameDesc = 'ORG_NAME_DESC',
-  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
-  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
-  ProfileDocAsc = 'PROFILE_DOC_ASC',
-  ProfileDocDesc = 'PROFILE_DOC_DESC',
-  RegistrationDateAsc = 'REGISTRATION_DATE_ASC',
-  RegistrationDateDesc = 'REGISTRATION_DATE_DESC',
-  RenewalDateAsc = 'RENEWAL_DATE_ASC',
-  RenewalDateDesc = 'RENEWAL_DATE_DESC',
-  TypeAsc = 'TYPE_ASC',
-  TypeDesc = 'TYPE_DESC'
-}
-
-export type DataTableManufacturer = Node & {
-  __typename?: 'DataTableManufacturer';
-  address?: Maybe<Scalars['String']['output']>;
-  country?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  manufacturer?: Maybe<Scalars['String']['output']>;
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars['ID']['output'];
-};
 
 /**
  * A condition to be used against `DataTableManufacturer` object types. All fields
@@ -10804,8 +10647,20 @@ export type DataTableManufacturerCondition = {
   country?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `isAdditional` field. */
+  isAdditional?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `manufacturer` field. */
   manufacturer?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The fields on `dataTableManufacturer` to look up the row to connect. */
+export type DataTableManufacturerDataTableManufacturerPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataTableManufacturer` to look up the row to delete. */
+export type DataTableManufacturerDataTableManufacturerPkeyDelete = {
+  id: Scalars['Int']['input'];
 };
 
 /** A filter to be used against `DataTableManufacturer` object types. All fields are combined with a logical ‘and.’ */
@@ -10816,8 +10671,14 @@ export type DataTableManufacturerFilter = {
   and?: InputMaybe<Array<DataTableManufacturerFilter>>;
   /** Filter by the object’s `country` field. */
   country?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `dataTableManufacturerApplicationJoins` relation. */
+  dataTableManufacturerApplicationJoins?: InputMaybe<DataTableManufacturerToManyDataTableManufacturerApplicationJoinFilter>;
+  /** Some related `dataTableManufacturerApplicationJoins` exist. */
+  dataTableManufacturerApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `isAdditional` field. */
+  isAdditional?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `manufacturer` field. */
   manufacturer?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -10830,16 +10691,751 @@ export type DataTableManufacturerFilter = {
 export type DataTableManufacturerInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isAdditional?: InputMaybe<Scalars['Boolean']['input']>;
   manufacturer?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DataTableManufacturerNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturer` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataTableManufacturerNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturer` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTableManufacturerOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerApplicationJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerApplicationJoin` being updated. */
+  patch: DataTableManufacturerApplicationJoinPatch;
+};
+
+/** The fields on `dataTableManufacturer` to look up the row to update. */
+export type DataTableManufacturerOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyUsingDataTableManufacturerPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturer` being updated. */
+  patch: UpdateDataTableManufacturerOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyPatch;
 };
 
 /** Represents an update to a `DataTableManufacturer`. Fields that are set will be updated. */
 export type DataTableManufacturerPatch = {
   address?: InputMaybe<Scalars['String']['input']>;
   country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isAdditional?: InputMaybe<Scalars['Boolean']['input']>;
   manufacturer?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The `dataTableManufacturerRepresentativeApplicationJoin` to be created by this mutation. */
+export type DataTableManufacturerRepreDataTableManufacturerReprFkeyDataTableManufacturerRepresentativeApplicationJoinCreateInput = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInput>;
+  dataTableManufacturerRepresentativeToDataTableManufacturerRepresentativeId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `dataTableManufacturerRepresentative` to be created by this mutation. */
+export type DataTableManufacturerRepreDataTableManufacturerReprFkeyDataTableManufacturerRepresentativeCreateInput = {
+  additionalCertifications?: InputMaybe<Scalars['JSON']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
+  applicantId?: InputMaybe<Scalars['Int']['input']>;
+  companyId?: InputMaybe<Scalars['Int']['input']>;
+  companyName?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInverseInput>;
+  evaluationNotes?: InputMaybe<Scalars['String']['input']>;
+  gmpByWhoCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCountry1?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry2?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry3?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpExpiry1?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry2?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry3?: InputMaybe<Scalars['Date']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorization?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerDatabaseId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerRegistrationId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingCompanies?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** Input for the nested mutation of `dataTableManufacturerRepresentative` in the `DataTableManufacturerRepresentativeApplicationJoinInput` mutation. */
+export type DataTableManufacturerRepreDataTableManufacturerReprFkeyInput = {
+  /** The primary key(s) for `dataTableManufacturerRepresentative` for the far side of the relationship. */
+  connectById?: InputMaybe<DataTableManufacturerRepresentativeDataTableManufacturerRepresentativePkeyConnect>;
+  /** The primary key(s) for `dataTableManufacturerRepresentative` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<DataTableManufacturerRepresentativeNodeIdConnect>;
+  /** A `DataTableManufacturerRepresentativeInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyDataTableManufacturerRepresentativeCreateInput>;
+  /** The primary key(s) for `dataTableManufacturerRepresentative` for the far side of the relationship. */
+  deleteById?: InputMaybe<DataTableManufacturerRepresentativeDataTableManufacturerRepresentativePkeyDelete>;
+  /** The primary key(s) for `dataTableManufacturerRepresentative` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<DataTableManufacturerRepresentativeNodeIdDelete>;
+  /** The primary key(s) and patch data for `dataTableManufacturerRepresentative` for the far side of the relationship. */
+  updateById?: InputMaybe<DataTableManufacturerRepresentativeOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyUsingDataTableManufacturerRepresentativePkeyUpdate>;
+  /** The primary key(s) and patch data for `dataTableManufacturerRepresentative` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `dataTableManufacturerRepresentativeApplicationJoin` in the `DataTableManufacturerRepresentativeInput` mutation. */
+export type DataTableManufacturerRepreDataTableManufacturerReprFkeyInverseInput = {
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinDataTableManufacturerRepresentativeApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinNodeIdConnect>>;
+  /** A `DataTableManufacturerRepresentativeApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTableManufacturerRepreDataTableManufacturerReprFkeyDataTableManufacturerRepresentativeApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinDataTableManufacturerRepresentativeApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTableManufacturerRepresentativeApplicationJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyUsingDataTableManufacturerRepresentativeApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<DataTableManufacturerRepresentativeOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyNodeIdUpdate>>;
+};
+
+export type DataTableManufacturerRepresentative = Node & {
+  __typename?: 'DataTableManufacturerRepresentative';
+  additionalCertifications?: Maybe<Scalars['JSON']['output']>;
+  address?: Maybe<Scalars['String']['output']>;
+  applicantId?: Maybe<Scalars['Int']['output']>;
+  companyId?: Maybe<Scalars['Int']['output']>;
+  companyName?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  /** Reads and enables pagination through a set of `DataTableManufacturerRepresentativeApplicationJoin`. */
+  dataTableManufacturerRepresentativeApplicationJoins: DataTableManufacturerRepresentativeApplicationJoinsConnection;
+  evaluationNotes?: Maybe<Scalars['String']['output']>;
+  gmpByWhoCertificate?: Maybe<Scalars['JSON']['output']>;
+  gmpCertificate?: Maybe<Scalars['JSON']['output']>;
+  gmpCountry1?: Maybe<Scalars['String']['output']>;
+  gmpCountry2?: Maybe<Scalars['String']['output']>;
+  gmpCountry3?: Maybe<Scalars['String']['output']>;
+  gmpDetails?: Maybe<Scalars['JSON']['output']>;
+  gmpExpiry1?: Maybe<Scalars['Date']['output']>;
+  gmpExpiry2?: Maybe<Scalars['Date']['output']>;
+  gmpExpiry3?: Maybe<Scalars['Date']['output']>;
+  gmpScope?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['Int']['output'];
+  isActive?: Maybe<Scalars['Boolean']['output']>;
+  letterOfAuthorization?: Maybe<Scalars['JSON']['output']>;
+  manufacturerDatabaseId?: Maybe<Scalars['Int']['output']>;
+  manufacturerRegistrationId?: Maybe<Scalars['String']['output']>;
+  manufacturingCompanies?: Maybe<Scalars['JSON']['output']>;
+  manufacturingLicence?: Maybe<Scalars['JSON']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  prequalificationDate?: Maybe<Scalars['Datetime']['output']>;
+};
+
+
+export type DataTableManufacturerRepresentativeDataTableManufacturerRepresentativeApplicationJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinCondition>;
+  filter?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinsOrderBy>>;
+};
+
+/** The `application` to be created by this mutation. */
+export type DataTableManufacturerRepresentativeApplApplicationIdFkeyApplicationCreateInput = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
+  activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
+  applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
+  applicationResponsesUsingId?: InputMaybe<ApplicationResponseApplicationIdFkeyInverseInput>;
+  applicationReviewerActionsUsingId?: InputMaybe<ApplicationReviewerActionApplicationIdFkeyInverseInput>;
+  applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
+  assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
+  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
+  filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isConfig?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  notificationsUsingId?: InputMaybe<NotificationApplicationIdFkeyInverseInput>;
+  orgId?: InputMaybe<Scalars['Int']['input']>;
+  organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinApplicationIdFkeyInverseInput>;
+  organisationToOrgId?: InputMaybe<ApplicationOrgIdFkeyInput>;
+  outcome?: InputMaybe<ApplicationOutcome>;
+  outcomeRegistration?: InputMaybe<Scalars['String']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentApplicationIdFkeyInverseInput>;
+  reviewerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  reviewsUsingId?: InputMaybe<ReviewApplicationIdFkeyInverseInput>;
+  serial?: InputMaybe<Scalars['String']['input']>;
+  sessionId?: InputMaybe<Scalars['String']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<ApplicationTemplateIdFkeyInput>;
+  trigger?: InputMaybe<Trigger>;
+  triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
+  userId?: InputMaybe<Scalars['Int']['input']>;
+  userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
+  verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
+};
+
+/** The `dataTableManufacturerRepresentativeApplicationJoin` to be created by this mutation. */
+export type DataTableManufacturerRepresentativeApplApplicationIdFkeyDataTableManufacturerRepresentativeApplicationJoinCreateInput = {
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInput>;
+  dataTableManufacturerRepresentativeId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerRepresentativeToDataTableManufacturerRepresentativeId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** Input for the nested mutation of `application` in the `DataTableManufacturerRepresentativeApplicationJoinInput` mutation. */
+export type DataTableManufacturerRepresentativeApplApplicationIdFkeyInput = {
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectById?: InputMaybe<ApplicationApplicationPkeyConnect>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<ApplicationNodeIdConnect>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectByOutcomeRegistration?: InputMaybe<ApplicationApplicationOutcomeRegistrationKeyConnect>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectBySerial?: InputMaybe<ApplicationApplicationSerialKeyConnect>;
+  /** A `ApplicationInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyApplicationCreateInput>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteById?: InputMaybe<ApplicationApplicationPkeyDelete>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<ApplicationNodeIdDelete>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteByOutcomeRegistration?: InputMaybe<ApplicationApplicationOutcomeRegistrationKeyDelete>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteBySerial?: InputMaybe<ApplicationApplicationSerialKeyDelete>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateById?: InputMaybe<ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingApplicationPkeyUpdate>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyNodeIdUpdate>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateBySerial?: InputMaybe<ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
+};
+
+/** Input for the nested mutation of `dataTableManufacturerRepresentativeApplicationJoin` in the `ApplicationInput` mutation. */
+export type DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput = {
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinDataTableManufacturerRepresentativeApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinNodeIdConnect>>;
+  /** A `DataTableManufacturerRepresentativeApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTableManufacturerRepresentativeApplApplicationIdFkeyDataTableManufacturerRepresentativeApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinDataTableManufacturerRepresentativeApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTableManufacturerRepresentativeApplicationJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingDataTableManufacturerRepresentativeApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTableManufacturerRepresentativeApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyNodeIdUpdate>>;
+};
+
+export type DataTableManufacturerRepresentativeApplicationJoin = Node & {
+  __typename?: 'DataTableManufacturerRepresentativeApplicationJoin';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerRepresentativeApplicationJoin`. */
+  application?: Maybe<Application>;
+  applicationId: Scalars['Int']['output'];
+  /**
+   * Reads a single `DataTableManufacturerRepresentative` that is related to this
+   * `DataTableManufacturerRepresentativeApplicationJoin`.
+   */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  dataTableManufacturerRepresentativeId: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+};
+
+/**
+ * A condition to be used against
+ * `DataTableManufacturerRepresentativeApplicationJoin` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableManufacturerRepresentativeApplicationJoinCondition = {
+  /** Checks for equality with the object’s `applicationId` field. */
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `dataTableManufacturerRepresentativeId` field. */
+  dataTableManufacturerRepresentativeId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The fields on `dataTableManufacturerRepresentativeApplicationJoin` to look up the row to connect. */
+export type DataTableManufacturerRepresentativeApplicationJoinDataTableManufacturerRepresentativeApplicationJoinPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataTableManufacturerRepresentativeApplicationJoin` to look up the row to delete. */
+export type DataTableManufacturerRepresentativeApplicationJoinDataTableManufacturerRepresentativeApplicationJoinPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** A filter to be used against `DataTableManufacturerRepresentativeApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableManufacturerRepresentativeApplicationJoinFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinFilter>>;
+  /** Filter by the object’s `application` relation. */
+  application?: InputMaybe<ApplicationFilter>;
+  /** Filter by the object’s `applicationId` field. */
+  applicationId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `dataTableManufacturerRepresentative` relation. */
+  dataTableManufacturerRepresentative?: InputMaybe<DataTableManufacturerRepresentativeFilter>;
+  /** Filter by the object’s `dataTableManufacturerRepresentativeId` field. */
+  dataTableManufacturerRepresentativeId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinFilter>>;
+};
+
+/** An input for mutations affecting `DataTableManufacturerRepresentativeApplicationJoin` */
+export type DataTableManufacturerRepresentativeApplicationJoinInput = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInput>;
+  dataTableManufacturerRepresentativeId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerRepresentativeToDataTableManufacturerRepresentativeId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DataTableManufacturerRepresentativeApplicationJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentativeApplicationJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataTableManufacturerRepresentativeApplicationJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentativeApplicationJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentative` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerRepresentative` being updated. */
+  patch: DataTableManufacturerRepresentativePatch;
+};
+
+/** The fields on `dataTableManufacturerRepresentativeApplicationJoin` to look up the row to update. */
+export type DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyUsingDataTableManufacturerRepresentativeApplicationJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerRepresentativeApplicationJoin` being updated. */
+  patch: UpdateDataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `application` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `application` being updated. */
+  patch: ApplicationPatch;
+};
+
+/** The fields on `dataTableManufacturerRepresentativeApplicationJoin` to look up the row to update. */
+export type DataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyUsingDataTableManufacturerRepresentativeApplicationJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerRepresentativeApplicationJoin` being updated. */
+  patch: UpdateDataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyPatch;
+};
+
+/** Represents an update to a `DataTableManufacturerRepresentativeApplicationJoin`. Fields that are set will be updated. */
+export type DataTableManufacturerRepresentativeApplicationJoinPatch = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInput>;
+  dataTableManufacturerRepresentativeId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerRepresentativeToDataTableManufacturerRepresentativeId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** A connection to a list of `DataTableManufacturerRepresentativeApplicationJoin` values. */
+export type DataTableManufacturerRepresentativeApplicationJoinsConnection = {
+  __typename?: 'DataTableManufacturerRepresentativeApplicationJoinsConnection';
+  /** A list of edges which contains the `DataTableManufacturerRepresentativeApplicationJoin` and cursor to aid in pagination. */
+  edges: Array<DataTableManufacturerRepresentativeApplicationJoinsEdge>;
+  /** A list of `DataTableManufacturerRepresentativeApplicationJoin` objects. */
+  nodes: Array<Maybe<DataTableManufacturerRepresentativeApplicationJoin>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableManufacturerRepresentativeApplicationJoin` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableManufacturerRepresentativeApplicationJoin` edge in the connection. */
+export type DataTableManufacturerRepresentativeApplicationJoinsEdge = {
+  __typename?: 'DataTableManufacturerRepresentativeApplicationJoinsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableManufacturerRepresentativeApplicationJoin` at the end of the edge. */
+  node?: Maybe<DataTableManufacturerRepresentativeApplicationJoin>;
+};
+
+/** Methods to use when ordering `DataTableManufacturerRepresentativeApplicationJoin`. */
+export enum DataTableManufacturerRepresentativeApplicationJoinsOrderBy {
+  ApplicationIdAsc = 'APPLICATION_ID_ASC',
+  ApplicationIdDesc = 'APPLICATION_ID_DESC',
+  DataTableManufacturerRepresentativeIdAsc = 'DATA_TABLE_MANUFACTURER_REPRESENTATIVE_ID_ASC',
+  DataTableManufacturerRepresentativeIdDesc = 'DATA_TABLE_MANUFACTURER_REPRESENTATIVE_ID_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+/**
+ * A condition to be used against `DataTableManufacturerRepresentative` object
+ * types. All fields are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableManufacturerRepresentativeCondition = {
+  /** Checks for equality with the object’s `additionalCertifications` field. */
+  additionalCertifications?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `address` field. */
+  address?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `applicantId` field. */
+  applicantId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `companyId` field. */
+  companyId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `companyName` field. */
+  companyName?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `country` field. */
+  country?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `evaluationNotes` field. */
+  evaluationNotes?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `gmpByWhoCertificate` field. */
+  gmpByWhoCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `gmpCertificate` field. */
+  gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `gmpCountry1` field. */
+  gmpCountry1?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `gmpCountry2` field. */
+  gmpCountry2?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `gmpCountry3` field. */
+  gmpCountry3?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `gmpDetails` field. */
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `gmpExpiry1` field. */
+  gmpExpiry1?: InputMaybe<Scalars['Date']['input']>;
+  /** Checks for equality with the object’s `gmpExpiry2` field. */
+  gmpExpiry2?: InputMaybe<Scalars['Date']['input']>;
+  /** Checks for equality with the object’s `gmpExpiry3` field. */
+  gmpExpiry3?: InputMaybe<Scalars['Date']['input']>;
+  /** Checks for equality with the object’s `gmpScope` field. */
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `isActive` field. */
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `letterOfAuthorization` field. */
+  letterOfAuthorization?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `manufacturerDatabaseId` field. */
+  manufacturerDatabaseId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `manufacturerRegistrationId` field. */
+  manufacturerRegistrationId?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `manufacturingCompanies` field. */
+  manufacturingCompanies?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `manufacturingLicence` field. */
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `prequalificationDate` field. */
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The fields on `dataTableManufacturerRepresentative` to look up the row to connect. */
+export type DataTableManufacturerRepresentativeDataTableManufacturerRepresentativePkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataTableManufacturerRepresentative` to look up the row to delete. */
+export type DataTableManufacturerRepresentativeDataTableManufacturerRepresentativePkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** A filter to be used against `DataTableManufacturerRepresentative` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableManufacturerRepresentativeFilter = {
+  /** Filter by the object’s `additionalCertifications` field. */
+  additionalCertifications?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `address` field. */
+  address?: InputMaybe<StringFilter>;
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableManufacturerRepresentativeFilter>>;
+  /** Filter by the object’s `applicantId` field. */
+  applicantId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `companyName` field. */
+  companyName?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `country` field. */
+  country?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `dataTableManufacturerRepresentativeApplicationJoins` relation. */
+  dataTableManufacturerRepresentativeApplicationJoins?: InputMaybe<DataTableManufacturerRepresentativeToManyDataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** Some related `dataTableManufacturerRepresentativeApplicationJoins` exist. */
+  dataTableManufacturerRepresentativeApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `evaluationNotes` field. */
+  evaluationNotes?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `gmpByWhoCertificate` field. */
+  gmpByWhoCertificate?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `gmpCertificate` field. */
+  gmpCertificate?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `gmpCountry1` field. */
+  gmpCountry1?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `gmpCountry2` field. */
+  gmpCountry2?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `gmpCountry3` field. */
+  gmpCountry3?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `gmpDetails` field. */
+  gmpDetails?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `gmpExpiry1` field. */
+  gmpExpiry1?: InputMaybe<DateFilter>;
+  /** Filter by the object’s `gmpExpiry2` field. */
+  gmpExpiry2?: InputMaybe<DateFilter>;
+  /** Filter by the object’s `gmpExpiry3` field. */
+  gmpExpiry3?: InputMaybe<DateFilter>;
+  /** Filter by the object’s `gmpScope` field. */
+  gmpScope?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `isActive` field. */
+  isActive?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `letterOfAuthorization` field. */
+  letterOfAuthorization?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `manufacturerDatabaseId` field. */
+  manufacturerDatabaseId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `manufacturerRegistrationId` field. */
+  manufacturerRegistrationId?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `manufacturingCompanies` field. */
+  manufacturingCompanies?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `manufacturingLicence` field. */
+  manufacturingLicence?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: InputMaybe<StringFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableManufacturerRepresentativeFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableManufacturerRepresentativeFilter>>;
+  /** Filter by the object’s `prequalificationDate` field. */
+  prequalificationDate?: InputMaybe<DatetimeFilter>;
+};
+
+/** An input for mutations affecting `DataTableManufacturerRepresentative` */
+export type DataTableManufacturerRepresentativeInput = {
+  additionalCertifications?: InputMaybe<Scalars['JSON']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
+  applicantId?: InputMaybe<Scalars['Int']['input']>;
+  companyId?: InputMaybe<Scalars['Int']['input']>;
+  companyName?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInverseInput>;
+  evaluationNotes?: InputMaybe<Scalars['String']['input']>;
+  gmpByWhoCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCountry1?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry2?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry3?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpExpiry1?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry2?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry3?: InputMaybe<Scalars['Date']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorization?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerDatabaseId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerRegistrationId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingCompanies?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DataTableManufacturerRepresentativeNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentative` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataTableManufacturerRepresentativeNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentative` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTableManufacturerRepresentativeOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTableManufacturerRepresentativeApplicationJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerRepresentativeApplicationJoin` being updated. */
+  patch: DataTableManufacturerRepresentativeApplicationJoinPatch;
+};
+
+/** The fields on `dataTableManufacturerRepresentative` to look up the row to update. */
+export type DataTableManufacturerRepresentativeOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyUsingDataTableManufacturerRepresentativePkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTableManufacturerRepresentative` being updated. */
+  patch: UpdateDataTableManufacturerRepresentativeOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyPatch;
+};
+
+/** Represents an update to a `DataTableManufacturerRepresentative`. Fields that are set will be updated. */
+export type DataTableManufacturerRepresentativePatch = {
+  additionalCertifications?: InputMaybe<Scalars['JSON']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
+  applicantId?: InputMaybe<Scalars['Int']['input']>;
+  companyId?: InputMaybe<Scalars['Int']['input']>;
+  companyName?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInverseInput>;
+  evaluationNotes?: InputMaybe<Scalars['String']['input']>;
+  gmpByWhoCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCountry1?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry2?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry3?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpExpiry1?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry2?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry3?: InputMaybe<Scalars['Date']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorization?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerDatabaseId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerRegistrationId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingCompanies?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** A filter to be used against many `DataTableManufacturerRepresentativeApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableManufacturerRepresentativeToManyDataTableManufacturerRepresentativeApplicationJoinFilter = {
+  /** Every related `DataTableManufacturerRepresentativeApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** No related `DataTableManufacturerRepresentativeApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  /** Some related `DataTableManufacturerRepresentativeApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+};
+
+/** A connection to a list of `DataTableManufacturerRepresentative` values. */
+export type DataTableManufacturerRepresentativesConnection = {
+  __typename?: 'DataTableManufacturerRepresentativesConnection';
+  /** A list of edges which contains the `DataTableManufacturerRepresentative` and cursor to aid in pagination. */
+  edges: Array<DataTableManufacturerRepresentativesEdge>;
+  /** A list of `DataTableManufacturerRepresentative` objects. */
+  nodes: Array<Maybe<DataTableManufacturerRepresentative>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableManufacturerRepresentative` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableManufacturerRepresentative` edge in the connection. */
+export type DataTableManufacturerRepresentativesEdge = {
+  __typename?: 'DataTableManufacturerRepresentativesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableManufacturerRepresentative` at the end of the edge. */
+  node?: Maybe<DataTableManufacturerRepresentative>;
+};
+
+/** Methods to use when ordering `DataTableManufacturerRepresentative`. */
+export enum DataTableManufacturerRepresentativesOrderBy {
+  AdditionalCertificationsAsc = 'ADDITIONAL_CERTIFICATIONS_ASC',
+  AdditionalCertificationsDesc = 'ADDITIONAL_CERTIFICATIONS_DESC',
+  AddressAsc = 'ADDRESS_ASC',
+  AddressDesc = 'ADDRESS_DESC',
+  ApplicantIdAsc = 'APPLICANT_ID_ASC',
+  ApplicantIdDesc = 'APPLICANT_ID_DESC',
+  CompanyIdAsc = 'COMPANY_ID_ASC',
+  CompanyIdDesc = 'COMPANY_ID_DESC',
+  CompanyNameAsc = 'COMPANY_NAME_ASC',
+  CompanyNameDesc = 'COMPANY_NAME_DESC',
+  CountryAsc = 'COUNTRY_ASC',
+  CountryDesc = 'COUNTRY_DESC',
+  EvaluationNotesAsc = 'EVALUATION_NOTES_ASC',
+  EvaluationNotesDesc = 'EVALUATION_NOTES_DESC',
+  GmpByWhoCertificateAsc = 'GMP_BY_WHO_CERTIFICATE_ASC',
+  GmpByWhoCertificateDesc = 'GMP_BY_WHO_CERTIFICATE_DESC',
+  GmpCertificateAsc = 'GMP_CERTIFICATE_ASC',
+  GmpCertificateDesc = 'GMP_CERTIFICATE_DESC',
+  GmpCountry_1Asc = 'GMP_COUNTRY_1_ASC',
+  GmpCountry_1Desc = 'GMP_COUNTRY_1_DESC',
+  GmpCountry_2Asc = 'GMP_COUNTRY_2_ASC',
+  GmpCountry_2Desc = 'GMP_COUNTRY_2_DESC',
+  GmpCountry_3Asc = 'GMP_COUNTRY_3_ASC',
+  GmpCountry_3Desc = 'GMP_COUNTRY_3_DESC',
+  GmpDetailsAsc = 'GMP_DETAILS_ASC',
+  GmpDetailsDesc = 'GMP_DETAILS_DESC',
+  GmpExpiry_1Asc = 'GMP_EXPIRY_1_ASC',
+  GmpExpiry_1Desc = 'GMP_EXPIRY_1_DESC',
+  GmpExpiry_2Asc = 'GMP_EXPIRY_2_ASC',
+  GmpExpiry_2Desc = 'GMP_EXPIRY_2_DESC',
+  GmpExpiry_3Asc = 'GMP_EXPIRY_3_ASC',
+  GmpExpiry_3Desc = 'GMP_EXPIRY_3_DESC',
+  GmpScopeAsc = 'GMP_SCOPE_ASC',
+  GmpScopeDesc = 'GMP_SCOPE_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  IsActiveAsc = 'IS_ACTIVE_ASC',
+  IsActiveDesc = 'IS_ACTIVE_DESC',
+  LetterOfAuthorizationAsc = 'LETTER_OF_AUTHORIZATION_ASC',
+  LetterOfAuthorizationDesc = 'LETTER_OF_AUTHORIZATION_DESC',
+  ManufacturerDatabaseIdAsc = 'MANUFACTURER_DATABASE_ID_ASC',
+  ManufacturerDatabaseIdDesc = 'MANUFACTURER_DATABASE_ID_DESC',
+  ManufacturerRegistrationIdAsc = 'MANUFACTURER_REGISTRATION_ID_ASC',
+  ManufacturerRegistrationIdDesc = 'MANUFACTURER_REGISTRATION_ID_DESC',
+  ManufacturingCompaniesAsc = 'MANUFACTURING_COMPANIES_ASC',
+  ManufacturingCompaniesDesc = 'MANUFACTURING_COMPANIES_DESC',
+  ManufacturingLicenceAsc = 'MANUFACTURING_LICENCE_ASC',
+  ManufacturingLicenceDesc = 'MANUFACTURING_LICENCE_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  Natural = 'NATURAL',
+  PrequalificationDateAsc = 'PREQUALIFICATION_DATE_ASC',
+  PrequalificationDateDesc = 'PREQUALIFICATION_DATE_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+/** A filter to be used against many `DataTableManufacturerApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableManufacturerToManyDataTableManufacturerApplicationJoinFilter = {
+  /** Every related `DataTableManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
+  /** No related `DataTableManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
+  /** Some related `DataTableManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
 };
 
 /** A connection to a list of `DataTableManufacturer` values. */
@@ -10872,6 +11468,8 @@ export enum DataTableManufacturersOrderBy {
   CountryDesc = 'COUNTRY_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  IsAdditionalAsc = 'IS_ADDITIONAL_ASC',
+  IsAdditionalDesc = 'IS_ADDITIONAL_DESC',
   ManufacturerAsc = 'MANUFACTURER_ASC',
   ManufacturerDesc = 'MANUFACTURER_DESC',
   Natural = 'NATURAL',
@@ -10881,122 +11479,116 @@ export enum DataTableManufacturersOrderBy {
 
 /** Represents an update to a `DataTable`. Fields that are set will be updated. */
 export type DataTablePatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   dataViewCode?: InputMaybe<Scalars['String']['input']>;
   displayName?: InputMaybe<Scalars['String']['input']>;
   fieldMap?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLookupTable?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   tableName?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DataTablePermitMedical = Node & {
-  __typename?: 'DataTablePermitMedical';
-  billLadingNumber?: Maybe<Scalars['String']['output']>;
+export type DataTablePermitChemical = Node & {
+  __typename?: 'DataTablePermitChemical';
+  chemicals?: Maybe<Scalars['JSON']['output']>;
+  chemicalsFilterData?: Maybe<Scalars['String']['output']>;
   companyId?: Maybe<Scalars['Int']['output']>;
   companyName?: Maybe<Scalars['String']['output']>;
-  /** Reads and enables pagination through a set of `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedicalApplicationJoins: DataTablePermitMedicalApplicationJoinsConnection;
+  /** Reads and enables pagination through a set of `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemicalApplicationJoins: DataTablePermitChemicalApplicationJoinsConnection;
   id: Scalars['Int']['output'];
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
-  nonRegisteredProducts?: Maybe<Scalars['JSON']['output']>;
-  nonRegisteredReason?: Maybe<Scalars['String']['output']>;
   permitNo?: Maybe<Scalars['String']['output']>;
-  portOfEntry?: Maybe<Scalars['String']['output']>;
-  productFilterData?: Maybe<Scalars['String']['output']>;
-  provisionalProducts?: Maybe<Scalars['JSON']['output']>;
   registrationDate?: Maybe<Scalars['Datetime']['output']>;
 };
 
 
-export type DataTablePermitMedicalDataTablePermitMedicalApplicationJoinsArgs = {
+export type DataTablePermitChemicalDataTablePermitChemicalApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTablePermitMedicalApplicationJoinCondition>;
-  filter?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
+  condition?: InputMaybe<DataTablePermitChemicalApplicationJoinCondition>;
+  filter?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinsOrderBy>>;
 };
 
-/** The `dataTablePermitMedicalApplicationJoin` to be created by this mutation. */
-export type DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyDataTablePermitMedicalApplicationJoinCreateInput = {
+/** The `dataTablePermitChemicalApplicationJoin` to be created by this mutation. */
+export type DataTablePermitChemicalApDataTablePermitChemicalIFkeyDataTablePermitChemicalApplicationJoinCreateInput = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput>;
-  dataTablePermitMedicalToDataTablePermitMedicalId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput>;
+  applicationToApplicationId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput>;
+  dataTablePermitChemicalToDataTablePermitChemicalId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** The `dataTablePermitMedical` to be created by this mutation. */
-export type DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyDataTablePermitMedicalCreateInput = {
-  billLadingNumber?: InputMaybe<Scalars['String']['input']>;
+/** The `dataTablePermitChemical` to be created by this mutation. */
+export type DataTablePermitChemicalApDataTablePermitChemicalIFkeyDataTablePermitChemicalCreateInput = {
+  chemicals?: InputMaybe<Scalars['JSON']['input']>;
+  chemicalsFilterData?: InputMaybe<Scalars['String']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  nonRegisteredProducts?: InputMaybe<Scalars['JSON']['input']>;
-  nonRegisteredReason?: InputMaybe<Scalars['String']['input']>;
   permitNo?: InputMaybe<Scalars['String']['input']>;
-  portOfEntry?: InputMaybe<Scalars['String']['input']>;
-  productFilterData?: InputMaybe<Scalars['String']['input']>;
-  provisionalProducts?: InputMaybe<Scalars['JSON']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
 };
 
-/** Input for the nested mutation of `dataTablePermitMedical` in the `DataTablePermitMedicalApplicationJoinInput` mutation. */
-export type DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput = {
-  /** The primary key(s) for `dataTablePermitMedical` for the far side of the relationship. */
-  connectById?: InputMaybe<DataTablePermitMedicalDataTablePermitMedicalPkeyConnect>;
-  /** The primary key(s) for `dataTablePermitMedical` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<DataTablePermitMedicalNodeIdConnect>;
-  /** A `DataTablePermitMedicalInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyDataTablePermitMedicalCreateInput>;
-  /** The primary key(s) for `dataTablePermitMedical` for the far side of the relationship. */
-  deleteById?: InputMaybe<DataTablePermitMedicalDataTablePermitMedicalPkeyDelete>;
-  /** The primary key(s) for `dataTablePermitMedical` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<DataTablePermitMedicalNodeIdDelete>;
-  /** The primary key(s) and patch data for `dataTablePermitMedical` for the far side of the relationship. */
-  updateById?: InputMaybe<DataTablePermitMedicalOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyUsingDataTablePermitMedicalPkeyUpdate>;
-  /** The primary key(s) and patch data for `dataTablePermitMedical` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyNodeIdUpdate>;
+/** Input for the nested mutation of `dataTablePermitChemical` in the `DataTablePermitChemicalApplicationJoinInput` mutation. */
+export type DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput = {
+  /** The primary key(s) for `dataTablePermitChemical` for the far side of the relationship. */
+  connectById?: InputMaybe<DataTablePermitChemicalDataTablePermitChemicalPkeyConnect>;
+  /** The primary key(s) for `dataTablePermitChemical` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<DataTablePermitChemicalNodeIdConnect>;
+  /** A `DataTablePermitChemicalInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyDataTablePermitChemicalCreateInput>;
+  /** The primary key(s) for `dataTablePermitChemical` for the far side of the relationship. */
+  deleteById?: InputMaybe<DataTablePermitChemicalDataTablePermitChemicalPkeyDelete>;
+  /** The primary key(s) for `dataTablePermitChemical` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<DataTablePermitChemicalNodeIdDelete>;
+  /** The primary key(s) and patch data for `dataTablePermitChemical` for the far side of the relationship. */
+  updateById?: InputMaybe<DataTablePermitChemicalOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyUsingDataTablePermitChemicalPkeyUpdate>;
+  /** The primary key(s) and patch data for `dataTablePermitChemical` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyNodeIdUpdate>;
 };
 
-/** Input for the nested mutation of `dataTablePermitMedicalApplicationJoin` in the `DataTablePermitMedicalInput` mutation. */
-export type DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInverseInput = {
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinDataTablePermitMedicalApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinNodeIdConnect>>;
-  /** A `DataTablePermitMedicalApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyDataTablePermitMedicalApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinDataTablePermitMedicalApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTablePermitMedicalApplicationJoin` records that match this relationship should be removed. */
+/** Input for the nested mutation of `dataTablePermitChemicalApplicationJoin` in the `DataTablePermitChemicalInput` mutation. */
+export type DataTablePermitChemicalApDataTablePermitChemicalIFkeyInverseInput = {
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinDataTablePermitChemicalApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinNodeIdConnect>>;
+  /** A `DataTablePermitChemicalApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTablePermitChemicalApDataTablePermitChemicalIFkeyDataTablePermitChemicalApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinDataTablePermitChemicalApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTablePermitChemicalApplicationJoin` records that match this relationship should be removed. */
   deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyUsingDataTablePermitMedicalApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<DataTablePermitMedicalOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyUsingDataTablePermitChemicalApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<DataTablePermitChemicalOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyNodeIdUpdate>>;
 };
 
-export type DataTablePermitMedicalApplicationJoin = Node & {
-  __typename?: 'DataTablePermitMedicalApplicationJoin';
-  /** Reads a single `Application` that is related to this `DataTablePermitMedicalApplicationJoin`. */
+export type DataTablePermitChemicalApplicationJoin = Node & {
+  __typename?: 'DataTablePermitChemicalApplicationJoin';
+  /** Reads a single `Application` that is related to this `DataTablePermitChemicalApplicationJoin`. */
   application?: Maybe<Application>;
   applicationId: Scalars['Int']['output'];
-  /** Reads a single `DataTablePermitMedical` that is related to this `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  dataTablePermitMedicalId: Scalars['Int']['output'];
+  /** Reads a single `DataTablePermitChemical` that is related to this `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  dataTablePermitChemicalId: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
 };
 
 /** The `application` to be created by this mutation. */
-export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyApplicationCreateInput = {
+export type DataTablePermitChemicalApplicationJoinApplicationIdFkeyApplicationCreateInput = {
   actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
   activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
   applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
@@ -11005,9 +11597,10 @@ export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyApplicationCre
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -11037,16 +11630,16 @@ export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyApplicationCre
   verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
 };
 
-/** The `dataTablePermitMedicalApplicationJoin` to be created by this mutation. */
-export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyDataTablePermitMedicalApplicationJoinCreateInput = {
-  applicationToApplicationId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput>;
-  dataTablePermitMedicalId?: InputMaybe<Scalars['Int']['input']>;
-  dataTablePermitMedicalToDataTablePermitMedicalId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput>;
+/** The `dataTablePermitChemicalApplicationJoin` to be created by this mutation. */
+export type DataTablePermitChemicalApplicationJoinApplicationIdFkeyDataTablePermitChemicalApplicationJoinCreateInput = {
+  applicationToApplicationId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput>;
+  dataTablePermitChemicalId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePermitChemicalToDataTablePermitChemicalId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** Input for the nested mutation of `application` in the `DataTablePermitMedicalApplicationJoinInput` mutation. */
-export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput = {
+/** Input for the nested mutation of `application` in the `DataTablePermitChemicalApplicationJoinInput` mutation. */
+export type DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput = {
   /** The primary key(s) for `application` for the far side of the relationship. */
   connectById?: InputMaybe<ApplicationApplicationPkeyConnect>;
   /** The primary key(s) for `application` for the far side of the relationship. */
@@ -11056,7 +11649,7 @@ export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput = {
   /** The primary key(s) for `application` for the far side of the relationship. */
   connectBySerial?: InputMaybe<ApplicationApplicationSerialKeyConnect>;
   /** A `ApplicationInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyApplicationCreateInput>;
+  create?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyApplicationCreateInput>;
   /** The primary key(s) for `application` for the far side of the relationship. */
   deleteById?: InputMaybe<ApplicationApplicationPkeyDelete>;
   /** The primary key(s) for `application` for the far side of the relationship. */
@@ -11066,166 +11659,166 @@ export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput = {
   /** The primary key(s) for `application` for the far side of the relationship. */
   deleteBySerial?: InputMaybe<ApplicationApplicationSerialKeyDelete>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateById?: InputMaybe<ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate>;
+  updateById?: InputMaybe<ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingApplicationPkeyUpdate>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyNodeIdUpdate>;
+  updateByNodeId?: InputMaybe<DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyNodeIdUpdate>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
+  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
   /** The primary key(s) and patch data for `application` for the far side of the relationship. */
-  updateBySerial?: InputMaybe<ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
+  updateBySerial?: InputMaybe<ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
 };
 
-/** Input for the nested mutation of `dataTablePermitMedicalApplicationJoin` in the `ApplicationInput` mutation. */
-export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput = {
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinDataTablePermitMedicalApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinNodeIdConnect>>;
-  /** A `DataTablePermitMedicalApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinApplicationIdFkeyDataTablePermitMedicalApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinDataTablePermitMedicalApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTablePermitMedicalApplicationJoin` records that match this relationship should be removed. */
+/** Input for the nested mutation of `dataTablePermitChemicalApplicationJoin` in the `ApplicationInput` mutation. */
+export type DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput = {
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinDataTablePermitChemicalApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinNodeIdConnect>>;
+  /** A `DataTablePermitChemicalApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinApplicationIdFkeyDataTablePermitChemicalApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinDataTablePermitChemicalApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTablePermitChemicalApplicationJoin` records that match this relationship should be removed. */
   deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingDataTablePermitMedicalApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTablePermitMedicalApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingDataTablePermitChemicalApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTablePermitChemicalApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyNodeIdUpdate>>;
 };
 
 /**
- * A condition to be used against `DataTablePermitMedicalApplicationJoin` object
+ * A condition to be used against `DataTablePermitChemicalApplicationJoin` object
  * types. All fields are tested for equality and combined with a logical ‘and.’
  */
-export type DataTablePermitMedicalApplicationJoinCondition = {
+export type DataTablePermitChemicalApplicationJoinCondition = {
   /** Checks for equality with the object’s `applicationId` field. */
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `dataTablePermitMedicalId` field. */
-  dataTablePermitMedicalId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `dataTablePermitChemicalId` field. */
+  dataTablePermitChemicalId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** The fields on `dataTablePermitMedicalApplicationJoin` to look up the row to connect. */
-export type DataTablePermitMedicalApplicationJoinDataTablePermitMedicalApplicationJoinPkeyConnect = {
+/** The fields on `dataTablePermitChemicalApplicationJoin` to look up the row to connect. */
+export type DataTablePermitChemicalApplicationJoinDataTablePermitChemicalApplicationJoinPkeyConnect = {
   id: Scalars['Int']['input'];
 };
 
-/** The fields on `dataTablePermitMedicalApplicationJoin` to look up the row to delete. */
-export type DataTablePermitMedicalApplicationJoinDataTablePermitMedicalApplicationJoinPkeyDelete = {
+/** The fields on `dataTablePermitChemicalApplicationJoin` to look up the row to delete. */
+export type DataTablePermitChemicalApplicationJoinDataTablePermitChemicalApplicationJoinPkeyDelete = {
   id: Scalars['Int']['input'];
 };
 
-/** A filter to be used against `DataTablePermitMedicalApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTablePermitMedicalApplicationJoinFilter = {
+/** A filter to be used against `DataTablePermitChemicalApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTablePermitChemicalApplicationJoinFilter = {
   /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinFilter>>;
+  and?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinFilter>>;
   /** Filter by the object’s `application` relation. */
   application?: InputMaybe<ApplicationFilter>;
   /** Filter by the object’s `applicationId` field. */
   applicationId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `dataTablePermitMedical` relation. */
-  dataTablePermitMedical?: InputMaybe<DataTablePermitMedicalFilter>;
-  /** Filter by the object’s `dataTablePermitMedicalId` field. */
-  dataTablePermitMedicalId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `dataTablePermitChemical` relation. */
+  dataTablePermitChemical?: InputMaybe<DataTablePermitChemicalFilter>;
+  /** Filter by the object’s `dataTablePermitChemicalId` field. */
+  dataTablePermitChemicalId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Negates the expression. */
-  not?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
+  not?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
   /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinFilter>>;
+  or?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinFilter>>;
 };
 
-/** An input for mutations affecting `DataTablePermitMedicalApplicationJoin` */
-export type DataTablePermitMedicalApplicationJoinInput = {
+/** An input for mutations affecting `DataTablePermitChemicalApplicationJoin` */
+export type DataTablePermitChemicalApplicationJoinInput = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput>;
-  dataTablePermitMedicalId?: InputMaybe<Scalars['Int']['input']>;
-  dataTablePermitMedicalToDataTablePermitMedicalId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput>;
+  applicationToApplicationId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput>;
+  dataTablePermitChemicalId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePermitChemicalToDataTablePermitChemicalId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
-export type DataTablePermitMedicalApplicationJoinNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedicalApplicationJoin` to be connected. */
+export type DataTablePermitChemicalApplicationJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemicalApplicationJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
 };
 
 /** The globally unique `ID` look up for the row to delete. */
-export type DataTablePermitMedicalApplicationJoinNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedicalApplicationJoin` to be deleted. */
+export type DataTablePermitChemicalApplicationJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemicalApplicationJoin` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedical` to be connected. */
+export type DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemical` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTablePermitMedical` being updated. */
-  patch: DataTablePermitMedicalPatch;
+  /** An object where the defined keys will be set on the `dataTablePermitChemical` being updated. */
+  patch: DataTablePermitChemicalPatch;
 };
 
-/** The fields on `dataTablePermitMedicalApplicationJoin` to look up the row to update. */
-export type DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyUsingDataTablePermitMedicalApplicationJoinPkeyUpdate = {
+/** The fields on `dataTablePermitChemicalApplicationJoin` to look up the row to update. */
+export type DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyUsingDataTablePermitChemicalApplicationJoinPkeyUpdate = {
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTablePermitMedicalApplicationJoin` being updated. */
-  patch: UpdateDataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyPatch;
+  /** An object where the defined keys will be set on the `dataTablePermitChemicalApplicationJoin` being updated. */
+  patch: UpdateDataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyPatch;
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyNodeIdUpdate = {
+export type DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `application` to be connected. */
   nodeId: Scalars['ID']['input'];
   /** An object where the defined keys will be set on the `application` being updated. */
   patch: ApplicationPatch;
 };
 
-/** The fields on `dataTablePermitMedicalApplicationJoin` to look up the row to update. */
-export type DataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyUsingDataTablePermitMedicalApplicationJoinPkeyUpdate = {
+/** The fields on `dataTablePermitChemicalApplicationJoin` to look up the row to update. */
+export type DataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyUsingDataTablePermitChemicalApplicationJoinPkeyUpdate = {
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTablePermitMedicalApplicationJoin` being updated. */
-  patch: UpdateDataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyPatch;
+  /** An object where the defined keys will be set on the `dataTablePermitChemicalApplicationJoin` being updated. */
+  patch: UpdateDataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyPatch;
 };
 
-/** Represents an update to a `DataTablePermitMedicalApplicationJoin`. Fields that are set will be updated. */
-export type DataTablePermitMedicalApplicationJoinPatch = {
+/** Represents an update to a `DataTablePermitChemicalApplicationJoin`. Fields that are set will be updated. */
+export type DataTablePermitChemicalApplicationJoinPatch = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput>;
-  dataTablePermitMedicalId?: InputMaybe<Scalars['Int']['input']>;
-  dataTablePermitMedicalToDataTablePermitMedicalId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput>;
+  applicationToApplicationId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput>;
+  dataTablePermitChemicalId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePermitChemicalToDataTablePermitChemicalId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** A connection to a list of `DataTablePermitMedicalApplicationJoin` values. */
-export type DataTablePermitMedicalApplicationJoinsConnection = {
-  __typename?: 'DataTablePermitMedicalApplicationJoinsConnection';
-  /** A list of edges which contains the `DataTablePermitMedicalApplicationJoin` and cursor to aid in pagination. */
-  edges: Array<DataTablePermitMedicalApplicationJoinsEdge>;
-  /** A list of `DataTablePermitMedicalApplicationJoin` objects. */
-  nodes: Array<Maybe<DataTablePermitMedicalApplicationJoin>>;
+/** A connection to a list of `DataTablePermitChemicalApplicationJoin` values. */
+export type DataTablePermitChemicalApplicationJoinsConnection = {
+  __typename?: 'DataTablePermitChemicalApplicationJoinsConnection';
+  /** A list of edges which contains the `DataTablePermitChemicalApplicationJoin` and cursor to aid in pagination. */
+  edges: Array<DataTablePermitChemicalApplicationJoinsEdge>;
+  /** A list of `DataTablePermitChemicalApplicationJoin` objects. */
+  nodes: Array<Maybe<DataTablePermitChemicalApplicationJoin>>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
-  /** The count of *all* `DataTablePermitMedicalApplicationJoin` you could get from the connection. */
+  /** The count of *all* `DataTablePermitChemicalApplicationJoin` you could get from the connection. */
   totalCount: Scalars['Int']['output'];
 };
 
-/** A `DataTablePermitMedicalApplicationJoin` edge in the connection. */
-export type DataTablePermitMedicalApplicationJoinsEdge = {
-  __typename?: 'DataTablePermitMedicalApplicationJoinsEdge';
+/** A `DataTablePermitChemicalApplicationJoin` edge in the connection. */
+export type DataTablePermitChemicalApplicationJoinsEdge = {
+  __typename?: 'DataTablePermitChemicalApplicationJoinsEdge';
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTablePermitMedicalApplicationJoin` at the end of the edge. */
-  node?: Maybe<DataTablePermitMedicalApplicationJoin>;
+  /** The `DataTablePermitChemicalApplicationJoin` at the end of the edge. */
+  node?: Maybe<DataTablePermitChemicalApplicationJoin>;
 };
 
-/** Methods to use when ordering `DataTablePermitMedicalApplicationJoin`. */
-export enum DataTablePermitMedicalApplicationJoinsOrderBy {
+/** Methods to use when ordering `DataTablePermitChemicalApplicationJoin`. */
+export enum DataTablePermitChemicalApplicationJoinsOrderBy {
   ApplicationIdAsc = 'APPLICATION_ID_ASC',
   ApplicationIdDesc = 'APPLICATION_ID_DESC',
-  DataTablePermitMedicalIdAsc = 'DATA_TABLE_PERMIT_MEDICAL_ID_ASC',
-  DataTablePermitMedicalIdDesc = 'DATA_TABLE_PERMIT_MEDICAL_ID_DESC',
+  DataTablePermitChemicalIdAsc = 'DATA_TABLE_PERMIT_CHEMICAL_ID_ASC',
+  DataTablePermitChemicalIdDesc = 'DATA_TABLE_PERMIT_CHEMICAL_ID_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
   Natural = 'NATURAL',
@@ -11234,175 +11827,153 @@ export enum DataTablePermitMedicalApplicationJoinsOrderBy {
 }
 
 /**
- * A condition to be used against `DataTablePermitMedical` object types. All fields
- * are tested for equality and combined with a logical ‘and.’
+ * A condition to be used against `DataTablePermitChemical` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
  */
-export type DataTablePermitMedicalCondition = {
-  /** Checks for equality with the object’s `billLadingNumber` field. */
-  billLadingNumber?: InputMaybe<Scalars['String']['input']>;
+export type DataTablePermitChemicalCondition = {
+  /** Checks for equality with the object’s `chemicals` field. */
+  chemicals?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `chemicalsFilterData` field. */
+  chemicalsFilterData?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `companyName` field. */
   companyName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `nonRegisteredProducts` field. */
-  nonRegisteredProducts?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `nonRegisteredReason` field. */
-  nonRegisteredReason?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `permitNo` field. */
   permitNo?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `portOfEntry` field. */
-  portOfEntry?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `productFilterData` field. */
-  productFilterData?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `provisionalProducts` field. */
-  provisionalProducts?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `registrationDate` field. */
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
 };
 
-/** The fields on `dataTablePermitMedical` to look up the row to connect. */
-export type DataTablePermitMedicalDataTablePermitMedicalPkeyConnect = {
+/** The fields on `dataTablePermitChemical` to look up the row to connect. */
+export type DataTablePermitChemicalDataTablePermitChemicalPkeyConnect = {
   id: Scalars['Int']['input'];
 };
 
-/** The fields on `dataTablePermitMedical` to look up the row to delete. */
-export type DataTablePermitMedicalDataTablePermitMedicalPkeyDelete = {
+/** The fields on `dataTablePermitChemical` to look up the row to delete. */
+export type DataTablePermitChemicalDataTablePermitChemicalPkeyDelete = {
   id: Scalars['Int']['input'];
 };
 
-/** A filter to be used against `DataTablePermitMedical` object types. All fields are combined with a logical ‘and.’ */
-export type DataTablePermitMedicalFilter = {
+/** A filter to be used against `DataTablePermitChemical` object types. All fields are combined with a logical ‘and.’ */
+export type DataTablePermitChemicalFilter = {
   /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTablePermitMedicalFilter>>;
-  /** Filter by the object’s `billLadingNumber` field. */
-  billLadingNumber?: InputMaybe<StringFilter>;
+  and?: InputMaybe<Array<DataTablePermitChemicalFilter>>;
+  /** Filter by the object’s `chemicals` field. */
+  chemicals?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `chemicalsFilterData` field. */
+  chemicalsFilterData?: InputMaybe<StringFilter>;
   /** Filter by the object’s `companyId` field. */
   companyId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `companyName` field. */
   companyName?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `dataTablePermitMedicalApplicationJoins` relation. */
-  dataTablePermitMedicalApplicationJoins?: InputMaybe<DataTablePermitMedicalToManyDataTablePermitMedicalApplicationJoinFilter>;
-  /** Some related `dataTablePermitMedicalApplicationJoins` exist. */
-  dataTablePermitMedicalApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `dataTablePermitChemicalApplicationJoins` relation. */
+  dataTablePermitChemicalApplicationJoins?: InputMaybe<DataTablePermitChemicalToManyDataTablePermitChemicalApplicationJoinFilter>;
+  /** Some related `dataTablePermitChemicalApplicationJoins` exist. */
+  dataTablePermitChemicalApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `nonRegisteredProducts` field. */
-  nonRegisteredProducts?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `nonRegisteredReason` field. */
-  nonRegisteredReason?: InputMaybe<StringFilter>;
   /** Negates the expression. */
-  not?: InputMaybe<DataTablePermitMedicalFilter>;
+  not?: InputMaybe<DataTablePermitChemicalFilter>;
   /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTablePermitMedicalFilter>>;
+  or?: InputMaybe<Array<DataTablePermitChemicalFilter>>;
   /** Filter by the object’s `permitNo` field. */
   permitNo?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `portOfEntry` field. */
-  portOfEntry?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `productFilterData` field. */
-  productFilterData?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `provisionalProducts` field. */
-  provisionalProducts?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `registrationDate` field. */
   registrationDate?: InputMaybe<DatetimeFilter>;
 };
 
-/** An input for mutations affecting `DataTablePermitMedical` */
-export type DataTablePermitMedicalInput = {
-  billLadingNumber?: InputMaybe<Scalars['String']['input']>;
+/** An input for mutations affecting `DataTablePermitChemical` */
+export type DataTablePermitChemicalInput = {
+  chemicals?: InputMaybe<Scalars['JSON']['input']>;
+  chemicalsFilterData?: InputMaybe<Scalars['String']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  nonRegisteredProducts?: InputMaybe<Scalars['JSON']['input']>;
-  nonRegisteredReason?: InputMaybe<Scalars['String']['input']>;
   permitNo?: InputMaybe<Scalars['String']['input']>;
-  portOfEntry?: InputMaybe<Scalars['String']['input']>;
-  productFilterData?: InputMaybe<Scalars['String']['input']>;
-  provisionalProducts?: InputMaybe<Scalars['JSON']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
-export type DataTablePermitMedicalNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedical` to be connected. */
+export type DataTablePermitChemicalNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemical` to be connected. */
   nodeId: Scalars['ID']['input'];
 };
 
 /** The globally unique `ID` look up for the row to delete. */
-export type DataTablePermitMedicalNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedical` to be deleted. */
+export type DataTablePermitChemicalNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemical` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type DataTablePermitMedicalOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTablePermitMedicalApplicationJoin` to be connected. */
+export type DataTablePermitChemicalOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTablePermitChemicalApplicationJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTablePermitMedicalApplicationJoin` being updated. */
-  patch: DataTablePermitMedicalApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `dataTablePermitChemicalApplicationJoin` being updated. */
+  patch: DataTablePermitChemicalApplicationJoinPatch;
 };
 
-/** The fields on `dataTablePermitMedical` to look up the row to update. */
-export type DataTablePermitMedicalOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyUsingDataTablePermitMedicalPkeyUpdate = {
+/** The fields on `dataTablePermitChemical` to look up the row to update. */
+export type DataTablePermitChemicalOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyUsingDataTablePermitChemicalPkeyUpdate = {
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTablePermitMedical` being updated. */
-  patch: UpdateDataTablePermitMedicalOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyPatch;
+  /** An object where the defined keys will be set on the `dataTablePermitChemical` being updated. */
+  patch: UpdateDataTablePermitChemicalOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyPatch;
 };
 
-/** Represents an update to a `DataTablePermitMedical`. Fields that are set will be updated. */
-export type DataTablePermitMedicalPatch = {
-  billLadingNumber?: InputMaybe<Scalars['String']['input']>;
+/** Represents an update to a `DataTablePermitChemical`. Fields that are set will be updated. */
+export type DataTablePermitChemicalPatch = {
+  chemicals?: InputMaybe<Scalars['JSON']['input']>;
+  chemicalsFilterData?: InputMaybe<Scalars['String']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  nonRegisteredProducts?: InputMaybe<Scalars['JSON']['input']>;
-  nonRegisteredReason?: InputMaybe<Scalars['String']['input']>;
   permitNo?: InputMaybe<Scalars['String']['input']>;
-  portOfEntry?: InputMaybe<Scalars['String']['input']>;
-  productFilterData?: InputMaybe<Scalars['String']['input']>;
-  provisionalProducts?: InputMaybe<Scalars['JSON']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
 };
 
-/** A filter to be used against many `DataTablePermitMedicalApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTablePermitMedicalToManyDataTablePermitMedicalApplicationJoinFilter = {
-  /** Every related `DataTablePermitMedicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
-  /** No related `DataTablePermitMedicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
-  /** Some related `DataTablePermitMedicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
+/** A filter to be used against many `DataTablePermitChemicalApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTablePermitChemicalToManyDataTablePermitChemicalApplicationJoinFilter = {
+  /** Every related `DataTablePermitChemicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
+  /** No related `DataTablePermitChemicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
+  /** Some related `DataTablePermitChemicalApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
 };
 
-/** A connection to a list of `DataTablePermitMedical` values. */
-export type DataTablePermitMedicalsConnection = {
-  __typename?: 'DataTablePermitMedicalsConnection';
-  /** A list of edges which contains the `DataTablePermitMedical` and cursor to aid in pagination. */
-  edges: Array<DataTablePermitMedicalsEdge>;
-  /** A list of `DataTablePermitMedical` objects. */
-  nodes: Array<Maybe<DataTablePermitMedical>>;
+/** A connection to a list of `DataTablePermitChemical` values. */
+export type DataTablePermitChemicalsConnection = {
+  __typename?: 'DataTablePermitChemicalsConnection';
+  /** A list of edges which contains the `DataTablePermitChemical` and cursor to aid in pagination. */
+  edges: Array<DataTablePermitChemicalsEdge>;
+  /** A list of `DataTablePermitChemical` objects. */
+  nodes: Array<Maybe<DataTablePermitChemical>>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
-  /** The count of *all* `DataTablePermitMedical` you could get from the connection. */
+  /** The count of *all* `DataTablePermitChemical` you could get from the connection. */
   totalCount: Scalars['Int']['output'];
 };
 
-/** A `DataTablePermitMedical` edge in the connection. */
-export type DataTablePermitMedicalsEdge = {
-  __typename?: 'DataTablePermitMedicalsEdge';
+/** A `DataTablePermitChemical` edge in the connection. */
+export type DataTablePermitChemicalsEdge = {
+  __typename?: 'DataTablePermitChemicalsEdge';
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTablePermitMedical` at the end of the edge. */
-  node?: Maybe<DataTablePermitMedical>;
+  /** The `DataTablePermitChemical` at the end of the edge. */
+  node?: Maybe<DataTablePermitChemical>;
 };
 
-/** Methods to use when ordering `DataTablePermitMedical`. */
-export enum DataTablePermitMedicalsOrderBy {
-  BillLadingNumberAsc = 'BILL_LADING_NUMBER_ASC',
-  BillLadingNumberDesc = 'BILL_LADING_NUMBER_DESC',
+/** Methods to use when ordering `DataTablePermitChemical`. */
+export enum DataTablePermitChemicalsOrderBy {
+  ChemicalsAsc = 'CHEMICALS_ASC',
+  ChemicalsDesc = 'CHEMICALS_DESC',
+  ChemicalsFilterDataAsc = 'CHEMICALS_FILTER_DATA_ASC',
+  ChemicalsFilterDataDesc = 'CHEMICALS_FILTER_DATA_DESC',
   CompanyIdAsc = 'COMPANY_ID_ASC',
   CompanyIdDesc = 'COMPANY_ID_DESC',
   CompanyNameAsc = 'COMPANY_NAME_ASC',
@@ -11410,20 +11981,10 @@ export enum DataTablePermitMedicalsOrderBy {
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
   Natural = 'NATURAL',
-  NonRegisteredProductsAsc = 'NON_REGISTERED_PRODUCTS_ASC',
-  NonRegisteredProductsDesc = 'NON_REGISTERED_PRODUCTS_DESC',
-  NonRegisteredReasonAsc = 'NON_REGISTERED_REASON_ASC',
-  NonRegisteredReasonDesc = 'NON_REGISTERED_REASON_DESC',
   PermitNoAsc = 'PERMIT_NO_ASC',
   PermitNoDesc = 'PERMIT_NO_DESC',
-  PortOfEntryAsc = 'PORT_OF_ENTRY_ASC',
-  PortOfEntryDesc = 'PORT_OF_ENTRY_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
-  ProductFilterDataAsc = 'PRODUCT_FILTER_DATA_ASC',
-  ProductFilterDataDesc = 'PRODUCT_FILTER_DATA_DESC',
-  ProvisionalProductsAsc = 'PROVISIONAL_PRODUCTS_ASC',
-  ProvisionalProductsDesc = 'PROVISIONAL_PRODUCTS_DESC',
   RegistrationDateAsc = 'REGISTRATION_DATE_ASC',
   RegistrationDateDesc = 'REGISTRATION_DATE_DESC'
 }
@@ -11695,140 +12256,678 @@ export enum DataTablePreRegisteredProductsProvisionalsOrderBy {
   TradeNameDesc = 'TRADE_NAME_DESC'
 }
 
-export type DataTablePrimaryContainer = Node & {
-  __typename?: 'DataTablePrimaryContainer';
-  code?: Maybe<Scalars['String']['output']>;
+/** The `dataTablePrequalManufacturerApplicationJoin` to be created by this mutation. */
+export type DataTablePrequalManufacturDataTablePrequalManufactuFkeyDataTablePrequalManufacturerApplicationJoinCreateInput = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInput>;
+  dataTablePrequalManufacturerToDataTablePrequalManufacturerId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `dataTablePrequalManufacturer` to be created by this mutation. */
+export type DataTablePrequalManufacturDataTablePrequalManufactuFkeyDataTablePrequalManufacturerCreateInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInverseInput>;
+  dateIssued?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  lookupId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  permitNo?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** Input for the nested mutation of `dataTablePrequalManufacturer` in the `DataTablePrequalManufacturerApplicationJoinInput` mutation. */
+export type DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput = {
+  /** The primary key(s) for `dataTablePrequalManufacturer` for the far side of the relationship. */
+  connectById?: InputMaybe<DataTablePrequalManufacturerDataTablePrequalManufacturerPkeyConnect>;
+  /** The primary key(s) for `dataTablePrequalManufacturer` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<DataTablePrequalManufacturerNodeIdConnect>;
+  /** A `DataTablePrequalManufacturerInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyDataTablePrequalManufacturerCreateInput>;
+  /** The primary key(s) for `dataTablePrequalManufacturer` for the far side of the relationship. */
+  deleteById?: InputMaybe<DataTablePrequalManufacturerDataTablePrequalManufacturerPkeyDelete>;
+  /** The primary key(s) for `dataTablePrequalManufacturer` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<DataTablePrequalManufacturerNodeIdDelete>;
+  /** The primary key(s) and patch data for `dataTablePrequalManufacturer` for the far side of the relationship. */
+  updateById?: InputMaybe<DataTablePrequalManufacturerOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyUsingDataTablePrequalManufacturerPkeyUpdate>;
+  /** The primary key(s) and patch data for `dataTablePrequalManufacturer` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `dataTablePrequalManufacturerApplicationJoin` in the `DataTablePrequalManufacturerInput` mutation. */
+export type DataTablePrequalManufacturDataTablePrequalManufactuFkeyInverseInput = {
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinDataTablePrequalManufacturerApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinNodeIdConnect>>;
+  /** A `DataTablePrequalManufacturerApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTablePrequalManufacturDataTablePrequalManufactuFkeyDataTablePrequalManufacturerApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinDataTablePrequalManufacturerApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTablePrequalManufacturerApplicationJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyUsingDataTablePrequalManufacturerApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<DataTablePrequalManufacturerOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyNodeIdUpdate>>;
+};
+
+export type DataTablePrequalManufacturer = Node & {
+  __typename?: 'DataTablePrequalManufacturer';
+  address?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  /** Reads and enables pagination through a set of `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturerApplicationJoins: DataTablePrequalManufacturerApplicationJoinsConnection;
+  dateIssued?: Maybe<Scalars['String']['output']>;
+  gmpDetails?: Maybe<Scalars['JSON']['output']>;
+  gmpScope?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['Int']['output'];
+  isActive?: Maybe<Scalars['Boolean']['output']>;
+  lookupId?: Maybe<Scalars['Int']['output']>;
+  manufacturerId?: Maybe<Scalars['String']['output']>;
+  manufacturingLicence?: Maybe<Scalars['JSON']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  permitNo?: Maybe<Scalars['String']['output']>;
+  prequalificationDate?: Maybe<Scalars['Datetime']['output']>;
+};
+
+
+export type DataTablePrequalManufacturerDataTablePrequalManufacturerApplicationJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTablePrequalManufacturerApplicationJoinCondition>;
+  filter?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinsOrderBy>>;
+};
+
+/** The `application` to be created by this mutation. */
+export type DataTablePrequalManufacturerApplicationApplicationIdFkeyApplicationCreateInput = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
+  activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
+  applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
+  applicationResponsesUsingId?: InputMaybe<ApplicationResponseApplicationIdFkeyInverseInput>;
+  applicationReviewerActionsUsingId?: InputMaybe<ApplicationReviewerActionApplicationIdFkeyInverseInput>;
+  applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
+  assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
+  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
+  filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isConfig?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  notificationsUsingId?: InputMaybe<NotificationApplicationIdFkeyInverseInput>;
+  orgId?: InputMaybe<Scalars['Int']['input']>;
+  organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinApplicationIdFkeyInverseInput>;
+  organisationToOrgId?: InputMaybe<ApplicationOrgIdFkeyInput>;
+  outcome?: InputMaybe<ApplicationOutcome>;
+  outcomeRegistration?: InputMaybe<Scalars['String']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentApplicationIdFkeyInverseInput>;
+  reviewerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  reviewsUsingId?: InputMaybe<ReviewApplicationIdFkeyInverseInput>;
+  serial?: InputMaybe<Scalars['String']['input']>;
+  sessionId?: InputMaybe<Scalars['String']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<ApplicationTemplateIdFkeyInput>;
+  trigger?: InputMaybe<Trigger>;
+  triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
+  userId?: InputMaybe<Scalars['Int']['input']>;
+  userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
+  verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
+};
+
+/** The `dataTablePrequalManufacturerApplicationJoin` to be created by this mutation. */
+export type DataTablePrequalManufacturerApplicationApplicationIdFkeyDataTablePrequalManufacturerApplicationJoinCreateInput = {
+  applicationToApplicationId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInput>;
+  dataTablePrequalManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePrequalManufacturerToDataTablePrequalManufacturerId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** Input for the nested mutation of `application` in the `DataTablePrequalManufacturerApplicationJoinInput` mutation. */
+export type DataTablePrequalManufacturerApplicationApplicationIdFkeyInput = {
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectById?: InputMaybe<ApplicationApplicationPkeyConnect>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<ApplicationNodeIdConnect>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectByOutcomeRegistration?: InputMaybe<ApplicationApplicationOutcomeRegistrationKeyConnect>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  connectBySerial?: InputMaybe<ApplicationApplicationSerialKeyConnect>;
+  /** A `ApplicationInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyApplicationCreateInput>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteById?: InputMaybe<ApplicationApplicationPkeyDelete>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<ApplicationNodeIdDelete>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteByOutcomeRegistration?: InputMaybe<ApplicationApplicationOutcomeRegistrationKeyDelete>;
+  /** The primary key(s) for `application` for the far side of the relationship. */
+  deleteBySerial?: InputMaybe<ApplicationApplicationSerialKeyDelete>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateById?: InputMaybe<ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingApplicationPkeyUpdate>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyNodeIdUpdate>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateByOutcomeRegistration?: InputMaybe<ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingApplicationOutcomeRegistrationKeyUpdate>;
+  /** The primary key(s) and patch data for `application` for the far side of the relationship. */
+  updateBySerial?: InputMaybe<ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingApplicationSerialKeyUpdate>;
+};
+
+/** Input for the nested mutation of `dataTablePrequalManufacturerApplicationJoin` in the `ApplicationInput` mutation. */
+export type DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput = {
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinDataTablePrequalManufacturerApplicationJoinPkeyConnect>>;
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinNodeIdConnect>>;
+  /** A `DataTablePrequalManufacturerApplicationJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<DataTablePrequalManufacturerApplicationApplicationIdFkeyDataTablePrequalManufacturerApplicationJoinCreateInput>>;
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinDataTablePrequalManufacturerApplicationJoinPkeyDelete>>;
+  /** The primary key(s) for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinNodeIdDelete>>;
+  /** Flag indicating whether all other `dataTablePrequalManufacturerApplicationJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingDataTablePrequalManufacturerApplicationJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `dataTablePrequalManufacturerApplicationJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<ApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyNodeIdUpdate>>;
+};
+
+export type DataTablePrequalManufacturerApplicationJoin = Node & {
+  __typename?: 'DataTablePrequalManufacturerApplicationJoin';
+  /** Reads a single `Application` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  application?: Maybe<Application>;
+  applicationId: Scalars['Int']['output'];
+  /** Reads a single `DataTablePrequalManufacturer` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  dataTablePrequalManufacturerId: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
 };
 
 /**
- * A condition to be used against `DataTablePrimaryContainer` object types. All
- * fields are tested for equality and combined with a logical ‘and.’
+ * A condition to be used against `DataTablePrequalManufacturerApplicationJoin`
+ * object types. All fields are tested for equality and combined with a logical ‘and.’
  */
-export type DataTablePrimaryContainerCondition = {
-  /** Checks for equality with the object’s `code` field. */
-  code?: InputMaybe<Scalars['String']['input']>;
+export type DataTablePrequalManufacturerApplicationJoinCondition = {
+  /** Checks for equality with the object’s `applicationId` field. */
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `dataTablePrequalManufacturerId` field. */
+  dataTablePrequalManufacturerId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** A filter to be used against `DataTablePrimaryContainer` object types. All fields are combined with a logical ‘and.’ */
-export type DataTablePrimaryContainerFilter = {
+/** The fields on `dataTablePrequalManufacturerApplicationJoin` to look up the row to connect. */
+export type DataTablePrequalManufacturerApplicationJoinDataTablePrequalManufacturerApplicationJoinPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataTablePrequalManufacturerApplicationJoin` to look up the row to delete. */
+export type DataTablePrequalManufacturerApplicationJoinDataTablePrequalManufacturerApplicationJoinPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** A filter to be used against `DataTablePrequalManufacturerApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTablePrequalManufacturerApplicationJoinFilter = {
   /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<DataTablePrimaryContainerFilter>>;
-  /** Filter by the object’s `code` field. */
-  code?: InputMaybe<StringFilter>;
+  and?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinFilter>>;
+  /** Filter by the object’s `application` relation. */
+  application?: InputMaybe<ApplicationFilter>;
+  /** Filter by the object’s `applicationId` field. */
+  applicationId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `dataTablePrequalManufacturer` relation. */
+  dataTablePrequalManufacturer?: InputMaybe<DataTablePrequalManufacturerFilter>;
+  /** Filter by the object’s `dataTablePrequalManufacturerId` field. */
+  dataTablePrequalManufacturerId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `name` field. */
-  name?: InputMaybe<StringFilter>;
   /** Negates the expression. */
-  not?: InputMaybe<DataTablePrimaryContainerFilter>;
+  not?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
   /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<DataTablePrimaryContainerFilter>>;
+  or?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinFilter>>;
 };
 
-/** An input for mutations affecting `DataTablePrimaryContainer` */
-export type DataTablePrimaryContainerInput = {
-  code?: InputMaybe<Scalars['String']['input']>;
+/** An input for mutations affecting `DataTablePrequalManufacturerApplicationJoin` */
+export type DataTablePrequalManufacturerApplicationJoinInput = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInput>;
+  dataTablePrequalManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePrequalManufacturerToDataTablePrequalManufacturerId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** Represents an update to a `DataTablePrimaryContainer`. Fields that are set will be updated. */
-export type DataTablePrimaryContainerPatch = {
-  code?: InputMaybe<Scalars['String']['input']>;
+/** The globally unique `ID` look up for the row to connect. */
+export type DataTablePrequalManufacturerApplicationJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturerApplicationJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataTablePrequalManufacturerApplicationJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturerApplicationJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturer` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTablePrequalManufacturer` being updated. */
+  patch: DataTablePrequalManufacturerPatch;
+};
+
+/** The fields on `dataTablePrequalManufacturerApplicationJoin` to look up the row to update. */
+export type DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyUsingDataTablePrequalManufacturerApplicationJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTablePrequalManufacturerApplicationJoin` being updated. */
+  patch: UpdateDataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `application` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `application` being updated. */
+  patch: ApplicationPatch;
+};
+
+/** The fields on `dataTablePrequalManufacturerApplicationJoin` to look up the row to update. */
+export type DataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyUsingDataTablePrequalManufacturerApplicationJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTablePrequalManufacturerApplicationJoin` being updated. */
+  patch: UpdateDataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyPatch;
+};
+
+/** Represents an update to a `DataTablePrequalManufacturerApplicationJoin`. Fields that are set will be updated. */
+export type DataTablePrequalManufacturerApplicationJoinPatch = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInput>;
+  dataTablePrequalManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePrequalManufacturerToDataTablePrequalManufacturerId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** A connection to a list of `DataTablePrimaryContainer` values. */
-export type DataTablePrimaryContainersConnection = {
-  __typename?: 'DataTablePrimaryContainersConnection';
-  /** A list of edges which contains the `DataTablePrimaryContainer` and cursor to aid in pagination. */
-  edges: Array<DataTablePrimaryContainersEdge>;
-  /** A list of `DataTablePrimaryContainer` objects. */
-  nodes: Array<Maybe<DataTablePrimaryContainer>>;
+/** A connection to a list of `DataTablePrequalManufacturerApplicationJoin` values. */
+export type DataTablePrequalManufacturerApplicationJoinsConnection = {
+  __typename?: 'DataTablePrequalManufacturerApplicationJoinsConnection';
+  /** A list of edges which contains the `DataTablePrequalManufacturerApplicationJoin` and cursor to aid in pagination. */
+  edges: Array<DataTablePrequalManufacturerApplicationJoinsEdge>;
+  /** A list of `DataTablePrequalManufacturerApplicationJoin` objects. */
+  nodes: Array<Maybe<DataTablePrequalManufacturerApplicationJoin>>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
-  /** The count of *all* `DataTablePrimaryContainer` you could get from the connection. */
+  /** The count of *all* `DataTablePrequalManufacturerApplicationJoin` you could get from the connection. */
   totalCount: Scalars['Int']['output'];
 };
 
-/** A `DataTablePrimaryContainer` edge in the connection. */
-export type DataTablePrimaryContainersEdge = {
-  __typename?: 'DataTablePrimaryContainersEdge';
+/** A `DataTablePrequalManufacturerApplicationJoin` edge in the connection. */
+export type DataTablePrequalManufacturerApplicationJoinsEdge = {
+  __typename?: 'DataTablePrequalManufacturerApplicationJoinsEdge';
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars['Cursor']['output']>;
-  /** The `DataTablePrimaryContainer` at the end of the edge. */
-  node?: Maybe<DataTablePrimaryContainer>;
+  /** The `DataTablePrequalManufacturerApplicationJoin` at the end of the edge. */
+  node?: Maybe<DataTablePrequalManufacturerApplicationJoin>;
 };
 
-/** Methods to use when ordering `DataTablePrimaryContainer`. */
-export enum DataTablePrimaryContainersOrderBy {
-  CodeAsc = 'CODE_ASC',
-  CodeDesc = 'CODE_DESC',
+/** Methods to use when ordering `DataTablePrequalManufacturerApplicationJoin`. */
+export enum DataTablePrequalManufacturerApplicationJoinsOrderBy {
+  ApplicationIdAsc = 'APPLICATION_ID_ASC',
+  ApplicationIdDesc = 'APPLICATION_ID_DESC',
+  DataTablePrequalManufacturerIdAsc = 'DATA_TABLE_PREQUAL_MANUFACTURER_ID_ASC',
+  DataTablePrequalManufacturerIdDesc = 'DATA_TABLE_PREQUAL_MANUFACTURER_ID_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
-  NameAsc = 'NAME_ASC',
-  NameDesc = 'NAME_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
+/**
+ * A condition to be used against `DataTablePrequalManufacturer` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTablePrequalManufacturerCondition = {
+  /** Checks for equality with the object’s `address` field. */
+  address?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `country` field. */
+  country?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `dateIssued` field. */
+  dateIssued?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `gmpDetails` field. */
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `gmpScope` field. */
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `isActive` field. */
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lookupId` field. */
+  lookupId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `manufacturerId` field. */
+  manufacturerId?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `manufacturingLicence` field. */
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `permitNo` field. */
+  permitNo?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `prequalificationDate` field. */
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The fields on `dataTablePrequalManufacturer` to look up the row to connect. */
+export type DataTablePrequalManufacturerDataTablePrequalManufacturerPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataTablePrequalManufacturer` to look up the row to delete. */
+export type DataTablePrequalManufacturerDataTablePrequalManufacturerPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** A filter to be used against `DataTablePrequalManufacturer` object types. All fields are combined with a logical ‘and.’ */
+export type DataTablePrequalManufacturerFilter = {
+  /** Filter by the object’s `address` field. */
+  address?: InputMaybe<StringFilter>;
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTablePrequalManufacturerFilter>>;
+  /** Filter by the object’s `country` field. */
+  country?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `dataTablePrequalManufacturerApplicationJoins` relation. */
+  dataTablePrequalManufacturerApplicationJoins?: InputMaybe<DataTablePrequalManufacturerToManyDataTablePrequalManufacturerApplicationJoinFilter>;
+  /** Some related `dataTablePrequalManufacturerApplicationJoins` exist. */
+  dataTablePrequalManufacturerApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `dateIssued` field. */
+  dateIssued?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `gmpDetails` field. */
+  gmpDetails?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `gmpScope` field. */
+  gmpScope?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `isActive` field. */
+  isActive?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lookupId` field. */
+  lookupId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `manufacturerId` field. */
+  manufacturerId?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `manufacturingLicence` field. */
+  manufacturingLicence?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: InputMaybe<StringFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTablePrequalManufacturerFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTablePrequalManufacturerFilter>>;
+  /** Filter by the object’s `permitNo` field. */
+  permitNo?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `prequalificationDate` field. */
+  prequalificationDate?: InputMaybe<DatetimeFilter>;
+};
+
+/** An input for mutations affecting `DataTablePrequalManufacturer` */
+export type DataTablePrequalManufacturerInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInverseInput>;
+  dateIssued?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  lookupId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  permitNo?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DataTablePrequalManufacturerNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturer` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataTablePrequalManufacturerNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturer` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataTablePrequalManufacturerOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataTablePrequalManufacturerApplicationJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataTablePrequalManufacturerApplicationJoin` being updated. */
+  patch: DataTablePrequalManufacturerApplicationJoinPatch;
+};
+
+/** The fields on `dataTablePrequalManufacturer` to look up the row to update. */
+export type DataTablePrequalManufacturerOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyUsingDataTablePrequalManufacturerPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataTablePrequalManufacturer` being updated. */
+  patch: UpdateDataTablePrequalManufacturerOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyPatch;
+};
+
+/** Represents an update to a `DataTablePrequalManufacturer`. Fields that are set will be updated. */
+export type DataTablePrequalManufacturerPatch = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInverseInput>;
+  dateIssued?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  lookupId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  permitNo?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** A filter to be used against many `DataTablePrequalManufacturerApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataTablePrequalManufacturerToManyDataTablePrequalManufacturerApplicationJoinFilter = {
+  /** Every related `DataTablePrequalManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+  /** No related `DataTablePrequalManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+  /** Some related `DataTablePrequalManufacturerApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
+};
+
+/** A connection to a list of `DataTablePrequalManufacturer` values. */
+export type DataTablePrequalManufacturersConnection = {
+  __typename?: 'DataTablePrequalManufacturersConnection';
+  /** A list of edges which contains the `DataTablePrequalManufacturer` and cursor to aid in pagination. */
+  edges: Array<DataTablePrequalManufacturersEdge>;
+  /** A list of `DataTablePrequalManufacturer` objects. */
+  nodes: Array<Maybe<DataTablePrequalManufacturer>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTablePrequalManufacturer` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTablePrequalManufacturer` edge in the connection. */
+export type DataTablePrequalManufacturersEdge = {
+  __typename?: 'DataTablePrequalManufacturersEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTablePrequalManufacturer` at the end of the edge. */
+  node?: Maybe<DataTablePrequalManufacturer>;
+};
+
+/** Methods to use when ordering `DataTablePrequalManufacturer`. */
+export enum DataTablePrequalManufacturersOrderBy {
+  AddressAsc = 'ADDRESS_ASC',
+  AddressDesc = 'ADDRESS_DESC',
+  CountryAsc = 'COUNTRY_ASC',
+  CountryDesc = 'COUNTRY_DESC',
+  DateIssuedAsc = 'DATE_ISSUED_ASC',
+  DateIssuedDesc = 'DATE_ISSUED_DESC',
+  GmpDetailsAsc = 'GMP_DETAILS_ASC',
+  GmpDetailsDesc = 'GMP_DETAILS_DESC',
+  GmpScopeAsc = 'GMP_SCOPE_ASC',
+  GmpScopeDesc = 'GMP_SCOPE_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  IsActiveAsc = 'IS_ACTIVE_ASC',
+  IsActiveDesc = 'IS_ACTIVE_DESC',
+  LookupIdAsc = 'LOOKUP_ID_ASC',
+  LookupIdDesc = 'LOOKUP_ID_DESC',
+  ManufacturerIdAsc = 'MANUFACTURER_ID_ASC',
+  ManufacturerIdDesc = 'MANUFACTURER_ID_DESC',
+  ManufacturingLicenceAsc = 'MANUFACTURING_LICENCE_ASC',
+  ManufacturingLicenceDesc = 'MANUFACTURING_LICENCE_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  Natural = 'NATURAL',
+  PermitNoAsc = 'PERMIT_NO_ASC',
+  PermitNoDesc = 'PERMIT_NO_DESC',
+  PrequalificationDateAsc = 'PREQUALIFICATION_DATE_ASC',
+  PrequalificationDateDesc = 'PREQUALIFICATION_DATE_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+export type DataTableProcessingStep = Node & {
+  __typename?: 'DataTableProcessingStep';
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  processingStep?: Maybe<Scalars['String']['output']>;
+};
+
+/**
+ * A condition to be used against `DataTableProcessingStep` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableProcessingStepCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `processingStep` field. */
+  processingStep?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A filter to be used against `DataTableProcessingStep` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableProcessingStepFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableProcessingStepFilter>>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableProcessingStepFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableProcessingStepFilter>>;
+  /** Filter by the object’s `processingStep` field. */
+  processingStep?: InputMaybe<StringFilter>;
+};
+
+/** An input for mutations affecting `DataTableProcessingStep` */
+export type DataTableProcessingStepInput = {
+  id?: InputMaybe<Scalars['Int']['input']>;
+  processingStep?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Represents an update to a `DataTableProcessingStep`. Fields that are set will be updated. */
+export type DataTableProcessingStepPatch = {
+  id?: InputMaybe<Scalars['Int']['input']>;
+  processingStep?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A connection to a list of `DataTableProcessingStep` values. */
+export type DataTableProcessingStepsConnection = {
+  __typename?: 'DataTableProcessingStepsConnection';
+  /** A list of edges which contains the `DataTableProcessingStep` and cursor to aid in pagination. */
+  edges: Array<DataTableProcessingStepsEdge>;
+  /** A list of `DataTableProcessingStep` objects. */
+  nodes: Array<Maybe<DataTableProcessingStep>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableProcessingStep` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableProcessingStep` edge in the connection. */
+export type DataTableProcessingStepsEdge = {
+  __typename?: 'DataTableProcessingStepsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableProcessingStep` at the end of the edge. */
+  node?: Maybe<DataTableProcessingStep>;
+};
+
+/** Methods to use when ordering `DataTableProcessingStep`. */
+export enum DataTableProcessingStepsOrderBy {
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  ProcessingStepAsc = 'PROCESSING_STEP_ASC',
+  ProcessingStepDesc = 'PROCESSING_STEP_DESC'
+}
+
 export type DataTableProduct = Node & {
   __typename?: 'DataTableProduct';
+  activeIngredientsManufacturers?: Maybe<Scalars['String']['output']>;
+  activeSubstances?: Maybe<Scalars['JSON']['output']>;
   administrationUnit?: Maybe<Scalars['String']['output']>;
-  applicantId?: Maybe<Scalars['Int']['output']>;
-  applicationLevel?: Maybe<Scalars['String']['output']>;
-  atcCode?: Maybe<Scalars['JSON']['output']>;
+  atcCategory?: Maybe<Scalars['String']['output']>;
+  atcCode?: Maybe<Scalars['String']['output']>;
+  companyAddress?: Maybe<Scalars['String']['output']>;
   companyId?: Maybe<Scalars['Int']['output']>;
   companyName?: Maybe<Scalars['String']['output']>;
-  /** Reads and enables pagination through a set of `DataTableProductApplicationJoin`. */
-  dataTableProductApplicationJoins: DataTableProductApplicationJoinsConnection;
+  companyPhone?: Maybe<Scalars['String']['output']>;
+  componentFormulation?: Maybe<Scalars['String']['output']>;
   dosageForm?: Maybe<Scalars['String']['output']>;
   dosageFormDescription?: Maybe<Scalars['String']['output']>;
   expiryDate?: Maybe<Scalars['Datetime']['output']>;
-  formulations?: Maybe<Scalars['JSON']['output']>;
-  genericName?: Maybe<Scalars['String']['output']>;
-  gmpDetails?: Maybe<Scalars['JSON']['output']>;
+  finishedProductManufacturers?: Maybe<Scalars['String']['output']>;
+  formulations?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
-  isActive?: Maybe<Scalars['Boolean']['output']>;
-  manufacturersActiveIngredients?: Maybe<Scalars['JSON']['output']>;
-  manufacturersAdditional?: Maybe<Scalars['JSON']['output']>;
-  manufacturersFinishedProduct?: Maybe<Scalars['JSON']['output']>;
-  medicalProductClassification?: Maybe<Scalars['String']['output']>;
+  importerAddress?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  nationalMedicalClassification?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
-  origin?: Maybe<Scalars['String']['output']>;
   packagingDescription?: Maybe<Scalars['String']['output']>;
   packagingSizes?: Maybe<Scalars['JSON']['output']>;
   primaryContainer?: Maybe<Scalars['String']['output']>;
-  productId?: Maybe<Scalars['String']['output']>;
-  productRegistrationCert?: Maybe<Scalars['JSON']['output']>;
+  productOrigin?: Maybe<Scalars['String']['output']>;
   proposedIndications?: Maybe<Scalars['String']['output']>;
   registrationDate?: Maybe<Scalars['Datetime']['output']>;
+  registrationSerial?: Maybe<Scalars['String']['output']>;
   routeOfAdministration?: Maybe<Scalars['String']['output']>;
   shelfLife?: Maybe<Scalars['String']['output']>;
-  tradeName?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type DataTableProductDataTableProductApplicationJoinsArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableProductApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableProductApplicationJoinFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableProductApplicationJoinsOrderBy>>;
+  sra?: Maybe<Scalars['String']['output']>;
+  storageTemperature?: Maybe<Scalars['String']['output']>;
 };
 
 export type DataTableProductApplicationJoin = Node & {
@@ -11836,8 +12935,6 @@ export type DataTableProductApplicationJoin = Node & {
   /** Reads a single `Application` that is related to this `DataTableProductApplicationJoin`. */
   application?: Maybe<Application>;
   applicationId: Scalars['Int']['output'];
-  /** Reads a single `DataTableProduct` that is related to this `DataTableProductApplicationJoin`. */
-  dataTableProduct?: Maybe<DataTableProduct>;
   dataTableProductId: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -11854,9 +12951,10 @@ export type DataTableProductApplicationJoinApplicationIdFkeyApplicationCreateInp
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -11889,8 +12987,7 @@ export type DataTableProductApplicationJoinApplicationIdFkeyApplicationCreateInp
 /** The `dataTableProductApplicationJoin` to be created by this mutation. */
 export type DataTableProductApplicationJoinApplicationIdFkeyDataTableProductApplicationJoinCreateInput = {
   applicationToApplicationId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInput>;
-  dataTableProductId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableProductToDataTableProductId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInput>;
+  dataTableProductId: Scalars['Int']['input'];
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
@@ -11967,86 +13064,6 @@ export type DataTableProductApplicationJoinDataTableProductApplicationJoinPkeyDe
   id: Scalars['Int']['input'];
 };
 
-/** The `dataTableProductApplicationJoin` to be created by this mutation. */
-export type DataTableProductApplicationJoinDataTableProductIdFkeyDataTableProductApplicationJoinCreateInput = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInput>;
-  dataTableProductToDataTableProductId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** The `dataTableProduct` to be created by this mutation. */
-export type DataTableProductApplicationJoinDataTableProductIdFkeyDataTableProductCreateInput = {
-  administrationUnit?: InputMaybe<Scalars['String']['input']>;
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  applicationLevel?: InputMaybe<Scalars['String']['input']>;
-  atcCode?: InputMaybe<Scalars['JSON']['input']>;
-  companyId?: InputMaybe<Scalars['Int']['input']>;
-  companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInverseInput>;
-  dosageForm?: InputMaybe<Scalars['String']['input']>;
-  dosageFormDescription?: InputMaybe<Scalars['String']['input']>;
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  formulations?: InputMaybe<Scalars['JSON']['input']>;
-  genericName?: InputMaybe<Scalars['String']['input']>;
-  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  manufacturersActiveIngredients?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersAdditional?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersFinishedProduct?: InputMaybe<Scalars['JSON']['input']>;
-  medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
-  origin?: InputMaybe<Scalars['String']['input']>;
-  packagingDescription?: InputMaybe<Scalars['String']['input']>;
-  packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
-  primaryContainer?: InputMaybe<Scalars['String']['input']>;
-  productId?: InputMaybe<Scalars['String']['input']>;
-  productRegistrationCert?: InputMaybe<Scalars['JSON']['input']>;
-  proposedIndications?: InputMaybe<Scalars['String']['input']>;
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
-  shelfLife?: InputMaybe<Scalars['String']['input']>;
-  tradeName?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** Input for the nested mutation of `dataTableProduct` in the `DataTableProductApplicationJoinInput` mutation. */
-export type DataTableProductApplicationJoinDataTableProductIdFkeyInput = {
-  /** The primary key(s) for `dataTableProduct` for the far side of the relationship. */
-  connectById?: InputMaybe<DataTableProductDataTableProductPkeyConnect>;
-  /** The primary key(s) for `dataTableProduct` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<DataTableProductNodeIdConnect>;
-  /** A `DataTableProductInput` object that will be created and connected to this object. */
-  create?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyDataTableProductCreateInput>;
-  /** The primary key(s) for `dataTableProduct` for the far side of the relationship. */
-  deleteById?: InputMaybe<DataTableProductDataTableProductPkeyDelete>;
-  /** The primary key(s) for `dataTableProduct` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<DataTableProductNodeIdDelete>;
-  /** The primary key(s) and patch data for `dataTableProduct` for the far side of the relationship. */
-  updateById?: InputMaybe<DataTableProductOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyUsingDataTableProductPkeyUpdate>;
-  /** The primary key(s) and patch data for `dataTableProduct` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<DataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyNodeIdUpdate>;
-};
-
-/** Input for the nested mutation of `dataTableProductApplicationJoin` in the `DataTableProductInput` mutation. */
-export type DataTableProductApplicationJoinDataTableProductIdFkeyInverseInput = {
-  /** The primary key(s) for `dataTableProductApplicationJoin` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<DataTableProductApplicationJoinDataTableProductApplicationJoinPkeyConnect>>;
-  /** The primary key(s) for `dataTableProductApplicationJoin` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<DataTableProductApplicationJoinNodeIdConnect>>;
-  /** A `DataTableProductApplicationJoinInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<DataTableProductApplicationJoinDataTableProductIdFkeyDataTableProductApplicationJoinCreateInput>>;
-  /** The primary key(s) for `dataTableProductApplicationJoin` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<DataTableProductApplicationJoinDataTableProductApplicationJoinPkeyDelete>>;
-  /** The primary key(s) for `dataTableProductApplicationJoin` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<DataTableProductApplicationJoinNodeIdDelete>>;
-  /** Flag indicating whether all other `dataTableProductApplicationJoin` records that match this relationship should be removed. */
-  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `dataTableProductApplicationJoin` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<DataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyUsingDataTableProductApplicationJoinPkeyUpdate>>;
-  /** The primary key(s) and patch data for `dataTableProductApplicationJoin` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<DataTableProductOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyNodeIdUpdate>>;
-};
-
 /** A filter to be used against `DataTableProductApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
 export type DataTableProductApplicationJoinFilter = {
   /** Checks for all expressions in this list. */
@@ -12055,8 +13072,6 @@ export type DataTableProductApplicationJoinFilter = {
   application?: InputMaybe<ApplicationFilter>;
   /** Filter by the object’s `applicationId` field. */
   applicationId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `dataTableProduct` relation. */
-  dataTableProduct?: InputMaybe<DataTableProductFilter>;
   /** Filter by the object’s `dataTableProductId` field. */
   dataTableProductId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `id` field. */
@@ -12071,8 +13086,7 @@ export type DataTableProductApplicationJoinFilter = {
 export type DataTableProductApplicationJoinInput = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
   applicationToApplicationId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInput>;
-  dataTableProductId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableProductToDataTableProductId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInput>;
+  dataTableProductId: Scalars['Int']['input'];
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
@@ -12103,27 +13117,11 @@ export type DataTableProductApplicationJoinOnDataTableProductApplicationJoinForD
   patch: UpdateDataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinApplicationIdFkeyPatch;
 };
 
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableProduct` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableProduct` being updated. */
-  patch: DataTableProductPatch;
-};
-
-/** The fields on `dataTableProductApplicationJoin` to look up the row to update. */
-export type DataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyUsingDataTableProductApplicationJoinPkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableProductApplicationJoin` being updated. */
-  patch: UpdateDataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyPatch;
-};
-
 /** Represents an update to a `DataTableProductApplicationJoin`. Fields that are set will be updated. */
 export type DataTableProductApplicationJoinPatch = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
   applicationToApplicationId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInput>;
   dataTableProductId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableProductToDataTableProductId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
@@ -12167,251 +13165,204 @@ export enum DataTableProductApplicationJoinsOrderBy {
  * tested for equality and combined with a logical ‘and.’
  */
 export type DataTableProductCondition = {
+  /** Checks for equality with the object’s `activeIngredientsManufacturers` field. */
+  activeIngredientsManufacturers?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `activeSubstances` field. */
+  activeSubstances?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `administrationUnit` field. */
   administrationUnit?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `applicantId` field. */
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `applicationLevel` field. */
-  applicationLevel?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `atcCategory` field. */
+  atcCategory?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `atcCode` field. */
-  atcCode?: InputMaybe<Scalars['JSON']['input']>;
+  atcCode?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `companyAddress` field. */
+  companyAddress?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `companyName` field. */
   companyName?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `companyPhone` field. */
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `componentFormulation` field. */
+  componentFormulation?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `dosageForm` field. */
   dosageForm?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `dosageFormDescription` field. */
   dosageFormDescription?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `expiryDate` field. */
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
+  /** Checks for equality with the object’s `finishedProductManufacturers` field. */
+  finishedProductManufacturers?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `formulations` field. */
-  formulations?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `genericName` field. */
-  genericName?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `gmpDetails` field. */
-  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  formulations?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
-  /** Checks for equality with the object’s `isActive` field. */
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Checks for equality with the object’s `manufacturersActiveIngredients` field. */
-  manufacturersActiveIngredients?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `manufacturersAdditional` field. */
-  manufacturersAdditional?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `manufacturersFinishedProduct` field. */
-  manufacturersFinishedProduct?: InputMaybe<Scalars['JSON']['input']>;
-  /** Checks for equality with the object’s `medicalProductClassification` field. */
-  medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `origin` field. */
-  origin?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `importerAddress` field. */
+  importerAddress?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `nationalMedicalClassification` field. */
+  nationalMedicalClassification?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `packagingDescription` field. */
   packagingDescription?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `packagingSizes` field. */
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `primaryContainer` field. */
   primaryContainer?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `productId` field. */
-  productId?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `productRegistrationCert` field. */
-  productRegistrationCert?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `productOrigin` field. */
+  productOrigin?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `proposedIndications` field. */
   proposedIndications?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `registrationDate` field. */
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  /** Checks for equality with the object’s `registrationSerial` field. */
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `routeOfAdministration` field. */
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `shelfLife` field. */
   shelfLife?: InputMaybe<Scalars['String']['input']>;
-  /** Checks for equality with the object’s `tradeName` field. */
-  tradeName?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The fields on `dataTableProduct` to look up the row to connect. */
-export type DataTableProductDataTableProductPkeyConnect = {
-  id: Scalars['Int']['input'];
-};
-
-/** The fields on `dataTableProduct` to look up the row to delete. */
-export type DataTableProductDataTableProductPkeyDelete = {
-  id: Scalars['Int']['input'];
+  /** Checks for equality with the object’s `sra` field. */
+  sra?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `storageTemperature` field. */
+  storageTemperature?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** A filter to be used against `DataTableProduct` object types. All fields are combined with a logical ‘and.’ */
 export type DataTableProductFilter = {
+  /** Filter by the object’s `activeIngredientsManufacturers` field. */
+  activeIngredientsManufacturers?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `activeSubstances` field. */
+  activeSubstances?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `administrationUnit` field. */
   administrationUnit?: InputMaybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataTableProductFilter>>;
-  /** Filter by the object’s `applicantId` field. */
-  applicantId?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `applicationLevel` field. */
-  applicationLevel?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `atcCategory` field. */
+  atcCategory?: InputMaybe<StringFilter>;
   /** Filter by the object’s `atcCode` field. */
-  atcCode?: InputMaybe<JsonFilter>;
+  atcCode?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `companyAddress` field. */
+  companyAddress?: InputMaybe<StringFilter>;
   /** Filter by the object’s `companyId` field. */
   companyId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `companyName` field. */
   companyName?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `dataTableProductApplicationJoins` relation. */
-  dataTableProductApplicationJoins?: InputMaybe<DataTableProductToManyDataTableProductApplicationJoinFilter>;
-  /** Some related `dataTableProductApplicationJoins` exist. */
-  dataTableProductApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `companyPhone` field. */
+  companyPhone?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `componentFormulation` field. */
+  componentFormulation?: InputMaybe<StringFilter>;
   /** Filter by the object’s `dosageForm` field. */
   dosageForm?: InputMaybe<StringFilter>;
   /** Filter by the object’s `dosageFormDescription` field. */
   dosageFormDescription?: InputMaybe<StringFilter>;
   /** Filter by the object’s `expiryDate` field. */
   expiryDate?: InputMaybe<DatetimeFilter>;
+  /** Filter by the object’s `finishedProductManufacturers` field. */
+  finishedProductManufacturers?: InputMaybe<StringFilter>;
   /** Filter by the object’s `formulations` field. */
-  formulations?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `genericName` field. */
-  genericName?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `gmpDetails` field. */
-  gmpDetails?: InputMaybe<JsonFilter>;
+  formulations?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
-  /** Filter by the object’s `isActive` field. */
-  isActive?: InputMaybe<BooleanFilter>;
-  /** Filter by the object’s `manufacturersActiveIngredients` field. */
-  manufacturersActiveIngredients?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `manufacturersAdditional` field. */
-  manufacturersAdditional?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `manufacturersFinishedProduct` field. */
-  manufacturersFinishedProduct?: InputMaybe<JsonFilter>;
-  /** Filter by the object’s `medicalProductClassification` field. */
-  medicalProductClassification?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `importerAddress` field. */
+  importerAddress?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `nationalMedicalClassification` field. */
+  nationalMedicalClassification?: InputMaybe<StringFilter>;
   /** Negates the expression. */
   not?: InputMaybe<DataTableProductFilter>;
   /** Checks for any expressions in this list. */
   or?: InputMaybe<Array<DataTableProductFilter>>;
-  /** Filter by the object’s `origin` field. */
-  origin?: InputMaybe<StringFilter>;
   /** Filter by the object’s `packagingDescription` field. */
   packagingDescription?: InputMaybe<StringFilter>;
   /** Filter by the object’s `packagingSizes` field. */
   packagingSizes?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `primaryContainer` field. */
   primaryContainer?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `productId` field. */
-  productId?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `productRegistrationCert` field. */
-  productRegistrationCert?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `productOrigin` field. */
+  productOrigin?: InputMaybe<StringFilter>;
   /** Filter by the object’s `proposedIndications` field. */
   proposedIndications?: InputMaybe<StringFilter>;
   /** Filter by the object’s `registrationDate` field. */
   registrationDate?: InputMaybe<DatetimeFilter>;
+  /** Filter by the object’s `registrationSerial` field. */
+  registrationSerial?: InputMaybe<StringFilter>;
   /** Filter by the object’s `routeOfAdministration` field. */
   routeOfAdministration?: InputMaybe<StringFilter>;
   /** Filter by the object’s `shelfLife` field. */
   shelfLife?: InputMaybe<StringFilter>;
-  /** Filter by the object’s `tradeName` field. */
-  tradeName?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `sra` field. */
+  sra?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `storageTemperature` field. */
+  storageTemperature?: InputMaybe<StringFilter>;
 };
 
 /** An input for mutations affecting `DataTableProduct` */
 export type DataTableProductInput = {
+  activeIngredientsManufacturers?: InputMaybe<Scalars['String']['input']>;
+  activeSubstances?: InputMaybe<Scalars['JSON']['input']>;
   administrationUnit?: InputMaybe<Scalars['String']['input']>;
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  applicationLevel?: InputMaybe<Scalars['String']['input']>;
-  atcCode?: InputMaybe<Scalars['JSON']['input']>;
+  atcCategory?: InputMaybe<Scalars['String']['input']>;
+  atcCode?: InputMaybe<Scalars['String']['input']>;
+  companyAddress?: InputMaybe<Scalars['String']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInverseInput>;
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
+  componentFormulation?: InputMaybe<Scalars['String']['input']>;
   dosageForm?: InputMaybe<Scalars['String']['input']>;
   dosageFormDescription?: InputMaybe<Scalars['String']['input']>;
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  formulations?: InputMaybe<Scalars['JSON']['input']>;
-  genericName?: InputMaybe<Scalars['String']['input']>;
-  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  finishedProductManufacturers?: InputMaybe<Scalars['String']['input']>;
+  formulations?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  manufacturersActiveIngredients?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersAdditional?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersFinishedProduct?: InputMaybe<Scalars['JSON']['input']>;
-  medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
-  origin?: InputMaybe<Scalars['String']['input']>;
+  importerAddress?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  nationalMedicalClassification?: InputMaybe<Scalars['String']['input']>;
   packagingDescription?: InputMaybe<Scalars['String']['input']>;
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   primaryContainer?: InputMaybe<Scalars['String']['input']>;
-  productId?: InputMaybe<Scalars['String']['input']>;
-  productRegistrationCert?: InputMaybe<Scalars['JSON']['input']>;
+  productOrigin?: InputMaybe<Scalars['String']['input']>;
   proposedIndications?: InputMaybe<Scalars['String']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   shelfLife?: InputMaybe<Scalars['String']['input']>;
-  tradeName?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The globally unique `ID` look up for the row to connect. */
-export type DataTableProductNodeIdConnect = {
-  /** The globally unique `ID` which identifies a single `dataTableProduct` to be connected. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to delete. */
-export type DataTableProductNodeIdDelete = {
-  /** The globally unique `ID` which identifies a single `dataTableProduct` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** The globally unique `ID` look up for the row to update. */
-export type DataTableProductOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `dataTableProductApplicationJoin` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `dataTableProductApplicationJoin` being updated. */
-  patch: DataTableProductApplicationJoinPatch;
-};
-
-/** The fields on `dataTableProduct` to look up the row to update. */
-export type DataTableProductOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyUsingDataTableProductPkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `dataTableProduct` being updated. */
-  patch: UpdateDataTableProductOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyPatch;
+  sra?: InputMaybe<Scalars['String']['input']>;
+  storageTemperature?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Represents an update to a `DataTableProduct`. Fields that are set will be updated. */
 export type DataTableProductPatch = {
+  activeIngredientsManufacturers?: InputMaybe<Scalars['String']['input']>;
+  activeSubstances?: InputMaybe<Scalars['JSON']['input']>;
   administrationUnit?: InputMaybe<Scalars['String']['input']>;
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  applicationLevel?: InputMaybe<Scalars['String']['input']>;
-  atcCode?: InputMaybe<Scalars['JSON']['input']>;
+  atcCategory?: InputMaybe<Scalars['String']['input']>;
+  atcCode?: InputMaybe<Scalars['String']['input']>;
+  companyAddress?: InputMaybe<Scalars['String']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInverseInput>;
+  companyPhone?: InputMaybe<Scalars['String']['input']>;
+  componentFormulation?: InputMaybe<Scalars['String']['input']>;
   dosageForm?: InputMaybe<Scalars['String']['input']>;
   dosageFormDescription?: InputMaybe<Scalars['String']['input']>;
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  formulations?: InputMaybe<Scalars['JSON']['input']>;
-  genericName?: InputMaybe<Scalars['String']['input']>;
-  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  finishedProductManufacturers?: InputMaybe<Scalars['String']['input']>;
+  formulations?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  manufacturersActiveIngredients?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersAdditional?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersFinishedProduct?: InputMaybe<Scalars['JSON']['input']>;
-  medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
-  origin?: InputMaybe<Scalars['String']['input']>;
+  importerAddress?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  nationalMedicalClassification?: InputMaybe<Scalars['String']['input']>;
   packagingDescription?: InputMaybe<Scalars['String']['input']>;
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   primaryContainer?: InputMaybe<Scalars['String']['input']>;
-  productId?: InputMaybe<Scalars['String']['input']>;
-  productRegistrationCert?: InputMaybe<Scalars['JSON']['input']>;
+  productOrigin?: InputMaybe<Scalars['String']['input']>;
   proposedIndications?: InputMaybe<Scalars['String']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   shelfLife?: InputMaybe<Scalars['String']['input']>;
-  tradeName?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** A filter to be used against many `DataTableProductApplicationJoin` object types. All fields are combined with a logical ‘and.’ */
-export type DataTableProductToManyDataTableProductApplicationJoinFilter = {
-  /** Every related `DataTableProductApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<DataTableProductApplicationJoinFilter>;
-  /** No related `DataTableProductApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<DataTableProductApplicationJoinFilter>;
-  /** Some related `DataTableProductApplicationJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<DataTableProductApplicationJoinFilter>;
+  sra?: InputMaybe<Scalars['String']['input']>;
+  storageTemperature?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** A connection to a list of `DataTableProduct` values. */
@@ -12438,45 +13389,45 @@ export type DataTableProductsEdge = {
 
 /** Methods to use when ordering `DataTableProduct`. */
 export enum DataTableProductsOrderBy {
+  ActiveIngredientsManufacturersAsc = 'ACTIVE_INGREDIENTS_MANUFACTURERS_ASC',
+  ActiveIngredientsManufacturersDesc = 'ACTIVE_INGREDIENTS_MANUFACTURERS_DESC',
+  ActiveSubstancesAsc = 'ACTIVE_SUBSTANCES_ASC',
+  ActiveSubstancesDesc = 'ACTIVE_SUBSTANCES_DESC',
   AdministrationUnitAsc = 'ADMINISTRATION_UNIT_ASC',
   AdministrationUnitDesc = 'ADMINISTRATION_UNIT_DESC',
-  ApplicantIdAsc = 'APPLICANT_ID_ASC',
-  ApplicantIdDesc = 'APPLICANT_ID_DESC',
-  ApplicationLevelAsc = 'APPLICATION_LEVEL_ASC',
-  ApplicationLevelDesc = 'APPLICATION_LEVEL_DESC',
+  AtcCategoryAsc = 'ATC_CATEGORY_ASC',
+  AtcCategoryDesc = 'ATC_CATEGORY_DESC',
   AtcCodeAsc = 'ATC_CODE_ASC',
   AtcCodeDesc = 'ATC_CODE_DESC',
+  CompanyAddressAsc = 'COMPANY_ADDRESS_ASC',
+  CompanyAddressDesc = 'COMPANY_ADDRESS_DESC',
   CompanyIdAsc = 'COMPANY_ID_ASC',
   CompanyIdDesc = 'COMPANY_ID_DESC',
   CompanyNameAsc = 'COMPANY_NAME_ASC',
   CompanyNameDesc = 'COMPANY_NAME_DESC',
+  CompanyPhoneAsc = 'COMPANY_PHONE_ASC',
+  CompanyPhoneDesc = 'COMPANY_PHONE_DESC',
+  ComponentFormulationAsc = 'COMPONENT_FORMULATION_ASC',
+  ComponentFormulationDesc = 'COMPONENT_FORMULATION_DESC',
   DosageFormAsc = 'DOSAGE_FORM_ASC',
   DosageFormDesc = 'DOSAGE_FORM_DESC',
   DosageFormDescriptionAsc = 'DOSAGE_FORM_DESCRIPTION_ASC',
   DosageFormDescriptionDesc = 'DOSAGE_FORM_DESCRIPTION_DESC',
   ExpiryDateAsc = 'EXPIRY_DATE_ASC',
   ExpiryDateDesc = 'EXPIRY_DATE_DESC',
+  FinishedProductManufacturersAsc = 'FINISHED_PRODUCT_MANUFACTURERS_ASC',
+  FinishedProductManufacturersDesc = 'FINISHED_PRODUCT_MANUFACTURERS_DESC',
   FormulationsAsc = 'FORMULATIONS_ASC',
   FormulationsDesc = 'FORMULATIONS_DESC',
-  GenericNameAsc = 'GENERIC_NAME_ASC',
-  GenericNameDesc = 'GENERIC_NAME_DESC',
-  GmpDetailsAsc = 'GMP_DETAILS_ASC',
-  GmpDetailsDesc = 'GMP_DETAILS_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
-  IsActiveAsc = 'IS_ACTIVE_ASC',
-  IsActiveDesc = 'IS_ACTIVE_DESC',
-  ManufacturersActiveIngredientsAsc = 'MANUFACTURERS_ACTIVE_INGREDIENTS_ASC',
-  ManufacturersActiveIngredientsDesc = 'MANUFACTURERS_ACTIVE_INGREDIENTS_DESC',
-  ManufacturersAdditionalAsc = 'MANUFACTURERS_ADDITIONAL_ASC',
-  ManufacturersAdditionalDesc = 'MANUFACTURERS_ADDITIONAL_DESC',
-  ManufacturersFinishedProductAsc = 'MANUFACTURERS_FINISHED_PRODUCT_ASC',
-  ManufacturersFinishedProductDesc = 'MANUFACTURERS_FINISHED_PRODUCT_DESC',
-  MedicalProductClassificationAsc = 'MEDICAL_PRODUCT_CLASSIFICATION_ASC',
-  MedicalProductClassificationDesc = 'MEDICAL_PRODUCT_CLASSIFICATION_DESC',
+  ImporterAddressAsc = 'IMPORTER_ADDRESS_ASC',
+  ImporterAddressDesc = 'IMPORTER_ADDRESS_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  NationalMedicalClassificationAsc = 'NATIONAL_MEDICAL_CLASSIFICATION_ASC',
+  NationalMedicalClassificationDesc = 'NATIONAL_MEDICAL_CLASSIFICATION_DESC',
   Natural = 'NATURAL',
-  OriginAsc = 'ORIGIN_ASC',
-  OriginDesc = 'ORIGIN_DESC',
   PackagingDescriptionAsc = 'PACKAGING_DESCRIPTION_ASC',
   PackagingDescriptionDesc = 'PACKAGING_DESCRIPTION_DESC',
   PackagingSizesAsc = 'PACKAGING_SIZES_ASC',
@@ -12485,20 +13436,22 @@ export enum DataTableProductsOrderBy {
   PrimaryContainerDesc = 'PRIMARY_CONTAINER_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
-  ProductIdAsc = 'PRODUCT_ID_ASC',
-  ProductIdDesc = 'PRODUCT_ID_DESC',
-  ProductRegistrationCertAsc = 'PRODUCT_REGISTRATION_CERT_ASC',
-  ProductRegistrationCertDesc = 'PRODUCT_REGISTRATION_CERT_DESC',
+  ProductOriginAsc = 'PRODUCT_ORIGIN_ASC',
+  ProductOriginDesc = 'PRODUCT_ORIGIN_DESC',
   ProposedIndicationsAsc = 'PROPOSED_INDICATIONS_ASC',
   ProposedIndicationsDesc = 'PROPOSED_INDICATIONS_DESC',
   RegistrationDateAsc = 'REGISTRATION_DATE_ASC',
   RegistrationDateDesc = 'REGISTRATION_DATE_DESC',
+  RegistrationSerialAsc = 'REGISTRATION_SERIAL_ASC',
+  RegistrationSerialDesc = 'REGISTRATION_SERIAL_DESC',
   RouteOfAdministrationAsc = 'ROUTE_OF_ADMINISTRATION_ASC',
   RouteOfAdministrationDesc = 'ROUTE_OF_ADMINISTRATION_DESC',
   ShelfLifeAsc = 'SHELF_LIFE_ASC',
   ShelfLifeDesc = 'SHELF_LIFE_DESC',
-  TradeNameAsc = 'TRADE_NAME_ASC',
-  TradeNameDesc = 'TRADE_NAME_DESC'
+  SraAsc = 'SRA_ASC',
+  SraDesc = 'SRA_DESC',
+  StorageTemperatureAsc = 'STORAGE_TEMPERATURE_ASC',
+  StorageTemperatureDesc = 'STORAGE_TEMPERATURE_DESC'
 }
 
 /** The `dataTableProvisionalProductApplicationJoin` to be created by this mutation. */
@@ -12514,30 +13467,42 @@ export type DataTableProvisionalProducDataTableProvisionalProduFkeyDataTableProv
   activeIngredients?: InputMaybe<Scalars['JSON']['input']>;
   activeIngredientsFilterData?: InputMaybe<Scalars['String']['input']>;
   applicantId?: InputMaybe<Scalars['Int']['input']>;
+  approval?: InputMaybe<Scalars['String']['input']>;
   atcCode?: InputMaybe<Scalars['JSON']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProducDataTableProvisionalProduFkeyInverseInput>;
   dosageForm?: InputMaybe<Scalars['String']['input']>;
+  evaluationComment?: InputMaybe<Scalars['String']['input']>;
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorisation?: InputMaybe<Scalars['JSON']['input']>;
+  loaAuthoriserName?: InputMaybe<Scalars['String']['input']>;
+  loaSource?: InputMaybe<Scalars['String']['input']>;
+  manufacturerNonPrequalJustification?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerPrequalified?: InputMaybe<Scalars['JSON']['input']>;
   manufacturers?: InputMaybe<Scalars['JSON']['input']>;
   manufacturersFilterData?: InputMaybe<Scalars['String']['input']>;
   medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
   originalId?: InputMaybe<Scalars['String']['input']>;
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   packagingSizesFilterData?: InputMaybe<Scalars['String']['input']>;
+  packagingSizesForm?: InputMaybe<Scalars['JSON']['input']>;
   pharmacopeia?: InputMaybe<Scalars['String']['input']>;
+  prequalified?: InputMaybe<Scalars['Boolean']['input']>;
   prodRegCertificate?: InputMaybe<Scalars['JSON']['input']>;
   productId?: InputMaybe<Scalars['String']['input']>;
   registeredIn?: InputMaybe<Scalars['String']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   shelfLife?: InputMaybe<Scalars['String']['input']>;
   sponsorName?: InputMaybe<Scalars['String']['input']>;
+  storageConditions?: InputMaybe<Scalars['String']['input']>;
   tradeName?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -12584,17 +13549,25 @@ export type DataTableProvisionalProduct = Node & {
   activeIngredients?: Maybe<Scalars['JSON']['output']>;
   activeIngredientsFilterData?: Maybe<Scalars['String']['output']>;
   applicantId?: Maybe<Scalars['Int']['output']>;
+  approval?: Maybe<Scalars['String']['output']>;
   atcCode?: Maybe<Scalars['JSON']['output']>;
   companyId?: Maybe<Scalars['Int']['output']>;
   companyName?: Maybe<Scalars['String']['output']>;
   /** Reads and enables pagination through a set of `DataTableProvisionalProductApplicationJoin`. */
   dataTableProvisionalProductApplicationJoins: DataTableProvisionalProductApplicationJoinsConnection;
   dosageForm?: Maybe<Scalars['String']['output']>;
+  evaluationComment?: Maybe<Scalars['String']['output']>;
   expiryDate?: Maybe<Scalars['Datetime']['output']>;
   fullName?: Maybe<Scalars['String']['output']>;
   gmpCertificate?: Maybe<Scalars['JSON']['output']>;
+  gmpDetails?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['Int']['output'];
   isActive?: Maybe<Scalars['Boolean']['output']>;
+  letterOfAuthorisation?: Maybe<Scalars['JSON']['output']>;
+  loaAuthoriserName?: Maybe<Scalars['String']['output']>;
+  loaSource?: Maybe<Scalars['String']['output']>;
+  manufacturerNonPrequalJustification?: Maybe<Scalars['JSON']['output']>;
+  manufacturerPrequalified?: Maybe<Scalars['JSON']['output']>;
   manufacturers?: Maybe<Scalars['JSON']['output']>;
   manufacturersFilterData?: Maybe<Scalars['String']['output']>;
   medicalProductClassification?: Maybe<Scalars['String']['output']>;
@@ -12603,14 +13576,18 @@ export type DataTableProvisionalProduct = Node & {
   originalId?: Maybe<Scalars['String']['output']>;
   packagingSizes?: Maybe<Scalars['JSON']['output']>;
   packagingSizesFilterData?: Maybe<Scalars['String']['output']>;
+  packagingSizesForm?: Maybe<Scalars['JSON']['output']>;
   pharmacopeia?: Maybe<Scalars['String']['output']>;
+  prequalified?: Maybe<Scalars['Boolean']['output']>;
   prodRegCertificate?: Maybe<Scalars['JSON']['output']>;
   productId?: Maybe<Scalars['String']['output']>;
   registeredIn?: Maybe<Scalars['String']['output']>;
   registrationDate?: Maybe<Scalars['Datetime']['output']>;
+  registrationSerial?: Maybe<Scalars['String']['output']>;
   routeOfAdministration?: Maybe<Scalars['String']['output']>;
   shelfLife?: Maybe<Scalars['String']['output']>;
   sponsorName?: Maybe<Scalars['String']['output']>;
+  storageConditions?: Maybe<Scalars['String']['output']>;
   tradeName?: Maybe<Scalars['String']['output']>;
 };
 
@@ -12636,9 +13613,10 @@ export type DataTableProvisionalProductApplicationApplicationIdFkeyApplicationCr
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -12888,6 +13866,8 @@ export type DataTableProvisionalProductCondition = {
   activeIngredientsFilterData?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `applicantId` field. */
   applicantId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `approval` field. */
+  approval?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `atcCode` field. */
   atcCode?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `companyId` field. */
@@ -12896,16 +13876,30 @@ export type DataTableProvisionalProductCondition = {
   companyName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `dosageForm` field. */
   dosageForm?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `evaluationComment` field. */
+  evaluationComment?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `expiryDate` field. */
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `fullName` field. */
   fullName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `gmpCertificate` field. */
   gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `gmpDetails` field. */
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isActive` field. */
   isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `letterOfAuthorisation` field. */
+  letterOfAuthorisation?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `loaAuthoriserName` field. */
+  loaAuthoriserName?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `loaSource` field. */
+  loaSource?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `manufacturerNonPrequalJustification` field. */
+  manufacturerNonPrequalJustification?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `manufacturerPrequalified` field. */
+  manufacturerPrequalified?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `manufacturers` field. */
   manufacturers?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `manufacturersFilterData` field. */
@@ -12918,8 +13912,12 @@ export type DataTableProvisionalProductCondition = {
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `packagingSizesFilterData` field. */
   packagingSizesFilterData?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `packagingSizesForm` field. */
+  packagingSizesForm?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `pharmacopeia` field. */
   pharmacopeia?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `prequalified` field. */
+  prequalified?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `prodRegCertificate` field. */
   prodRegCertificate?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `productId` field. */
@@ -12928,12 +13926,16 @@ export type DataTableProvisionalProductCondition = {
   registeredIn?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `registrationDate` field. */
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  /** Checks for equality with the object’s `registrationSerial` field. */
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `routeOfAdministration` field. */
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `shelfLife` field. */
   shelfLife?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `sponsorName` field. */
   sponsorName?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `storageConditions` field. */
+  storageConditions?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `tradeName` field. */
   tradeName?: InputMaybe<Scalars['String']['input']>;
 };
@@ -12958,6 +13960,8 @@ export type DataTableProvisionalProductFilter = {
   and?: InputMaybe<Array<DataTableProvisionalProductFilter>>;
   /** Filter by the object’s `applicantId` field. */
   applicantId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `approval` field. */
+  approval?: InputMaybe<StringFilter>;
   /** Filter by the object’s `atcCode` field. */
   atcCode?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `companyId` field. */
@@ -12970,16 +13974,30 @@ export type DataTableProvisionalProductFilter = {
   dataTableProvisionalProductApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `dosageForm` field. */
   dosageForm?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `evaluationComment` field. */
+  evaluationComment?: InputMaybe<StringFilter>;
   /** Filter by the object’s `expiryDate` field. */
   expiryDate?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `fullName` field. */
   fullName?: InputMaybe<StringFilter>;
   /** Filter by the object’s `gmpCertificate` field. */
   gmpCertificate?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `gmpDetails` field. */
+  gmpDetails?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isActive` field. */
   isActive?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `letterOfAuthorisation` field. */
+  letterOfAuthorisation?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `loaAuthoriserName` field. */
+  loaAuthoriserName?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `loaSource` field. */
+  loaSource?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `manufacturerNonPrequalJustification` field. */
+  manufacturerNonPrequalJustification?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `manufacturerPrequalified` field. */
+  manufacturerPrequalified?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `manufacturers` field. */
   manufacturers?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `manufacturersFilterData` field. */
@@ -12996,8 +14014,12 @@ export type DataTableProvisionalProductFilter = {
   packagingSizes?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `packagingSizesFilterData` field. */
   packagingSizesFilterData?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `packagingSizesForm` field. */
+  packagingSizesForm?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `pharmacopeia` field. */
   pharmacopeia?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `prequalified` field. */
+  prequalified?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `prodRegCertificate` field. */
   prodRegCertificate?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `productId` field. */
@@ -13006,12 +14028,16 @@ export type DataTableProvisionalProductFilter = {
   registeredIn?: InputMaybe<StringFilter>;
   /** Filter by the object’s `registrationDate` field. */
   registrationDate?: InputMaybe<DatetimeFilter>;
+  /** Filter by the object’s `registrationSerial` field. */
+  registrationSerial?: InputMaybe<StringFilter>;
   /** Filter by the object’s `routeOfAdministration` field. */
   routeOfAdministration?: InputMaybe<StringFilter>;
   /** Filter by the object’s `shelfLife` field. */
   shelfLife?: InputMaybe<StringFilter>;
   /** Filter by the object’s `sponsorName` field. */
   sponsorName?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `storageConditions` field. */
+  storageConditions?: InputMaybe<StringFilter>;
   /** Filter by the object’s `tradeName` field. */
   tradeName?: InputMaybe<StringFilter>;
 };
@@ -13021,30 +14047,42 @@ export type DataTableProvisionalProductInput = {
   activeIngredients?: InputMaybe<Scalars['JSON']['input']>;
   activeIngredientsFilterData?: InputMaybe<Scalars['String']['input']>;
   applicantId?: InputMaybe<Scalars['Int']['input']>;
+  approval?: InputMaybe<Scalars['String']['input']>;
   atcCode?: InputMaybe<Scalars['JSON']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProducDataTableProvisionalProduFkeyInverseInput>;
   dosageForm?: InputMaybe<Scalars['String']['input']>;
+  evaluationComment?: InputMaybe<Scalars['String']['input']>;
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorisation?: InputMaybe<Scalars['JSON']['input']>;
+  loaAuthoriserName?: InputMaybe<Scalars['String']['input']>;
+  loaSource?: InputMaybe<Scalars['String']['input']>;
+  manufacturerNonPrequalJustification?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerPrequalified?: InputMaybe<Scalars['JSON']['input']>;
   manufacturers?: InputMaybe<Scalars['JSON']['input']>;
   manufacturersFilterData?: InputMaybe<Scalars['String']['input']>;
   medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
   originalId?: InputMaybe<Scalars['String']['input']>;
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   packagingSizesFilterData?: InputMaybe<Scalars['String']['input']>;
+  packagingSizesForm?: InputMaybe<Scalars['JSON']['input']>;
   pharmacopeia?: InputMaybe<Scalars['String']['input']>;
+  prequalified?: InputMaybe<Scalars['Boolean']['input']>;
   prodRegCertificate?: InputMaybe<Scalars['JSON']['input']>;
   productId?: InputMaybe<Scalars['String']['input']>;
   registeredIn?: InputMaybe<Scalars['String']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   shelfLife?: InputMaybe<Scalars['String']['input']>;
   sponsorName?: InputMaybe<Scalars['String']['input']>;
+  storageConditions?: InputMaybe<Scalars['String']['input']>;
   tradeName?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -13080,30 +14118,42 @@ export type DataTableProvisionalProductPatch = {
   activeIngredients?: InputMaybe<Scalars['JSON']['input']>;
   activeIngredientsFilterData?: InputMaybe<Scalars['String']['input']>;
   applicantId?: InputMaybe<Scalars['Int']['input']>;
+  approval?: InputMaybe<Scalars['String']['input']>;
   atcCode?: InputMaybe<Scalars['JSON']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProducDataTableProvisionalProduFkeyInverseInput>;
   dosageForm?: InputMaybe<Scalars['String']['input']>;
+  evaluationComment?: InputMaybe<Scalars['String']['input']>;
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorisation?: InputMaybe<Scalars['JSON']['input']>;
+  loaAuthoriserName?: InputMaybe<Scalars['String']['input']>;
+  loaSource?: InputMaybe<Scalars['String']['input']>;
+  manufacturerNonPrequalJustification?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerPrequalified?: InputMaybe<Scalars['JSON']['input']>;
   manufacturers?: InputMaybe<Scalars['JSON']['input']>;
   manufacturersFilterData?: InputMaybe<Scalars['String']['input']>;
   medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
   originalId?: InputMaybe<Scalars['String']['input']>;
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   packagingSizesFilterData?: InputMaybe<Scalars['String']['input']>;
+  packagingSizesForm?: InputMaybe<Scalars['JSON']['input']>;
   pharmacopeia?: InputMaybe<Scalars['String']['input']>;
+  prequalified?: InputMaybe<Scalars['Boolean']['input']>;
   prodRegCertificate?: InputMaybe<Scalars['JSON']['input']>;
   productId?: InputMaybe<Scalars['String']['input']>;
   registeredIn?: InputMaybe<Scalars['String']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   shelfLife?: InputMaybe<Scalars['String']['input']>;
   sponsorName?: InputMaybe<Scalars['String']['input']>;
+  storageConditions?: InputMaybe<Scalars['String']['input']>;
   tradeName?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -13147,6 +14197,8 @@ export enum DataTableProvisionalProductsOrderBy {
   ActiveIngredientsFilterDataDesc = 'ACTIVE_INGREDIENTS_FILTER_DATA_DESC',
   ApplicantIdAsc = 'APPLICANT_ID_ASC',
   ApplicantIdDesc = 'APPLICANT_ID_DESC',
+  ApprovalAsc = 'APPROVAL_ASC',
+  ApprovalDesc = 'APPROVAL_DESC',
   AtcCodeAsc = 'ATC_CODE_ASC',
   AtcCodeDesc = 'ATC_CODE_DESC',
   CompanyIdAsc = 'COMPANY_ID_ASC',
@@ -13155,20 +14207,34 @@ export enum DataTableProvisionalProductsOrderBy {
   CompanyNameDesc = 'COMPANY_NAME_DESC',
   DosageFormAsc = 'DOSAGE_FORM_ASC',
   DosageFormDesc = 'DOSAGE_FORM_DESC',
+  EvaluationCommentAsc = 'EVALUATION_COMMENT_ASC',
+  EvaluationCommentDesc = 'EVALUATION_COMMENT_DESC',
   ExpiryDateAsc = 'EXPIRY_DATE_ASC',
   ExpiryDateDesc = 'EXPIRY_DATE_DESC',
   FullNameAsc = 'FULL_NAME_ASC',
   FullNameDesc = 'FULL_NAME_DESC',
   GmpCertificateAsc = 'GMP_CERTIFICATE_ASC',
   GmpCertificateDesc = 'GMP_CERTIFICATE_DESC',
+  GmpDetailsAsc = 'GMP_DETAILS_ASC',
+  GmpDetailsDesc = 'GMP_DETAILS_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
   IsActiveAsc = 'IS_ACTIVE_ASC',
   IsActiveDesc = 'IS_ACTIVE_DESC',
+  LetterOfAuthorisationAsc = 'LETTER_OF_AUTHORISATION_ASC',
+  LetterOfAuthorisationDesc = 'LETTER_OF_AUTHORISATION_DESC',
+  LoaAuthoriserNameAsc = 'LOA_AUTHORISER_NAME_ASC',
+  LoaAuthoriserNameDesc = 'LOA_AUTHORISER_NAME_DESC',
+  LoaSourceAsc = 'LOA_SOURCE_ASC',
+  LoaSourceDesc = 'LOA_SOURCE_DESC',
   ManufacturersAsc = 'MANUFACTURERS_ASC',
   ManufacturersDesc = 'MANUFACTURERS_DESC',
   ManufacturersFilterDataAsc = 'MANUFACTURERS_FILTER_DATA_ASC',
   ManufacturersFilterDataDesc = 'MANUFACTURERS_FILTER_DATA_DESC',
+  ManufacturerNonPrequalJustificationAsc = 'MANUFACTURER_NON_PREQUAL_JUSTIFICATION_ASC',
+  ManufacturerNonPrequalJustificationDesc = 'MANUFACTURER_NON_PREQUAL_JUSTIFICATION_DESC',
+  ManufacturerPrequalifiedAsc = 'MANUFACTURER_PREQUALIFIED_ASC',
+  ManufacturerPrequalifiedDesc = 'MANUFACTURER_PREQUALIFIED_DESC',
   MedicalProductClassificationAsc = 'MEDICAL_PRODUCT_CLASSIFICATION_ASC',
   MedicalProductClassificationDesc = 'MEDICAL_PRODUCT_CLASSIFICATION_DESC',
   Natural = 'NATURAL',
@@ -13178,8 +14244,12 @@ export enum DataTableProvisionalProductsOrderBy {
   PackagingSizesDesc = 'PACKAGING_SIZES_DESC',
   PackagingSizesFilterDataAsc = 'PACKAGING_SIZES_FILTER_DATA_ASC',
   PackagingSizesFilterDataDesc = 'PACKAGING_SIZES_FILTER_DATA_DESC',
+  PackagingSizesFormAsc = 'PACKAGING_SIZES_FORM_ASC',
+  PackagingSizesFormDesc = 'PACKAGING_SIZES_FORM_DESC',
   PharmacopeiaAsc = 'PHARMACOPEIA_ASC',
   PharmacopeiaDesc = 'PHARMACOPEIA_DESC',
+  PrequalifiedAsc = 'PREQUALIFIED_ASC',
+  PrequalifiedDesc = 'PREQUALIFIED_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
   ProductIdAsc = 'PRODUCT_ID_ASC',
@@ -13190,12 +14260,16 @@ export enum DataTableProvisionalProductsOrderBy {
   RegisteredInDesc = 'REGISTERED_IN_DESC',
   RegistrationDateAsc = 'REGISTRATION_DATE_ASC',
   RegistrationDateDesc = 'REGISTRATION_DATE_DESC',
+  RegistrationSerialAsc = 'REGISTRATION_SERIAL_ASC',
+  RegistrationSerialDesc = 'REGISTRATION_SERIAL_DESC',
   RouteOfAdministrationAsc = 'ROUTE_OF_ADMINISTRATION_ASC',
   RouteOfAdministrationDesc = 'ROUTE_OF_ADMINISTRATION_DESC',
   ShelfLifeAsc = 'SHELF_LIFE_ASC',
   ShelfLifeDesc = 'SHELF_LIFE_DESC',
   SponsorNameAsc = 'SPONSOR_NAME_ASC',
   SponsorNameDesc = 'SPONSOR_NAME_DESC',
+  StorageConditionsAsc = 'STORAGE_CONDITIONS_ASC',
+  StorageConditionsDesc = 'STORAGE_CONDITIONS_DESC',
   TradeNameAsc = 'TRADE_NAME_ASC',
   TradeNameDesc = 'TRADE_NAME_DESC'
 }
@@ -13285,6 +14359,102 @@ export enum DataTableScheduledChemicalsOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
   ScheduleAsc = 'SCHEDULE_ASC',
   ScheduleDesc = 'SCHEDULE_DESC'
+}
+
+export type DataTableStorageCondition = Node & {
+  __typename?: 'DataTableStorageCondition';
+  code?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  longDescription?: Maybe<Scalars['String']['output']>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  shortDescription?: Maybe<Scalars['String']['output']>;
+};
+
+/**
+ * A condition to be used against `DataTableStorageCondition` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export type DataTableStorageConditionCondition = {
+  /** Checks for equality with the object’s `code` field. */
+  code?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `longDescription` field. */
+  longDescription?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `shortDescription` field. */
+  shortDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A filter to be used against `DataTableStorageCondition` object types. All fields are combined with a logical ‘and.’ */
+export type DataTableStorageConditionFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DataTableStorageConditionFilter>>;
+  /** Filter by the object’s `code` field. */
+  code?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `longDescription` field. */
+  longDescription?: InputMaybe<StringFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DataTableStorageConditionFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DataTableStorageConditionFilter>>;
+  /** Filter by the object’s `shortDescription` field. */
+  shortDescription?: InputMaybe<StringFilter>;
+};
+
+/** An input for mutations affecting `DataTableStorageCondition` */
+export type DataTableStorageConditionInput = {
+  code?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  longDescription?: InputMaybe<Scalars['String']['input']>;
+  shortDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Represents an update to a `DataTableStorageCondition`. Fields that are set will be updated. */
+export type DataTableStorageConditionPatch = {
+  code?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  longDescription?: InputMaybe<Scalars['String']['input']>;
+  shortDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A connection to a list of `DataTableStorageCondition` values. */
+export type DataTableStorageConditionsConnection = {
+  __typename?: 'DataTableStorageConditionsConnection';
+  /** A list of edges which contains the `DataTableStorageCondition` and cursor to aid in pagination. */
+  edges: Array<DataTableStorageConditionsEdge>;
+  /** A list of `DataTableStorageCondition` objects. */
+  nodes: Array<Maybe<DataTableStorageCondition>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DataTableStorageCondition` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `DataTableStorageCondition` edge in the connection. */
+export type DataTableStorageConditionsEdge = {
+  __typename?: 'DataTableStorageConditionsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `DataTableStorageCondition` at the end of the edge. */
+  node?: Maybe<DataTableStorageCondition>;
+};
+
+/** Methods to use when ordering `DataTableStorageCondition`. */
+export enum DataTableStorageConditionsOrderBy {
+  CodeAsc = 'CODE_ASC',
+  CodeDesc = 'CODE_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  LongDescriptionAsc = 'LONG_DESCRIPTION_ASC',
+  LongDescriptionDesc = 'LONG_DESCRIPTION_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  ShortDescriptionAsc = 'SHORT_DESCRIPTION_ASC',
+  ShortDescriptionDesc = 'SHORT_DESCRIPTION_DESC'
 }
 
 export type DataTableStorageConditionsSimplified = Node & {
@@ -13635,6 +14805,8 @@ export type DataTablesEdge = {
 
 /** Methods to use when ordering `DataTable`. */
 export enum DataTablesOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   DataViewCodeAsc = 'DATA_VIEW_CODE_ASC',
   DataViewCodeDesc = 'DATA_VIEW_CODE_DESC',
   DisplayNameAsc = 'DISPLAY_NAME_ASC',
@@ -13645,6 +14817,8 @@ export enum DataTablesOrderBy {
   IdDesc = 'ID_DESC',
   IsLookupTableAsc = 'IS_LOOKUP_TABLE_ASC',
   IsLookupTableDesc = 'IS_LOOKUP_TABLE_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -13654,6 +14828,7 @@ export enum DataTablesOrderBy {
 
 export type DataView = Node & {
   __typename?: 'DataView';
+  checksum?: Maybe<Scalars['String']['output']>;
   code: Scalars['String']['output'];
   defaultFilterString?: Maybe<Scalars['String']['output']>;
   defaultSortColumn?: Maybe<Scalars['String']['output']>;
@@ -13665,6 +14840,7 @@ export type DataView = Node & {
   filterIncludeColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   id: Scalars['Int']['output'];
   identifier: Scalars['String']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   menuName?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
@@ -13679,12 +14855,27 @@ export type DataView = Node & {
   tableSearchColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   tableViewExcludeColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   tableViewIncludeColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Reads and enables pagination through a set of `TemplateDataViewJoin`. */
+  templateDataViewJoins: TemplateDataViewJoinsConnection;
   title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type DataViewTemplateDataViewJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateDataViewJoinCondition>;
+  filter?: InputMaybe<TemplateDataViewJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
 };
 
 export type DataViewColumnDefinition = Node & {
   __typename?: 'DataViewColumnDefinition';
   additionalFormatting?: Maybe<Scalars['JSON']['output']>;
+  checksum?: Maybe<Scalars['String']['output']>;
   columnName: Scalars['String']['output'];
   elementParameters?: Maybe<Scalars['JSON']['output']>;
   elementTypePluginCode?: Maybe<Scalars['String']['output']>;
@@ -13693,6 +14884,7 @@ export type DataViewColumnDefinition = Node & {
   filterParameters?: Maybe<Scalars['JSON']['output']>;
   hideIfNull?: Maybe<Scalars['Boolean']['output']>;
   id: Scalars['Int']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   sortColumn?: Maybe<Scalars['String']['output']>;
@@ -13708,6 +14900,8 @@ export type DataViewColumnDefinition = Node & {
 export type DataViewColumnDefinitionCondition = {
   /** Checks for equality with the object’s `additionalFormatting` field. */
   additionalFormatting?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `columnName` field. */
   columnName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `elementParameters` field. */
@@ -13724,6 +14918,8 @@ export type DataViewColumnDefinitionCondition = {
   hideIfNull?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `sortColumn` field. */
   sortColumn?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `tableName` field. */
@@ -13740,6 +14936,8 @@ export type DataViewColumnDefinitionFilter = {
   additionalFormatting?: InputMaybe<JsonFilter>;
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataViewColumnDefinitionFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `columnName` field. */
   columnName?: InputMaybe<StringFilter>;
   /** Filter by the object’s `elementParameters` field. */
@@ -13756,6 +14954,8 @@ export type DataViewColumnDefinitionFilter = {
   hideIfNull?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<DataViewColumnDefinitionFilter>;
   /** Checks for any expressions in this list. */
@@ -13773,6 +14973,7 @@ export type DataViewColumnDefinitionFilter = {
 /** An input for mutations affecting `DataViewColumnDefinition` */
 export type DataViewColumnDefinitionInput = {
   additionalFormatting?: InputMaybe<Scalars['JSON']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   columnName: Scalars['String']['input'];
   elementParameters?: InputMaybe<Scalars['JSON']['input']>;
   elementTypePluginCode?: InputMaybe<Scalars['String']['input']>;
@@ -13781,6 +14982,7 @@ export type DataViewColumnDefinitionInput = {
   filterParameters?: InputMaybe<Scalars['JSON']['input']>;
   hideIfNull?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   sortColumn?: InputMaybe<Scalars['String']['input']>;
   tableName?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -13790,6 +14992,7 @@ export type DataViewColumnDefinitionInput = {
 /** Represents an update to a `DataViewColumnDefinition`. Fields that are set will be updated. */
 export type DataViewColumnDefinitionPatch = {
   additionalFormatting?: InputMaybe<Scalars['JSON']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   columnName?: InputMaybe<Scalars['String']['input']>;
   elementParameters?: InputMaybe<Scalars['JSON']['input']>;
   elementTypePluginCode?: InputMaybe<Scalars['String']['input']>;
@@ -13798,6 +15001,7 @@ export type DataViewColumnDefinitionPatch = {
   filterParameters?: InputMaybe<Scalars['JSON']['input']>;
   hideIfNull?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   sortColumn?: InputMaybe<Scalars['String']['input']>;
   tableName?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -13830,6 +15034,8 @@ export type DataViewColumnDefinitionsEdge = {
 export enum DataViewColumnDefinitionsOrderBy {
   AdditionalFormattingAsc = 'ADDITIONAL_FORMATTING_ASC',
   AdditionalFormattingDesc = 'ADDITIONAL_FORMATTING_DESC',
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   ColumnNameAsc = 'COLUMN_NAME_ASC',
   ColumnNameDesc = 'COLUMN_NAME_DESC',
   ElementParametersAsc = 'ELEMENT_PARAMETERS_ASC',
@@ -13846,6 +15052,8 @@ export enum DataViewColumnDefinitionsOrderBy {
   HideIfNullDesc = 'HIDE_IF_NULL_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -13864,6 +15072,8 @@ export enum DataViewColumnDefinitionsOrderBy {
  * for equality and combined with a logical ‘and.’
  */
 export type DataViewCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `code` field. */
   code?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `defaultFilterString` field. */
@@ -13886,6 +15096,8 @@ export type DataViewCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `identifier` field. */
   identifier?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `menuName` field. */
   menuName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `permissionNames` field. */
@@ -13914,10 +15126,22 @@ export type DataViewCondition = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** The fields on `dataView` to look up the row to connect. */
+export type DataViewDataViewIdentifierKeyConnect = {
+  identifier: Scalars['String']['input'];
+};
+
+/** The fields on `dataView` to look up the row to delete. */
+export type DataViewDataViewIdentifierKeyDelete = {
+  identifier: Scalars['String']['input'];
+};
+
 /** A filter to be used against `DataView` object types. All fields are combined with a logical ‘and.’ */
 export type DataViewFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataViewFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `code` field. */
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `defaultFilterString` field. */
@@ -13940,6 +15164,8 @@ export type DataViewFilter = {
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `identifier` field. */
   identifier?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `menuName` field. */
   menuName?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -13968,12 +15194,17 @@ export type DataViewFilter = {
   tableViewExcludeColumns?: InputMaybe<StringListFilter>;
   /** Filter by the object’s `tableViewIncludeColumns` field. */
   tableViewIncludeColumns?: InputMaybe<StringListFilter>;
+  /** Filter by the object’s `templateDataViewJoins` relation. */
+  templateDataViewJoins?: InputMaybe<DataViewToManyTemplateDataViewJoinFilter>;
+  /** Some related `templateDataViewJoins` exist. */
+  templateDataViewJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `title` field. */
   title?: InputMaybe<StringFilter>;
 };
 
 /** An input for mutations affecting `DataView` */
 export type DataViewInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   defaultFilterString?: InputMaybe<Scalars['String']['input']>;
   defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
@@ -13985,6 +15216,7 @@ export type DataViewInput = {
   filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   id?: InputMaybe<Scalars['Int']['input']>;
   identifier: Scalars['String']['input'];
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   menuName?: InputMaybe<Scalars['String']['input']>;
   permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   priority?: InputMaybe<Scalars['Int']['input']>;
@@ -13997,11 +15229,57 @@ export type DataViewInput = {
   tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DataViewNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataView` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataViewNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataView` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** The fields on `dataView` to look up the row to update. */
+export type DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingDataViewIdentifierKeyUpdate = {
+  identifier: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `dataView` being updated. */
+  patch: UpdateDataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+};
+
+/** The fields on `dataView` to look up the row to update. */
+export type DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingOutcomeDisplayPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataView` being updated. */
+  patch: UpdateDataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+};
+
+/** The fields on `dataView` to look up the row to connect. */
+export type DataViewOutcomeDisplayPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataView` to look up the row to delete. */
+export type DataViewOutcomeDisplayPkeyDelete = {
+  id: Scalars['Int']['input'];
 };
 
 /** Represents an update to a `DataView`. Fields that are set will be updated. */
 export type DataViewPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   defaultFilterString?: InputMaybe<Scalars['String']['input']>;
   defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
@@ -14013,6 +15291,7 @@ export type DataViewPatch = {
   filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   id?: InputMaybe<Scalars['Int']['input']>;
   identifier?: InputMaybe<Scalars['String']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   menuName?: InputMaybe<Scalars['String']['input']>;
   permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   priority?: InputMaybe<Scalars['Int']['input']>;
@@ -14025,7 +15304,18 @@ export type DataViewPatch = {
   tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A filter to be used against many `TemplateDataViewJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataViewToManyTemplateDataViewJoinFilter = {
+  /** Every related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** No related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** Some related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateDataViewJoinFilter>;
 };
 
 /** A connection to a list of `DataView` values. */
@@ -14052,6 +15342,8 @@ export type DataViewsEdge = {
 
 /** Methods to use when ordering `DataView`. */
 export enum DataViewsOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   CodeAsc = 'CODE_ASC',
   CodeDesc = 'CODE_DESC',
   DefaultFilterStringAsc = 'DEFAULT_FILTER_STRING_ASC',
@@ -14074,6 +15366,8 @@ export enum DataViewsOrderBy {
   IdentifierDesc = 'IDENTIFIER_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   MenuNameAsc = 'MENU_NAME_ASC',
   MenuNameDesc = 'MENU_NAME_DESC',
   Natural = 'NATURAL',
@@ -14850,98 +16144,6 @@ export type DeleteDataTableAdministrationRoutePayloadDataTableAdministrationRout
   orderBy?: InputMaybe<Array<DataTableAdministrationRoutesOrderBy>>;
 };
 
-/** All input for the `deleteDataTableAdverseDrugReactionApplicationJoinByNodeId` mutation. */
-export type DeleteDataTableAdverseDrugReactionApplicationJoinByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableAdverseDrugReactionApplicationJoin` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** All input for the `deleteDataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type DeleteDataTableAdverseDrugReactionApplicationJoinInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-};
-
-/** The output of our delete `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type DeleteDataTableAdverseDrugReactionApplicationJoinPayload = {
-  __typename?: 'DeleteDataTableAdverseDrugReactionApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  application?: Maybe<Application>;
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableAdverseDrugReaction` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  /** The `DataTableAdverseDrugReactionApplicationJoin` that was deleted by this mutation. */
-  dataTableAdverseDrugReactionApplicationJoin?: Maybe<DataTableAdverseDrugReactionApplicationJoin>;
-  /** An edge for our `DataTableAdverseDrugReactionApplicationJoin`. May be used by Relay 1. */
-  dataTableAdverseDrugReactionApplicationJoinEdge?: Maybe<DataTableAdverseDrugReactionApplicationJoinsEdge>;
-  deletedDataTableAdverseDrugReactionApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our delete `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type DeleteDataTableAdverseDrugReactionApplicationJoinPayloadDataTableAdverseDrugReactionApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinsOrderBy>>;
-};
-
-/** All input for the `deleteDataTableAdverseDrugReactionByNodeId` mutation. */
-export type DeleteDataTableAdverseDrugReactionByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableAdverseDrugReaction` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** All input for the `deleteDataTableAdverseDrugReaction` mutation. */
-export type DeleteDataTableAdverseDrugReactionInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-};
-
-/** The output of our delete `DataTableAdverseDrugReaction` mutation. */
-export type DeleteDataTableAdverseDrugReactionPayload = {
-  __typename?: 'DeleteDataTableAdverseDrugReactionPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableAdverseDrugReaction` that was deleted by this mutation. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  /** An edge for our `DataTableAdverseDrugReaction`. May be used by Relay 1. */
-  dataTableAdverseDrugReactionEdge?: Maybe<DataTableAdverseDrugReactionsEdge>;
-  deletedDataTableAdverseDrugReactionNodeId?: Maybe<Scalars['ID']['output']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our delete `DataTableAdverseDrugReaction` mutation. */
-export type DeleteDataTableAdverseDrugReactionPayloadDataTableAdverseDrugReactionEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionsOrderBy>>;
-};
-
 /** All input for the `deleteDataTableAtcCodeByNodeId` mutation. */
 export type DeleteDataTableAtcCodeByNodeIdInput = {
   /**
@@ -15007,6 +16209,50 @@ export type DeleteDataTableByTableNameInput = {
   tableName: Scalars['String']['input'];
 };
 
+/** All input for the `deleteDataTableContainerByNodeId` mutation. */
+export type DeleteDataTableContainerByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableContainer` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTableContainer` mutation. */
+export type DeleteDataTableContainerInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTableContainer` mutation. */
+export type DeleteDataTableContainerPayload = {
+  __typename?: 'DeleteDataTableContainerPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableContainer` that was deleted by this mutation. */
+  dataTableContainer?: Maybe<DataTableContainer>;
+  /** An edge for our `DataTableContainer`. May be used by Relay 1. */
+  dataTableContainerEdge?: Maybe<DataTableContainersEdge>;
+  deletedDataTableContainerNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTableContainer` mutation. */
+export type DeleteDataTableContainerPayloadDataTableContainerEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableContainersOrderBy>>;
+};
+
 /** All input for the `deleteDataTableCountryByNodeId` mutation. */
 export type DeleteDataTableCountryByNodeIdInput = {
   /**
@@ -15062,6 +16308,50 @@ export type DeleteDataTableDosageFormByNodeIdInput = {
   nodeId: Scalars['ID']['input'];
 };
 
+/** All input for the `deleteDataTableDosageFormGroupByNodeId` mutation. */
+export type DeleteDataTableDosageFormGroupByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableDosageFormGroup` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTableDosageFormGroup` mutation. */
+export type DeleteDataTableDosageFormGroupInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTableDosageFormGroup` mutation. */
+export type DeleteDataTableDosageFormGroupPayload = {
+  __typename?: 'DeleteDataTableDosageFormGroupPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableDosageFormGroup` that was deleted by this mutation. */
+  dataTableDosageFormGroup?: Maybe<DataTableDosageFormGroup>;
+  /** An edge for our `DataTableDosageFormGroup`. May be used by Relay 1. */
+  dataTableDosageFormGroupEdge?: Maybe<DataTableDosageFormGroupsEdge>;
+  deletedDataTableDosageFormGroupNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTableDosageFormGroup` mutation. */
+export type DeleteDataTableDosageFormGroupPayloadDataTableDosageFormGroupEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableDosageFormGroupsOrderBy>>;
+};
+
 /** All input for the `deleteDataTableDosageForm` mutation. */
 export type DeleteDataTableDosageFormInput = {
   /**
@@ -15095,19 +16385,19 @@ export type DeleteDataTableDosageFormPayloadDataTableDosageFormEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableDosageFormsOrderBy>>;
 };
 
-/** All input for the `deleteDataTableEthnicityByNodeId` mutation. */
-export type DeleteDataTableEthnicityByNodeIdInput = {
+/** All input for the `deleteDataTableGenericIngredientByNodeId` mutation. */
+export type DeleteDataTableGenericIngredientByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableEthnicity` to be deleted. */
+  /** The globally unique `ID` which will identify a single `DataTableGenericIngredient` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
-/** All input for the `deleteDataTableEthnicity` mutation. */
-export type DeleteDataTableEthnicityInput = {
+/** All input for the `deleteDataTableGenericIngredient` mutation. */
+export type DeleteDataTableGenericIngredientInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -15116,27 +16406,27 @@ export type DeleteDataTableEthnicityInput = {
   id: Scalars['Int']['input'];
 };
 
-/** The output of our delete `DataTableEthnicity` mutation. */
-export type DeleteDataTableEthnicityPayload = {
-  __typename?: 'DeleteDataTableEthnicityPayload';
+/** The output of our delete `DataTableGenericIngredient` mutation. */
+export type DeleteDataTableGenericIngredientPayload = {
+  __typename?: 'DeleteDataTableGenericIngredientPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableEthnicity` that was deleted by this mutation. */
-  dataTableEthnicity?: Maybe<DataTableEthnicity>;
-  /** An edge for our `DataTableEthnicity`. May be used by Relay 1. */
-  dataTableEthnicityEdge?: Maybe<DataTableEthnicitiesEdge>;
-  deletedDataTableEthnicityNodeId?: Maybe<Scalars['ID']['output']>;
+  /** The `DataTableGenericIngredient` that was deleted by this mutation. */
+  dataTableGenericIngredient?: Maybe<DataTableGenericIngredient>;
+  /** An edge for our `DataTableGenericIngredient`. May be used by Relay 1. */
+  dataTableGenericIngredientEdge?: Maybe<DataTableGenericIngredientsEdge>;
+  deletedDataTableGenericIngredientNodeId?: Maybe<Scalars['ID']['output']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our delete `DataTableEthnicity` mutation. */
-export type DeleteDataTableEthnicityPayloadDataTableEthnicityEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableEthnicitiesOrderBy>>;
+/** The output of our delete `DataTableGenericIngredient` mutation. */
+export type DeleteDataTableGenericIngredientPayloadDataTableGenericIngredientEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableGenericIngredientsOrderBy>>;
 };
 
 /** All input for the `deleteDataTable` mutation. */
@@ -15149,19 +16439,19 @@ export type DeleteDataTableInput = {
   id: Scalars['Int']['input'];
 };
 
-/** All input for the `deleteDataTableLicenseApplicationJoinByNodeId` mutation. */
-export type DeleteDataTableLicenseApplicationJoinByNodeIdInput = {
+/** All input for the `deleteDataTableManufacturerApplicationJoinByNodeId` mutation. */
+export type DeleteDataTableManufacturerApplicationJoinByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableLicenseApplicationJoin` to be deleted. */
+  /** The globally unique `ID` which will identify a single `DataTableManufacturerApplicationJoin` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
-/** All input for the `deleteDataTableLicenseApplicationJoin` mutation. */
-export type DeleteDataTableLicenseApplicationJoinInput = {
+/** All input for the `deleteDataTableManufacturerApplicationJoin` mutation. */
+export type DeleteDataTableManufacturerApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -15170,75 +16460,31 @@ export type DeleteDataTableLicenseApplicationJoinInput = {
   id: Scalars['Int']['input'];
 };
 
-/** The output of our delete `DataTableLicenseApplicationJoin` mutation. */
-export type DeleteDataTableLicenseApplicationJoinPayload = {
-  __typename?: 'DeleteDataTableLicenseApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTableLicenseApplicationJoin`. */
+/** The output of our delete `DataTableManufacturerApplicationJoin` mutation. */
+export type DeleteDataTableManufacturerApplicationJoinPayload = {
+  __typename?: 'DeleteDataTableManufacturerApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerApplicationJoin`. */
   application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableLicense` that is related to this `DataTableLicenseApplicationJoin`. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  /** The `DataTableLicenseApplicationJoin` that was deleted by this mutation. */
-  dataTableLicenseApplicationJoin?: Maybe<DataTableLicenseApplicationJoin>;
-  /** An edge for our `DataTableLicenseApplicationJoin`. May be used by Relay 1. */
-  dataTableLicenseApplicationJoinEdge?: Maybe<DataTableLicenseApplicationJoinsEdge>;
-  deletedDataTableLicenseApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Reads a single `DataTableManufacturer` that is related to this `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturer?: Maybe<DataTableManufacturer>;
+  /** The `DataTableManufacturerApplicationJoin` that was deleted by this mutation. */
+  dataTableManufacturerApplicationJoin?: Maybe<DataTableManufacturerApplicationJoin>;
+  /** An edge for our `DataTableManufacturerApplicationJoin`. May be used by Relay 1. */
+  dataTableManufacturerApplicationJoinEdge?: Maybe<DataTableManufacturerApplicationJoinsEdge>;
+  deletedDataTableManufacturerApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our delete `DataTableLicenseApplicationJoin` mutation. */
-export type DeleteDataTableLicenseApplicationJoinPayloadDataTableLicenseApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableLicenseApplicationJoinsOrderBy>>;
-};
-
-/** All input for the `deleteDataTableLicenseByNodeId` mutation. */
-export type DeleteDataTableLicenseByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableLicense` to be deleted. */
-  nodeId: Scalars['ID']['input'];
-};
-
-/** All input for the `deleteDataTableLicense` mutation. */
-export type DeleteDataTableLicenseInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-};
-
-/** The output of our delete `DataTableLicense` mutation. */
-export type DeleteDataTableLicensePayload = {
-  __typename?: 'DeleteDataTableLicensePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableLicense` that was deleted by this mutation. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  /** An edge for our `DataTableLicense`. May be used by Relay 1. */
-  dataTableLicenseEdge?: Maybe<DataTableLicensesEdge>;
-  deletedDataTableLicenseNodeId?: Maybe<Scalars['ID']['output']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our delete `DataTableLicense` mutation. */
-export type DeleteDataTableLicensePayloadDataTableLicenseEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableLicensesOrderBy>>;
+/** The output of our delete `DataTableManufacturerApplicationJoin` mutation. */
+export type DeleteDataTableManufacturerApplicationJoinPayloadDataTableManufacturerApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerApplicationJoinsOrderBy>>;
 };
 
 /** All input for the `deleteDataTableManufacturerByNodeId` mutation. */
@@ -15285,6 +16531,101 @@ export type DeleteDataTableManufacturerPayloadDataTableManufacturerEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableManufacturersOrderBy>>;
 };
 
+/** All input for the `deleteDataTableManufacturerRepresentativeApplicationJoinByNodeId` mutation. */
+export type DeleteDataTableManufacturerRepresentativeApplicationJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableManufacturerRepresentativeApplicationJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type DeleteDataTableManufacturerRepresentativeApplicationJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type DeleteDataTableManufacturerRepresentativeApplicationJoinPayload = {
+  __typename?: 'DeleteDataTableManufacturerRepresentativeApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerRepresentativeApplicationJoin`. */
+  application?: Maybe<Application>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /**
+   * Reads a single `DataTableManufacturerRepresentative` that is related to this
+   * `DataTableManufacturerRepresentativeApplicationJoin`.
+   */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  /** The `DataTableManufacturerRepresentativeApplicationJoin` that was deleted by this mutation. */
+  dataTableManufacturerRepresentativeApplicationJoin?: Maybe<DataTableManufacturerRepresentativeApplicationJoin>;
+  /** An edge for our `DataTableManufacturerRepresentativeApplicationJoin`. May be used by Relay 1. */
+  dataTableManufacturerRepresentativeApplicationJoinEdge?: Maybe<DataTableManufacturerRepresentativeApplicationJoinsEdge>;
+  deletedDataTableManufacturerRepresentativeApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type DeleteDataTableManufacturerRepresentativeApplicationJoinPayloadDataTableManufacturerRepresentativeApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinsOrderBy>>;
+};
+
+/** All input for the `deleteDataTableManufacturerRepresentativeByNodeId` mutation. */
+export type DeleteDataTableManufacturerRepresentativeByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableManufacturerRepresentative` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTableManufacturerRepresentative` mutation. */
+export type DeleteDataTableManufacturerRepresentativeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTableManufacturerRepresentative` mutation. */
+export type DeleteDataTableManufacturerRepresentativePayload = {
+  __typename?: 'DeleteDataTableManufacturerRepresentativePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableManufacturerRepresentative` that was deleted by this mutation. */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  /** An edge for our `DataTableManufacturerRepresentative`. May be used by Relay 1. */
+  dataTableManufacturerRepresentativeEdge?: Maybe<DataTableManufacturerRepresentativesEdge>;
+  deletedDataTableManufacturerRepresentativeNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTableManufacturerRepresentative` mutation. */
+export type DeleteDataTableManufacturerRepresentativePayloadDataTableManufacturerRepresentativeEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativesOrderBy>>;
+};
+
 /** The output of our delete `DataTable` mutation. */
 export type DeleteDataTablePayload = {
   __typename?: 'DeleteDataTablePayload';
@@ -15308,19 +16649,19 @@ export type DeleteDataTablePayloadDataTableEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTablesOrderBy>>;
 };
 
-/** All input for the `deleteDataTablePermitMedicalApplicationJoinByNodeId` mutation. */
-export type DeleteDataTablePermitMedicalApplicationJoinByNodeIdInput = {
+/** All input for the `deleteDataTablePermitChemicalApplicationJoinByNodeId` mutation. */
+export type DeleteDataTablePermitChemicalApplicationJoinByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTablePermitMedicalApplicationJoin` to be deleted. */
+  /** The globally unique `ID` which will identify a single `DataTablePermitChemicalApplicationJoin` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
-/** All input for the `deleteDataTablePermitMedicalApplicationJoin` mutation. */
-export type DeleteDataTablePermitMedicalApplicationJoinInput = {
+/** All input for the `deleteDataTablePermitChemicalApplicationJoin` mutation. */
+export type DeleteDataTablePermitChemicalApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -15329,46 +16670,46 @@ export type DeleteDataTablePermitMedicalApplicationJoinInput = {
   id: Scalars['Int']['input'];
 };
 
-/** The output of our delete `DataTablePermitMedicalApplicationJoin` mutation. */
-export type DeleteDataTablePermitMedicalApplicationJoinPayload = {
-  __typename?: 'DeleteDataTablePermitMedicalApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTablePermitMedicalApplicationJoin`. */
+/** The output of our delete `DataTablePermitChemicalApplicationJoin` mutation. */
+export type DeleteDataTablePermitChemicalApplicationJoinPayload = {
+  __typename?: 'DeleteDataTablePermitChemicalApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTablePermitChemicalApplicationJoin`. */
   application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTablePermitMedical` that is related to this `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  /** The `DataTablePermitMedicalApplicationJoin` that was deleted by this mutation. */
-  dataTablePermitMedicalApplicationJoin?: Maybe<DataTablePermitMedicalApplicationJoin>;
-  /** An edge for our `DataTablePermitMedicalApplicationJoin`. May be used by Relay 1. */
-  dataTablePermitMedicalApplicationJoinEdge?: Maybe<DataTablePermitMedicalApplicationJoinsEdge>;
-  deletedDataTablePermitMedicalApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Reads a single `DataTablePermitChemical` that is related to this `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  /** The `DataTablePermitChemicalApplicationJoin` that was deleted by this mutation. */
+  dataTablePermitChemicalApplicationJoin?: Maybe<DataTablePermitChemicalApplicationJoin>;
+  /** An edge for our `DataTablePermitChemicalApplicationJoin`. May be used by Relay 1. */
+  dataTablePermitChemicalApplicationJoinEdge?: Maybe<DataTablePermitChemicalApplicationJoinsEdge>;
+  deletedDataTablePermitChemicalApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our delete `DataTablePermitMedicalApplicationJoin` mutation. */
-export type DeleteDataTablePermitMedicalApplicationJoinPayloadDataTablePermitMedicalApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinsOrderBy>>;
+/** The output of our delete `DataTablePermitChemicalApplicationJoin` mutation. */
+export type DeleteDataTablePermitChemicalApplicationJoinPayloadDataTablePermitChemicalApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinsOrderBy>>;
 };
 
-/** All input for the `deleteDataTablePermitMedicalByNodeId` mutation. */
-export type DeleteDataTablePermitMedicalByNodeIdInput = {
+/** All input for the `deleteDataTablePermitChemicalByNodeId` mutation. */
+export type DeleteDataTablePermitChemicalByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTablePermitMedical` to be deleted. */
+  /** The globally unique `ID` which will identify a single `DataTablePermitChemical` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
-/** All input for the `deleteDataTablePermitMedical` mutation. */
-export type DeleteDataTablePermitMedicalInput = {
+/** All input for the `deleteDataTablePermitChemical` mutation. */
+export type DeleteDataTablePermitChemicalInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -15377,27 +16718,27 @@ export type DeleteDataTablePermitMedicalInput = {
   id: Scalars['Int']['input'];
 };
 
-/** The output of our delete `DataTablePermitMedical` mutation. */
-export type DeleteDataTablePermitMedicalPayload = {
-  __typename?: 'DeleteDataTablePermitMedicalPayload';
+/** The output of our delete `DataTablePermitChemical` mutation. */
+export type DeleteDataTablePermitChemicalPayload = {
+  __typename?: 'DeleteDataTablePermitChemicalPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTablePermitMedical` that was deleted by this mutation. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  /** An edge for our `DataTablePermitMedical`. May be used by Relay 1. */
-  dataTablePermitMedicalEdge?: Maybe<DataTablePermitMedicalsEdge>;
-  deletedDataTablePermitMedicalNodeId?: Maybe<Scalars['ID']['output']>;
+  /** The `DataTablePermitChemical` that was deleted by this mutation. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  /** An edge for our `DataTablePermitChemical`. May be used by Relay 1. */
+  dataTablePermitChemicalEdge?: Maybe<DataTablePermitChemicalsEdge>;
+  deletedDataTablePermitChemicalNodeId?: Maybe<Scalars['ID']['output']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our delete `DataTablePermitMedical` mutation. */
-export type DeleteDataTablePermitMedicalPayloadDataTablePermitMedicalEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalsOrderBy>>;
+/** The output of our delete `DataTablePermitChemical` mutation. */
+export type DeleteDataTablePermitChemicalPayloadDataTablePermitChemicalEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalsOrderBy>>;
 };
 
 /** All input for the `deleteDataTablePreRegisteredProductsProvisionalByNodeId` mutation. */
@@ -15444,19 +16785,19 @@ export type DeleteDataTablePreRegisteredProductsProvisionalPayloadDataTablePreRe
   orderBy?: InputMaybe<Array<DataTablePreRegisteredProductsProvisionalsOrderBy>>;
 };
 
-/** All input for the `deleteDataTablePrimaryContainerByNodeId` mutation. */
-export type DeleteDataTablePrimaryContainerByNodeIdInput = {
+/** All input for the `deleteDataTablePrequalManufacturerApplicationJoinByNodeId` mutation. */
+export type DeleteDataTablePrequalManufacturerApplicationJoinByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTablePrimaryContainer` to be deleted. */
+  /** The globally unique `ID` which will identify a single `DataTablePrequalManufacturerApplicationJoin` to be deleted. */
   nodeId: Scalars['ID']['input'];
 };
 
-/** All input for the `deleteDataTablePrimaryContainer` mutation. */
-export type DeleteDataTablePrimaryContainerInput = {
+/** All input for the `deleteDataTablePrequalManufacturerApplicationJoin` mutation. */
+export type DeleteDataTablePrequalManufacturerApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -15465,27 +16806,119 @@ export type DeleteDataTablePrimaryContainerInput = {
   id: Scalars['Int']['input'];
 };
 
-/** The output of our delete `DataTablePrimaryContainer` mutation. */
-export type DeleteDataTablePrimaryContainerPayload = {
-  __typename?: 'DeleteDataTablePrimaryContainerPayload';
+/** The output of our delete `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type DeleteDataTablePrequalManufacturerApplicationJoinPayload = {
+  __typename?: 'DeleteDataTablePrequalManufacturerApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTablePrimaryContainer` that was deleted by this mutation. */
-  dataTablePrimaryContainer?: Maybe<DataTablePrimaryContainer>;
-  /** An edge for our `DataTablePrimaryContainer`. May be used by Relay 1. */
-  dataTablePrimaryContainerEdge?: Maybe<DataTablePrimaryContainersEdge>;
-  deletedDataTablePrimaryContainerNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Reads a single `DataTablePrequalManufacturer` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  /** The `DataTablePrequalManufacturerApplicationJoin` that was deleted by this mutation. */
+  dataTablePrequalManufacturerApplicationJoin?: Maybe<DataTablePrequalManufacturerApplicationJoin>;
+  /** An edge for our `DataTablePrequalManufacturerApplicationJoin`. May be used by Relay 1. */
+  dataTablePrequalManufacturerApplicationJoinEdge?: Maybe<DataTablePrequalManufacturerApplicationJoinsEdge>;
+  deletedDataTablePrequalManufacturerApplicationJoinNodeId?: Maybe<Scalars['ID']['output']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our delete `DataTablePrimaryContainer` mutation. */
-export type DeleteDataTablePrimaryContainerPayloadDataTablePrimaryContainerEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePrimaryContainersOrderBy>>;
+/** The output of our delete `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type DeleteDataTablePrequalManufacturerApplicationJoinPayloadDataTablePrequalManufacturerApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinsOrderBy>>;
+};
+
+/** All input for the `deleteDataTablePrequalManufacturerByNodeId` mutation. */
+export type DeleteDataTablePrequalManufacturerByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTablePrequalManufacturer` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTablePrequalManufacturer` mutation. */
+export type DeleteDataTablePrequalManufacturerInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTablePrequalManufacturer` mutation. */
+export type DeleteDataTablePrequalManufacturerPayload = {
+  __typename?: 'DeleteDataTablePrequalManufacturerPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTablePrequalManufacturer` that was deleted by this mutation. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  /** An edge for our `DataTablePrequalManufacturer`. May be used by Relay 1. */
+  dataTablePrequalManufacturerEdge?: Maybe<DataTablePrequalManufacturersEdge>;
+  deletedDataTablePrequalManufacturerNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTablePrequalManufacturer` mutation. */
+export type DeleteDataTablePrequalManufacturerPayloadDataTablePrequalManufacturerEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturersOrderBy>>;
+};
+
+/** All input for the `deleteDataTableProcessingStepByNodeId` mutation. */
+export type DeleteDataTableProcessingStepByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableProcessingStep` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTableProcessingStep` mutation. */
+export type DeleteDataTableProcessingStepInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTableProcessingStep` mutation. */
+export type DeleteDataTableProcessingStepPayload = {
+  __typename?: 'DeleteDataTableProcessingStepPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableProcessingStep` that was deleted by this mutation. */
+  dataTableProcessingStep?: Maybe<DataTableProcessingStep>;
+  /** An edge for our `DataTableProcessingStep`. May be used by Relay 1. */
+  dataTableProcessingStepEdge?: Maybe<DataTableProcessingStepsEdge>;
+  deletedDataTableProcessingStepNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTableProcessingStep` mutation. */
+export type DeleteDataTableProcessingStepPayloadDataTableProcessingStepEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableProcessingStepsOrderBy>>;
 };
 
 /** All input for the `deleteDataTableProductApplicationJoinByNodeId` mutation. */
@@ -15519,8 +16952,6 @@ export type DeleteDataTableProductApplicationJoinPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableProduct` that is related to this `DataTableProductApplicationJoin`. */
-  dataTableProduct?: Maybe<DataTableProduct>;
   /** The `DataTableProductApplicationJoin` that was deleted by this mutation. */
   dataTableProductApplicationJoin?: Maybe<DataTableProductApplicationJoin>;
   /** An edge for our `DataTableProductApplicationJoin`. May be used by Relay 1. */
@@ -15714,6 +17145,50 @@ export type DeleteDataTableScheduledChemicalPayload = {
 /** The output of our delete `DataTableScheduledChemical` mutation. */
 export type DeleteDataTableScheduledChemicalPayloadDataTableScheduledChemicalEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableScheduledChemicalsOrderBy>>;
+};
+
+/** All input for the `deleteDataTableStorageConditionByNodeId` mutation. */
+export type DeleteDataTableStorageConditionByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableStorageCondition` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteDataTableStorageCondition` mutation. */
+export type DeleteDataTableStorageConditionInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `DataTableStorageCondition` mutation. */
+export type DeleteDataTableStorageConditionPayload = {
+  __typename?: 'DeleteDataTableStorageConditionPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableStorageCondition` that was deleted by this mutation. */
+  dataTableStorageCondition?: Maybe<DataTableStorageCondition>;
+  /** An edge for our `DataTableStorageCondition`. May be used by Relay 1. */
+  dataTableStorageConditionEdge?: Maybe<DataTableStorageConditionsEdge>;
+  deletedDataTableStorageConditionNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `DataTableStorageCondition` mutation. */
+export type DeleteDataTableStorageConditionPayloadDataTableStorageConditionEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableStorageConditionsOrderBy>>;
 };
 
 /** All input for the `deleteDataTableStorageConditionsSimplifiedByNodeId` mutation. */
@@ -16053,8 +17528,6 @@ export type DeleteFilePayload = {
   fileEdge?: Maybe<FilesEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
 };
 
 
@@ -16115,6 +17588,51 @@ export type DeleteFilterPayload = {
 /** The output of our delete `Filter` mutation. */
 export type DeleteFilterPayloadFilterEdgeArgs = {
   orderBy?: InputMaybe<Array<FiltersOrderBy>>;
+};
+
+/** All input for the `deleteGrafanaDashboardImageByNodeId` mutation. */
+export type DeleteGrafanaDashboardImageByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `GrafanaDashboardImage` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteGrafanaDashboardImage` mutation. */
+export type DeleteGrafanaDashboardImageInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  name: Scalars['String']['input'];
+};
+
+/** The output of our delete `GrafanaDashboardImage` mutation. */
+export type DeleteGrafanaDashboardImagePayload = {
+  __typename?: 'DeleteGrafanaDashboardImagePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  deletedGrafanaDashboardImageNodeId?: Maybe<Scalars['ID']['output']>;
+  /** The `GrafanaDashboardImage` that was deleted by this mutation. */
+  grafanaDashboardImage?: Maybe<GrafanaDashboardImage>;
+  /** An edge for our `GrafanaDashboardImage`. May be used by Relay 1. */
+  grafanaDashboardImageEdge?: Maybe<GrafanaDashboardImagesEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our delete `GrafanaDashboardImage` mutation. */
+export type DeleteGrafanaDashboardImagePayloadGrafanaDashboardImageEdgeArgs = {
+  orderBy?: InputMaybe<Array<GrafanaDashboardImagesOrderBy>>;
 };
 
 /** All input for the `deleteNotificationByNodeId` mutation. */
@@ -16917,6 +18435,65 @@ export type DeleteTemplateCategoryPayloadTemplateCategoryEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateCategoriesOrderBy>>;
 };
 
+/** All input for the `deleteTemplateDataViewJoinByNodeId` mutation. */
+export type DeleteTemplateDataViewJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateDataViewJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteTemplateDataViewJoinByTemplateIdAndDataViewId` mutation. */
+export type DeleteTemplateDataViewJoinByTemplateIdAndDataViewIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `deleteTemplateDataViewJoin` mutation. */
+export type DeleteTemplateDataViewJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `TemplateDataViewJoin` mutation. */
+export type DeleteTemplateDataViewJoinPayload = {
+  __typename?: 'DeleteTemplateDataViewJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  deletedTemplateDataViewJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateDataViewJoin` that was deleted by this mutation. */
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** An edge for our `TemplateDataViewJoin`. May be used by Relay 1. */
+  templateDataViewJoinEdge?: Maybe<TemplateDataViewJoinsEdge>;
+};
+
+
+/** The output of our delete `TemplateDataViewJoin` mutation. */
+export type DeleteTemplateDataViewJoinPayloadTemplateDataViewJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
 /** All input for the `deleteTemplateElementByNodeId` mutation. */
 export type DeleteTemplateElementByNodeIdInput = {
   /**
@@ -16973,6 +18550,65 @@ export type DeleteTemplateElementPayload = {
 /** The output of our delete `TemplateElement` mutation. */
 export type DeleteTemplateElementPayloadTemplateElementEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+/** All input for the `deleteTemplateFileJoinByNodeId` mutation. */
+export type DeleteTemplateFileJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateFileJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteTemplateFileJoinByTemplateIdAndFileId` mutation. */
+export type DeleteTemplateFileJoinByTemplateIdAndFileIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `deleteTemplateFileJoin` mutation. */
+export type DeleteTemplateFileJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `TemplateFileJoin` mutation. */
+export type DeleteTemplateFileJoinPayload = {
+  __typename?: 'DeleteTemplateFileJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  deletedTemplateFileJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateFileJoin` that was deleted by this mutation. */
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** An edge for our `TemplateFileJoin`. May be used by Relay 1. */
+  templateFileJoinEdge?: Maybe<TemplateFileJoinsEdge>;
+};
+
+
+/** The output of our delete `TemplateFileJoin` mutation. */
+export type DeleteTemplateFileJoinPayloadTemplateFileJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** All input for the `deleteTemplateFilterJoinByNodeId` mutation. */
@@ -17701,9 +19337,10 @@ export type FakePublicApplicationForeignKey0ApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -18226,6 +19863,7 @@ export type File = Node & {
   applicationResponseId?: Maybe<Scalars['Int']['output']>;
   applicationSerial?: Maybe<Scalars['String']['output']>;
   archivePath?: Maybe<Scalars['String']['output']>;
+  checksum?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   filePath: Scalars['String']['output'];
   fileSize?: Maybe<Scalars['BigInt']['output']>;
@@ -18233,19 +19871,31 @@ export type File = Node & {
   isExternalReferenceDoc: Scalars['Boolean']['output'];
   isInternalReferenceDoc: Scalars['Boolean']['output'];
   isOutputDoc: Scalars['Boolean']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   mimetype?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   originalFilename: Scalars['String']['output'];
   submitted?: Maybe<Scalars['Boolean']['output']>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
-  templateId?: Maybe<Scalars['Int']['output']>;
+  /** Reads and enables pagination through a set of `TemplateFileJoin`. */
+  templateFileJoins: TemplateFileJoinsConnection;
   thumbnailPath?: Maybe<Scalars['String']['output']>;
   timestamp: Scalars['Datetime']['output'];
   toBeDeleted: Scalars['Boolean']['output'];
   uniqueId: Scalars['String']['output'];
   userId?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type FileTemplateFileJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateFileJoinCondition>;
+  filter?: InputMaybe<TemplateFileJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** The `applicationNote` to be created by this mutation. */
@@ -18270,6 +19920,7 @@ export type FileApplicationNoteIdFkeyFileCreateInput = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18277,11 +19928,11 @@ export type FileApplicationNoteIdFkeyFileCreateInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18360,6 +20011,7 @@ export type FileApplicationResponseIdFkeyFileCreateInput = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18367,11 +20019,11 @@ export type FileApplicationResponseIdFkeyFileCreateInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18433,9 +20085,10 @@ export type FileApplicationSerialFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -18473,6 +20126,7 @@ export type FileApplicationSerialFkeyFileCreateInput = {
   applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18480,11 +20134,11 @@ export type FileApplicationSerialFkeyFileCreateInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18558,6 +20212,8 @@ export type FileCondition = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `archivePath` field. */
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `description` field. */
   description?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `filePath` field. */
@@ -18572,14 +20228,14 @@ export type FileCondition = {
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `isOutputDoc` field. */
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `mimetype` field. */
   mimetype?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `originalFilename` field. */
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `submitted` field. */
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Checks for equality with the object’s `templateId` field. */
-  templateId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `thumbnailPath` field. */
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `timestamp` field. */
@@ -18636,6 +20292,8 @@ export type FileFilter = {
   applicationSerial?: InputMaybe<StringFilter>;
   /** Filter by the object’s `archivePath` field. */
   archivePath?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `description` field. */
   description?: InputMaybe<StringFilter>;
   /** Filter by the object’s `filePath` field. */
@@ -18650,6 +20308,8 @@ export type FileFilter = {
   isInternalReferenceDoc?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `isOutputDoc` field. */
   isOutputDoc?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `mimetype` field. */
   mimetype?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -18660,12 +20320,10 @@ export type FileFilter = {
   originalFilename?: InputMaybe<StringFilter>;
   /** Filter by the object’s `submitted` field. */
   submitted?: InputMaybe<BooleanFilter>;
-  /** Filter by the object’s `template` relation. */
-  template?: InputMaybe<TemplateFilter>;
-  /** A related `template` exists. */
-  templateExists?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `templateId` field. */
-  templateId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `templateFileJoins` relation. */
+  templateFileJoins?: InputMaybe<FileToManyTemplateFileJoinFilter>;
+  /** Some related `templateFileJoins` exist. */
+  templateFileJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `thumbnailPath` field. */
   thumbnailPath?: InputMaybe<StringFilter>;
   /** Filter by the object’s `timestamp` field. */
@@ -18687,6 +20345,7 @@ export type FileInput = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18694,11 +20353,11 @@ export type FileInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18785,24 +20444,24 @@ export type FileOnFileForFileApplicationSerialFkeyUsingFileUniqueIdKeyUpdate = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type FileOnFileForFileTemplateIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `template` to be connected. */
+export type FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `template` being updated. */
-  patch: TemplatePatch;
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
 };
 
 /** The fields on `file` to look up the row to update. */
-export type FileOnFileForFileTemplateIdFkeyUsingFilePkeyUpdate = {
+export type FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFilePkeyUpdate = {
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `file` being updated. */
-  patch: UpdateFileOnFileForFileTemplateIdFkeyPatch;
+  patch: UpdateFileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
 };
 
 /** The fields on `file` to look up the row to update. */
-export type FileOnFileForFileTemplateIdFkeyUsingFileUniqueIdKeyUpdate = {
+export type FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFileUniqueIdKeyUpdate = {
   /** An object where the defined keys will be set on the `file` being updated. */
-  patch: UpdateFileOnFileForFileTemplateIdFkeyPatch;
+  patch: UpdateFileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
   uniqueId: Scalars['String']['input'];
 };
 
@@ -18815,6 +20474,7 @@ export type FilePatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18822,11 +20482,11 @@ export type FilePatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18834,115 +20494,14 @@ export type FilePatch = {
   userId?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** The `file` to be created by this mutation. */
-export type FileTemplateIdFkeyFileCreateInput = {
-  applicationNoteId?: InputMaybe<Scalars['Int']['input']>;
-  applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
-  applicationResponseId?: InputMaybe<Scalars['Int']['input']>;
-  applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
-  applicationSerial?: InputMaybe<Scalars['String']['input']>;
-  applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
-  archivePath?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  filePath: Scalars['String']['input'];
-  fileSize?: InputMaybe<Scalars['BigInt']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
-  isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
-  isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
-  mimetype?: InputMaybe<Scalars['String']['input']>;
-  originalFilename: Scalars['String']['input'];
-  submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
-  thumbnailPath?: InputMaybe<Scalars['String']['input']>;
-  timestamp?: InputMaybe<Scalars['Datetime']['input']>;
-  toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
-  uniqueId: Scalars['String']['input'];
-  userId?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** Input for the nested mutation of `template` in the `FileInput` mutation. */
-export type FileTemplateIdFkeyInput = {
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  connectByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyConnect>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  connectById?: InputMaybe<TemplateTemplatePkeyConnect>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<TemplateNodeIdConnect>;
-  /** A `TemplateInput` object that will be created and connected to this object. */
-  create?: InputMaybe<FileTemplateIdFkeyTemplateCreateInput>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  deleteByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyDelete>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  deleteById?: InputMaybe<TemplateTemplatePkeyDelete>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<TemplateNodeIdDelete>;
-  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
-  updateByCodeAndVersionId?: InputMaybe<TemplateOnFileForFileTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate>;
-  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
-  updateById?: InputMaybe<TemplateOnFileForFileTemplateIdFkeyUsingTemplatePkeyUpdate>;
-  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<FileOnFileForFileTemplateIdFkeyNodeIdUpdate>;
-};
-
-/** Input for the nested mutation of `file` in the `TemplateInput` mutation. */
-export type FileTemplateIdFkeyInverseInput = {
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<FileFilePkeyConnect>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<FileNodeIdConnect>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  connectByUniqueId?: InputMaybe<Array<FileFileUniqueIdKeyConnect>>;
-  /** A `FileInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<FileTemplateIdFkeyFileCreateInput>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<FileFilePkeyDelete>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<FileNodeIdDelete>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  deleteByUniqueId?: InputMaybe<Array<FileFileUniqueIdKeyDelete>>;
-  /** Flag indicating whether all other `file` records that match this relationship should be removed. */
-  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<FileOnFileForFileTemplateIdFkeyUsingFilePkeyUpdate>>;
-  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<TemplateOnFileForFileTemplateIdFkeyNodeIdUpdate>>;
-  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
-  updateByUniqueId?: InputMaybe<Array<FileOnFileForFileTemplateIdFkeyUsingFileUniqueIdKeyUpdate>>;
-};
-
-/** The `template` to be created by this mutation. */
-export type FileTemplateIdFkeyTemplateCreateInput = {
-  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
-  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
-  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
-  code: Scalars['String']['input'];
-  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
-  icon?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  namePlural?: InputMaybe<Scalars['String']['input']>;
-  parentVersionId?: InputMaybe<Scalars['String']['input']>;
-  priority?: InputMaybe<Scalars['Int']['input']>;
-  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
-  serialPattern?: InputMaybe<Scalars['String']['input']>;
-  startMessage?: InputMaybe<Scalars['JSON']['input']>;
-  status?: InputMaybe<TemplateStatus>;
-  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
-  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
-  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
-  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
-  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
-  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
-  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
-  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
-  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
-  versionComment?: InputMaybe<Scalars['String']['input']>;
-  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
-  versionId: Scalars['String']['input'];
-  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+/** A filter to be used against many `TemplateFileJoin` object types. All fields are combined with a logical ‘and.’ */
+export type FileToManyTemplateFileJoinFilter = {
+  /** Every related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateFileJoinFilter>;
+  /** No related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateFileJoinFilter>;
+  /** Some related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateFileJoinFilter>;
 };
 
 /** A connection to a list of `File` values. */
@@ -18977,6 +20536,8 @@ export enum FilesOrderBy {
   ApplicationSerialDesc = 'APPLICATION_SERIAL_DESC',
   ArchivePathAsc = 'ARCHIVE_PATH_ASC',
   ArchivePathDesc = 'ARCHIVE_PATH_DESC',
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   DescriptionAsc = 'DESCRIPTION_ASC',
   DescriptionDesc = 'DESCRIPTION_DESC',
   FilePathAsc = 'FILE_PATH_ASC',
@@ -18991,6 +20552,8 @@ export enum FilesOrderBy {
   IsInternalReferenceDocDesc = 'IS_INTERNAL_REFERENCE_DOC_DESC',
   IsOutputDocAsc = 'IS_OUTPUT_DOC_ASC',
   IsOutputDocDesc = 'IS_OUTPUT_DOC_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   MimetypeAsc = 'MIMETYPE_ASC',
   MimetypeDesc = 'MIMETYPE_DESC',
   Natural = 'NATURAL',
@@ -19000,8 +20563,6 @@ export enum FilesOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
   SubmittedAsc = 'SUBMITTED_ASC',
   SubmittedDesc = 'SUBMITTED_DESC',
-  TemplateIdAsc = 'TEMPLATE_ID_ASC',
-  TemplateIdDesc = 'TEMPLATE_ID_DESC',
   ThumbnailPathAsc = 'THUMBNAIL_PATH_ASC',
   ThumbnailPathDesc = 'THUMBNAIL_PATH_DESC',
   TimestampAsc = 'TIMESTAMP_ASC',
@@ -19016,8 +20577,10 @@ export enum FilesOrderBy {
 
 export type Filter = Node & {
   __typename?: 'Filter';
+  checksum?: Maybe<Scalars['String']['output']>;
   code: Scalars['String']['output'];
   id: Scalars['Int']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   query?: Maybe<Scalars['JSON']['output']>;
@@ -19041,10 +20604,14 @@ export type FilterTemplateFilterJoinsArgs = {
 
 /** A condition to be used against `Filter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type FilterCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `code` field. */
   code?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `query` field. */
   query?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `title` field. */
@@ -19057,10 +20624,14 @@ export type FilterCondition = {
 export type FilterFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<FilterFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `code` field. */
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<FilterFilter>;
   /** Checks for any expressions in this list. */
@@ -19099,8 +20670,10 @@ export type FilterFilterPkeyDelete = {
 
 /** An input for mutations affecting `Filter` */
 export type FilterInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -19143,8 +20716,10 @@ export type FilterOnTemplateFilterJoinForTemplateFilterJoinFilterIdFkeyUsingFilt
 
 /** Represents an update to a `Filter`. Fields that are set will be updated. */
 export type FilterPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -19185,10 +20760,14 @@ export type FiltersEdge = {
 
 /** Methods to use when ordering `Filter`. */
 export enum FiltersOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   CodeAsc = 'CODE_ASC',
   CodeDesc = 'CODE_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -19198,6 +20777,109 @@ export enum FiltersOrderBy {
   TitleDesc = 'TITLE_DESC',
   UserRoleAsc = 'USER_ROLE_ASC',
   UserRoleDesc = 'USER_ROLE_DESC'
+}
+
+export type GrafanaDashboardImage = Node & {
+  __typename?: 'GrafanaDashboardImage';
+  data?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  updatedDate?: Maybe<Scalars['Datetime']['output']>;
+};
+
+/**
+ * A condition to be used against `GrafanaDashboardImage` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type GrafanaDashboardImageCondition = {
+  /** Checks for equality with the object’s `data` field. */
+  data?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `description` field. */
+  description?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `updatedDate` field. */
+  updatedDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** A filter to be used against `GrafanaDashboardImage` object types. All fields are combined with a logical ‘and.’ */
+export type GrafanaDashboardImageFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<GrafanaDashboardImageFilter>>;
+  /** Filter by the object’s `description` field. */
+  description?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: InputMaybe<StringFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<GrafanaDashboardImageFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<GrafanaDashboardImageFilter>>;
+  /** Filter by the object’s `updatedDate` field. */
+  updatedDate?: InputMaybe<DatetimeFilter>;
+};
+
+/** An input for mutations affecting `GrafanaDashboardImage` */
+export type GrafanaDashboardImageInput = {
+  data?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name: Scalars['String']['input'];
+  updatedDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** Represents an update to a `GrafanaDashboardImage`. Fields that are set will be updated. */
+export type GrafanaDashboardImagePatch = {
+  data?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  updatedDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** A connection to a list of `GrafanaDashboardImage` values. */
+export type GrafanaDashboardImagesConnection = {
+  __typename?: 'GrafanaDashboardImagesConnection';
+  /** A list of edges which contains the `GrafanaDashboardImage` and cursor to aid in pagination. */
+  edges: Array<GrafanaDashboardImagesEdge>;
+  /** A list of `GrafanaDashboardImage` objects. */
+  nodes: Array<Maybe<GrafanaDashboardImage>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `GrafanaDashboardImage` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `GrafanaDashboardImage` edge in the connection. */
+export type GrafanaDashboardImagesEdge = {
+  __typename?: 'GrafanaDashboardImagesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `GrafanaDashboardImage` at the end of the edge. */
+  node?: Maybe<GrafanaDashboardImage>;
+};
+
+/** Methods to use when ordering `GrafanaDashboardImage`. */
+export enum GrafanaDashboardImagesOrderBy {
+  DataAsc = 'DATA_ASC',
+  DataDesc = 'DATA_DESC',
+  DescriptionAsc = 'DESCRIPTION_ASC',
+  DescriptionDesc = 'DESCRIPTION_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  UpdatedDateAsc = 'UPDATED_DATE_ASC',
+  UpdatedDateDesc = 'UPDATED_DATE_DESC'
 }
 
 /** A filter to be used against Int fields. All fields are combined with a logical ‘and.’ */
@@ -19297,32 +20979,38 @@ export type Mutation = {
   createDataTableActiveIngredient?: Maybe<CreateDataTableActiveIngredientPayload>;
   /** Creates a single `DataTableAdministrationRoute`. */
   createDataTableAdministrationRoute?: Maybe<CreateDataTableAdministrationRoutePayload>;
-  /** Creates a single `DataTableAdverseDrugReaction`. */
-  createDataTableAdverseDrugReaction?: Maybe<CreateDataTableAdverseDrugReactionPayload>;
-  /** Creates a single `DataTableAdverseDrugReactionApplicationJoin`. */
-  createDataTableAdverseDrugReactionApplicationJoin?: Maybe<CreateDataTableAdverseDrugReactionApplicationJoinPayload>;
   /** Creates a single `DataTableAtcCode`. */
   createDataTableAtcCode?: Maybe<CreateDataTableAtcCodePayload>;
+  /** Creates a single `DataTableContainer`. */
+  createDataTableContainer?: Maybe<CreateDataTableContainerPayload>;
   /** Creates a single `DataTableCountry`. */
   createDataTableCountry?: Maybe<CreateDataTableCountryPayload>;
   /** Creates a single `DataTableDosageForm`. */
   createDataTableDosageForm?: Maybe<CreateDataTableDosageFormPayload>;
-  /** Creates a single `DataTableEthnicity`. */
-  createDataTableEthnicity?: Maybe<CreateDataTableEthnicityPayload>;
-  /** Creates a single `DataTableLicense`. */
-  createDataTableLicense?: Maybe<CreateDataTableLicensePayload>;
-  /** Creates a single `DataTableLicenseApplicationJoin`. */
-  createDataTableLicenseApplicationJoin?: Maybe<CreateDataTableLicenseApplicationJoinPayload>;
+  /** Creates a single `DataTableDosageFormGroup`. */
+  createDataTableDosageFormGroup?: Maybe<CreateDataTableDosageFormGroupPayload>;
+  /** Creates a single `DataTableGenericIngredient`. */
+  createDataTableGenericIngredient?: Maybe<CreateDataTableGenericIngredientPayload>;
   /** Creates a single `DataTableManufacturer`. */
   createDataTableManufacturer?: Maybe<CreateDataTableManufacturerPayload>;
-  /** Creates a single `DataTablePermitMedical`. */
-  createDataTablePermitMedical?: Maybe<CreateDataTablePermitMedicalPayload>;
-  /** Creates a single `DataTablePermitMedicalApplicationJoin`. */
-  createDataTablePermitMedicalApplicationJoin?: Maybe<CreateDataTablePermitMedicalApplicationJoinPayload>;
+  /** Creates a single `DataTableManufacturerApplicationJoin`. */
+  createDataTableManufacturerApplicationJoin?: Maybe<CreateDataTableManufacturerApplicationJoinPayload>;
+  /** Creates a single `DataTableManufacturerRepresentative`. */
+  createDataTableManufacturerRepresentative?: Maybe<CreateDataTableManufacturerRepresentativePayload>;
+  /** Creates a single `DataTableManufacturerRepresentativeApplicationJoin`. */
+  createDataTableManufacturerRepresentativeApplicationJoin?: Maybe<CreateDataTableManufacturerRepresentativeApplicationJoinPayload>;
+  /** Creates a single `DataTablePermitChemical`. */
+  createDataTablePermitChemical?: Maybe<CreateDataTablePermitChemicalPayload>;
+  /** Creates a single `DataTablePermitChemicalApplicationJoin`. */
+  createDataTablePermitChemicalApplicationJoin?: Maybe<CreateDataTablePermitChemicalApplicationJoinPayload>;
   /** Creates a single `DataTablePreRegisteredProductsProvisional`. */
   createDataTablePreRegisteredProductsProvisional?: Maybe<CreateDataTablePreRegisteredProductsProvisionalPayload>;
-  /** Creates a single `DataTablePrimaryContainer`. */
-  createDataTablePrimaryContainer?: Maybe<CreateDataTablePrimaryContainerPayload>;
+  /** Creates a single `DataTablePrequalManufacturer`. */
+  createDataTablePrequalManufacturer?: Maybe<CreateDataTablePrequalManufacturerPayload>;
+  /** Creates a single `DataTablePrequalManufacturerApplicationJoin`. */
+  createDataTablePrequalManufacturerApplicationJoin?: Maybe<CreateDataTablePrequalManufacturerApplicationJoinPayload>;
+  /** Creates a single `DataTableProcessingStep`. */
+  createDataTableProcessingStep?: Maybe<CreateDataTableProcessingStepPayload>;
   /** Creates a single `DataTableProduct`. */
   createDataTableProduct?: Maybe<CreateDataTableProductPayload>;
   /** Creates a single `DataTableProductApplicationJoin`. */
@@ -19333,6 +21021,8 @@ export type Mutation = {
   createDataTableProvisionalProductApplicationJoin?: Maybe<CreateDataTableProvisionalProductApplicationJoinPayload>;
   /** Creates a single `DataTableScheduledChemical`. */
   createDataTableScheduledChemical?: Maybe<CreateDataTableScheduledChemicalPayload>;
+  /** Creates a single `DataTableStorageCondition`. */
+  createDataTableStorageCondition?: Maybe<CreateDataTableStorageConditionPayload>;
   /** Creates a single `DataTableStorageConditionsSimplified`. */
   createDataTableStorageConditionsSimplified?: Maybe<CreateDataTableStorageConditionsSimplifiedPayload>;
   /** Creates a single `DataTableUnitsOfProportion`. */
@@ -19349,6 +21039,8 @@ export type Mutation = {
   createFile?: Maybe<CreateFilePayload>;
   /** Creates a single `Filter`. */
   createFilter?: Maybe<CreateFilterPayload>;
+  /** Creates a single `GrafanaDashboardImage`. */
+  createGrafanaDashboardImage?: Maybe<CreateGrafanaDashboardImagePayload>;
   /** Creates a single `Notification`. */
   createNotification?: Maybe<CreateNotificationPayload>;
   /** Creates a single `Organisation`. */
@@ -19383,8 +21075,12 @@ export type Mutation = {
   createTemplateAction?: Maybe<CreateTemplateActionPayload>;
   /** Creates a single `TemplateCategory`. */
   createTemplateCategory?: Maybe<CreateTemplateCategoryPayload>;
+  /** Creates a single `TemplateDataViewJoin`. */
+  createTemplateDataViewJoin?: Maybe<CreateTemplateDataViewJoinPayload>;
   /** Creates a single `TemplateElement`. */
   createTemplateElement?: Maybe<CreateTemplateElementPayload>;
+  /** Creates a single `TemplateFileJoin`. */
+  createTemplateFileJoin?: Maybe<CreateTemplateFileJoinPayload>;
   /** Creates a single `TemplateFilterJoin`. */
   createTemplateFilterJoin?: Maybe<CreateTemplateFilterJoinPayload>;
   /** Creates a single `TemplatePermission`. */
@@ -19473,14 +21169,6 @@ export type Mutation = {
   deleteDataTableAdministrationRoute?: Maybe<DeleteDataTableAdministrationRoutePayload>;
   /** Deletes a single `DataTableAdministrationRoute` using its globally unique id. */
   deleteDataTableAdministrationRouteByNodeId?: Maybe<DeleteDataTableAdministrationRoutePayload>;
-  /** Deletes a single `DataTableAdverseDrugReaction` using a unique key. */
-  deleteDataTableAdverseDrugReaction?: Maybe<DeleteDataTableAdverseDrugReactionPayload>;
-  /** Deletes a single `DataTableAdverseDrugReactionApplicationJoin` using a unique key. */
-  deleteDataTableAdverseDrugReactionApplicationJoin?: Maybe<DeleteDataTableAdverseDrugReactionApplicationJoinPayload>;
-  /** Deletes a single `DataTableAdverseDrugReactionApplicationJoin` using its globally unique id. */
-  deleteDataTableAdverseDrugReactionApplicationJoinByNodeId?: Maybe<DeleteDataTableAdverseDrugReactionApplicationJoinPayload>;
-  /** Deletes a single `DataTableAdverseDrugReaction` using its globally unique id. */
-  deleteDataTableAdverseDrugReactionByNodeId?: Maybe<DeleteDataTableAdverseDrugReactionPayload>;
   /** Deletes a single `DataTableAtcCode` using a unique key. */
   deleteDataTableAtcCode?: Maybe<DeleteDataTableAtcCodePayload>;
   /** Deletes a single `DataTableAtcCode` using its globally unique id. */
@@ -19489,6 +21177,10 @@ export type Mutation = {
   deleteDataTableByNodeId?: Maybe<DeleteDataTablePayload>;
   /** Deletes a single `DataTable` using a unique key. */
   deleteDataTableByTableName?: Maybe<DeleteDataTablePayload>;
+  /** Deletes a single `DataTableContainer` using a unique key. */
+  deleteDataTableContainer?: Maybe<DeleteDataTableContainerPayload>;
+  /** Deletes a single `DataTableContainer` using its globally unique id. */
+  deleteDataTableContainerByNodeId?: Maybe<DeleteDataTableContainerPayload>;
   /** Deletes a single `DataTableCountry` using a unique key. */
   deleteDataTableCountry?: Maybe<DeleteDataTableCountryPayload>;
   /** Deletes a single `DataTableCountry` using its globally unique id. */
@@ -19497,38 +21189,54 @@ export type Mutation = {
   deleteDataTableDosageForm?: Maybe<DeleteDataTableDosageFormPayload>;
   /** Deletes a single `DataTableDosageForm` using its globally unique id. */
   deleteDataTableDosageFormByNodeId?: Maybe<DeleteDataTableDosageFormPayload>;
-  /** Deletes a single `DataTableEthnicity` using a unique key. */
-  deleteDataTableEthnicity?: Maybe<DeleteDataTableEthnicityPayload>;
-  /** Deletes a single `DataTableEthnicity` using its globally unique id. */
-  deleteDataTableEthnicityByNodeId?: Maybe<DeleteDataTableEthnicityPayload>;
-  /** Deletes a single `DataTableLicense` using a unique key. */
-  deleteDataTableLicense?: Maybe<DeleteDataTableLicensePayload>;
-  /** Deletes a single `DataTableLicenseApplicationJoin` using a unique key. */
-  deleteDataTableLicenseApplicationJoin?: Maybe<DeleteDataTableLicenseApplicationJoinPayload>;
-  /** Deletes a single `DataTableLicenseApplicationJoin` using its globally unique id. */
-  deleteDataTableLicenseApplicationJoinByNodeId?: Maybe<DeleteDataTableLicenseApplicationJoinPayload>;
-  /** Deletes a single `DataTableLicense` using its globally unique id. */
-  deleteDataTableLicenseByNodeId?: Maybe<DeleteDataTableLicensePayload>;
+  /** Deletes a single `DataTableDosageFormGroup` using a unique key. */
+  deleteDataTableDosageFormGroup?: Maybe<DeleteDataTableDosageFormGroupPayload>;
+  /** Deletes a single `DataTableDosageFormGroup` using its globally unique id. */
+  deleteDataTableDosageFormGroupByNodeId?: Maybe<DeleteDataTableDosageFormGroupPayload>;
+  /** Deletes a single `DataTableGenericIngredient` using a unique key. */
+  deleteDataTableGenericIngredient?: Maybe<DeleteDataTableGenericIngredientPayload>;
+  /** Deletes a single `DataTableGenericIngredient` using its globally unique id. */
+  deleteDataTableGenericIngredientByNodeId?: Maybe<DeleteDataTableGenericIngredientPayload>;
   /** Deletes a single `DataTableManufacturer` using a unique key. */
   deleteDataTableManufacturer?: Maybe<DeleteDataTableManufacturerPayload>;
+  /** Deletes a single `DataTableManufacturerApplicationJoin` using a unique key. */
+  deleteDataTableManufacturerApplicationJoin?: Maybe<DeleteDataTableManufacturerApplicationJoinPayload>;
+  /** Deletes a single `DataTableManufacturerApplicationJoin` using its globally unique id. */
+  deleteDataTableManufacturerApplicationJoinByNodeId?: Maybe<DeleteDataTableManufacturerApplicationJoinPayload>;
   /** Deletes a single `DataTableManufacturer` using its globally unique id. */
   deleteDataTableManufacturerByNodeId?: Maybe<DeleteDataTableManufacturerPayload>;
-  /** Deletes a single `DataTablePermitMedical` using a unique key. */
-  deleteDataTablePermitMedical?: Maybe<DeleteDataTablePermitMedicalPayload>;
-  /** Deletes a single `DataTablePermitMedicalApplicationJoin` using a unique key. */
-  deleteDataTablePermitMedicalApplicationJoin?: Maybe<DeleteDataTablePermitMedicalApplicationJoinPayload>;
-  /** Deletes a single `DataTablePermitMedicalApplicationJoin` using its globally unique id. */
-  deleteDataTablePermitMedicalApplicationJoinByNodeId?: Maybe<DeleteDataTablePermitMedicalApplicationJoinPayload>;
-  /** Deletes a single `DataTablePermitMedical` using its globally unique id. */
-  deleteDataTablePermitMedicalByNodeId?: Maybe<DeleteDataTablePermitMedicalPayload>;
+  /** Deletes a single `DataTableManufacturerRepresentative` using a unique key. */
+  deleteDataTableManufacturerRepresentative?: Maybe<DeleteDataTableManufacturerRepresentativePayload>;
+  /** Deletes a single `DataTableManufacturerRepresentativeApplicationJoin` using a unique key. */
+  deleteDataTableManufacturerRepresentativeApplicationJoin?: Maybe<DeleteDataTableManufacturerRepresentativeApplicationJoinPayload>;
+  /** Deletes a single `DataTableManufacturerRepresentativeApplicationJoin` using its globally unique id. */
+  deleteDataTableManufacturerRepresentativeApplicationJoinByNodeId?: Maybe<DeleteDataTableManufacturerRepresentativeApplicationJoinPayload>;
+  /** Deletes a single `DataTableManufacturerRepresentative` using its globally unique id. */
+  deleteDataTableManufacturerRepresentativeByNodeId?: Maybe<DeleteDataTableManufacturerRepresentativePayload>;
+  /** Deletes a single `DataTablePermitChemical` using a unique key. */
+  deleteDataTablePermitChemical?: Maybe<DeleteDataTablePermitChemicalPayload>;
+  /** Deletes a single `DataTablePermitChemicalApplicationJoin` using a unique key. */
+  deleteDataTablePermitChemicalApplicationJoin?: Maybe<DeleteDataTablePermitChemicalApplicationJoinPayload>;
+  /** Deletes a single `DataTablePermitChemicalApplicationJoin` using its globally unique id. */
+  deleteDataTablePermitChemicalApplicationJoinByNodeId?: Maybe<DeleteDataTablePermitChemicalApplicationJoinPayload>;
+  /** Deletes a single `DataTablePermitChemical` using its globally unique id. */
+  deleteDataTablePermitChemicalByNodeId?: Maybe<DeleteDataTablePermitChemicalPayload>;
   /** Deletes a single `DataTablePreRegisteredProductsProvisional` using a unique key. */
   deleteDataTablePreRegisteredProductsProvisional?: Maybe<DeleteDataTablePreRegisteredProductsProvisionalPayload>;
   /** Deletes a single `DataTablePreRegisteredProductsProvisional` using its globally unique id. */
   deleteDataTablePreRegisteredProductsProvisionalByNodeId?: Maybe<DeleteDataTablePreRegisteredProductsProvisionalPayload>;
-  /** Deletes a single `DataTablePrimaryContainer` using a unique key. */
-  deleteDataTablePrimaryContainer?: Maybe<DeleteDataTablePrimaryContainerPayload>;
-  /** Deletes a single `DataTablePrimaryContainer` using its globally unique id. */
-  deleteDataTablePrimaryContainerByNodeId?: Maybe<DeleteDataTablePrimaryContainerPayload>;
+  /** Deletes a single `DataTablePrequalManufacturer` using a unique key. */
+  deleteDataTablePrequalManufacturer?: Maybe<DeleteDataTablePrequalManufacturerPayload>;
+  /** Deletes a single `DataTablePrequalManufacturerApplicationJoin` using a unique key. */
+  deleteDataTablePrequalManufacturerApplicationJoin?: Maybe<DeleteDataTablePrequalManufacturerApplicationJoinPayload>;
+  /** Deletes a single `DataTablePrequalManufacturerApplicationJoin` using its globally unique id. */
+  deleteDataTablePrequalManufacturerApplicationJoinByNodeId?: Maybe<DeleteDataTablePrequalManufacturerApplicationJoinPayload>;
+  /** Deletes a single `DataTablePrequalManufacturer` using its globally unique id. */
+  deleteDataTablePrequalManufacturerByNodeId?: Maybe<DeleteDataTablePrequalManufacturerPayload>;
+  /** Deletes a single `DataTableProcessingStep` using a unique key. */
+  deleteDataTableProcessingStep?: Maybe<DeleteDataTableProcessingStepPayload>;
+  /** Deletes a single `DataTableProcessingStep` using its globally unique id. */
+  deleteDataTableProcessingStepByNodeId?: Maybe<DeleteDataTableProcessingStepPayload>;
   /** Deletes a single `DataTableProduct` using a unique key. */
   deleteDataTableProduct?: Maybe<DeleteDataTableProductPayload>;
   /** Deletes a single `DataTableProductApplicationJoin` using a unique key. */
@@ -19549,6 +21257,10 @@ export type Mutation = {
   deleteDataTableScheduledChemical?: Maybe<DeleteDataTableScheduledChemicalPayload>;
   /** Deletes a single `DataTableScheduledChemical` using its globally unique id. */
   deleteDataTableScheduledChemicalByNodeId?: Maybe<DeleteDataTableScheduledChemicalPayload>;
+  /** Deletes a single `DataTableStorageCondition` using a unique key. */
+  deleteDataTableStorageCondition?: Maybe<DeleteDataTableStorageConditionPayload>;
+  /** Deletes a single `DataTableStorageCondition` using its globally unique id. */
+  deleteDataTableStorageConditionByNodeId?: Maybe<DeleteDataTableStorageConditionPayload>;
   /** Deletes a single `DataTableStorageConditionsSimplified` using a unique key. */
   deleteDataTableStorageConditionsSimplified?: Maybe<DeleteDataTableStorageConditionsSimplifiedPayload>;
   /** Deletes a single `DataTableStorageConditionsSimplified` using its globally unique id. */
@@ -19589,6 +21301,10 @@ export type Mutation = {
   deleteFilterByCode?: Maybe<DeleteFilterPayload>;
   /** Deletes a single `Filter` using its globally unique id. */
   deleteFilterByNodeId?: Maybe<DeleteFilterPayload>;
+  /** Deletes a single `GrafanaDashboardImage` using a unique key. */
+  deleteGrafanaDashboardImage?: Maybe<DeleteGrafanaDashboardImagePayload>;
+  /** Deletes a single `GrafanaDashboardImage` using its globally unique id. */
+  deleteGrafanaDashboardImageByNodeId?: Maybe<DeleteGrafanaDashboardImagePayload>;
   /** Deletes a single `Notification` using a unique key. */
   deleteNotification?: Maybe<DeleteNotificationPayload>;
   /** Deletes a single `Notification` using its globally unique id. */
@@ -19667,12 +21383,24 @@ export type Mutation = {
   deleteTemplateCategoryByCode?: Maybe<DeleteTemplateCategoryPayload>;
   /** Deletes a single `TemplateCategory` using its globally unique id. */
   deleteTemplateCategoryByNodeId?: Maybe<DeleteTemplateCategoryPayload>;
+  /** Deletes a single `TemplateDataViewJoin` using a unique key. */
+  deleteTemplateDataViewJoin?: Maybe<DeleteTemplateDataViewJoinPayload>;
+  /** Deletes a single `TemplateDataViewJoin` using its globally unique id. */
+  deleteTemplateDataViewJoinByNodeId?: Maybe<DeleteTemplateDataViewJoinPayload>;
+  /** Deletes a single `TemplateDataViewJoin` using a unique key. */
+  deleteTemplateDataViewJoinByTemplateIdAndDataViewId?: Maybe<DeleteTemplateDataViewJoinPayload>;
   /** Deletes a single `TemplateElement` using a unique key. */
   deleteTemplateElement?: Maybe<DeleteTemplateElementPayload>;
   /** Deletes a single `TemplateElement` using its globally unique id. */
   deleteTemplateElementByNodeId?: Maybe<DeleteTemplateElementPayload>;
   /** Deletes a single `TemplateElement` using a unique key. */
   deleteTemplateElementByTemplateCodeAndCodeAndTemplateVersion?: Maybe<DeleteTemplateElementPayload>;
+  /** Deletes a single `TemplateFileJoin` using a unique key. */
+  deleteTemplateFileJoin?: Maybe<DeleteTemplateFileJoinPayload>;
+  /** Deletes a single `TemplateFileJoin` using its globally unique id. */
+  deleteTemplateFileJoinByNodeId?: Maybe<DeleteTemplateFileJoinPayload>;
+  /** Deletes a single `TemplateFileJoin` using a unique key. */
+  deleteTemplateFileJoinByTemplateIdAndFileId?: Maybe<DeleteTemplateFileJoinPayload>;
   /** Deletes a single `TemplateFilterJoin` using a unique key. */
   deleteTemplateFilterJoin?: Maybe<DeleteTemplateFilterJoinPayload>;
   /** Deletes a single `TemplateFilterJoin` using its globally unique id. */
@@ -19782,14 +21510,6 @@ export type Mutation = {
   updateDataTableAdministrationRoute?: Maybe<UpdateDataTableAdministrationRoutePayload>;
   /** Updates a single `DataTableAdministrationRoute` using its globally unique id and a patch. */
   updateDataTableAdministrationRouteByNodeId?: Maybe<UpdateDataTableAdministrationRoutePayload>;
-  /** Updates a single `DataTableAdverseDrugReaction` using a unique key and a patch. */
-  updateDataTableAdverseDrugReaction?: Maybe<UpdateDataTableAdverseDrugReactionPayload>;
-  /** Updates a single `DataTableAdverseDrugReactionApplicationJoin` using a unique key and a patch. */
-  updateDataTableAdverseDrugReactionApplicationJoin?: Maybe<UpdateDataTableAdverseDrugReactionApplicationJoinPayload>;
-  /** Updates a single `DataTableAdverseDrugReactionApplicationJoin` using its globally unique id and a patch. */
-  updateDataTableAdverseDrugReactionApplicationJoinByNodeId?: Maybe<UpdateDataTableAdverseDrugReactionApplicationJoinPayload>;
-  /** Updates a single `DataTableAdverseDrugReaction` using its globally unique id and a patch. */
-  updateDataTableAdverseDrugReactionByNodeId?: Maybe<UpdateDataTableAdverseDrugReactionPayload>;
   /** Updates a single `DataTableAtcCode` using a unique key and a patch. */
   updateDataTableAtcCode?: Maybe<UpdateDataTableAtcCodePayload>;
   /** Updates a single `DataTableAtcCode` using its globally unique id and a patch. */
@@ -19798,6 +21518,10 @@ export type Mutation = {
   updateDataTableByNodeId?: Maybe<UpdateDataTablePayload>;
   /** Updates a single `DataTable` using a unique key and a patch. */
   updateDataTableByTableName?: Maybe<UpdateDataTablePayload>;
+  /** Updates a single `DataTableContainer` using a unique key and a patch. */
+  updateDataTableContainer?: Maybe<UpdateDataTableContainerPayload>;
+  /** Updates a single `DataTableContainer` using its globally unique id and a patch. */
+  updateDataTableContainerByNodeId?: Maybe<UpdateDataTableContainerPayload>;
   /** Updates a single `DataTableCountry` using a unique key and a patch. */
   updateDataTableCountry?: Maybe<UpdateDataTableCountryPayload>;
   /** Updates a single `DataTableCountry` using its globally unique id and a patch. */
@@ -19806,38 +21530,54 @@ export type Mutation = {
   updateDataTableDosageForm?: Maybe<UpdateDataTableDosageFormPayload>;
   /** Updates a single `DataTableDosageForm` using its globally unique id and a patch. */
   updateDataTableDosageFormByNodeId?: Maybe<UpdateDataTableDosageFormPayload>;
-  /** Updates a single `DataTableEthnicity` using a unique key and a patch. */
-  updateDataTableEthnicity?: Maybe<UpdateDataTableEthnicityPayload>;
-  /** Updates a single `DataTableEthnicity` using its globally unique id and a patch. */
-  updateDataTableEthnicityByNodeId?: Maybe<UpdateDataTableEthnicityPayload>;
-  /** Updates a single `DataTableLicense` using a unique key and a patch. */
-  updateDataTableLicense?: Maybe<UpdateDataTableLicensePayload>;
-  /** Updates a single `DataTableLicenseApplicationJoin` using a unique key and a patch. */
-  updateDataTableLicenseApplicationJoin?: Maybe<UpdateDataTableLicenseApplicationJoinPayload>;
-  /** Updates a single `DataTableLicenseApplicationJoin` using its globally unique id and a patch. */
-  updateDataTableLicenseApplicationJoinByNodeId?: Maybe<UpdateDataTableLicenseApplicationJoinPayload>;
-  /** Updates a single `DataTableLicense` using its globally unique id and a patch. */
-  updateDataTableLicenseByNodeId?: Maybe<UpdateDataTableLicensePayload>;
+  /** Updates a single `DataTableDosageFormGroup` using a unique key and a patch. */
+  updateDataTableDosageFormGroup?: Maybe<UpdateDataTableDosageFormGroupPayload>;
+  /** Updates a single `DataTableDosageFormGroup` using its globally unique id and a patch. */
+  updateDataTableDosageFormGroupByNodeId?: Maybe<UpdateDataTableDosageFormGroupPayload>;
+  /** Updates a single `DataTableGenericIngredient` using a unique key and a patch. */
+  updateDataTableGenericIngredient?: Maybe<UpdateDataTableGenericIngredientPayload>;
+  /** Updates a single `DataTableGenericIngredient` using its globally unique id and a patch. */
+  updateDataTableGenericIngredientByNodeId?: Maybe<UpdateDataTableGenericIngredientPayload>;
   /** Updates a single `DataTableManufacturer` using a unique key and a patch. */
   updateDataTableManufacturer?: Maybe<UpdateDataTableManufacturerPayload>;
+  /** Updates a single `DataTableManufacturerApplicationJoin` using a unique key and a patch. */
+  updateDataTableManufacturerApplicationJoin?: Maybe<UpdateDataTableManufacturerApplicationJoinPayload>;
+  /** Updates a single `DataTableManufacturerApplicationJoin` using its globally unique id and a patch. */
+  updateDataTableManufacturerApplicationJoinByNodeId?: Maybe<UpdateDataTableManufacturerApplicationJoinPayload>;
   /** Updates a single `DataTableManufacturer` using its globally unique id and a patch. */
   updateDataTableManufacturerByNodeId?: Maybe<UpdateDataTableManufacturerPayload>;
-  /** Updates a single `DataTablePermitMedical` using a unique key and a patch. */
-  updateDataTablePermitMedical?: Maybe<UpdateDataTablePermitMedicalPayload>;
-  /** Updates a single `DataTablePermitMedicalApplicationJoin` using a unique key and a patch. */
-  updateDataTablePermitMedicalApplicationJoin?: Maybe<UpdateDataTablePermitMedicalApplicationJoinPayload>;
-  /** Updates a single `DataTablePermitMedicalApplicationJoin` using its globally unique id and a patch. */
-  updateDataTablePermitMedicalApplicationJoinByNodeId?: Maybe<UpdateDataTablePermitMedicalApplicationJoinPayload>;
-  /** Updates a single `DataTablePermitMedical` using its globally unique id and a patch. */
-  updateDataTablePermitMedicalByNodeId?: Maybe<UpdateDataTablePermitMedicalPayload>;
+  /** Updates a single `DataTableManufacturerRepresentative` using a unique key and a patch. */
+  updateDataTableManufacturerRepresentative?: Maybe<UpdateDataTableManufacturerRepresentativePayload>;
+  /** Updates a single `DataTableManufacturerRepresentativeApplicationJoin` using a unique key and a patch. */
+  updateDataTableManufacturerRepresentativeApplicationJoin?: Maybe<UpdateDataTableManufacturerRepresentativeApplicationJoinPayload>;
+  /** Updates a single `DataTableManufacturerRepresentativeApplicationJoin` using its globally unique id and a patch. */
+  updateDataTableManufacturerRepresentativeApplicationJoinByNodeId?: Maybe<UpdateDataTableManufacturerRepresentativeApplicationJoinPayload>;
+  /** Updates a single `DataTableManufacturerRepresentative` using its globally unique id and a patch. */
+  updateDataTableManufacturerRepresentativeByNodeId?: Maybe<UpdateDataTableManufacturerRepresentativePayload>;
+  /** Updates a single `DataTablePermitChemical` using a unique key and a patch. */
+  updateDataTablePermitChemical?: Maybe<UpdateDataTablePermitChemicalPayload>;
+  /** Updates a single `DataTablePermitChemicalApplicationJoin` using a unique key and a patch. */
+  updateDataTablePermitChemicalApplicationJoin?: Maybe<UpdateDataTablePermitChemicalApplicationJoinPayload>;
+  /** Updates a single `DataTablePermitChemicalApplicationJoin` using its globally unique id and a patch. */
+  updateDataTablePermitChemicalApplicationJoinByNodeId?: Maybe<UpdateDataTablePermitChemicalApplicationJoinPayload>;
+  /** Updates a single `DataTablePermitChemical` using its globally unique id and a patch. */
+  updateDataTablePermitChemicalByNodeId?: Maybe<UpdateDataTablePermitChemicalPayload>;
   /** Updates a single `DataTablePreRegisteredProductsProvisional` using a unique key and a patch. */
   updateDataTablePreRegisteredProductsProvisional?: Maybe<UpdateDataTablePreRegisteredProductsProvisionalPayload>;
   /** Updates a single `DataTablePreRegisteredProductsProvisional` using its globally unique id and a patch. */
   updateDataTablePreRegisteredProductsProvisionalByNodeId?: Maybe<UpdateDataTablePreRegisteredProductsProvisionalPayload>;
-  /** Updates a single `DataTablePrimaryContainer` using a unique key and a patch. */
-  updateDataTablePrimaryContainer?: Maybe<UpdateDataTablePrimaryContainerPayload>;
-  /** Updates a single `DataTablePrimaryContainer` using its globally unique id and a patch. */
-  updateDataTablePrimaryContainerByNodeId?: Maybe<UpdateDataTablePrimaryContainerPayload>;
+  /** Updates a single `DataTablePrequalManufacturer` using a unique key and a patch. */
+  updateDataTablePrequalManufacturer?: Maybe<UpdateDataTablePrequalManufacturerPayload>;
+  /** Updates a single `DataTablePrequalManufacturerApplicationJoin` using a unique key and a patch. */
+  updateDataTablePrequalManufacturerApplicationJoin?: Maybe<UpdateDataTablePrequalManufacturerApplicationJoinPayload>;
+  /** Updates a single `DataTablePrequalManufacturerApplicationJoin` using its globally unique id and a patch. */
+  updateDataTablePrequalManufacturerApplicationJoinByNodeId?: Maybe<UpdateDataTablePrequalManufacturerApplicationJoinPayload>;
+  /** Updates a single `DataTablePrequalManufacturer` using its globally unique id and a patch. */
+  updateDataTablePrequalManufacturerByNodeId?: Maybe<UpdateDataTablePrequalManufacturerPayload>;
+  /** Updates a single `DataTableProcessingStep` using a unique key and a patch. */
+  updateDataTableProcessingStep?: Maybe<UpdateDataTableProcessingStepPayload>;
+  /** Updates a single `DataTableProcessingStep` using its globally unique id and a patch. */
+  updateDataTableProcessingStepByNodeId?: Maybe<UpdateDataTableProcessingStepPayload>;
   /** Updates a single `DataTableProduct` using a unique key and a patch. */
   updateDataTableProduct?: Maybe<UpdateDataTableProductPayload>;
   /** Updates a single `DataTableProductApplicationJoin` using a unique key and a patch. */
@@ -19858,6 +21598,10 @@ export type Mutation = {
   updateDataTableScheduledChemical?: Maybe<UpdateDataTableScheduledChemicalPayload>;
   /** Updates a single `DataTableScheduledChemical` using its globally unique id and a patch. */
   updateDataTableScheduledChemicalByNodeId?: Maybe<UpdateDataTableScheduledChemicalPayload>;
+  /** Updates a single `DataTableStorageCondition` using a unique key and a patch. */
+  updateDataTableStorageCondition?: Maybe<UpdateDataTableStorageConditionPayload>;
+  /** Updates a single `DataTableStorageCondition` using its globally unique id and a patch. */
+  updateDataTableStorageConditionByNodeId?: Maybe<UpdateDataTableStorageConditionPayload>;
   /** Updates a single `DataTableStorageConditionsSimplified` using a unique key and a patch. */
   updateDataTableStorageConditionsSimplified?: Maybe<UpdateDataTableStorageConditionsSimplifiedPayload>;
   /** Updates a single `DataTableStorageConditionsSimplified` using its globally unique id and a patch. */
@@ -19898,6 +21642,10 @@ export type Mutation = {
   updateFilterByCode?: Maybe<UpdateFilterPayload>;
   /** Updates a single `Filter` using its globally unique id and a patch. */
   updateFilterByNodeId?: Maybe<UpdateFilterPayload>;
+  /** Updates a single `GrafanaDashboardImage` using a unique key and a patch. */
+  updateGrafanaDashboardImage?: Maybe<UpdateGrafanaDashboardImagePayload>;
+  /** Updates a single `GrafanaDashboardImage` using its globally unique id and a patch. */
+  updateGrafanaDashboardImageByNodeId?: Maybe<UpdateGrafanaDashboardImagePayload>;
   /** Updates a single `Notification` using a unique key and a patch. */
   updateNotification?: Maybe<UpdateNotificationPayload>;
   /** Updates a single `Notification` using its globally unique id and a patch. */
@@ -19976,12 +21724,24 @@ export type Mutation = {
   updateTemplateCategoryByCode?: Maybe<UpdateTemplateCategoryPayload>;
   /** Updates a single `TemplateCategory` using its globally unique id and a patch. */
   updateTemplateCategoryByNodeId?: Maybe<UpdateTemplateCategoryPayload>;
+  /** Updates a single `TemplateDataViewJoin` using a unique key and a patch. */
+  updateTemplateDataViewJoin?: Maybe<UpdateTemplateDataViewJoinPayload>;
+  /** Updates a single `TemplateDataViewJoin` using its globally unique id and a patch. */
+  updateTemplateDataViewJoinByNodeId?: Maybe<UpdateTemplateDataViewJoinPayload>;
+  /** Updates a single `TemplateDataViewJoin` using a unique key and a patch. */
+  updateTemplateDataViewJoinByTemplateIdAndDataViewId?: Maybe<UpdateTemplateDataViewJoinPayload>;
   /** Updates a single `TemplateElement` using a unique key and a patch. */
   updateTemplateElement?: Maybe<UpdateTemplateElementPayload>;
   /** Updates a single `TemplateElement` using its globally unique id and a patch. */
   updateTemplateElementByNodeId?: Maybe<UpdateTemplateElementPayload>;
   /** Updates a single `TemplateElement` using a unique key and a patch. */
   updateTemplateElementByTemplateCodeAndCodeAndTemplateVersion?: Maybe<UpdateTemplateElementPayload>;
+  /** Updates a single `TemplateFileJoin` using a unique key and a patch. */
+  updateTemplateFileJoin?: Maybe<UpdateTemplateFileJoinPayload>;
+  /** Updates a single `TemplateFileJoin` using its globally unique id and a patch. */
+  updateTemplateFileJoinByNodeId?: Maybe<UpdateTemplateFileJoinPayload>;
+  /** Updates a single `TemplateFileJoin` using a unique key and a patch. */
+  updateTemplateFileJoinByTemplateIdAndFileId?: Maybe<UpdateTemplateFileJoinPayload>;
   /** Updates a single `TemplateFilterJoin` using a unique key and a patch. */
   updateTemplateFilterJoin?: Maybe<UpdateTemplateFilterJoinPayload>;
   /** Updates a single `TemplateFilterJoin` using its globally unique id and a patch. */
@@ -20126,20 +21886,14 @@ export type MutationCreateDataTableAdministrationRouteArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTableAdverseDrugReactionArgs = {
-  input: CreateDataTableAdverseDrugReactionInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTableAdverseDrugReactionApplicationJoinArgs = {
-  input: CreateDataTableAdverseDrugReactionApplicationJoinInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateDataTableAtcCodeArgs = {
   input: CreateDataTableAtcCodeInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTableContainerArgs = {
+  input: CreateDataTableContainerInput;
 };
 
 
@@ -20156,20 +21910,14 @@ export type MutationCreateDataTableDosageFormArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTableEthnicityArgs = {
-  input: CreateDataTableEthnicityInput;
+export type MutationCreateDataTableDosageFormGroupArgs = {
+  input: CreateDataTableDosageFormGroupInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTableLicenseArgs = {
-  input: CreateDataTableLicenseInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTableLicenseApplicationJoinArgs = {
-  input: CreateDataTableLicenseApplicationJoinInput;
+export type MutationCreateDataTableGenericIngredientArgs = {
+  input: CreateDataTableGenericIngredientInput;
 };
 
 
@@ -20180,14 +21928,32 @@ export type MutationCreateDataTableManufacturerArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTablePermitMedicalArgs = {
-  input: CreateDataTablePermitMedicalInput;
+export type MutationCreateDataTableManufacturerApplicationJoinArgs = {
+  input: CreateDataTableManufacturerApplicationJoinInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTablePermitMedicalApplicationJoinArgs = {
-  input: CreateDataTablePermitMedicalApplicationJoinInput;
+export type MutationCreateDataTableManufacturerRepresentativeArgs = {
+  input: CreateDataTableManufacturerRepresentativeInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTableManufacturerRepresentativeApplicationJoinArgs = {
+  input: CreateDataTableManufacturerRepresentativeApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTablePermitChemicalArgs = {
+  input: CreateDataTablePermitChemicalInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTablePermitChemicalApplicationJoinArgs = {
+  input: CreateDataTablePermitChemicalApplicationJoinInput;
 };
 
 
@@ -20198,8 +21964,20 @@ export type MutationCreateDataTablePreRegisteredProductsProvisionalArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDataTablePrimaryContainerArgs = {
-  input: CreateDataTablePrimaryContainerInput;
+export type MutationCreateDataTablePrequalManufacturerArgs = {
+  input: CreateDataTablePrequalManufacturerInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTablePrequalManufacturerApplicationJoinArgs = {
+  input: CreateDataTablePrequalManufacturerApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTableProcessingStepArgs = {
+  input: CreateDataTableProcessingStepInput;
 };
 
 
@@ -20230,6 +22008,12 @@ export type MutationCreateDataTableProvisionalProductApplicationJoinArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateDataTableScheduledChemicalArgs = {
   input: CreateDataTableScheduledChemicalInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDataTableStorageConditionArgs = {
+  input: CreateDataTableStorageConditionInput;
 };
 
 
@@ -20278,6 +22062,12 @@ export type MutationCreateFileArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateFilterArgs = {
   input: CreateFilterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateGrafanaDashboardImageArgs = {
+  input: CreateGrafanaDashboardImageInput;
 };
 
 
@@ -20384,8 +22174,20 @@ export type MutationCreateTemplateCategoryArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateTemplateDataViewJoinArgs = {
+  input: CreateTemplateDataViewJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateTemplateElementArgs = {
   input: CreateTemplateElementInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateTemplateFileJoinArgs = {
+  input: CreateTemplateFileJoinInput;
 };
 
 
@@ -20654,30 +22456,6 @@ export type MutationDeleteDataTableAdministrationRouteByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableAdverseDrugReactionArgs = {
-  input: DeleteDataTableAdverseDrugReactionInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableAdverseDrugReactionApplicationJoinArgs = {
-  input: DeleteDataTableAdverseDrugReactionApplicationJoinInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableAdverseDrugReactionApplicationJoinByNodeIdArgs = {
-  input: DeleteDataTableAdverseDrugReactionApplicationJoinByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableAdverseDrugReactionByNodeIdArgs = {
-  input: DeleteDataTableAdverseDrugReactionByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteDataTableAtcCodeArgs = {
   input: DeleteDataTableAtcCodeInput;
 };
@@ -20698,6 +22476,18 @@ export type MutationDeleteDataTableByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteDataTableByTableNameArgs = {
   input: DeleteDataTableByTableNameInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableContainerArgs = {
+  input: DeleteDataTableContainerInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableContainerByNodeIdArgs = {
+  input: DeleteDataTableContainerByNodeIdInput;
 };
 
 
@@ -20726,38 +22516,26 @@ export type MutationDeleteDataTableDosageFormByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableEthnicityArgs = {
-  input: DeleteDataTableEthnicityInput;
+export type MutationDeleteDataTableDosageFormGroupArgs = {
+  input: DeleteDataTableDosageFormGroupInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableEthnicityByNodeIdArgs = {
-  input: DeleteDataTableEthnicityByNodeIdInput;
+export type MutationDeleteDataTableDosageFormGroupByNodeIdArgs = {
+  input: DeleteDataTableDosageFormGroupByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableLicenseArgs = {
-  input: DeleteDataTableLicenseInput;
+export type MutationDeleteDataTableGenericIngredientArgs = {
+  input: DeleteDataTableGenericIngredientInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableLicenseApplicationJoinArgs = {
-  input: DeleteDataTableLicenseApplicationJoinInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableLicenseApplicationJoinByNodeIdArgs = {
-  input: DeleteDataTableLicenseApplicationJoinByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTableLicenseByNodeIdArgs = {
-  input: DeleteDataTableLicenseByNodeIdInput;
+export type MutationDeleteDataTableGenericIngredientByNodeIdArgs = {
+  input: DeleteDataTableGenericIngredientByNodeIdInput;
 };
 
 
@@ -20768,32 +22546,68 @@ export type MutationDeleteDataTableManufacturerArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableManufacturerApplicationJoinArgs = {
+  input: DeleteDataTableManufacturerApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableManufacturerApplicationJoinByNodeIdArgs = {
+  input: DeleteDataTableManufacturerApplicationJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteDataTableManufacturerByNodeIdArgs = {
   input: DeleteDataTableManufacturerByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTablePermitMedicalArgs = {
-  input: DeleteDataTablePermitMedicalInput;
+export type MutationDeleteDataTableManufacturerRepresentativeArgs = {
+  input: DeleteDataTableManufacturerRepresentativeInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTablePermitMedicalApplicationJoinArgs = {
-  input: DeleteDataTablePermitMedicalApplicationJoinInput;
+export type MutationDeleteDataTableManufacturerRepresentativeApplicationJoinArgs = {
+  input: DeleteDataTableManufacturerRepresentativeApplicationJoinInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTablePermitMedicalApplicationJoinByNodeIdArgs = {
-  input: DeleteDataTablePermitMedicalApplicationJoinByNodeIdInput;
+export type MutationDeleteDataTableManufacturerRepresentativeApplicationJoinByNodeIdArgs = {
+  input: DeleteDataTableManufacturerRepresentativeApplicationJoinByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTablePermitMedicalByNodeIdArgs = {
-  input: DeleteDataTablePermitMedicalByNodeIdInput;
+export type MutationDeleteDataTableManufacturerRepresentativeByNodeIdArgs = {
+  input: DeleteDataTableManufacturerRepresentativeByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTablePermitChemicalArgs = {
+  input: DeleteDataTablePermitChemicalInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTablePermitChemicalApplicationJoinArgs = {
+  input: DeleteDataTablePermitChemicalApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTablePermitChemicalApplicationJoinByNodeIdArgs = {
+  input: DeleteDataTablePermitChemicalApplicationJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTablePermitChemicalByNodeIdArgs = {
+  input: DeleteDataTablePermitChemicalByNodeIdInput;
 };
 
 
@@ -20810,14 +22624,38 @@ export type MutationDeleteDataTablePreRegisteredProductsProvisionalByNodeIdArgs 
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTablePrimaryContainerArgs = {
-  input: DeleteDataTablePrimaryContainerInput;
+export type MutationDeleteDataTablePrequalManufacturerArgs = {
+  input: DeleteDataTablePrequalManufacturerInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDataTablePrimaryContainerByNodeIdArgs = {
-  input: DeleteDataTablePrimaryContainerByNodeIdInput;
+export type MutationDeleteDataTablePrequalManufacturerApplicationJoinArgs = {
+  input: DeleteDataTablePrequalManufacturerApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTablePrequalManufacturerApplicationJoinByNodeIdArgs = {
+  input: DeleteDataTablePrequalManufacturerApplicationJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTablePrequalManufacturerByNodeIdArgs = {
+  input: DeleteDataTablePrequalManufacturerByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableProcessingStepArgs = {
+  input: DeleteDataTableProcessingStepInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableProcessingStepByNodeIdArgs = {
+  input: DeleteDataTableProcessingStepByNodeIdInput;
 };
 
 
@@ -20878,6 +22716,18 @@ export type MutationDeleteDataTableScheduledChemicalArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteDataTableScheduledChemicalByNodeIdArgs = {
   input: DeleteDataTableScheduledChemicalByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableStorageConditionArgs = {
+  input: DeleteDataTableStorageConditionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDataTableStorageConditionByNodeIdArgs = {
+  input: DeleteDataTableStorageConditionByNodeIdInput;
 };
 
 
@@ -20998,6 +22848,18 @@ export type MutationDeleteFilterByCodeArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteFilterByNodeIdArgs = {
   input: DeleteFilterByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteGrafanaDashboardImageArgs = {
+  input: DeleteGrafanaDashboardImageInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteGrafanaDashboardImageByNodeIdArgs = {
+  input: DeleteGrafanaDashboardImageByNodeIdInput;
 };
 
 
@@ -21236,6 +23098,24 @@ export type MutationDeleteTemplateCategoryByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateDataViewJoinArgs = {
+  input: DeleteTemplateDataViewJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateDataViewJoinByNodeIdArgs = {
+  input: DeleteTemplateDataViewJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateDataViewJoinByTemplateIdAndDataViewIdArgs = {
+  input: DeleteTemplateDataViewJoinByTemplateIdAndDataViewIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteTemplateElementArgs = {
   input: DeleteTemplateElementInput;
 };
@@ -21250,6 +23130,24 @@ export type MutationDeleteTemplateElementByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteTemplateElementByTemplateCodeAndCodeAndTemplateVersionArgs = {
   input: DeleteTemplateElementByTemplateCodeAndCodeAndTemplateVersionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateFileJoinArgs = {
+  input: DeleteTemplateFileJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateFileJoinByNodeIdArgs = {
+  input: DeleteTemplateFileJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateFileJoinByTemplateIdAndFileIdArgs = {
+  input: DeleteTemplateFileJoinByTemplateIdAndFileIdInput;
 };
 
 
@@ -21584,30 +23482,6 @@ export type MutationUpdateDataTableAdministrationRouteByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableAdverseDrugReactionArgs = {
-  input: UpdateDataTableAdverseDrugReactionInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableAdverseDrugReactionApplicationJoinArgs = {
-  input: UpdateDataTableAdverseDrugReactionApplicationJoinInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableAdverseDrugReactionApplicationJoinByNodeIdArgs = {
-  input: UpdateDataTableAdverseDrugReactionApplicationJoinByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableAdverseDrugReactionByNodeIdArgs = {
-  input: UpdateDataTableAdverseDrugReactionByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateDataTableAtcCodeArgs = {
   input: UpdateDataTableAtcCodeInput;
 };
@@ -21628,6 +23502,18 @@ export type MutationUpdateDataTableByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateDataTableByTableNameArgs = {
   input: UpdateDataTableByTableNameInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableContainerArgs = {
+  input: UpdateDataTableContainerInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableContainerByNodeIdArgs = {
+  input: UpdateDataTableContainerByNodeIdInput;
 };
 
 
@@ -21656,38 +23542,26 @@ export type MutationUpdateDataTableDosageFormByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableEthnicityArgs = {
-  input: UpdateDataTableEthnicityInput;
+export type MutationUpdateDataTableDosageFormGroupArgs = {
+  input: UpdateDataTableDosageFormGroupInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableEthnicityByNodeIdArgs = {
-  input: UpdateDataTableEthnicityByNodeIdInput;
+export type MutationUpdateDataTableDosageFormGroupByNodeIdArgs = {
+  input: UpdateDataTableDosageFormGroupByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableLicenseArgs = {
-  input: UpdateDataTableLicenseInput;
+export type MutationUpdateDataTableGenericIngredientArgs = {
+  input: UpdateDataTableGenericIngredientInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableLicenseApplicationJoinArgs = {
-  input: UpdateDataTableLicenseApplicationJoinInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableLicenseApplicationJoinByNodeIdArgs = {
-  input: UpdateDataTableLicenseApplicationJoinByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTableLicenseByNodeIdArgs = {
-  input: UpdateDataTableLicenseByNodeIdInput;
+export type MutationUpdateDataTableGenericIngredientByNodeIdArgs = {
+  input: UpdateDataTableGenericIngredientByNodeIdInput;
 };
 
 
@@ -21698,32 +23572,68 @@ export type MutationUpdateDataTableManufacturerArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableManufacturerApplicationJoinArgs = {
+  input: UpdateDataTableManufacturerApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableManufacturerApplicationJoinByNodeIdArgs = {
+  input: UpdateDataTableManufacturerApplicationJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateDataTableManufacturerByNodeIdArgs = {
   input: UpdateDataTableManufacturerByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTablePermitMedicalArgs = {
-  input: UpdateDataTablePermitMedicalInput;
+export type MutationUpdateDataTableManufacturerRepresentativeArgs = {
+  input: UpdateDataTableManufacturerRepresentativeInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTablePermitMedicalApplicationJoinArgs = {
-  input: UpdateDataTablePermitMedicalApplicationJoinInput;
+export type MutationUpdateDataTableManufacturerRepresentativeApplicationJoinArgs = {
+  input: UpdateDataTableManufacturerRepresentativeApplicationJoinInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTablePermitMedicalApplicationJoinByNodeIdArgs = {
-  input: UpdateDataTablePermitMedicalApplicationJoinByNodeIdInput;
+export type MutationUpdateDataTableManufacturerRepresentativeApplicationJoinByNodeIdArgs = {
+  input: UpdateDataTableManufacturerRepresentativeApplicationJoinByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTablePermitMedicalByNodeIdArgs = {
-  input: UpdateDataTablePermitMedicalByNodeIdInput;
+export type MutationUpdateDataTableManufacturerRepresentativeByNodeIdArgs = {
+  input: UpdateDataTableManufacturerRepresentativeByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTablePermitChemicalArgs = {
+  input: UpdateDataTablePermitChemicalInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTablePermitChemicalApplicationJoinArgs = {
+  input: UpdateDataTablePermitChemicalApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTablePermitChemicalApplicationJoinByNodeIdArgs = {
+  input: UpdateDataTablePermitChemicalApplicationJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTablePermitChemicalByNodeIdArgs = {
+  input: UpdateDataTablePermitChemicalByNodeIdInput;
 };
 
 
@@ -21740,14 +23650,38 @@ export type MutationUpdateDataTablePreRegisteredProductsProvisionalByNodeIdArgs 
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTablePrimaryContainerArgs = {
-  input: UpdateDataTablePrimaryContainerInput;
+export type MutationUpdateDataTablePrequalManufacturerArgs = {
+  input: UpdateDataTablePrequalManufacturerInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDataTablePrimaryContainerByNodeIdArgs = {
-  input: UpdateDataTablePrimaryContainerByNodeIdInput;
+export type MutationUpdateDataTablePrequalManufacturerApplicationJoinArgs = {
+  input: UpdateDataTablePrequalManufacturerApplicationJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTablePrequalManufacturerApplicationJoinByNodeIdArgs = {
+  input: UpdateDataTablePrequalManufacturerApplicationJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTablePrequalManufacturerByNodeIdArgs = {
+  input: UpdateDataTablePrequalManufacturerByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableProcessingStepArgs = {
+  input: UpdateDataTableProcessingStepInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableProcessingStepByNodeIdArgs = {
+  input: UpdateDataTableProcessingStepByNodeIdInput;
 };
 
 
@@ -21808,6 +23742,18 @@ export type MutationUpdateDataTableScheduledChemicalArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateDataTableScheduledChemicalByNodeIdArgs = {
   input: UpdateDataTableScheduledChemicalByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableStorageConditionArgs = {
+  input: UpdateDataTableStorageConditionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDataTableStorageConditionByNodeIdArgs = {
+  input: UpdateDataTableStorageConditionByNodeIdInput;
 };
 
 
@@ -21928,6 +23874,18 @@ export type MutationUpdateFilterByCodeArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateFilterByNodeIdArgs = {
   input: UpdateFilterByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateGrafanaDashboardImageArgs = {
+  input: UpdateGrafanaDashboardImageInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateGrafanaDashboardImageByNodeIdArgs = {
+  input: UpdateGrafanaDashboardImageByNodeIdInput;
 };
 
 
@@ -22166,6 +24124,24 @@ export type MutationUpdateTemplateCategoryByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateDataViewJoinArgs = {
+  input: UpdateTemplateDataViewJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateDataViewJoinByNodeIdArgs = {
+  input: UpdateTemplateDataViewJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateDataViewJoinByTemplateIdAndDataViewIdArgs = {
+  input: UpdateTemplateDataViewJoinByTemplateIdAndDataViewIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTemplateElementArgs = {
   input: UpdateTemplateElementInput;
 };
@@ -22180,6 +24156,24 @@ export type MutationUpdateTemplateElementByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTemplateElementByTemplateCodeAndCodeAndTemplateVersionArgs = {
   input: UpdateTemplateElementByTemplateCodeAndCodeAndTemplateVersionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateFileJoinArgs = {
+  input: UpdateTemplateFileJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateFileJoinByNodeIdArgs = {
+  input: UpdateTemplateFileJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateFileJoinByTemplateIdAndFileIdArgs = {
+  input: UpdateTemplateFileJoinByTemplateIdAndFileIdInput;
 };
 
 
@@ -22352,9 +24346,10 @@ export type NotificationApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -22762,7 +24757,11 @@ export type Organisation = Node & {
   /** Reads and enables pagination through a set of `DataChangelog`. */
   dataChangelogsByOrgId: DataChangelogsConnection;
   id: Scalars['Int']['output'];
+  isChemicalImporter?: Maybe<Scalars['Boolean']['output']>;
+  isSponsorCompany?: Maybe<Scalars['Boolean']['output']>;
   isSystemOrg?: Maybe<Scalars['Boolean']['output']>;
+  license?: Maybe<Scalars['JSON']['output']>;
+  localAgentBusinessAddress?: Maybe<Scalars['String']['output']>;
   localAgentEmail?: Maybe<Scalars['String']['output']>;
   localAgentName?: Maybe<Scalars['String']['output']>;
   localAgentPhoneNumber?: Maybe<Scalars['String']['output']>;
@@ -22772,9 +24771,11 @@ export type Organisation = Node & {
   nodeId: Scalars['ID']['output'];
   /** Reads and enables pagination through a set of `OrganisationApplicationJoin`. */
   organisationApplicationJoins: OrganisationApplicationJoinsConnection;
+  otherDocuments?: Maybe<Scalars['JSON']['output']>;
   /** Reads and enables pagination through a set of `PermissionJoin`. */
   permissionJoins: PermissionJoinsConnection;
   postalAddress?: Maybe<Scalars['String']['output']>;
+  province?: Maybe<Scalars['String']['output']>;
   registration?: Maybe<Scalars['String']['output']>;
   registrationDocumentation?: Maybe<Scalars['JSON']['output']>;
   /** Reads and enables pagination through a set of `ReviewAssignmentAssignerJoin`. */
@@ -22782,6 +24783,7 @@ export type Organisation = Node & {
   /** Reads and enables pagination through a set of `ReviewAssignment`. */
   reviewAssignments: ReviewAssignmentsConnection;
   subType?: Maybe<Scalars['String']['output']>;
+  tinLetter?: Maybe<Scalars['JSON']['output']>;
   /** Reads and enables pagination through a set of `UserOrganisation`. */
   userOrganisations: UserOrganisationsConnection;
 };
@@ -22905,9 +24907,10 @@ export type OrganisationApplicationJoinApplicationIdFkeyApplicationCreateInput =
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -23158,20 +25161,27 @@ export type OrganisationApplicationJoinOrganisationIdFkeyOrganisationCreateInput
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -23236,8 +25246,16 @@ export type OrganisationCondition = {
   country?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `isChemicalImporter` field. */
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `isSponsorCompany` field. */
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `isSystemOrg` field. */
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `license` field. */
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `localAgentBusinessAddress` field. */
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `localAgentEmail` field. */
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `localAgentName` field. */
@@ -23248,14 +25266,20 @@ export type OrganisationCondition = {
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `name` field. */
   name?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `otherDocuments` field. */
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `postalAddress` field. */
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `province` field. */
+  province?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `registration` field. */
   registration?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `registrationDocumentation` field. */
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `subType` field. */
   subType?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `tinLetter` field. */
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
 };
 
 /** A filter to be used against `Organisation` object types. All fields are combined with a logical ‘and.’ */
@@ -23286,8 +25310,16 @@ export type OrganisationFilter = {
   dataChangelogsByOrgIdExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `isChemicalImporter` field. */
+  isChemicalImporter?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `isSponsorCompany` field. */
+  isSponsorCompany?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `isSystemOrg` field. */
   isSystemOrg?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `license` field. */
+  license?: InputMaybe<JsonFilter>;
+  /** Filter by the object’s `localAgentBusinessAddress` field. */
+  localAgentBusinessAddress?: InputMaybe<StringFilter>;
   /** Filter by the object’s `localAgentEmail` field. */
   localAgentEmail?: InputMaybe<StringFilter>;
   /** Filter by the object’s `localAgentName` field. */
@@ -23306,12 +25338,16 @@ export type OrganisationFilter = {
   organisationApplicationJoins?: InputMaybe<OrganisationToManyOrganisationApplicationJoinFilter>;
   /** Some related `organisationApplicationJoins` exist. */
   organisationApplicationJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `otherDocuments` field. */
+  otherDocuments?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `permissionJoins` relation. */
   permissionJoins?: InputMaybe<OrganisationToManyPermissionJoinFilter>;
   /** Some related `permissionJoins` exist. */
   permissionJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `postalAddress` field. */
   postalAddress?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `province` field. */
+  province?: InputMaybe<StringFilter>;
   /** Filter by the object’s `registration` field. */
   registration?: InputMaybe<StringFilter>;
   /** Filter by the object’s `registrationDocumentation` field. */
@@ -23326,6 +25362,8 @@ export type OrganisationFilter = {
   reviewAssignmentsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `subType` field. */
   subType?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `tinLetter` field. */
+  tinLetter?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `userOrganisations` relation. */
   userOrganisations?: InputMaybe<OrganisationToManyUserOrganisationFilter>;
   /** Some related `userOrganisations` exist. */
@@ -23343,20 +25381,27 @@ export type OrganisationInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -23645,20 +25690,27 @@ export type OrganisationPatch = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -23778,8 +25830,16 @@ export enum OrganisationsOrderBy {
   CountryDesc = 'COUNTRY_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  IsChemicalImporterAsc = 'IS_CHEMICAL_IMPORTER_ASC',
+  IsChemicalImporterDesc = 'IS_CHEMICAL_IMPORTER_DESC',
+  IsSponsorCompanyAsc = 'IS_SPONSOR_COMPANY_ASC',
+  IsSponsorCompanyDesc = 'IS_SPONSOR_COMPANY_DESC',
   IsSystemOrgAsc = 'IS_SYSTEM_ORG_ASC',
   IsSystemOrgDesc = 'IS_SYSTEM_ORG_DESC',
+  LicenseAsc = 'LICENSE_ASC',
+  LicenseDesc = 'LICENSE_DESC',
+  LocalAgentBusinessAddressAsc = 'LOCAL_AGENT_BUSINESS_ADDRESS_ASC',
+  LocalAgentBusinessAddressDesc = 'LOCAL_AGENT_BUSINESS_ADDRESS_DESC',
   LocalAgentEmailAsc = 'LOCAL_AGENT_EMAIL_ASC',
   LocalAgentEmailDesc = 'LOCAL_AGENT_EMAIL_DESC',
   LocalAgentNameAsc = 'LOCAL_AGENT_NAME_ASC',
@@ -23791,16 +25851,22 @@ export enum OrganisationsOrderBy {
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
   Natural = 'NATURAL',
+  OtherDocumentsAsc = 'OTHER_DOCUMENTS_ASC',
+  OtherDocumentsDesc = 'OTHER_DOCUMENTS_DESC',
   PostalAddressAsc = 'POSTAL_ADDRESS_ASC',
   PostalAddressDesc = 'POSTAL_ADDRESS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  ProvinceAsc = 'PROVINCE_ASC',
+  ProvinceDesc = 'PROVINCE_DESC',
   RegistrationAsc = 'REGISTRATION_ASC',
   RegistrationDesc = 'REGISTRATION_DESC',
   RegistrationDocumentationAsc = 'REGISTRATION_DOCUMENTATION_ASC',
   RegistrationDocumentationDesc = 'REGISTRATION_DOCUMENTATION_DESC',
   SubTypeAsc = 'SUB_TYPE_ASC',
-  SubTypeDesc = 'SUB_TYPE_DESC'
+  SubTypeDesc = 'SUB_TYPE_DESC',
+  TinLetterAsc = 'TIN_LETTER_ASC',
+  TinLetterDesc = 'TIN_LETTER_DESC'
 }
 
 /** Information about pagination in a connection. */
@@ -24078,20 +26144,27 @@ export type PermissionJoinOrganisationIdFkeyOrganisationCreateInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -24185,9 +26258,11 @@ export type PermissionJoinPermissionNameIdFkeyPermissionJoinCreateInput = {
 
 /** The `permissionName` to be created by this mutation. */
 export type PermissionJoinPermissionNameIdFkeyPermissionNameCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -24236,9 +26311,11 @@ export enum PermissionJoinsOrderBy {
 
 export type PermissionName = Node & {
   __typename?: 'PermissionName';
+  checksum?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isSystemOrgPermission?: Maybe<Scalars['Boolean']['output']>;
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
@@ -24280,12 +26357,16 @@ export type PermissionNameTemplatePermissionsArgs = {
  * tested for equality and combined with a logical ‘and.’
  */
 export type PermissionNameCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `description` field. */
   description?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isSystemOrgPermission` field. */
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `name` field. */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `permissionPolicyId` field. */
@@ -24296,12 +26377,16 @@ export type PermissionNameCondition = {
 export type PermissionNameFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<PermissionNameFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `description` field. */
   description?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isSystemOrgPermission` field. */
   isSystemOrgPermission?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `name` field. */
   name?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -24326,9 +26411,11 @@ export type PermissionNameFilter = {
 
 /** An input for mutations affecting `PermissionName` */
 export type PermissionNameInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -24416,9 +26503,11 @@ export type PermissionNameOnTemplatePermissionForTemplatePermissionPermissionNam
 
 /** Represents an update to a `PermissionName`. Fields that are set will be updated. */
 export type PermissionNamePatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -24498,9 +26587,11 @@ export type PermissionNamePermissionPolicyIdFkeyInverseInput = {
 
 /** The `permissionName` to be created by this mutation. */
 export type PermissionNamePermissionPolicyIdFkeyPermissionNameCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyToPermissionPolicyId?: InputMaybe<PermissionNamePermissionPolicyIdFkeyInput>;
@@ -24563,12 +26654,16 @@ export type PermissionNamesEdge = {
 
 /** Methods to use when ordering `PermissionName`. */
 export enum PermissionNamesOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   DescriptionAsc = 'DESCRIPTION_ASC',
   DescriptionDesc = 'DESCRIPTION_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
   IsSystemOrgPermissionAsc = 'IS_SYSTEM_ORG_PERMISSION_ASC',
   IsSystemOrgPermissionDesc = 'IS_SYSTEM_ORG_PERMISSION_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
   Natural = 'NATURAL',
@@ -25245,16 +27340,6 @@ export type Query = Node & {
   dataTableAdministrationRouteByNodeId?: Maybe<DataTableAdministrationRoute>;
   /** Reads and enables pagination through a set of `DataTableAdministrationRoute`. */
   dataTableAdministrationRoutes?: Maybe<DataTableAdministrationRoutesConnection>;
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  dataTableAdverseDrugReactionApplicationJoin?: Maybe<DataTableAdverseDrugReactionApplicationJoin>;
-  /** Reads a single `DataTableAdverseDrugReactionApplicationJoin` using its globally unique `ID`. */
-  dataTableAdverseDrugReactionApplicationJoinByNodeId?: Maybe<DataTableAdverseDrugReactionApplicationJoin>;
-  /** Reads and enables pagination through a set of `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReactionApplicationJoins?: Maybe<DataTableAdverseDrugReactionApplicationJoinsConnection>;
-  /** Reads a single `DataTableAdverseDrugReaction` using its globally unique `ID`. */
-  dataTableAdverseDrugReactionByNodeId?: Maybe<DataTableAdverseDrugReaction>;
-  /** Reads and enables pagination through a set of `DataTableAdverseDrugReaction`. */
-  dataTableAdverseDrugReactions?: Maybe<DataTableAdverseDrugReactionsConnection>;
   dataTableAtcCode?: Maybe<DataTableAtcCode>;
   /** Reads a single `DataTableAtcCode` using its globally unique `ID`. */
   dataTableAtcCodeByNodeId?: Maybe<DataTableAtcCode>;
@@ -25263,6 +27348,11 @@ export type Query = Node & {
   /** Reads a single `DataTable` using its globally unique `ID`. */
   dataTableByNodeId?: Maybe<DataTable>;
   dataTableByTableName?: Maybe<DataTable>;
+  dataTableContainer?: Maybe<DataTableContainer>;
+  /** Reads a single `DataTableContainer` using its globally unique `ID`. */
+  dataTableContainerByNodeId?: Maybe<DataTableContainer>;
+  /** Reads and enables pagination through a set of `DataTableContainer`. */
+  dataTableContainers?: Maybe<DataTableContainersConnection>;
   /** Reads and enables pagination through a set of `DataTableCountry`. */
   dataTableCountries?: Maybe<DataTableCountriesConnection>;
   dataTableCountry?: Maybe<DataTableCountry>;
@@ -25271,48 +27361,68 @@ export type Query = Node & {
   dataTableDosageForm?: Maybe<DataTableDosageForm>;
   /** Reads a single `DataTableDosageForm` using its globally unique `ID`. */
   dataTableDosageFormByNodeId?: Maybe<DataTableDosageForm>;
+  dataTableDosageFormGroup?: Maybe<DataTableDosageFormGroup>;
+  /** Reads a single `DataTableDosageFormGroup` using its globally unique `ID`. */
+  dataTableDosageFormGroupByNodeId?: Maybe<DataTableDosageFormGroup>;
+  /** Reads and enables pagination through a set of `DataTableDosageFormGroup`. */
+  dataTableDosageFormGroups?: Maybe<DataTableDosageFormGroupsConnection>;
   /** Reads and enables pagination through a set of `DataTableDosageForm`. */
   dataTableDosageForms?: Maybe<DataTableDosageFormsConnection>;
-  /** Reads and enables pagination through a set of `DataTableEthnicity`. */
-  dataTableEthnicities?: Maybe<DataTableEthnicitiesConnection>;
-  dataTableEthnicity?: Maybe<DataTableEthnicity>;
-  /** Reads a single `DataTableEthnicity` using its globally unique `ID`. */
-  dataTableEthnicityByNodeId?: Maybe<DataTableEthnicity>;
-  dataTableLicense?: Maybe<DataTableLicense>;
-  dataTableLicenseApplicationJoin?: Maybe<DataTableLicenseApplicationJoin>;
-  /** Reads a single `DataTableLicenseApplicationJoin` using its globally unique `ID`. */
-  dataTableLicenseApplicationJoinByNodeId?: Maybe<DataTableLicenseApplicationJoin>;
-  /** Reads and enables pagination through a set of `DataTableLicenseApplicationJoin`. */
-  dataTableLicenseApplicationJoins?: Maybe<DataTableLicenseApplicationJoinsConnection>;
-  /** Reads a single `DataTableLicense` using its globally unique `ID`. */
-  dataTableLicenseByNodeId?: Maybe<DataTableLicense>;
-  /** Reads and enables pagination through a set of `DataTableLicense`. */
-  dataTableLicenses?: Maybe<DataTableLicensesConnection>;
+  dataTableGenericIngredient?: Maybe<DataTableGenericIngredient>;
+  /** Reads a single `DataTableGenericIngredient` using its globally unique `ID`. */
+  dataTableGenericIngredientByNodeId?: Maybe<DataTableGenericIngredient>;
+  /** Reads and enables pagination through a set of `DataTableGenericIngredient`. */
+  dataTableGenericIngredients?: Maybe<DataTableGenericIngredientsConnection>;
   dataTableManufacturer?: Maybe<DataTableManufacturer>;
+  dataTableManufacturerApplicationJoin?: Maybe<DataTableManufacturerApplicationJoin>;
+  /** Reads a single `DataTableManufacturerApplicationJoin` using its globally unique `ID`. */
+  dataTableManufacturerApplicationJoinByNodeId?: Maybe<DataTableManufacturerApplicationJoin>;
+  /** Reads and enables pagination through a set of `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturerApplicationJoins?: Maybe<DataTableManufacturerApplicationJoinsConnection>;
   /** Reads a single `DataTableManufacturer` using its globally unique `ID`. */
   dataTableManufacturerByNodeId?: Maybe<DataTableManufacturer>;
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  dataTableManufacturerRepresentativeApplicationJoin?: Maybe<DataTableManufacturerRepresentativeApplicationJoin>;
+  /** Reads a single `DataTableManufacturerRepresentativeApplicationJoin` using its globally unique `ID`. */
+  dataTableManufacturerRepresentativeApplicationJoinByNodeId?: Maybe<DataTableManufacturerRepresentativeApplicationJoin>;
+  /** Reads and enables pagination through a set of `DataTableManufacturerRepresentativeApplicationJoin`. */
+  dataTableManufacturerRepresentativeApplicationJoins?: Maybe<DataTableManufacturerRepresentativeApplicationJoinsConnection>;
+  /** Reads a single `DataTableManufacturerRepresentative` using its globally unique `ID`. */
+  dataTableManufacturerRepresentativeByNodeId?: Maybe<DataTableManufacturerRepresentative>;
+  /** Reads and enables pagination through a set of `DataTableManufacturerRepresentative`. */
+  dataTableManufacturerRepresentatives?: Maybe<DataTableManufacturerRepresentativesConnection>;
   /** Reads and enables pagination through a set of `DataTableManufacturer`. */
   dataTableManufacturers?: Maybe<DataTableManufacturersConnection>;
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  dataTablePermitMedicalApplicationJoin?: Maybe<DataTablePermitMedicalApplicationJoin>;
-  /** Reads a single `DataTablePermitMedicalApplicationJoin` using its globally unique `ID`. */
-  dataTablePermitMedicalApplicationJoinByNodeId?: Maybe<DataTablePermitMedicalApplicationJoin>;
-  /** Reads and enables pagination through a set of `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedicalApplicationJoins?: Maybe<DataTablePermitMedicalApplicationJoinsConnection>;
-  /** Reads a single `DataTablePermitMedical` using its globally unique `ID`. */
-  dataTablePermitMedicalByNodeId?: Maybe<DataTablePermitMedical>;
-  /** Reads and enables pagination through a set of `DataTablePermitMedical`. */
-  dataTablePermitMedicals?: Maybe<DataTablePermitMedicalsConnection>;
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  dataTablePermitChemicalApplicationJoin?: Maybe<DataTablePermitChemicalApplicationJoin>;
+  /** Reads a single `DataTablePermitChemicalApplicationJoin` using its globally unique `ID`. */
+  dataTablePermitChemicalApplicationJoinByNodeId?: Maybe<DataTablePermitChemicalApplicationJoin>;
+  /** Reads and enables pagination through a set of `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemicalApplicationJoins?: Maybe<DataTablePermitChemicalApplicationJoinsConnection>;
+  /** Reads a single `DataTablePermitChemical` using its globally unique `ID`. */
+  dataTablePermitChemicalByNodeId?: Maybe<DataTablePermitChemical>;
+  /** Reads and enables pagination through a set of `DataTablePermitChemical`. */
+  dataTablePermitChemicals?: Maybe<DataTablePermitChemicalsConnection>;
   dataTablePreRegisteredProductsProvisional?: Maybe<DataTablePreRegisteredProductsProvisional>;
   /** Reads a single `DataTablePreRegisteredProductsProvisional` using its globally unique `ID`. */
   dataTablePreRegisteredProductsProvisionalByNodeId?: Maybe<DataTablePreRegisteredProductsProvisional>;
   /** Reads and enables pagination through a set of `DataTablePreRegisteredProductsProvisional`. */
   dataTablePreRegisteredProductsProvisionals?: Maybe<DataTablePreRegisteredProductsProvisionalsConnection>;
-  dataTablePrimaryContainer?: Maybe<DataTablePrimaryContainer>;
-  /** Reads a single `DataTablePrimaryContainer` using its globally unique `ID`. */
-  dataTablePrimaryContainerByNodeId?: Maybe<DataTablePrimaryContainer>;
-  /** Reads and enables pagination through a set of `DataTablePrimaryContainer`. */
-  dataTablePrimaryContainers?: Maybe<DataTablePrimaryContainersConnection>;
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  dataTablePrequalManufacturerApplicationJoin?: Maybe<DataTablePrequalManufacturerApplicationJoin>;
+  /** Reads a single `DataTablePrequalManufacturerApplicationJoin` using its globally unique `ID`. */
+  dataTablePrequalManufacturerApplicationJoinByNodeId?: Maybe<DataTablePrequalManufacturerApplicationJoin>;
+  /** Reads and enables pagination through a set of `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturerApplicationJoins?: Maybe<DataTablePrequalManufacturerApplicationJoinsConnection>;
+  /** Reads a single `DataTablePrequalManufacturer` using its globally unique `ID`. */
+  dataTablePrequalManufacturerByNodeId?: Maybe<DataTablePrequalManufacturer>;
+  /** Reads and enables pagination through a set of `DataTablePrequalManufacturer`. */
+  dataTablePrequalManufacturers?: Maybe<DataTablePrequalManufacturersConnection>;
+  dataTableProcessingStep?: Maybe<DataTableProcessingStep>;
+  /** Reads a single `DataTableProcessingStep` using its globally unique `ID`. */
+  dataTableProcessingStepByNodeId?: Maybe<DataTableProcessingStep>;
+  /** Reads and enables pagination through a set of `DataTableProcessingStep`. */
+  dataTableProcessingSteps?: Maybe<DataTableProcessingStepsConnection>;
   dataTableProduct?: Maybe<DataTableProduct>;
   dataTableProductApplicationJoin?: Maybe<DataTableProductApplicationJoin>;
   /** Reads a single `DataTableProductApplicationJoin` using its globally unique `ID`. */
@@ -25338,6 +27448,11 @@ export type Query = Node & {
   dataTableScheduledChemicalByNodeId?: Maybe<DataTableScheduledChemical>;
   /** Reads and enables pagination through a set of `DataTableScheduledChemical`. */
   dataTableScheduledChemicals?: Maybe<DataTableScheduledChemicalsConnection>;
+  dataTableStorageCondition?: Maybe<DataTableStorageCondition>;
+  /** Reads a single `DataTableStorageCondition` using its globally unique `ID`. */
+  dataTableStorageConditionByNodeId?: Maybe<DataTableStorageCondition>;
+  /** Reads and enables pagination through a set of `DataTableStorageCondition`. */
+  dataTableStorageConditions?: Maybe<DataTableStorageConditionsConnection>;
   dataTableStorageConditionsSimplified?: Maybe<DataTableStorageConditionsSimplified>;
   /** Reads a single `DataTableStorageConditionsSimplified` using its globally unique `ID`. */
   dataTableStorageConditionsSimplifiedByNodeId?: Maybe<DataTableStorageConditionsSimplified>;
@@ -25384,6 +27499,11 @@ export type Query = Node & {
   filterByNodeId?: Maybe<Filter>;
   /** Reads and enables pagination through a set of `Filter`. */
   filters?: Maybe<FiltersConnection>;
+  grafanaDashboardImage?: Maybe<GrafanaDashboardImage>;
+  /** Reads a single `GrafanaDashboardImage` using its globally unique `ID`. */
+  grafanaDashboardImageByNodeId?: Maybe<GrafanaDashboardImage>;
+  /** Reads and enables pagination through a set of `GrafanaDashboardImage`. */
+  grafanaDashboardImages?: Maybe<GrafanaDashboardImagesConnection>;
   jwtGetBigint?: Maybe<Scalars['BigInt']['output']>;
   jwtGetBoolean?: Maybe<Scalars['Boolean']['output']>;
   jwtGetText?: Maybe<Scalars['String']['output']>;
@@ -25498,12 +27618,24 @@ export type Query = Node & {
   templateCategoryByCode?: Maybe<TemplateCategory>;
   /** Reads a single `TemplateCategory` using its globally unique `ID`. */
   templateCategoryByNodeId?: Maybe<TemplateCategory>;
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** Reads a single `TemplateDataViewJoin` using its globally unique `ID`. */
+  templateDataViewJoinByNodeId?: Maybe<TemplateDataViewJoin>;
+  templateDataViewJoinByTemplateIdAndDataViewId?: Maybe<TemplateDataViewJoin>;
+  /** Reads and enables pagination through a set of `TemplateDataViewJoin`. */
+  templateDataViewJoins?: Maybe<TemplateDataViewJoinsConnection>;
   templateElement?: Maybe<TemplateElement>;
   /** Reads a single `TemplateElement` using its globally unique `ID`. */
   templateElementByNodeId?: Maybe<TemplateElement>;
   templateElementByTemplateCodeAndCodeAndTemplateVersion?: Maybe<TemplateElement>;
   /** Reads and enables pagination through a set of `TemplateElement`. */
   templateElements?: Maybe<TemplateElementsConnection>;
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** Reads a single `TemplateFileJoin` using its globally unique `ID`. */
+  templateFileJoinByNodeId?: Maybe<TemplateFileJoin>;
+  templateFileJoinByTemplateIdAndFileId?: Maybe<TemplateFileJoin>;
+  /** Reads and enables pagination through a set of `TemplateFileJoin`. */
+  templateFileJoins?: Maybe<TemplateFileJoinsConnection>;
   templateFilterJoin?: Maybe<TemplateFilterJoin>;
   /** Reads a single `TemplateFilterJoin` using its globally unique `ID`. */
   templateFilterJoinByNodeId?: Maybe<TemplateFilterJoin>;
@@ -26152,56 +28284,6 @@ export type QueryDataTableAdministrationRoutesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTableAdverseDrugReactionArgs = {
-  id: Scalars['Int']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableAdverseDrugReactionApplicationJoinArgs = {
-  id: Scalars['Int']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableAdverseDrugReactionApplicationJoinByNodeIdArgs = {
-  nodeId: Scalars['ID']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableAdverseDrugReactionApplicationJoinsArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableAdverseDrugReactionApplicationJoinFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinsOrderBy>>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableAdverseDrugReactionByNodeIdArgs = {
-  nodeId: Scalars['ID']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableAdverseDrugReactionsArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableAdverseDrugReactionCondition>;
-  filter?: InputMaybe<DataTableAdverseDrugReactionFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionsOrderBy>>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryDataTableAtcCodeArgs = {
   id: Scalars['Int']['input'];
 };
@@ -26235,6 +28317,31 @@ export type QueryDataTableByNodeIdArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryDataTableByTableNameArgs = {
   tableName: Scalars['String']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableContainerArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableContainerByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableContainersArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableContainerCondition>;
+  filter?: InputMaybe<DataTableContainerFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableContainersOrderBy>>;
 };
 
 
@@ -26276,6 +28383,31 @@ export type QueryDataTableDosageFormByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryDataTableDosageFormGroupArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableDosageFormGroupByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableDosageFormGroupsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableDosageFormGroupCondition>;
+  filter?: InputMaybe<DataTableDosageFormGroupFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableDosageFormGroupsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryDataTableDosageFormsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
@@ -26289,77 +28421,27 @@ export type QueryDataTableDosageFormsArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTableEthnicitiesArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableEthnicityCondition>;
-  filter?: InputMaybe<DataTableEthnicityFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableEthnicitiesOrderBy>>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableEthnicityArgs = {
+export type QueryDataTableGenericIngredientArgs = {
   id: Scalars['Int']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTableEthnicityByNodeIdArgs = {
+export type QueryDataTableGenericIngredientByNodeIdArgs = {
   nodeId: Scalars['ID']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTableLicenseArgs = {
-  id: Scalars['Int']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableLicenseApplicationJoinArgs = {
-  id: Scalars['Int']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableLicenseApplicationJoinByNodeIdArgs = {
-  nodeId: Scalars['ID']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableLicenseApplicationJoinsArgs = {
+export type QueryDataTableGenericIngredientsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableLicenseApplicationJoinCondition>;
-  filter?: InputMaybe<DataTableLicenseApplicationJoinFilter>;
+  condition?: InputMaybe<DataTableGenericIngredientCondition>;
+  filter?: InputMaybe<DataTableGenericIngredientFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableLicenseApplicationJoinsOrderBy>>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableLicenseByNodeIdArgs = {
-  nodeId: Scalars['ID']['input'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryDataTableLicensesArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTableLicenseCondition>;
-  filter?: InputMaybe<DataTableLicenseFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTableLicensesOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTableGenericIngredientsOrderBy>>;
 };
 
 
@@ -26370,8 +28452,83 @@ export type QueryDataTableManufacturerArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerApplicationJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerApplicationJoinByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerApplicationJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableManufacturerApplicationJoinCondition>;
+  filter?: InputMaybe<DataTableManufacturerApplicationJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerApplicationJoinsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryDataTableManufacturerByNodeIdArgs = {
   nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerRepresentativeArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerRepresentativeApplicationJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerRepresentativeApplicationJoinByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerRepresentativeApplicationJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinCondition>;
+  filter?: InputMaybe<DataTableManufacturerRepresentativeApplicationJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerRepresentativeByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableManufacturerRepresentativesArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableManufacturerRepresentativeCondition>;
+  filter?: InputMaybe<DataTableManufacturerRepresentativeFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativesOrderBy>>;
 };
 
 
@@ -26389,52 +28546,52 @@ export type QueryDataTableManufacturersArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePermitMedicalArgs = {
+export type QueryDataTablePermitChemicalArgs = {
   id: Scalars['Int']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePermitMedicalApplicationJoinArgs = {
+export type QueryDataTablePermitChemicalApplicationJoinArgs = {
   id: Scalars['Int']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePermitMedicalApplicationJoinByNodeIdArgs = {
+export type QueryDataTablePermitChemicalApplicationJoinByNodeIdArgs = {
   nodeId: Scalars['ID']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePermitMedicalApplicationJoinsArgs = {
+export type QueryDataTablePermitChemicalApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTablePermitMedicalApplicationJoinCondition>;
-  filter?: InputMaybe<DataTablePermitMedicalApplicationJoinFilter>;
+  condition?: InputMaybe<DataTablePermitChemicalApplicationJoinCondition>;
+  filter?: InputMaybe<DataTablePermitChemicalApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinsOrderBy>>;
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePermitMedicalByNodeIdArgs = {
+export type QueryDataTablePermitChemicalByNodeIdArgs = {
   nodeId: Scalars['ID']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePermitMedicalsArgs = {
+export type QueryDataTablePermitChemicalsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTablePermitMedicalCondition>;
-  filter?: InputMaybe<DataTablePermitMedicalFilter>;
+  condition?: InputMaybe<DataTablePermitChemicalCondition>;
+  filter?: InputMaybe<DataTablePermitChemicalFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalsOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalsOrderBy>>;
 };
 
 
@@ -26464,27 +28621,77 @@ export type QueryDataTablePreRegisteredProductsProvisionalsArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePrimaryContainerArgs = {
+export type QueryDataTablePrequalManufacturerArgs = {
   id: Scalars['Int']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePrimaryContainerByNodeIdArgs = {
+export type QueryDataTablePrequalManufacturerApplicationJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTablePrequalManufacturerApplicationJoinByNodeIdArgs = {
   nodeId: Scalars['ID']['input'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDataTablePrimaryContainersArgs = {
+export type QueryDataTablePrequalManufacturerApplicationJoinsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<DataTablePrimaryContainerCondition>;
-  filter?: InputMaybe<DataTablePrimaryContainerFilter>;
+  condition?: InputMaybe<DataTablePrequalManufacturerApplicationJoinCondition>;
+  filter?: InputMaybe<DataTablePrequalManufacturerApplicationJoinFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<DataTablePrimaryContainersOrderBy>>;
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTablePrequalManufacturerByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTablePrequalManufacturersArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTablePrequalManufacturerCondition>;
+  filter?: InputMaybe<DataTablePrequalManufacturerFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturersOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableProcessingStepArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableProcessingStepByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableProcessingStepsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableProcessingStepCondition>;
+  filter?: InputMaybe<DataTableProcessingStepFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableProcessingStepsOrderBy>>;
 };
 
 
@@ -26610,6 +28817,31 @@ export type QueryDataTableScheduledChemicalsArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Array<DataTableScheduledChemicalsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableStorageConditionArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableStorageConditionByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDataTableStorageConditionsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<DataTableStorageConditionCondition>;
+  filter?: InputMaybe<DataTableStorageConditionFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<DataTableStorageConditionsOrderBy>>;
 };
 
 
@@ -26848,6 +29080,32 @@ export type QueryFiltersArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Array<FiltersOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryGrafanaDashboardImageArgs = {
+  id: Scalars['Int']['input'];
+  name: Scalars['String']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryGrafanaDashboardImageByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryGrafanaDashboardImagesArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<GrafanaDashboardImageCondition>;
+  filter?: InputMaybe<GrafanaDashboardImageFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<GrafanaDashboardImagesOrderBy>>;
 };
 
 
@@ -27436,6 +29694,38 @@ export type QueryTemplateCategoryByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinByTemplateIdAndDataViewIdArgs = {
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateDataViewJoinCondition>;
+  filter?: InputMaybe<TemplateDataViewJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryTemplateElementArgs = {
   id: Scalars['Int']['input'];
 };
@@ -27465,6 +29755,38 @@ export type QueryTemplateElementsArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinByTemplateIdAndFileIdArgs = {
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateFileJoinCondition>;
+  filter?: InputMaybe<TemplateFileJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 
@@ -27888,9 +30210,10 @@ export type ReviewApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -28081,9 +30404,10 @@ export type ReviewAssignmentApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -28443,20 +30767,27 @@ export type ReviewAssignmentAssignerJoinOrganisationIdFkeyOrganisationCreateInpu
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -29043,20 +31374,27 @@ export type ReviewAssignmentOrganisationIdFkeyOrganisationCreateInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -29333,10 +31671,10 @@ export type ReviewAssignmentTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -29349,6 +31687,8 @@ export type ReviewAssignmentTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -31893,11 +34233,10 @@ export type Template = Node & {
   canApplicantMakeChanges?: Maybe<Scalars['Boolean']['output']>;
   code: Scalars['String']['output'];
   dashboardRestrictions?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** Reads and enables pagination through a set of `File`. */
-  files: FilesConnection;
   icon?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isLinear?: Maybe<Scalars['Boolean']['output']>;
+  linkedEntityData?: Maybe<Scalars['JSON']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   namePlural?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -31915,6 +34254,10 @@ export type Template = Node & {
   /** Reads a single `TemplateCategory` that is related to this `Template`. */
   templateCategory?: Maybe<TemplateCategory>;
   templateCategoryId?: Maybe<Scalars['Int']['output']>;
+  /** Reads and enables pagination through a set of `TemplateDataViewJoin`. */
+  templateDataViewJoins: TemplateDataViewJoinsConnection;
+  /** Reads and enables pagination through a set of `TemplateFileJoin`. */
+  templateFileJoins: TemplateFileJoinsConnection;
   /** Reads and enables pagination through a set of `TemplateFilterJoin`. */
   templateFilterJoins: TemplateFilterJoinsConnection;
   /** Reads and enables pagination through a set of `TemplatePermission`. */
@@ -31956,18 +34299,6 @@ export type TemplateApplicationsArgs = {
 };
 
 
-export type TemplateFilesArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<FileCondition>;
-  filter?: InputMaybe<FileFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<FilesOrderBy>>;
-};
-
-
 export type TemplateReviewAssignmentsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
@@ -31989,6 +34320,30 @@ export type TemplateTemplateActionsArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Array<TemplateActionsOrderBy>>;
+};
+
+
+export type TemplateTemplateDataViewJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateDataViewJoinCondition>;
+  filter?: InputMaybe<TemplateDataViewJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
+
+export type TemplateTemplateFileJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateFileJoinCondition>;
+  filter?: InputMaybe<TemplateFileJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 
@@ -32263,10 +34618,10 @@ export type TemplateActionTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -32279,6 +34634,8 @@ export type TemplateActionTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -32363,6 +34720,8 @@ export type TemplateCategoriesEdge = {
 
 /** Methods to use when ordering `TemplateCategory`. */
 export enum TemplateCategoriesOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   CodeAsc = 'CODE_ASC',
   CodeDesc = 'CODE_DESC',
   IconAsc = 'ICON_ASC',
@@ -32371,6 +34730,8 @@ export enum TemplateCategoriesOrderBy {
   IdDesc = 'ID_DESC',
   IsSubmenuAsc = 'IS_SUBMENU_ASC',
   IsSubmenuDesc = 'IS_SUBMENU_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -32384,10 +34745,12 @@ export enum TemplateCategoriesOrderBy {
 
 export type TemplateCategory = Node & {
   __typename?: 'TemplateCategory';
+  checksum?: Maybe<Scalars['String']['output']>;
   code: Scalars['String']['output'];
   icon?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isSubmenu?: Maybe<Scalars['Boolean']['output']>;
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   priority?: Maybe<Scalars['Int']['output']>;
@@ -32414,6 +34777,8 @@ export type TemplateCategoryTemplatesArgs = {
  * tested for equality and combined with a logical ‘and.’
  */
 export type TemplateCategoryCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `code` field. */
   code?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `icon` field. */
@@ -32422,6 +34787,8 @@ export type TemplateCategoryCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isSubmenu` field. */
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `priority` field. */
   priority?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `title` field. */
@@ -32434,6 +34801,8 @@ export type TemplateCategoryCondition = {
 export type TemplateCategoryFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<TemplateCategoryFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `code` field. */
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `icon` field. */
@@ -32442,6 +34811,8 @@ export type TemplateCategoryFilter = {
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isSubmenu` field. */
   isSubmenu?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<TemplateCategoryFilter>;
   /** Checks for any expressions in this list. */
@@ -32460,10 +34831,12 @@ export type TemplateCategoryFilter = {
 
 /** An input for mutations affecting `TemplateCategory` */
 export type TemplateCategoryInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -32506,10 +34879,12 @@ export type TemplateCategoryOnTemplateForTemplateTemplateCategoryIdFkeyUsingTemp
 
 /** Represents an update to a `TemplateCategory`. Fields that are set will be updated. */
 export type TemplateCategoryPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -32563,6 +34938,8 @@ export type TemplateCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isLinear` field. */
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `linkedEntityData` field. */
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `name` field. */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `namePlural` field. */
@@ -32590,6 +34967,368 @@ export type TemplateCondition = {
   /** Checks for equality with the object’s `versionTimestamp` field. */
   versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
 };
+
+export type TemplateDataViewJoin = Node & {
+  __typename?: 'TemplateDataViewJoin';
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  dataViewId: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  templateId: Scalars['Int']['output'];
+};
+
+/**
+ * A condition to be used against `TemplateDataViewJoin` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type TemplateDataViewJoinCondition = {
+  /** Checks for equality with the object’s `dataViewId` field. */
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `templateId` field. */
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `dataView` to be created by this mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyDataViewCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
+  code: Scalars['String']['input'];
+  defaultFilterString?: InputMaybe<Scalars['String']['input']>;
+  defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
+  detailViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  detailViewHeaderColumn: Scalars['String']['input'];
+  detailViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  filterExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  identifier: Scalars['String']['input'];
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
+  menuName?: InputMaybe<Scalars['String']['input']>;
+  permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  rawDataExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rawDataIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rowRestrictions?: InputMaybe<Scalars['JSON']['input']>;
+  showLinkedApplications?: InputMaybe<Scalars['Boolean']['input']>;
+  submenu?: InputMaybe<Scalars['String']['input']>;
+  tableName: Scalars['String']['input'];
+  tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Input for the nested mutation of `dataView` in the `TemplateDataViewJoinInput` mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyInput = {
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  connectById?: InputMaybe<DataViewOutcomeDisplayPkeyConnect>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  connectByIdentifier?: InputMaybe<DataViewDataViewIdentifierKeyConnect>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<DataViewNodeIdConnect>;
+  /** A `DataViewInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyDataViewCreateInput>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  deleteById?: InputMaybe<DataViewOutcomeDisplayPkeyDelete>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  deleteByIdentifier?: InputMaybe<DataViewDataViewIdentifierKeyDelete>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<DataViewNodeIdDelete>;
+  /** The primary key(s) and patch data for `dataView` for the far side of the relationship. */
+  updateById?: InputMaybe<DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingOutcomeDisplayPkeyUpdate>;
+  /** The primary key(s) and patch data for `dataView` for the far side of the relationship. */
+  updateByIdentifier?: InputMaybe<DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingDataViewIdentifierKeyUpdate>;
+  /** The primary key(s) and patch data for `dataView` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `templateDataViewJoin` in the `DataViewInput` mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyInverseInput = {
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyConnect>>;
+  /** A `TemplateDataViewJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateDataViewJoinDataViewIdFkeyTemplateDataViewJoinCreateInput>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyDelete>>;
+  /** Flag indicating whether all other `templateDataViewJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate>>;
+};
+
+/** The `templateDataViewJoin` to be created by this mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyTemplateDataViewJoinCreateInput = {
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** A filter to be used against `TemplateDataViewJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateDataViewJoinFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<TemplateDataViewJoinFilter>>;
+  /** Filter by the object’s `dataView` relation. */
+  dataView?: InputMaybe<DataViewFilter>;
+  /** Filter by the object’s `dataViewId` field. */
+  dataViewId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<TemplateDataViewJoinFilter>>;
+  /** Filter by the object’s `template` relation. */
+  template?: InputMaybe<TemplateFilter>;
+  /** Filter by the object’s `templateId` field. */
+  templateId?: InputMaybe<IntFilter>;
+};
+
+/** An input for mutations affecting `TemplateDataViewJoin` */
+export type TemplateDataViewJoinInput = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type TemplateDataViewJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type TemplateDataViewJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataView` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataView` being updated. */
+  patch: DataViewPatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate = {
+  dataViewId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `template` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: TemplatePatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate = {
+  dataViewId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** Represents an update to a `TemplateDataViewJoin`. Fields that are set will be updated. */
+export type TemplateDataViewJoinPatch = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to connect. */
+export type TemplateDataViewJoinTemplateDataViewJoinPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to delete. */
+export type TemplateDataViewJoinTemplateDataViewJoinPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to connect. */
+export type TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyConnect = {
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to delete. */
+export type TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyDelete = {
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** Input for the nested mutation of `template` in the `TemplateDataViewJoinInput` mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyInput = {
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectById?: InputMaybe<TemplateTemplatePkeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<TemplateNodeIdConnect>;
+  /** A `TemplateInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyTemplateCreateInput>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteById?: InputMaybe<TemplateTemplatePkeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<TemplateNodeIdDelete>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByCodeAndVersionId?: InputMaybe<TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateById?: InputMaybe<TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplatePkeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `templateDataViewJoin` in the `TemplateInput` mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyInverseInput = {
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyConnect>>;
+  /** A `TemplateDataViewJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateDataViewJoinTemplateIdFkeyTemplateDataViewJoinCreateInput>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyDelete>>;
+  /** Flag indicating whether all other `templateDataViewJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate>>;
+};
+
+/** The `template` to be created by this mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyTemplateCreateInput = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code: Scalars['String']['input'];
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId: Scalars['String']['input'];
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The `templateDataViewJoin` to be created by this mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyTemplateDataViewJoinCreateInput = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** A connection to a list of `TemplateDataViewJoin` values. */
+export type TemplateDataViewJoinsConnection = {
+  __typename?: 'TemplateDataViewJoinsConnection';
+  /** A list of edges which contains the `TemplateDataViewJoin` and cursor to aid in pagination. */
+  edges: Array<TemplateDataViewJoinsEdge>;
+  /** A list of `TemplateDataViewJoin` objects. */
+  nodes: Array<Maybe<TemplateDataViewJoin>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `TemplateDataViewJoin` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `TemplateDataViewJoin` edge in the connection. */
+export type TemplateDataViewJoinsEdge = {
+  __typename?: 'TemplateDataViewJoinsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `TemplateDataViewJoin` at the end of the edge. */
+  node?: Maybe<TemplateDataViewJoin>;
+};
+
+/** Methods to use when ordering `TemplateDataViewJoin`. */
+export enum TemplateDataViewJoinsOrderBy {
+  DataViewIdAsc = 'DATA_VIEW_ID_ASC',
+  DataViewIdDesc = 'DATA_VIEW_ID_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  TemplateIdAsc = 'TEMPLATE_ID_ASC',
+  TemplateIdDesc = 'TEMPLATE_ID_DESC'
+}
 
 export type TemplateElement = Node & {
   __typename?: 'TemplateElement';
@@ -33106,6 +35845,366 @@ export enum TemplateElementsOrderBy {
   VisibilityConditionDesc = 'VISIBILITY_CONDITION_DESC'
 }
 
+export type TemplateFileJoin = Node & {
+  __typename?: 'TemplateFileJoin';
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  fileId: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  templateId: Scalars['Int']['output'];
+};
+
+/**
+ * A condition to be used against `TemplateFileJoin` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type TemplateFileJoinCondition = {
+  /** Checks for equality with the object’s `fileId` field. */
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `templateId` field. */
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `file` to be created by this mutation. */
+export type TemplateFileJoinFileIdFkeyFileCreateInput = {
+  applicationNoteId?: InputMaybe<Scalars['Int']['input']>;
+  applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
+  applicationResponseId?: InputMaybe<Scalars['Int']['input']>;
+  applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
+  applicationSerial?: InputMaybe<Scalars['String']['input']>;
+  applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
+  archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  filePath: Scalars['String']['input'];
+  fileSize?: InputMaybe<Scalars['BigInt']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
+  mimetype?: InputMaybe<Scalars['String']['input']>;
+  originalFilename: Scalars['String']['input'];
+  submitted?: InputMaybe<Scalars['Boolean']['input']>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
+  thumbnailPath?: InputMaybe<Scalars['String']['input']>;
+  timestamp?: InputMaybe<Scalars['Datetime']['input']>;
+  toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
+  uniqueId: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** Input for the nested mutation of `file` in the `TemplateFileJoinInput` mutation. */
+export type TemplateFileJoinFileIdFkeyInput = {
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  connectById?: InputMaybe<FileFilePkeyConnect>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<FileNodeIdConnect>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  connectByUniqueId?: InputMaybe<FileFileUniqueIdKeyConnect>;
+  /** A `FileInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateFileJoinFileIdFkeyFileCreateInput>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  deleteById?: InputMaybe<FileFilePkeyDelete>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<FileNodeIdDelete>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  deleteByUniqueId?: InputMaybe<FileFileUniqueIdKeyDelete>;
+  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
+  updateById?: InputMaybe<FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFilePkeyUpdate>;
+  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate>;
+  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
+  updateByUniqueId?: InputMaybe<FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFileUniqueIdKeyUpdate>;
+};
+
+/** Input for the nested mutation of `templateFileJoin` in the `FileInput` mutation. */
+export type TemplateFileJoinFileIdFkeyInverseInput = {
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyConnect>>;
+  /** A `TemplateFileJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateFileJoinFileIdFkeyTemplateFileJoinCreateInput>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyDelete>>;
+  /** Flag indicating whether all other `templateFileJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate>>;
+};
+
+/** The `templateFileJoin` to be created by this mutation. */
+export type TemplateFileJoinFileIdFkeyTemplateFileJoinCreateInput = {
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** A filter to be used against `TemplateFileJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateFileJoinFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<TemplateFileJoinFilter>>;
+  /** Filter by the object’s `file` relation. */
+  file?: InputMaybe<FileFilter>;
+  /** Filter by the object’s `fileId` field. */
+  fileId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<TemplateFileJoinFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<TemplateFileJoinFilter>>;
+  /** Filter by the object’s `template` relation. */
+  template?: InputMaybe<TemplateFilter>;
+  /** Filter by the object’s `templateId` field. */
+  templateId?: InputMaybe<IntFilter>;
+};
+
+/** An input for mutations affecting `TemplateFileJoin` */
+export type TemplateFileJoinInput = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type TemplateFileJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type TemplateFileJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `file` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `file` being updated. */
+  patch: FilePatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate = {
+  fileId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `template` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: TemplatePatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate = {
+  fileId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** Represents an update to a `TemplateFileJoin`. Fields that are set will be updated. */
+export type TemplateFileJoinPatch = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** The fields on `templateFileJoin` to look up the row to connect. */
+export type TemplateFileJoinTemplateFileJoinPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateFileJoin` to look up the row to delete. */
+export type TemplateFileJoinTemplateFileJoinPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateFileJoin` to look up the row to connect. */
+export type TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyConnect = {
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** The fields on `templateFileJoin` to look up the row to delete. */
+export type TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyDelete = {
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** Input for the nested mutation of `template` in the `TemplateFileJoinInput` mutation. */
+export type TemplateFileJoinTemplateIdFkeyInput = {
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectById?: InputMaybe<TemplateTemplatePkeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<TemplateNodeIdConnect>;
+  /** A `TemplateInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateFileJoinTemplateIdFkeyTemplateCreateInput>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteById?: InputMaybe<TemplateTemplatePkeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<TemplateNodeIdDelete>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByCodeAndVersionId?: InputMaybe<TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateById?: InputMaybe<TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplatePkeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `templateFileJoin` in the `TemplateInput` mutation. */
+export type TemplateFileJoinTemplateIdFkeyInverseInput = {
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyConnect>>;
+  /** A `TemplateFileJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateFileJoinTemplateIdFkeyTemplateFileJoinCreateInput>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyDelete>>;
+  /** Flag indicating whether all other `templateFileJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate>>;
+};
+
+/** The `template` to be created by this mutation. */
+export type TemplateFileJoinTemplateIdFkeyTemplateCreateInput = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code: Scalars['String']['input'];
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId: Scalars['String']['input'];
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The `templateFileJoin` to be created by this mutation. */
+export type TemplateFileJoinTemplateIdFkeyTemplateFileJoinCreateInput = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** A connection to a list of `TemplateFileJoin` values. */
+export type TemplateFileJoinsConnection = {
+  __typename?: 'TemplateFileJoinsConnection';
+  /** A list of edges which contains the `TemplateFileJoin` and cursor to aid in pagination. */
+  edges: Array<TemplateFileJoinsEdge>;
+  /** A list of `TemplateFileJoin` objects. */
+  nodes: Array<Maybe<TemplateFileJoin>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `TemplateFileJoin` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `TemplateFileJoin` edge in the connection. */
+export type TemplateFileJoinsEdge = {
+  __typename?: 'TemplateFileJoinsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `TemplateFileJoin` at the end of the edge. */
+  node?: Maybe<TemplateFileJoin>;
+};
+
+/** Methods to use when ordering `TemplateFileJoin`. */
+export enum TemplateFileJoinsOrderBy {
+  FileIdAsc = 'FILE_ID_ASC',
+  FileIdDesc = 'FILE_ID_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  TemplateIdAsc = 'TEMPLATE_ID_ASC',
+  TemplateIdDesc = 'TEMPLATE_ID_DESC'
+}
+
 /** A filter to be used against `Template` object types. All fields are combined with a logical ‘and.’ */
 export type TemplateFilter = {
   /** Filter by the object’s `actionQueues` relation. */
@@ -33124,16 +36223,14 @@ export type TemplateFilter = {
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `dashboardRestrictions` field. */
   dashboardRestrictions?: InputMaybe<StringListFilter>;
-  /** Filter by the object’s `files` relation. */
-  files?: InputMaybe<TemplateToManyFileFilter>;
-  /** Some related `files` exist. */
-  filesExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `icon` field. */
   icon?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isLinear` field. */
   isLinear?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `linkedEntityData` field. */
+  linkedEntityData?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `name` field. */
   name?: InputMaybe<StringFilter>;
   /** Filter by the object’s `namePlural` field. */
@@ -33168,6 +36265,14 @@ export type TemplateFilter = {
   templateCategoryExists?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `templateCategoryId` field. */
   templateCategoryId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `templateDataViewJoins` relation. */
+  templateDataViewJoins?: InputMaybe<TemplateToManyTemplateDataViewJoinFilter>;
+  /** Some related `templateDataViewJoins` exist. */
+  templateDataViewJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `templateFileJoins` relation. */
+  templateFileJoins?: InputMaybe<TemplateToManyTemplateFileJoinFilter>;
+  /** Some related `templateFileJoins` exist. */
+  templateFileJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `templateFilterJoins` relation. */
   templateFilterJoins?: InputMaybe<TemplateToManyTemplateFilterJoinFilter>;
   /** Some related `templateFilterJoins` exist. */
@@ -33246,8 +36351,10 @@ export type TemplateFilterJoinFilter = {
 
 /** The `filter` to be created by this mutation. */
 export type TemplateFilterJoinFilterIdFkeyFilterCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -33427,10 +36534,10 @@ export type TemplateFilterJoinTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -33443,6 +36550,8 @@ export type TemplateFilterJoinTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -33504,10 +36613,10 @@ export type TemplateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -33520,6 +36629,8 @@ export type TemplateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -33590,29 +36701,6 @@ export type TemplateOnApplicationForApplicationTemplateIdFkeyUsingTemplatePkeyUp
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type TemplateOnFileForFileTemplateIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `file` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `file` being updated. */
-  patch: FilePatch;
-};
-
-/** The fields on `template` to look up the row to update. */
-export type TemplateOnFileForFileTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate = {
-  code: Scalars['String']['input'];
-  /** An object where the defined keys will be set on the `template` being updated. */
-  patch: UpdateTemplateOnFileForFileTemplateIdFkeyPatch;
-  versionId: Scalars['String']['input'];
-};
-
-/** The fields on `template` to look up the row to update. */
-export type TemplateOnFileForFileTemplateIdFkeyUsingTemplatePkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `template` being updated. */
-  patch: UpdateTemplateOnFileForFileTemplateIdFkeyPatch;
-};
-
-/** The globally unique `ID` look up for the row to update. */
 export type TemplateOnReviewAssignmentForReviewAssignmentTemplateIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `reviewAssignment` to be connected. */
   nodeId: Scalars['ID']['input'];
@@ -33656,6 +36744,52 @@ export type TemplateOnTemplateActionForTemplateActionTemplateIdFkeyUsingTemplate
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `template` being updated. */
   patch: UpdateTemplateOnTemplateActionForTemplateActionTemplateIdFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate = {
+  code: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+  versionId: Scalars['String']['input'];
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplatePkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate = {
+  code: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
+  versionId: Scalars['String']['input'];
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplatePkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
 };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -33803,10 +36937,10 @@ export type TemplatePatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -33819,6 +36953,8 @@ export type TemplatePatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -34026,9 +37162,11 @@ export type TemplatePermissionPermissionNameIdFkeyInverseInput = {
 
 /** The `permissionName` to be created by this mutation. */
 export type TemplatePermissionPermissionNameIdFkeyPermissionNameCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -34101,10 +37239,10 @@ export type TemplatePermissionTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -34117,6 +37255,8 @@ export type TemplatePermissionTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -34406,10 +37546,10 @@ export type TemplateSectionTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -34422,6 +37562,8 @@ export type TemplateSectionTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -35041,10 +38183,10 @@ export type TemplateStageTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -35057,6 +38199,8 @@ export type TemplateStageTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -35246,10 +38390,12 @@ export type TemplateTemplateCategoryIdFkeyInverseInput = {
 
 /** The `templateCategory` to be created by this mutation. */
 export type TemplateTemplateCategoryIdFkeyTemplateCategoryCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -35263,10 +38409,10 @@ export type TemplateTemplateCategoryIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -35278,6 +38424,8 @@ export type TemplateTemplateCategoryIdFkeyTemplateCreateInput = {
   submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -35331,16 +38479,6 @@ export type TemplateToManyApplicationFilter = {
   some?: InputMaybe<ApplicationFilter>;
 };
 
-/** A filter to be used against many `File` object types. All fields are combined with a logical ‘and.’ */
-export type TemplateToManyFileFilter = {
-  /** Every related `File` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<FileFilter>;
-  /** No related `File` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<FileFilter>;
-  /** Some related `File` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<FileFilter>;
-};
-
 /** A filter to be used against many `ReviewAssignment` object types. All fields are combined with a logical ‘and.’ */
 export type TemplateToManyReviewAssignmentFilter = {
   /** Every related `ReviewAssignment` matches the filter criteria. All fields are combined with a logical ‘and.’ */
@@ -35359,6 +38497,26 @@ export type TemplateToManyTemplateActionFilter = {
   none?: InputMaybe<TemplateActionFilter>;
   /** Some related `TemplateAction` matches the filter criteria. All fields are combined with a logical ‘and.’ */
   some?: InputMaybe<TemplateActionFilter>;
+};
+
+/** A filter to be used against many `TemplateDataViewJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateToManyTemplateDataViewJoinFilter = {
+  /** Every related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** No related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** Some related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateDataViewJoinFilter>;
+};
+
+/** A filter to be used against many `TemplateFileJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateToManyTemplateFileJoinFilter = {
+  /** Every related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateFileJoinFilter>;
+  /** No related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateFileJoinFilter>;
+  /** Some related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateFileJoinFilter>;
 };
 
 /** A filter to be used against many `TemplateFilterJoin` object types. All fields are combined with a logical ‘and.’ */
@@ -35447,6 +38605,8 @@ export enum TemplatesOrderBy {
   IdDesc = 'ID_DESC',
   IsLinearAsc = 'IS_LINEAR_ASC',
   IsLinearDesc = 'IS_LINEAR_DESC',
+  LinkedEntityDataAsc = 'LINKED_ENTITY_DATA_ASC',
+  LinkedEntityDataDesc = 'LINKED_ENTITY_DATA_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
   NamePluralAsc = 'NAME_PLURAL_ASC',
@@ -35567,9 +38727,10 @@ export type TriggerQueueApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -35934,9 +39095,10 @@ export type TriggerScheduleApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -36212,10 +39374,10 @@ export type TriggerScheduleTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -36228,6 +39390,8 @@ export type TriggerScheduleTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -37128,104 +40292,6 @@ export type UpdateDataTableAdministrationRoutePayloadDataTableAdministrationRout
   orderBy?: InputMaybe<Array<DataTableAdministrationRoutesOrderBy>>;
 };
 
-/** All input for the `updateDataTableAdverseDrugReactionApplicationJoinByNodeId` mutation. */
-export type UpdateDataTableAdverseDrugReactionApplicationJoinByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableAdverseDrugReactionApplicationJoin` to be updated. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTableAdverseDrugReactionApplicationJoin` being updated. */
-  patch: DataTableAdverseDrugReactionApplicationJoinPatch;
-};
-
-/** All input for the `updateDataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type UpdateDataTableAdverseDrugReactionApplicationJoinInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTableAdverseDrugReactionApplicationJoin` being updated. */
-  patch: DataTableAdverseDrugReactionApplicationJoinPatch;
-};
-
-/** The output of our update `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type UpdateDataTableAdverseDrugReactionApplicationJoinPayload = {
-  __typename?: 'UpdateDataTableAdverseDrugReactionApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  application?: Maybe<Application>;
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableAdverseDrugReaction` that is related to this `DataTableAdverseDrugReactionApplicationJoin`. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  /** The `DataTableAdverseDrugReactionApplicationJoin` that was updated by this mutation. */
-  dataTableAdverseDrugReactionApplicationJoin?: Maybe<DataTableAdverseDrugReactionApplicationJoin>;
-  /** An edge for our `DataTableAdverseDrugReactionApplicationJoin`. May be used by Relay 1. */
-  dataTableAdverseDrugReactionApplicationJoinEdge?: Maybe<DataTableAdverseDrugReactionApplicationJoinsEdge>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our update `DataTableAdverseDrugReactionApplicationJoin` mutation. */
-export type UpdateDataTableAdverseDrugReactionApplicationJoinPayloadDataTableAdverseDrugReactionApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionApplicationJoinsOrderBy>>;
-};
-
-/** All input for the `updateDataTableAdverseDrugReactionByNodeId` mutation. */
-export type UpdateDataTableAdverseDrugReactionByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableAdverseDrugReaction` to be updated. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTableAdverseDrugReaction` being updated. */
-  patch: DataTableAdverseDrugReactionPatch;
-};
-
-/** All input for the `updateDataTableAdverseDrugReaction` mutation. */
-export type UpdateDataTableAdverseDrugReactionInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTableAdverseDrugReaction` being updated. */
-  patch: DataTableAdverseDrugReactionPatch;
-};
-
-/** The output of our update `DataTableAdverseDrugReaction` mutation. */
-export type UpdateDataTableAdverseDrugReactionPayload = {
-  __typename?: 'UpdateDataTableAdverseDrugReactionPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableAdverseDrugReaction` that was updated by this mutation. */
-  dataTableAdverseDrugReaction?: Maybe<DataTableAdverseDrugReaction>;
-  /** An edge for our `DataTableAdverseDrugReaction`. May be used by Relay 1. */
-  dataTableAdverseDrugReactionEdge?: Maybe<DataTableAdverseDrugReactionsEdge>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our update `DataTableAdverseDrugReaction` mutation. */
-export type UpdateDataTableAdverseDrugReactionPayloadDataTableAdverseDrugReactionEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableAdverseDrugReactionsOrderBy>>;
-};
-
 /** All input for the `updateDataTableAtcCodeByNodeId` mutation. */
 export type UpdateDataTableAtcCodeByNodeIdInput = {
   /**
@@ -37298,6 +40364,53 @@ export type UpdateDataTableByTableNameInput = {
   tableName: Scalars['String']['input'];
 };
 
+/** All input for the `updateDataTableContainerByNodeId` mutation. */
+export type UpdateDataTableContainerByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableContainer` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTableContainer` being updated. */
+  patch: DataTableContainerPatch;
+};
+
+/** All input for the `updateDataTableContainer` mutation. */
+export type UpdateDataTableContainerInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTableContainer` being updated. */
+  patch: DataTableContainerPatch;
+};
+
+/** The output of our update `DataTableContainer` mutation. */
+export type UpdateDataTableContainerPayload = {
+  __typename?: 'UpdateDataTableContainerPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableContainer` that was updated by this mutation. */
+  dataTableContainer?: Maybe<DataTableContainer>;
+  /** An edge for our `DataTableContainer`. May be used by Relay 1. */
+  dataTableContainerEdge?: Maybe<DataTableContainersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTableContainer` mutation. */
+export type UpdateDataTableContainerPayloadDataTableContainerEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableContainersOrderBy>>;
+};
+
 /** All input for the `updateDataTableCountryByNodeId` mutation. */
 export type UpdateDataTableCountryByNodeIdInput = {
   /**
@@ -37358,6 +40471,53 @@ export type UpdateDataTableDosageFormByNodeIdInput = {
   patch: DataTableDosageFormPatch;
 };
 
+/** All input for the `updateDataTableDosageFormGroupByNodeId` mutation. */
+export type UpdateDataTableDosageFormGroupByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableDosageFormGroup` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTableDosageFormGroup` being updated. */
+  patch: DataTableDosageFormGroupPatch;
+};
+
+/** All input for the `updateDataTableDosageFormGroup` mutation. */
+export type UpdateDataTableDosageFormGroupInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTableDosageFormGroup` being updated. */
+  patch: DataTableDosageFormGroupPatch;
+};
+
+/** The output of our update `DataTableDosageFormGroup` mutation. */
+export type UpdateDataTableDosageFormGroupPayload = {
+  __typename?: 'UpdateDataTableDosageFormGroupPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableDosageFormGroup` that was updated by this mutation. */
+  dataTableDosageFormGroup?: Maybe<DataTableDosageFormGroup>;
+  /** An edge for our `DataTableDosageFormGroup`. May be used by Relay 1. */
+  dataTableDosageFormGroupEdge?: Maybe<DataTableDosageFormGroupsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTableDosageFormGroup` mutation. */
+export type UpdateDataTableDosageFormGroupPayloadDataTableDosageFormGroupEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableDosageFormGroupsOrderBy>>;
+};
+
 /** All input for the `updateDataTableDosageForm` mutation. */
 export type UpdateDataTableDosageFormInput = {
   /**
@@ -37392,51 +40552,51 @@ export type UpdateDataTableDosageFormPayloadDataTableDosageFormEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableDosageFormsOrderBy>>;
 };
 
-/** All input for the `updateDataTableEthnicityByNodeId` mutation. */
-export type UpdateDataTableEthnicityByNodeIdInput = {
+/** All input for the `updateDataTableGenericIngredientByNodeId` mutation. */
+export type UpdateDataTableGenericIngredientByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableEthnicity` to be updated. */
+  /** The globally unique `ID` which will identify a single `DataTableGenericIngredient` to be updated. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTableEthnicity` being updated. */
-  patch: DataTableEthnicityPatch;
+  /** An object where the defined keys will be set on the `DataTableGenericIngredient` being updated. */
+  patch: DataTableGenericIngredientPatch;
 };
 
-/** All input for the `updateDataTableEthnicity` mutation. */
-export type UpdateDataTableEthnicityInput = {
+/** All input for the `updateDataTableGenericIngredient` mutation. */
+export type UpdateDataTableGenericIngredientInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTableEthnicity` being updated. */
-  patch: DataTableEthnicityPatch;
+  /** An object where the defined keys will be set on the `DataTableGenericIngredient` being updated. */
+  patch: DataTableGenericIngredientPatch;
 };
 
-/** The output of our update `DataTableEthnicity` mutation. */
-export type UpdateDataTableEthnicityPayload = {
-  __typename?: 'UpdateDataTableEthnicityPayload';
+/** The output of our update `DataTableGenericIngredient` mutation. */
+export type UpdateDataTableGenericIngredientPayload = {
+  __typename?: 'UpdateDataTableGenericIngredientPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableEthnicity` that was updated by this mutation. */
-  dataTableEthnicity?: Maybe<DataTableEthnicity>;
-  /** An edge for our `DataTableEthnicity`. May be used by Relay 1. */
-  dataTableEthnicityEdge?: Maybe<DataTableEthnicitiesEdge>;
+  /** The `DataTableGenericIngredient` that was updated by this mutation. */
+  dataTableGenericIngredient?: Maybe<DataTableGenericIngredient>;
+  /** An edge for our `DataTableGenericIngredient`. May be used by Relay 1. */
+  dataTableGenericIngredientEdge?: Maybe<DataTableGenericIngredientsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our update `DataTableEthnicity` mutation. */
-export type UpdateDataTableEthnicityPayloadDataTableEthnicityEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableEthnicitiesOrderBy>>;
+/** The output of our update `DataTableGenericIngredient` mutation. */
+export type UpdateDataTableGenericIngredientPayloadDataTableGenericIngredientEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableGenericIngredientsOrderBy>>;
 };
 
 /** All input for the `updateDataTable` mutation. */
@@ -37451,102 +40611,55 @@ export type UpdateDataTableInput = {
   patch: DataTablePatch;
 };
 
-/** All input for the `updateDataTableLicenseApplicationJoinByNodeId` mutation. */
-export type UpdateDataTableLicenseApplicationJoinByNodeIdInput = {
+/** All input for the `updateDataTableManufacturerApplicationJoinByNodeId` mutation. */
+export type UpdateDataTableManufacturerApplicationJoinByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableLicenseApplicationJoin` to be updated. */
+  /** The globally unique `ID` which will identify a single `DataTableManufacturerApplicationJoin` to be updated. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTableLicenseApplicationJoin` being updated. */
-  patch: DataTableLicenseApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `DataTableManufacturerApplicationJoin` being updated. */
+  patch: DataTableManufacturerApplicationJoinPatch;
 };
 
-/** All input for the `updateDataTableLicenseApplicationJoin` mutation. */
-export type UpdateDataTableLicenseApplicationJoinInput = {
+/** All input for the `updateDataTableManufacturerApplicationJoin` mutation. */
+export type UpdateDataTableManufacturerApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTableLicenseApplicationJoin` being updated. */
-  patch: DataTableLicenseApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `DataTableManufacturerApplicationJoin` being updated. */
+  patch: DataTableManufacturerApplicationJoinPatch;
 };
 
-/** The output of our update `DataTableLicenseApplicationJoin` mutation. */
-export type UpdateDataTableLicenseApplicationJoinPayload = {
-  __typename?: 'UpdateDataTableLicenseApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTableLicenseApplicationJoin`. */
+/** The output of our update `DataTableManufacturerApplicationJoin` mutation. */
+export type UpdateDataTableManufacturerApplicationJoinPayload = {
+  __typename?: 'UpdateDataTableManufacturerApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerApplicationJoin`. */
   application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableLicense` that is related to this `DataTableLicenseApplicationJoin`. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  /** The `DataTableLicenseApplicationJoin` that was updated by this mutation. */
-  dataTableLicenseApplicationJoin?: Maybe<DataTableLicenseApplicationJoin>;
-  /** An edge for our `DataTableLicenseApplicationJoin`. May be used by Relay 1. */
-  dataTableLicenseApplicationJoinEdge?: Maybe<DataTableLicenseApplicationJoinsEdge>;
+  /** Reads a single `DataTableManufacturer` that is related to this `DataTableManufacturerApplicationJoin`. */
+  dataTableManufacturer?: Maybe<DataTableManufacturer>;
+  /** The `DataTableManufacturerApplicationJoin` that was updated by this mutation. */
+  dataTableManufacturerApplicationJoin?: Maybe<DataTableManufacturerApplicationJoin>;
+  /** An edge for our `DataTableManufacturerApplicationJoin`. May be used by Relay 1. */
+  dataTableManufacturerApplicationJoinEdge?: Maybe<DataTableManufacturerApplicationJoinsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our update `DataTableLicenseApplicationJoin` mutation. */
-export type UpdateDataTableLicenseApplicationJoinPayloadDataTableLicenseApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableLicenseApplicationJoinsOrderBy>>;
-};
-
-/** All input for the `updateDataTableLicenseByNodeId` mutation. */
-export type UpdateDataTableLicenseByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTableLicense` to be updated. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTableLicense` being updated. */
-  patch: DataTableLicensePatch;
-};
-
-/** All input for the `updateDataTableLicense` mutation. */
-export type UpdateDataTableLicenseInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTableLicense` being updated. */
-  patch: DataTableLicensePatch;
-};
-
-/** The output of our update `DataTableLicense` mutation. */
-export type UpdateDataTableLicensePayload = {
-  __typename?: 'UpdateDataTableLicensePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTableLicense` that was updated by this mutation. */
-  dataTableLicense?: Maybe<DataTableLicense>;
-  /** An edge for our `DataTableLicense`. May be used by Relay 1. */
-  dataTableLicenseEdge?: Maybe<DataTableLicensesEdge>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-
-/** The output of our update `DataTableLicense` mutation. */
-export type UpdateDataTableLicensePayloadDataTableLicenseEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTableLicensesOrderBy>>;
+/** The output of our update `DataTableManufacturerApplicationJoin` mutation. */
+export type UpdateDataTableManufacturerApplicationJoinPayloadDataTableManufacturerApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerApplicationJoinsOrderBy>>;
 };
 
 /** All input for the `updateDataTableManufacturerByNodeId` mutation. */
@@ -37596,6 +40709,107 @@ export type UpdateDataTableManufacturerPayloadDataTableManufacturerEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableManufacturersOrderBy>>;
 };
 
+/** All input for the `updateDataTableManufacturerRepresentativeApplicationJoinByNodeId` mutation. */
+export type UpdateDataTableManufacturerRepresentativeApplicationJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableManufacturerRepresentativeApplicationJoin` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTableManufacturerRepresentativeApplicationJoin` being updated. */
+  patch: DataTableManufacturerRepresentativeApplicationJoinPatch;
+};
+
+/** All input for the `updateDataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type UpdateDataTableManufacturerRepresentativeApplicationJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTableManufacturerRepresentativeApplicationJoin` being updated. */
+  patch: DataTableManufacturerRepresentativeApplicationJoinPatch;
+};
+
+/** The output of our update `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type UpdateDataTableManufacturerRepresentativeApplicationJoinPayload = {
+  __typename?: 'UpdateDataTableManufacturerRepresentativeApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTableManufacturerRepresentativeApplicationJoin`. */
+  application?: Maybe<Application>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /**
+   * Reads a single `DataTableManufacturerRepresentative` that is related to this
+   * `DataTableManufacturerRepresentativeApplicationJoin`.
+   */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  /** The `DataTableManufacturerRepresentativeApplicationJoin` that was updated by this mutation. */
+  dataTableManufacturerRepresentativeApplicationJoin?: Maybe<DataTableManufacturerRepresentativeApplicationJoin>;
+  /** An edge for our `DataTableManufacturerRepresentativeApplicationJoin`. May be used by Relay 1. */
+  dataTableManufacturerRepresentativeApplicationJoinEdge?: Maybe<DataTableManufacturerRepresentativeApplicationJoinsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTableManufacturerRepresentativeApplicationJoin` mutation. */
+export type UpdateDataTableManufacturerRepresentativeApplicationJoinPayloadDataTableManufacturerRepresentativeApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativeApplicationJoinsOrderBy>>;
+};
+
+/** All input for the `updateDataTableManufacturerRepresentativeByNodeId` mutation. */
+export type UpdateDataTableManufacturerRepresentativeByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableManufacturerRepresentative` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTableManufacturerRepresentative` being updated. */
+  patch: DataTableManufacturerRepresentativePatch;
+};
+
+/** All input for the `updateDataTableManufacturerRepresentative` mutation. */
+export type UpdateDataTableManufacturerRepresentativeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTableManufacturerRepresentative` being updated. */
+  patch: DataTableManufacturerRepresentativePatch;
+};
+
+/** The output of our update `DataTableManufacturerRepresentative` mutation. */
+export type UpdateDataTableManufacturerRepresentativePayload = {
+  __typename?: 'UpdateDataTableManufacturerRepresentativePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableManufacturerRepresentative` that was updated by this mutation. */
+  dataTableManufacturerRepresentative?: Maybe<DataTableManufacturerRepresentative>;
+  /** An edge for our `DataTableManufacturerRepresentative`. May be used by Relay 1. */
+  dataTableManufacturerRepresentativeEdge?: Maybe<DataTableManufacturerRepresentativesEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTableManufacturerRepresentative` mutation. */
+export type UpdateDataTableManufacturerRepresentativePayloadDataTableManufacturerRepresentativeEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableManufacturerRepresentativesOrderBy>>;
+};
+
 /** The output of our update `DataTable` mutation. */
 export type UpdateDataTablePayload = {
   __typename?: 'UpdateDataTablePayload';
@@ -37618,102 +40832,102 @@ export type UpdateDataTablePayloadDataTableEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTablesOrderBy>>;
 };
 
-/** All input for the `updateDataTablePermitMedicalApplicationJoinByNodeId` mutation. */
-export type UpdateDataTablePermitMedicalApplicationJoinByNodeIdInput = {
+/** All input for the `updateDataTablePermitChemicalApplicationJoinByNodeId` mutation. */
+export type UpdateDataTablePermitChemicalApplicationJoinByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTablePermitMedicalApplicationJoin` to be updated. */
+  /** The globally unique `ID` which will identify a single `DataTablePermitChemicalApplicationJoin` to be updated. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTablePermitMedicalApplicationJoin` being updated. */
-  patch: DataTablePermitMedicalApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `DataTablePermitChemicalApplicationJoin` being updated. */
+  patch: DataTablePermitChemicalApplicationJoinPatch;
 };
 
-/** All input for the `updateDataTablePermitMedicalApplicationJoin` mutation. */
-export type UpdateDataTablePermitMedicalApplicationJoinInput = {
+/** All input for the `updateDataTablePermitChemicalApplicationJoin` mutation. */
+export type UpdateDataTablePermitChemicalApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTablePermitMedicalApplicationJoin` being updated. */
-  patch: DataTablePermitMedicalApplicationJoinPatch;
+  /** An object where the defined keys will be set on the `DataTablePermitChemicalApplicationJoin` being updated. */
+  patch: DataTablePermitChemicalApplicationJoinPatch;
 };
 
-/** The output of our update `DataTablePermitMedicalApplicationJoin` mutation. */
-export type UpdateDataTablePermitMedicalApplicationJoinPayload = {
-  __typename?: 'UpdateDataTablePermitMedicalApplicationJoinPayload';
-  /** Reads a single `Application` that is related to this `DataTablePermitMedicalApplicationJoin`. */
+/** The output of our update `DataTablePermitChemicalApplicationJoin` mutation. */
+export type UpdateDataTablePermitChemicalApplicationJoinPayload = {
+  __typename?: 'UpdateDataTablePermitChemicalApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTablePermitChemicalApplicationJoin`. */
   application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTablePermitMedical` that is related to this `DataTablePermitMedicalApplicationJoin`. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  /** The `DataTablePermitMedicalApplicationJoin` that was updated by this mutation. */
-  dataTablePermitMedicalApplicationJoin?: Maybe<DataTablePermitMedicalApplicationJoin>;
-  /** An edge for our `DataTablePermitMedicalApplicationJoin`. May be used by Relay 1. */
-  dataTablePermitMedicalApplicationJoinEdge?: Maybe<DataTablePermitMedicalApplicationJoinsEdge>;
+  /** Reads a single `DataTablePermitChemical` that is related to this `DataTablePermitChemicalApplicationJoin`. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  /** The `DataTablePermitChemicalApplicationJoin` that was updated by this mutation. */
+  dataTablePermitChemicalApplicationJoin?: Maybe<DataTablePermitChemicalApplicationJoin>;
+  /** An edge for our `DataTablePermitChemicalApplicationJoin`. May be used by Relay 1. */
+  dataTablePermitChemicalApplicationJoinEdge?: Maybe<DataTablePermitChemicalApplicationJoinsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our update `DataTablePermitMedicalApplicationJoin` mutation. */
-export type UpdateDataTablePermitMedicalApplicationJoinPayloadDataTablePermitMedicalApplicationJoinEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalApplicationJoinsOrderBy>>;
+/** The output of our update `DataTablePermitChemicalApplicationJoin` mutation. */
+export type UpdateDataTablePermitChemicalApplicationJoinPayloadDataTablePermitChemicalApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalApplicationJoinsOrderBy>>;
 };
 
-/** All input for the `updateDataTablePermitMedicalByNodeId` mutation. */
-export type UpdateDataTablePermitMedicalByNodeIdInput = {
+/** All input for the `updateDataTablePermitChemicalByNodeId` mutation. */
+export type UpdateDataTablePermitChemicalByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTablePermitMedical` to be updated. */
+  /** The globally unique `ID` which will identify a single `DataTablePermitChemical` to be updated. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTablePermitMedical` being updated. */
-  patch: DataTablePermitMedicalPatch;
+  /** An object where the defined keys will be set on the `DataTablePermitChemical` being updated. */
+  patch: DataTablePermitChemicalPatch;
 };
 
-/** All input for the `updateDataTablePermitMedical` mutation. */
-export type UpdateDataTablePermitMedicalInput = {
+/** All input for the `updateDataTablePermitChemical` mutation. */
+export type UpdateDataTablePermitChemicalInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTablePermitMedical` being updated. */
-  patch: DataTablePermitMedicalPatch;
+  /** An object where the defined keys will be set on the `DataTablePermitChemical` being updated. */
+  patch: DataTablePermitChemicalPatch;
 };
 
-/** The output of our update `DataTablePermitMedical` mutation. */
-export type UpdateDataTablePermitMedicalPayload = {
-  __typename?: 'UpdateDataTablePermitMedicalPayload';
+/** The output of our update `DataTablePermitChemical` mutation. */
+export type UpdateDataTablePermitChemicalPayload = {
+  __typename?: 'UpdateDataTablePermitChemicalPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTablePermitMedical` that was updated by this mutation. */
-  dataTablePermitMedical?: Maybe<DataTablePermitMedical>;
-  /** An edge for our `DataTablePermitMedical`. May be used by Relay 1. */
-  dataTablePermitMedicalEdge?: Maybe<DataTablePermitMedicalsEdge>;
+  /** The `DataTablePermitChemical` that was updated by this mutation. */
+  dataTablePermitChemical?: Maybe<DataTablePermitChemical>;
+  /** An edge for our `DataTablePermitChemical`. May be used by Relay 1. */
+  dataTablePermitChemicalEdge?: Maybe<DataTablePermitChemicalsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our update `DataTablePermitMedical` mutation. */
-export type UpdateDataTablePermitMedicalPayloadDataTablePermitMedicalEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePermitMedicalsOrderBy>>;
+/** The output of our update `DataTablePermitChemical` mutation. */
+export type UpdateDataTablePermitChemicalPayloadDataTablePermitChemicalEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePermitChemicalsOrderBy>>;
 };
 
 /** All input for the `updateDataTablePreRegisteredProductsProvisionalByNodeId` mutation. */
@@ -37763,51 +40977,149 @@ export type UpdateDataTablePreRegisteredProductsProvisionalPayloadDataTablePreRe
   orderBy?: InputMaybe<Array<DataTablePreRegisteredProductsProvisionalsOrderBy>>;
 };
 
-/** All input for the `updateDataTablePrimaryContainerByNodeId` mutation. */
-export type UpdateDataTablePrimaryContainerByNodeIdInput = {
+/** All input for the `updateDataTablePrequalManufacturerApplicationJoinByNodeId` mutation. */
+export type UpdateDataTablePrequalManufacturerApplicationJoinByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The globally unique `ID` which will identify a single `DataTablePrimaryContainer` to be updated. */
+  /** The globally unique `ID` which will identify a single `DataTablePrequalManufacturerApplicationJoin` to be updated. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `DataTablePrimaryContainer` being updated. */
-  patch: DataTablePrimaryContainerPatch;
+  /** An object where the defined keys will be set on the `DataTablePrequalManufacturerApplicationJoin` being updated. */
+  patch: DataTablePrequalManufacturerApplicationJoinPatch;
 };
 
-/** All input for the `updateDataTablePrimaryContainer` mutation. */
-export type UpdateDataTablePrimaryContainerInput = {
+/** All input for the `updateDataTablePrequalManufacturerApplicationJoin` mutation. */
+export type UpdateDataTablePrequalManufacturerApplicationJoinInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `DataTablePrimaryContainer` being updated. */
-  patch: DataTablePrimaryContainerPatch;
+  /** An object where the defined keys will be set on the `DataTablePrequalManufacturerApplicationJoin` being updated. */
+  patch: DataTablePrequalManufacturerApplicationJoinPatch;
 };
 
-/** The output of our update `DataTablePrimaryContainer` mutation. */
-export type UpdateDataTablePrimaryContainerPayload = {
-  __typename?: 'UpdateDataTablePrimaryContainerPayload';
+/** The output of our update `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type UpdateDataTablePrequalManufacturerApplicationJoinPayload = {
+  __typename?: 'UpdateDataTablePrequalManufacturerApplicationJoinPayload';
+  /** Reads a single `Application` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  application?: Maybe<Application>;
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The `DataTablePrimaryContainer` that was updated by this mutation. */
-  dataTablePrimaryContainer?: Maybe<DataTablePrimaryContainer>;
-  /** An edge for our `DataTablePrimaryContainer`. May be used by Relay 1. */
-  dataTablePrimaryContainerEdge?: Maybe<DataTablePrimaryContainersEdge>;
+  /** Reads a single `DataTablePrequalManufacturer` that is related to this `DataTablePrequalManufacturerApplicationJoin`. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  /** The `DataTablePrequalManufacturerApplicationJoin` that was updated by this mutation. */
+  dataTablePrequalManufacturerApplicationJoin?: Maybe<DataTablePrequalManufacturerApplicationJoin>;
+  /** An edge for our `DataTablePrequalManufacturerApplicationJoin`. May be used by Relay 1. */
+  dataTablePrequalManufacturerApplicationJoinEdge?: Maybe<DataTablePrequalManufacturerApplicationJoinsEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
 
 
-/** The output of our update `DataTablePrimaryContainer` mutation. */
-export type UpdateDataTablePrimaryContainerPayloadDataTablePrimaryContainerEdgeArgs = {
-  orderBy?: InputMaybe<Array<DataTablePrimaryContainersOrderBy>>;
+/** The output of our update `DataTablePrequalManufacturerApplicationJoin` mutation. */
+export type UpdateDataTablePrequalManufacturerApplicationJoinPayloadDataTablePrequalManufacturerApplicationJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturerApplicationJoinsOrderBy>>;
+};
+
+/** All input for the `updateDataTablePrequalManufacturerByNodeId` mutation. */
+export type UpdateDataTablePrequalManufacturerByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTablePrequalManufacturer` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTablePrequalManufacturer` being updated. */
+  patch: DataTablePrequalManufacturerPatch;
+};
+
+/** All input for the `updateDataTablePrequalManufacturer` mutation. */
+export type UpdateDataTablePrequalManufacturerInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTablePrequalManufacturer` being updated. */
+  patch: DataTablePrequalManufacturerPatch;
+};
+
+/** The output of our update `DataTablePrequalManufacturer` mutation. */
+export type UpdateDataTablePrequalManufacturerPayload = {
+  __typename?: 'UpdateDataTablePrequalManufacturerPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTablePrequalManufacturer` that was updated by this mutation. */
+  dataTablePrequalManufacturer?: Maybe<DataTablePrequalManufacturer>;
+  /** An edge for our `DataTablePrequalManufacturer`. May be used by Relay 1. */
+  dataTablePrequalManufacturerEdge?: Maybe<DataTablePrequalManufacturersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTablePrequalManufacturer` mutation. */
+export type UpdateDataTablePrequalManufacturerPayloadDataTablePrequalManufacturerEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTablePrequalManufacturersOrderBy>>;
+};
+
+/** All input for the `updateDataTableProcessingStepByNodeId` mutation. */
+export type UpdateDataTableProcessingStepByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableProcessingStep` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTableProcessingStep` being updated. */
+  patch: DataTableProcessingStepPatch;
+};
+
+/** All input for the `updateDataTableProcessingStep` mutation. */
+export type UpdateDataTableProcessingStepInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTableProcessingStep` being updated. */
+  patch: DataTableProcessingStepPatch;
+};
+
+/** The output of our update `DataTableProcessingStep` mutation. */
+export type UpdateDataTableProcessingStepPayload = {
+  __typename?: 'UpdateDataTableProcessingStepPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableProcessingStep` that was updated by this mutation. */
+  dataTableProcessingStep?: Maybe<DataTableProcessingStep>;
+  /** An edge for our `DataTableProcessingStep`. May be used by Relay 1. */
+  dataTableProcessingStepEdge?: Maybe<DataTableProcessingStepsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTableProcessingStep` mutation. */
+export type UpdateDataTableProcessingStepPayloadDataTableProcessingStepEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableProcessingStepsOrderBy>>;
 };
 
 /** All input for the `updateDataTableProductApplicationJoinByNodeId` mutation. */
@@ -37845,8 +41157,6 @@ export type UpdateDataTableProductApplicationJoinPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** Reads a single `DataTableProduct` that is related to this `DataTableProductApplicationJoin`. */
-  dataTableProduct?: Maybe<DataTableProduct>;
   /** The `DataTableProductApplicationJoin` that was updated by this mutation. */
   dataTableProductApplicationJoin?: Maybe<DataTableProductApplicationJoin>;
   /** An edge for our `DataTableProductApplicationJoin`. May be used by Relay 1. */
@@ -38051,6 +41361,53 @@ export type UpdateDataTableScheduledChemicalPayload = {
 /** The output of our update `DataTableScheduledChemical` mutation. */
 export type UpdateDataTableScheduledChemicalPayloadDataTableScheduledChemicalEdgeArgs = {
   orderBy?: InputMaybe<Array<DataTableScheduledChemicalsOrderBy>>;
+};
+
+/** All input for the `updateDataTableStorageConditionByNodeId` mutation. */
+export type UpdateDataTableStorageConditionByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `DataTableStorageCondition` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `DataTableStorageCondition` being updated. */
+  patch: DataTableStorageConditionPatch;
+};
+
+/** All input for the `updateDataTableStorageCondition` mutation. */
+export type UpdateDataTableStorageConditionInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `DataTableStorageCondition` being updated. */
+  patch: DataTableStorageConditionPatch;
+};
+
+/** The output of our update `DataTableStorageCondition` mutation. */
+export type UpdateDataTableStorageConditionPayload = {
+  __typename?: 'UpdateDataTableStorageConditionPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `DataTableStorageCondition` that was updated by this mutation. */
+  dataTableStorageCondition?: Maybe<DataTableStorageCondition>;
+  /** An edge for our `DataTableStorageCondition`. May be used by Relay 1. */
+  dataTableStorageConditionEdge?: Maybe<DataTableStorageConditionsEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `DataTableStorageCondition` mutation. */
+export type UpdateDataTableStorageConditionPayloadDataTableStorageConditionEdgeArgs = {
+  orderBy?: InputMaybe<Array<DataTableStorageConditionsOrderBy>>;
 };
 
 /** All input for the `updateDataTableStorageConditionsSimplifiedByNodeId` mutation. */
@@ -38417,8 +41774,6 @@ export type UpdateFilePayload = {
   fileEdge?: Maybe<FilesEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
 };
 
 
@@ -38484,6 +41839,54 @@ export type UpdateFilterPayload = {
 /** The output of our update `Filter` mutation. */
 export type UpdateFilterPayloadFilterEdgeArgs = {
   orderBy?: InputMaybe<Array<FiltersOrderBy>>;
+};
+
+/** All input for the `updateGrafanaDashboardImageByNodeId` mutation. */
+export type UpdateGrafanaDashboardImageByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `GrafanaDashboardImage` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `GrafanaDashboardImage` being updated. */
+  patch: GrafanaDashboardImagePatch;
+};
+
+/** All input for the `updateGrafanaDashboardImage` mutation. */
+export type UpdateGrafanaDashboardImageInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  name: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `GrafanaDashboardImage` being updated. */
+  patch: GrafanaDashboardImagePatch;
+};
+
+/** The output of our update `GrafanaDashboardImage` mutation. */
+export type UpdateGrafanaDashboardImagePayload = {
+  __typename?: 'UpdateGrafanaDashboardImagePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The `GrafanaDashboardImage` that was updated by this mutation. */
+  grafanaDashboardImage?: Maybe<GrafanaDashboardImage>;
+  /** An edge for our `GrafanaDashboardImage`. May be used by Relay 1. */
+  grafanaDashboardImageEdge?: Maybe<GrafanaDashboardImagesEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+
+/** The output of our update `GrafanaDashboardImage` mutation. */
+export type UpdateGrafanaDashboardImagePayloadGrafanaDashboardImageEdgeArgs = {
+  orderBy?: InputMaybe<Array<GrafanaDashboardImagesOrderBy>>;
 };
 
 /** All input for the `updateNotificationByNodeId` mutation. */
@@ -39347,6 +42750,70 @@ export type UpdateTemplateCategoryPayloadTemplateCategoryEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateCategoriesOrderBy>>;
 };
 
+/** All input for the `updateTemplateDataViewJoinByNodeId` mutation. */
+export type UpdateTemplateDataViewJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateDataViewJoin` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `TemplateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** All input for the `updateTemplateDataViewJoinByTemplateIdAndDataViewId` mutation. */
+export type UpdateTemplateDataViewJoinByTemplateIdAndDataViewIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  dataViewId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `updateTemplateDataViewJoin` mutation. */
+export type UpdateTemplateDataViewJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** The output of our update `TemplateDataViewJoin` mutation. */
+export type UpdateTemplateDataViewJoinPayload = {
+  __typename?: 'UpdateTemplateDataViewJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateDataViewJoin` that was updated by this mutation. */
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** An edge for our `TemplateDataViewJoin`. May be used by Relay 1. */
+  templateDataViewJoinEdge?: Maybe<TemplateDataViewJoinsEdge>;
+};
+
+
+/** The output of our update `TemplateDataViewJoin` mutation. */
+export type UpdateTemplateDataViewJoinPayloadTemplateDataViewJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
 /** All input for the `updateTemplateElementByNodeId` mutation. */
 export type UpdateTemplateElementByNodeIdInput = {
   /**
@@ -39408,6 +42875,70 @@ export type UpdateTemplateElementPayload = {
 /** The output of our update `TemplateElement` mutation. */
 export type UpdateTemplateElementPayloadTemplateElementEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+/** All input for the `updateTemplateFileJoinByNodeId` mutation. */
+export type UpdateTemplateFileJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateFileJoin` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `TemplateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+};
+
+/** All input for the `updateTemplateFileJoinByTemplateIdAndFileId` mutation. */
+export type UpdateTemplateFileJoinByTemplateIdAndFileIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  fileId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `updateTemplateFileJoin` mutation. */
+export type UpdateTemplateFileJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+};
+
+/** The output of our update `TemplateFileJoin` mutation. */
+export type UpdateTemplateFileJoinPayload = {
+  __typename?: 'UpdateTemplateFileJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateFileJoin` that was updated by this mutation. */
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** An edge for our `TemplateFileJoin`. May be used by Relay 1. */
+  templateFileJoinEdge?: Maybe<TemplateFileJoinsEdge>;
+};
+
+
+/** The output of our update `TemplateFileJoin` mutation. */
+export type UpdateTemplateFileJoinPayloadTemplateFileJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** All input for the `updateTemplateFilterJoinByNodeId` mutation. */
@@ -40019,9 +43550,10 @@ export type UserApplicationJoinApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -40956,20 +44488,27 @@ export type UserOrganisationOrganisationIdFkeyOrganisationCreateInput = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -41126,9 +44665,10 @@ export type VerificationApplicationIdFkeyApplicationCreateInput = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41636,9 +45176,10 @@ export type UpdateApplicationOnActionQueueForActionQueueApplicationIdFkeyPatch =
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41678,9 +45219,10 @@ export type UpdateApplicationOnActivityLogForActivityLogApplicationIdFkeyPatch =
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41720,9 +45262,10 @@ export type UpdateApplicationOnApplicationForApplicationOrgIdFkeyPatch = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41761,9 +45304,10 @@ export type UpdateApplicationOnApplicationForApplicationTemplateIdFkeyPatch = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41802,9 +45346,10 @@ export type UpdateApplicationOnApplicationForFakePublicApplicationForeignKey0Pat
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41843,9 +45388,10 @@ export type UpdateApplicationOnApplicationNoteForApplicationNoteApplicationIdFke
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41885,9 +45431,10 @@ export type UpdateApplicationOnApplicationResponseForApplicationResponseApplicat
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41927,9 +45474,10 @@ export type UpdateApplicationOnApplicationReviewerActionForApplicationReviewerAc
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -41969,9 +45517,10 @@ export type UpdateApplicationOnApplicationStageHistoryForApplicationStageHistory
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42011,9 +45560,10 @@ export type UpdateApplicationOnDataChangelogForDataChangelogApplicationIdFkeyPat
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42044,7 +45594,7 @@ export type UpdateApplicationOnDataChangelogForDataChangelogApplicationIdFkeyPat
 };
 
 /** An object where the defined keys will be set on the `application` being updated. */
-export type UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyPatch = {
+export type UpdateApplicationOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyPatch = {
   actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
   activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
   applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
@@ -42053,9 +45603,10 @@ export type UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDat
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42086,7 +45637,7 @@ export type UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDat
 };
 
 /** An object where the defined keys will be set on the `application` being updated. */
-export type UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyPatch = {
+export type UpdateApplicationOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyPatch = {
   actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
   activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
   applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
@@ -42095,9 +45646,10 @@ export type UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicens
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42128,7 +45680,7 @@ export type UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicens
 };
 
 /** An object where the defined keys will be set on the `application` being updated. */
-export type UpdateApplicationOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyPatch = {
+export type UpdateApplicationOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyPatch = {
   actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
   activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
   applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
@@ -42137,9 +45689,53 @@ export type UpdateApplicationOnDataTablePermitMedicalApplicationJoinForDataTable
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
+  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
+  filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  isConfig?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  notificationsUsingId?: InputMaybe<NotificationApplicationIdFkeyInverseInput>;
+  orgId?: InputMaybe<Scalars['Int']['input']>;
+  organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinApplicationIdFkeyInverseInput>;
+  organisationToOrgId?: InputMaybe<ApplicationOrgIdFkeyInput>;
+  outcome?: InputMaybe<ApplicationOutcome>;
+  outcomeRegistration?: InputMaybe<Scalars['String']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentApplicationIdFkeyInverseInput>;
+  reviewerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  reviewsUsingId?: InputMaybe<ReviewApplicationIdFkeyInverseInput>;
+  serial?: InputMaybe<Scalars['String']['input']>;
+  sessionId?: InputMaybe<Scalars['String']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<ApplicationTemplateIdFkeyInput>;
+  trigger?: InputMaybe<Trigger>;
+  triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
+  userId?: InputMaybe<Scalars['Int']['input']>;
+  userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
+  verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `application` being updated. */
+export type UpdateApplicationOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyPatch = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueApplicationIdFkeyInverseInput>;
+  activityLogsUsingId?: InputMaybe<ActivityLogApplicationIdFkeyInverseInput>;
+  applicationNotesUsingId?: InputMaybe<ApplicationNoteApplicationIdFkeyInverseInput>;
+  applicationResponsesUsingId?: InputMaybe<ApplicationResponseApplicationIdFkeyInverseInput>;
+  applicationReviewerActionsUsingId?: InputMaybe<ApplicationReviewerActionApplicationIdFkeyInverseInput>;
+  applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
+  assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42179,9 +45775,10 @@ export type UpdateApplicationOnDataTableProductApplicationJoinForDataTableProduc
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42221,9 +45818,10 @@ export type UpdateApplicationOnDataTableProvisionalProductApplicationJoinForData
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42263,9 +45861,10 @@ export type UpdateApplicationOnFileForFileApplicationSerialFkeyPatch = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42305,9 +45904,10 @@ export type UpdateApplicationOnNotificationForNotificationApplicationIdFkeyPatch
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42347,9 +45947,10 @@ export type UpdateApplicationOnOrganisationApplicationJoinForOrganisationApplica
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42389,9 +45990,10 @@ export type UpdateApplicationOnReviewAssignmentForReviewAssignmentApplicationIdF
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42431,9 +46033,10 @@ export type UpdateApplicationOnReviewForReviewApplicationIdFkeyPatch = {
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42473,9 +46076,10 @@ export type UpdateApplicationOnTriggerQueueForTriggerQueueApplicationIdFkeyPatch
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42515,9 +46119,10 @@ export type UpdateApplicationOnTriggerScheduleForTriggerScheduleApplicationIdFke
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42557,9 +46162,10 @@ export type UpdateApplicationOnUserApplicationJoinForUserApplicationJoinApplicat
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42599,9 +46205,10 @@ export type UpdateApplicationOnVerificationForVerificationApplicationIdFkeyPatch
   applicationStageHistoriesUsingId?: InputMaybe<ApplicationStageHistoryApplicationIdFkeyInverseInput>;
   assignerList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogApplicationIdFkeyInverseInput>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInverseInput>;
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInverseInput>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInverseInput>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInverseInput>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInverseInput>;
   dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInverseInput>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProductApplicationApplicationIdFkeyInverseInput>;
   filesUsingSerial?: InputMaybe<FileApplicationSerialFkeyInverseInput>;
@@ -42792,145 +46399,146 @@ export type UpdateDataChangelogOnDataChangelogForDataChangelogOrgIdFkeyPatch = {
   username?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** An object where the defined keys will be set on the `dataTableAdverseDrugReactionApplicationJoin` being updated. */
-export type UpdateDataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyPatch = {
+/** An object where the defined keys will be set on the `dataTableManufacturerApplicationJoin` being updated. */
+export type UpdateDataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyPatch = {
   applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput>;
-  dataTableAdverseDrugReactionToDataTableAdverseDrugReactionId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInput>;
+  dataTableManufacturerToDataTableManufacturerId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** An object where the defined keys will be set on the `dataTableAdverseDrugReactionApplicationJoin` being updated. */
-export type UpdateDataTableAdverseDrugReactionApplicationJoinOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactionApplicatioApplicationIdFkeyPatch = {
-  applicationToApplicationId?: InputMaybe<DataTableAdverseDrugReactionApplicatioApplicationIdFkeyInput>;
-  dataTableAdverseDrugReactionId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionToDataTableAdverseDrugReactionId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInput>;
+/** An object where the defined keys will be set on the `dataTableManufacturerApplicationJoin` being updated. */
+export type UpdateDataTableManufacturerApplicationJoinOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicationJoinApplicationIdFkeyPatch = {
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerApplicationJoinApplicationIdFkeyInput>;
+  dataTableManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerToDataTableManufacturerId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** An object where the defined keys will be set on the `dataTableAdverseDrugReaction` being updated. */
-export type UpdateDataTableAdverseDrugReactionOnDataTableAdverseDrugReactionApplicationJoinForDataTableAdverseDrugReactDataTableAdverseDrugReacFkeyPatch = {
+/** An object where the defined keys will be set on the `dataTableManufacturer` being updated. */
+export type UpdateDataTableManufacturerOnDataTableManufacturerApplicationJoinForDataTableManufacturerApplicaDataTableManufacturerIdFkeyPatch = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerApplicaDataTableManufacturerIdFkeyInverseInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isAdditional?: InputMaybe<Scalars['Boolean']['input']>;
+  manufacturer?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTableManufacturerRepresentativeApplicationJoin` being updated. */
+export type UpdateDataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyPatch = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInput>;
+  dataTableManufacturerRepresentativeToDataTableManufacturerRepresentativeId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTableManufacturerRepresentativeApplicationJoin` being updated. */
+export type UpdateDataTableManufacturerRepresentativeApplicationJoinOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepresentativeApplApplicationIdFkeyPatch = {
+  applicationToApplicationId?: InputMaybe<DataTableManufacturerRepresentativeApplApplicationIdFkeyInput>;
+  dataTableManufacturerRepresentativeId?: InputMaybe<Scalars['Int']['input']>;
+  dataTableManufacturerRepresentativeToDataTableManufacturerRepresentativeId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTableManufacturerRepresentative` being updated. */
+export type UpdateDataTableManufacturerRepresentativeOnDataTableManufacturerRepresentativeApplicationJoinForDataTableManufacturerRepreDataTableManufacturerReprFkeyPatch = {
+  additionalCertifications?: InputMaybe<Scalars['JSON']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
   applicantId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableAdverseDrugReactionApplicationJoinsUsingId?: InputMaybe<DataTableAdverseDrugReactDataTableAdverseDrugReacFkeyInverseInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  medicineDetails?: InputMaybe<Scalars['JSON']['input']>;
-  productName?: InputMaybe<Scalars['String']['input']>;
-  reportDate?: InputMaybe<Scalars['Datetime']['input']>;
-  reportId?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTableLicenseApplicationJoin` being updated. */
-export type UpdateDataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinApplicationIdFkeyPatch = {
-  applicationToApplicationId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInput>;
-  dataTableLicenseId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableLicenseToDataTableLicenseId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTableLicenseApplicationJoin` being updated. */
-export type UpdateDataTableLicenseApplicationJoinOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyPatch = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableLicenseApplicationJoinApplicationIdFkeyInput>;
-  dataTableLicenseToDataTableLicenseId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTableLicense` being updated. */
-export type UpdateDataTableLicenseOnDataTableLicenseApplicationJoinForDataTableLicenseApplicationJoinDataTableLicenseIdFkeyPatch = {
-  dataTableLicenseApplicationJoinsUsingId?: InputMaybe<DataTableLicenseApplicationJoinDataTableLicenseIdFkeyInverseInput>;
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  inspectionReport?: InputMaybe<Scalars['JSON']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  licenseNumber?: InputMaybe<Scalars['String']['input']>;
-  orgId?: InputMaybe<Scalars['Int']['input']>;
-  orgName?: InputMaybe<Scalars['String']['input']>;
-  profileDoc?: InputMaybe<Scalars['JSON']['input']>;
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  renewalDate?: InputMaybe<Scalars['Datetime']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTablePermitMedicalApplicationJoin` being updated. */
-export type UpdateDataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyPatch = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput>;
-  dataTablePermitMedicalToDataTablePermitMedicalId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTablePermitMedicalApplicationJoin` being updated. */
-export type UpdateDataTablePermitMedicalApplicationJoinOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalApplicationJoinApplicationIdFkeyPatch = {
-  applicationToApplicationId?: InputMaybe<DataTablePermitMedicalApplicationJoinApplicationIdFkeyInput>;
-  dataTablePermitMedicalId?: InputMaybe<Scalars['Int']['input']>;
-  dataTablePermitMedicalToDataTablePermitMedicalId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTablePermitMedical` being updated. */
-export type UpdateDataTablePermitMedicalOnDataTablePermitMedicalApplicationJoinForDataTablePermitMedicalAppDataTablePermitMedicalIdFkeyPatch = {
-  billLadingNumber?: InputMaybe<Scalars['String']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTablePermitMedicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitMedicalAppDataTablePermitMedicalIdFkeyInverseInput>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTableManufacturerRepresentativeApplicationJoinsUsingId?: InputMaybe<DataTableManufacturerRepreDataTableManufacturerReprFkeyInverseInput>;
+  evaluationNotes?: InputMaybe<Scalars['String']['input']>;
+  gmpByWhoCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpCountry1?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry2?: InputMaybe<Scalars['String']['input']>;
+  gmpCountry3?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpExpiry1?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry2?: InputMaybe<Scalars['Date']['input']>;
+  gmpExpiry3?: InputMaybe<Scalars['Date']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
-  nonRegisteredProducts?: InputMaybe<Scalars['JSON']['input']>;
-  nonRegisteredReason?: InputMaybe<Scalars['String']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorization?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerDatabaseId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerRegistrationId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingCompanies?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTablePermitChemicalApplicationJoin` being updated. */
+export type UpdateDataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyPatch = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput>;
+  dataTablePermitChemicalToDataTablePermitChemicalId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTablePermitChemicalApplicationJoin` being updated. */
+export type UpdateDataTablePermitChemicalApplicationJoinOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApplicationJoinApplicationIdFkeyPatch = {
+  applicationToApplicationId?: InputMaybe<DataTablePermitChemicalApplicationJoinApplicationIdFkeyInput>;
+  dataTablePermitChemicalId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePermitChemicalToDataTablePermitChemicalId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTablePermitChemical` being updated. */
+export type UpdateDataTablePermitChemicalOnDataTablePermitChemicalApplicationJoinForDataTablePermitChemicalApDataTablePermitChemicalIFkeyPatch = {
+  chemicals?: InputMaybe<Scalars['JSON']['input']>;
+  chemicalsFilterData?: InputMaybe<Scalars['String']['input']>;
+  companyId?: InputMaybe<Scalars['Int']['input']>;
+  companyName?: InputMaybe<Scalars['String']['input']>;
+  dataTablePermitChemicalApplicationJoinsUsingId?: InputMaybe<DataTablePermitChemicalApDataTablePermitChemicalIFkeyInverseInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
   permitNo?: InputMaybe<Scalars['String']['input']>;
-  portOfEntry?: InputMaybe<Scalars['String']['input']>;
-  productFilterData?: InputMaybe<Scalars['String']['input']>;
-  provisionalProducts?: InputMaybe<Scalars['JSON']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTablePrequalManufacturerApplicationJoin` being updated. */
+export type UpdateDataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyPatch = {
+  applicationId?: InputMaybe<Scalars['Int']['input']>;
+  applicationToApplicationId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInput>;
+  dataTablePrequalManufacturerToDataTablePrequalManufacturerId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTablePrequalManufacturerApplicationJoin` being updated. */
+export type UpdateDataTablePrequalManufacturerApplicationJoinOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturerApplicationApplicationIdFkeyPatch = {
+  applicationToApplicationId?: InputMaybe<DataTablePrequalManufacturerApplicationApplicationIdFkeyInput>;
+  dataTablePrequalManufacturerId?: InputMaybe<Scalars['Int']['input']>;
+  dataTablePrequalManufacturerToDataTablePrequalManufacturerId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataTablePrequalManufacturer` being updated. */
+export type UpdateDataTablePrequalManufacturerOnDataTablePrequalManufacturerApplicationJoinForDataTablePrequalManufacturDataTablePrequalManufactuFkeyPatch = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  dataTablePrequalManufacturerApplicationJoinsUsingId?: InputMaybe<DataTablePrequalManufacturDataTablePrequalManufactuFkeyInverseInput>;
+  dateIssued?: InputMaybe<Scalars['String']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
+  gmpScope?: InputMaybe<Scalars['JSON']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  lookupId?: InputMaybe<Scalars['Int']['input']>;
+  manufacturerId?: InputMaybe<Scalars['String']['input']>;
+  manufacturingLicence?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  permitNo?: InputMaybe<Scalars['String']['input']>;
+  prequalificationDate?: InputMaybe<Scalars['Datetime']['input']>;
 };
 
 /** An object where the defined keys will be set on the `dataTableProductApplicationJoin` being updated. */
 export type UpdateDataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinApplicationIdFkeyPatch = {
   applicationToApplicationId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInput>;
   dataTableProductId?: InputMaybe<Scalars['Int']['input']>;
-  dataTableProductToDataTableProductId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTableProductApplicationJoin` being updated. */
-export type UpdateDataTableProductApplicationJoinOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyPatch = {
-  applicationId?: InputMaybe<Scalars['Int']['input']>;
-  applicationToApplicationId?: InputMaybe<DataTableProductApplicationJoinApplicationIdFkeyInput>;
-  dataTableProductToDataTableProductId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInput>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** An object where the defined keys will be set on the `dataTableProduct` being updated. */
-export type UpdateDataTableProductOnDataTableProductApplicationJoinForDataTableProductApplicationJoinDataTableProductIdFkeyPatch = {
-  administrationUnit?: InputMaybe<Scalars['String']['input']>;
-  applicantId?: InputMaybe<Scalars['Int']['input']>;
-  applicationLevel?: InputMaybe<Scalars['String']['input']>;
-  atcCode?: InputMaybe<Scalars['JSON']['input']>;
-  companyId?: InputMaybe<Scalars['Int']['input']>;
-  companyName?: InputMaybe<Scalars['String']['input']>;
-  dataTableProductApplicationJoinsUsingId?: InputMaybe<DataTableProductApplicationJoinDataTableProductIdFkeyInverseInput>;
-  dosageForm?: InputMaybe<Scalars['String']['input']>;
-  dosageFormDescription?: InputMaybe<Scalars['String']['input']>;
-  expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
-  formulations?: InputMaybe<Scalars['JSON']['input']>;
-  genericName?: InputMaybe<Scalars['String']['input']>;
-  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isActive?: InputMaybe<Scalars['Boolean']['input']>;
-  manufacturersActiveIngredients?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersAdditional?: InputMaybe<Scalars['JSON']['input']>;
-  manufacturersFinishedProduct?: InputMaybe<Scalars['JSON']['input']>;
-  medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
-  origin?: InputMaybe<Scalars['String']['input']>;
-  packagingDescription?: InputMaybe<Scalars['String']['input']>;
-  packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
-  primaryContainer?: InputMaybe<Scalars['String']['input']>;
-  productId?: InputMaybe<Scalars['String']['input']>;
-  productRegistrationCert?: InputMaybe<Scalars['JSON']['input']>;
-  proposedIndications?: InputMaybe<Scalars['String']['input']>;
-  registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
-  routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
-  shelfLife?: InputMaybe<Scalars['String']['input']>;
-  tradeName?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object where the defined keys will be set on the `dataTableProvisionalProductApplicationJoin` being updated. */
@@ -42954,31 +46562,74 @@ export type UpdateDataTableProvisionalProductOnDataTableProvisionalProductApplic
   activeIngredients?: InputMaybe<Scalars['JSON']['input']>;
   activeIngredientsFilterData?: InputMaybe<Scalars['String']['input']>;
   applicantId?: InputMaybe<Scalars['Int']['input']>;
+  approval?: InputMaybe<Scalars['String']['input']>;
   atcCode?: InputMaybe<Scalars['JSON']['input']>;
   companyId?: InputMaybe<Scalars['Int']['input']>;
   companyName?: InputMaybe<Scalars['String']['input']>;
   dataTableProvisionalProductApplicationJoinsUsingId?: InputMaybe<DataTableProvisionalProducDataTableProvisionalProduFkeyInverseInput>;
   dosageForm?: InputMaybe<Scalars['String']['input']>;
+  evaluationComment?: InputMaybe<Scalars['String']['input']>;
   expiryDate?: InputMaybe<Scalars['Datetime']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   gmpCertificate?: InputMaybe<Scalars['JSON']['input']>;
+  gmpDetails?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isActive?: InputMaybe<Scalars['Boolean']['input']>;
+  letterOfAuthorisation?: InputMaybe<Scalars['JSON']['input']>;
+  loaAuthoriserName?: InputMaybe<Scalars['String']['input']>;
+  loaSource?: InputMaybe<Scalars['String']['input']>;
+  manufacturerNonPrequalJustification?: InputMaybe<Scalars['JSON']['input']>;
+  manufacturerPrequalified?: InputMaybe<Scalars['JSON']['input']>;
   manufacturers?: InputMaybe<Scalars['JSON']['input']>;
   manufacturersFilterData?: InputMaybe<Scalars['String']['input']>;
   medicalProductClassification?: InputMaybe<Scalars['String']['input']>;
   originalId?: InputMaybe<Scalars['String']['input']>;
   packagingSizes?: InputMaybe<Scalars['JSON']['input']>;
   packagingSizesFilterData?: InputMaybe<Scalars['String']['input']>;
+  packagingSizesForm?: InputMaybe<Scalars['JSON']['input']>;
   pharmacopeia?: InputMaybe<Scalars['String']['input']>;
+  prequalified?: InputMaybe<Scalars['Boolean']['input']>;
   prodRegCertificate?: InputMaybe<Scalars['JSON']['input']>;
   productId?: InputMaybe<Scalars['String']['input']>;
   registeredIn?: InputMaybe<Scalars['String']['input']>;
   registrationDate?: InputMaybe<Scalars['Datetime']['input']>;
+  registrationSerial?: InputMaybe<Scalars['String']['input']>;
   routeOfAdministration?: InputMaybe<Scalars['String']['input']>;
   shelfLife?: InputMaybe<Scalars['String']['input']>;
   sponsorName?: InputMaybe<Scalars['String']['input']>;
+  storageConditions?: InputMaybe<Scalars['String']['input']>;
   tradeName?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** An object where the defined keys will be set on the `dataView` being updated. */
+export type UpdateDataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  defaultFilterString?: InputMaybe<Scalars['String']['input']>;
+  defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
+  detailViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  detailViewHeaderColumn?: InputMaybe<Scalars['String']['input']>;
+  detailViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  filterExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
+  menuName?: InputMaybe<Scalars['String']['input']>;
+  permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  rawDataExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rawDataIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rowRestrictions?: InputMaybe<Scalars['JSON']['input']>;
+  showLinkedApplications?: InputMaybe<Scalars['Boolean']['input']>;
+  submenu?: InputMaybe<Scalars['String']['input']>;
+  tableName?: InputMaybe<Scalars['String']['input']>;
+  tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** An object where the defined keys will be set on the `file` being updated. */
@@ -42989,6 +46640,7 @@ export type UpdateFileOnFileForFileApplicationNoteIdFkeyPatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -42996,11 +46648,11 @@ export type UpdateFileOnFileForFileApplicationNoteIdFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43016,6 +46668,7 @@ export type UpdateFileOnFileForFileApplicationResponseIdFkeyPatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -43023,11 +46676,11 @@ export type UpdateFileOnFileForFileApplicationResponseIdFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43043,6 +46696,7 @@ export type UpdateFileOnFileForFileApplicationSerialFkeyPatch = {
   applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -43050,11 +46704,11 @@ export type UpdateFileOnFileForFileApplicationSerialFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43063,7 +46717,7 @@ export type UpdateFileOnFileForFileApplicationSerialFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `file` being updated. */
-export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
+export type UpdateFileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch = {
   applicationNoteId?: InputMaybe<Scalars['Int']['input']>;
   applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
   applicationResponseId?: InputMaybe<Scalars['Int']['input']>;
@@ -43071,6 +46725,7 @@ export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -43078,10 +46733,11 @@ export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43091,8 +46747,10 @@ export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
 
 /** An object where the defined keys will be set on the `filter` being updated. */
 export type UpdateFilterOnTemplateFilterJoinForTemplateFilterJoinFilterIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -43160,20 +46818,27 @@ export type UpdateOrganisationOnApplicationForApplicationOrgIdFkeyPatch = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43188,20 +46853,27 @@ export type UpdateOrganisationOnApplicationNoteForApplicationNoteOrgIdFkeyPatch 
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43216,20 +46888,27 @@ export type UpdateOrganisationOnDataChangelogForDataChangelogOrgIdFkeyPatch = {
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43244,20 +46923,27 @@ export type UpdateOrganisationOnOrganisationApplicationJoinForOrganisationApplic
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43272,20 +46958,27 @@ export type UpdateOrganisationOnPermissionJoinForPermissionJoinOrganisationIdFke
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43300,20 +46993,27 @@ export type UpdateOrganisationOnReviewAssignmentAssignerJoinForReviewAssignmentA
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43328,20 +47028,27 @@ export type UpdateOrganisationOnReviewAssignmentForReviewAssignmentOrganisationI
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43356,20 +47063,27 @@ export type UpdateOrganisationOnUserOrganisationForUserOrganisationOrganisationI
   country?: InputMaybe<Scalars['String']['input']>;
   dataChangelogsUsingId?: InputMaybe<DataChangelogOrgIdFkeyInverseInput>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  isChemicalImporter?: InputMaybe<Scalars['Boolean']['input']>;
+  isSponsorCompany?: InputMaybe<Scalars['Boolean']['input']>;
   isSystemOrg?: InputMaybe<Scalars['Boolean']['input']>;
+  license?: InputMaybe<Scalars['JSON']['input']>;
+  localAgentBusinessAddress?: InputMaybe<Scalars['String']['input']>;
   localAgentEmail?: InputMaybe<Scalars['String']['input']>;
   localAgentName?: InputMaybe<Scalars['String']['input']>;
   localAgentPhoneNumber?: InputMaybe<Scalars['String']['input']>;
   logoUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   organisationApplicationJoinsUsingId?: InputMaybe<OrganisationApplicationJoinOrganisationIdFkeyInverseInput>;
+  otherDocuments?: InputMaybe<Scalars['JSON']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinOrganisationIdFkeyInverseInput>;
   postalAddress?: InputMaybe<Scalars['String']['input']>;
+  province?: InputMaybe<Scalars['String']['input']>;
   registration?: InputMaybe<Scalars['String']['input']>;
   registrationDocumentation?: InputMaybe<Scalars['JSON']['input']>;
   reviewAssignmentAssignerJoinsUsingId?: InputMaybe<ReviewAssignmentAssignerJoinOrganisationIdFkeyInverseInput>;
   reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentOrganisationIdFkeyInverseInput>;
   subType?: InputMaybe<Scalars['String']['input']>;
+  tinLetter?: InputMaybe<Scalars['JSON']['input']>;
   userOrganisationsUsingId?: InputMaybe<UserOrganisationOrganisationIdFkeyInverseInput>;
 };
 
@@ -43408,9 +47122,11 @@ export type UpdatePermissionJoinOnPermissionJoinForPermissionJoinPermissionNameI
 
 /** An object where the defined keys will be set on the `permissionName` being updated. */
 export type UpdatePermissionNameOnPermissionJoinForPermissionJoinPermissionNameIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -43420,9 +47136,11 @@ export type UpdatePermissionNameOnPermissionJoinForPermissionJoinPermissionNameI
 
 /** An object where the defined keys will be set on the `permissionName` being updated. */
 export type UpdatePermissionNameOnPermissionNameForPermissionNamePermissionPolicyIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyToPermissionPolicyId?: InputMaybe<PermissionNamePermissionPolicyIdFkeyInput>;
@@ -43431,9 +47149,11 @@ export type UpdatePermissionNameOnPermissionNameForPermissionNamePermissionPolic
 
 /** An object where the defined keys will be set on the `permissionName` being updated. */
 export type UpdatePermissionNameOnTemplatePermissionForTemplatePermissionPermissionNameIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -44083,14 +47803,32 @@ export type UpdateTemplateActionOnTemplateActionForTemplateActionTemplateIdFkeyP
 
 /** An object where the defined keys will be set on the `templateCategory` being updated. */
 export type UpdateTemplateCategoryOnTemplateForTemplateTemplateCategoryIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
   uiLocation?: InputMaybe<Array<InputMaybe<UiLocation>>>;
+};
+
+/** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+export type UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch = {
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+export type UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
 };
 
 /** An object where the defined keys will be set on the `templateElement` being updated. */
@@ -44167,6 +47905,22 @@ export type UpdateTemplateElementOnTemplateElementForTemplateElementSectionIdFke
   visibilityCondition?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+/** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+export type UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch = {
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+export type UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
 /** An object where the defined keys will be set on the `templateFilterJoin` being updated. */
 export type UpdateTemplateFilterJoinOnTemplateFilterJoinForTemplateFilterJoinFilterIdFkeyPatch = {
   filterToFilterId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInput>;
@@ -44190,10 +47944,10 @@ export type UpdateTemplateOnActionQueueForActionQueueTemplateIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44206,6 +47960,8 @@ export type UpdateTemplateOnActionQueueForActionQueueTemplateIdFkeyPatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44224,10 +47980,10 @@ export type UpdateTemplateOnApplicationForApplicationTemplateIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44240,40 +47996,8 @@ export type UpdateTemplateOnApplicationForApplicationTemplateIdFkeyPatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
-  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
-  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
-  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
-  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
-  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
-  versionComment?: InputMaybe<Scalars['String']['input']>;
-  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
-  versionId?: InputMaybe<Scalars['String']['input']>;
-  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
-};
-
-/** An object where the defined keys will be set on the `template` being updated. */
-export type UpdateTemplateOnFileForFileTemplateIdFkeyPatch = {
-  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
-  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
-  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
-  code?: InputMaybe<Scalars['String']['input']>;
-  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
-  icon?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  namePlural?: InputMaybe<Scalars['String']['input']>;
-  parentVersionId?: InputMaybe<Scalars['String']['input']>;
-  priority?: InputMaybe<Scalars['Int']['input']>;
-  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
-  serialPattern?: InputMaybe<Scalars['String']['input']>;
-  startMessage?: InputMaybe<Scalars['JSON']['input']>;
-  status?: InputMaybe<TemplateStatus>;
-  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
-  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
-  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
-  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44292,10 +48016,10 @@ export type UpdateTemplateOnReviewAssignmentForReviewAssignmentTemplateIdFkeyPat
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44308,6 +48032,8 @@ export type UpdateTemplateOnReviewAssignmentForReviewAssignmentTemplateIdFkeyPat
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44326,10 +48052,10 @@ export type UpdateTemplateOnTemplateActionForTemplateActionTemplateIdFkeyPatch =
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44342,6 +48068,80 @@ export type UpdateTemplateOnTemplateActionForTemplateActionTemplateIdFkeyPatch =
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId?: InputMaybe<Scalars['String']['input']>;
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** An object where the defined keys will be set on the `template` being updated. */
+export type UpdateTemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId?: InputMaybe<Scalars['String']['input']>;
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** An object where the defined keys will be set on the `template` being updated. */
+export type UpdateTemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44360,10 +48160,10 @@ export type UpdateTemplateOnTemplateFilterJoinForTemplateFilterJoinTemplateIdFke
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44376,6 +48176,8 @@ export type UpdateTemplateOnTemplateFilterJoinForTemplateFilterJoinTemplateIdFke
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44394,10 +48196,10 @@ export type UpdateTemplateOnTemplateForTemplateTemplateCategoryIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44409,6 +48211,8 @@ export type UpdateTemplateOnTemplateForTemplateTemplateCategoryIdFkeyPatch = {
   submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44427,10 +48231,10 @@ export type UpdateTemplateOnTemplatePermissionForTemplatePermissionTemplateIdFke
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44443,6 +48247,8 @@ export type UpdateTemplateOnTemplatePermissionForTemplatePermissionTemplateIdFke
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44461,10 +48267,10 @@ export type UpdateTemplateOnTemplateSectionForTemplateSectionTemplateIdFkeyPatch
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44477,6 +48283,8 @@ export type UpdateTemplateOnTemplateSectionForTemplateSectionTemplateIdFkeyPatch
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44495,10 +48303,10 @@ export type UpdateTemplateOnTemplateStageForTemplateStageTemplateIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44511,6 +48319,8 @@ export type UpdateTemplateOnTemplateStageForTemplateStageTemplateIdFkeyPatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44529,10 +48339,10 @@ export type UpdateTemplateOnTriggerScheduleForTriggerScheduleTemplateIdFkeyPatch
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44545,6 +48355,8 @@ export type UpdateTemplateOnTriggerScheduleForTriggerScheduleTemplateIdFkeyPatch
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44793,7 +48605,7 @@ export type DataViewColumnDefinitionFragmentFragment = { __typename?: 'DataViewC
 
 export type ElementFragmentFragment = { __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability };
 
-export type FullTemplateFragment = { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } };
+export type FullTemplateFragment = { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateDataViewJoins: { __typename?: 'TemplateDataViewJoinsConnection', nodes: Array<{ __typename?: 'TemplateDataViewJoin', id: number, dataView?: { __typename?: 'DataView', identifier: string, code: string, id: number, tableName: string, title?: string | null, permissionNames?: Array<string | null> | null, priority?: number | null } | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } };
 
 export type OrganisationFragment = { __typename?: 'Organisation', id: number, name?: string | null, address?: string | null, registration?: string | null, logoUrl?: string | null };
 
@@ -44956,7 +48768,7 @@ export type UpdateTemplateMutationVariables = Exact<{
 }>;
 
 
-export type UpdateTemplateMutation = { __typename?: 'Mutation', updateTemplate?: { __typename?: 'UpdateTemplatePayload', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null } | null };
+export type UpdateTemplateMutation = { __typename?: 'Mutation', updateTemplate?: { __typename?: 'UpdateTemplatePayload', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateDataViewJoins: { __typename?: 'TemplateDataViewJoinsConnection', nodes: Array<{ __typename?: 'TemplateDataViewJoin', id: number, dataView?: { __typename?: 'DataView', identifier: string, code: string, id: number, tableName: string, title?: string | null, permissionNames?: Array<string | null> | null, priority?: number | null } | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null } | null };
 
 export type UpdateTemplateFilterJoinMutationVariables = Exact<{
   id: Scalars['Int']['input'];
@@ -45278,7 +49090,7 @@ export type GetFullTemplateInfoQueryVariables = Exact<{
 }>;
 
 
-export type GetFullTemplateInfoQuery = { __typename?: 'Query', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null };
+export type GetFullTemplateInfoQuery = { __typename?: 'Query', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateDataViewJoins: { __typename?: 'TemplateDataViewJoinsConnection', nodes: Array<{ __typename?: 'TemplateDataViewJoin', id: number, dataView?: { __typename?: 'DataView', identifier: string, code: string, id: number, tableName: string, title?: string | null, permissionNames?: Array<string | null> | null, priority?: number | null } | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null };
 
 export type GetPermissionStatisticsQueryVariables = Exact<{
   id: Scalars['Int']['input'];
@@ -45570,6 +49382,20 @@ export const FullTemplateFragmentDoc = gql`
           number
           singleReviewerAllSections
         }
+      }
+    }
+  }
+  templateDataViewJoins {
+    nodes {
+      id
+      dataView {
+        identifier
+        code
+        id
+        tableName
+        title
+        permissionNames
+        priority
       }
     }
   }

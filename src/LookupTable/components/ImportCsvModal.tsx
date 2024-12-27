@@ -44,7 +44,7 @@ const ImportCsvModal: React.FC<any> = ({
       dispatch({ type: 'SET_TABLE_NAME', payload: tableLabel })
       dispatch({ type: 'SET_CODE', payload: dataViewCode })
     }
-  }, [open])
+  }, [open, dataViewCode, tableLabel])
 
   useEffect(() => {
     dispatch({

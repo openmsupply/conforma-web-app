@@ -228,45 +228,53 @@ const Filters: React.FC = () => {
         Template will only appear on Dashboard if the following filters have active applications (no
         restrictions means it'll always appear)
       </p>
-      <div className="flex-row-start-center">
-        <DropdownIO
-          value={selectedRestriction?.id ?? 0}
-          placeholder="Select filter"
-          title="Filters"
-          options={allFilters.filter(
-            (fil) => !template.dashboardRestrictions?.includes(fil?.code ?? '')
+      {template.canEdit && (
+        <div className="flex-row-start-center">
+          <DropdownIO
+            value={selectedRestriction?.id ?? 0}
+            placeholder="Select filter"
+            title="Filters"
+            options={allFilters.filter(
+              (fil) => !template.dashboardRestrictions?.includes(fil?.code ?? '')
+            )}
+            getKey={'id'}
+            getValue={'id'}
+            getText={'title'}
+            setValue={(_, fullValue) => {
+              setSelectedRestriction(fullValue)
+              setSelectedRestrictFilter(undefined)
+            }}
+            additionalStyles={{ marginBottom: 0 }}
+          />
+          {selectedRestriction && (
+            <Icon className="clickable" name="add square" onClick={addDashboardRestriction} />
           )}
-          getKey={'id'}
-          getValue={'id'}
-          getText={'title'}
-          setValue={(_, fullValue) => {
-            setSelectedRestriction(fullValue)
-            setSelectedRestrictFilter(undefined)
-          }}
-          additionalStyles={{ marginBottom: 0 }}
-        />
-        {selectedRestriction && (
-          <Icon className="clickable" name="add square" onClick={addDashboardRestriction} />
-        )}
-        {selectedRestrictFilter && (
-          <Icon className="clickable" name="minus square" onClick={removeDashboardRestriction} />
-        )}
-      </div>
-      <div className="spacer-20" />
-      <div className="filter-joins">
-        {template.dashboardRestrictions &&
-          template.dashboardRestrictions.map((filter) => (
-            <Label
-              key={filter}
-              onClick={() => {
-                setSelectedRestrictFilter(filter)
-              }}
-              className={`clickable ${filter === selectedRestrictFilter ? 'builder-selected' : ''}`}
-            >
-              {filter}
-            </Label>
-          ))}
-      </div>
+          {selectedRestrictFilter && (
+            <Icon className="clickable" name="minus square" onClick={removeDashboardRestriction} />
+          )}
+        </div>
+      )}
+      {(template?.dashboardRestrictions?.length ?? 0) > 0 && (
+        <>
+          <div className="spacer-20" />
+          <div className="filter-joins">
+            {template.dashboardRestrictions &&
+              template.dashboardRestrictions.map((filter) => (
+                <Label
+                  key={filter}
+                  onClick={() => {
+                    setSelectedRestrictFilter(filter)
+                  }}
+                  className={`clickable ${
+                    filter === selectedRestrictFilter ? 'builder-selected' : ''
+                  }`}
+                >
+                  {filter}
+                </Label>
+              ))}
+          </div>
+        </>
+      )}
     </>
   )
 }

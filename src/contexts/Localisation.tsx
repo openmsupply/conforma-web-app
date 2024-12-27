@@ -243,13 +243,9 @@ const getLanguageStrings = async (code: string) => {
   // If default language code not available on server, just use local defaults
   if (code === 'default') return allDefaultStrings
   // Else fetch language file from server
-  try {
-    const fetchedStrings = await getRequest(getServerUrl('language', { code }))
-    if (fetchedStrings?.error) throw new Error(`Language code: ${code}, ${fetchedStrings?.message}`)
-    return consolidateStrings(allDefaultStrings, fetchedStrings)
-  } catch (err) {
-    throw err
-  }
+  const fetchedStrings = await getRequest(getServerUrl('language', { code }))
+  if (fetchedStrings?.error) throw new Error(`Language code: ${code}, ${fetchedStrings?.message}`)
+  return consolidateStrings(allDefaultStrings, fetchedStrings)
 }
 
 // Checks all keys from English master list in remoteStrings, and provide

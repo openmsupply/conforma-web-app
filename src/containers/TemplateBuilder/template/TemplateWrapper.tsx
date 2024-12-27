@@ -9,6 +9,7 @@ import {
   GetFullTemplateInfoQuery,
   TemplateAction,
   TemplateCategory,
+  TemplateDataViewJoin,
   TemplateElement,
   TemplateFilterJoin,
   TemplatePermission,
@@ -155,6 +156,7 @@ type TemplateContextState = {
   templatePermissions: TemplatePermission[]
   templateStages: TemplateStage[]
   actions: TemplateAction[]
+  dataViewJoins: TemplateDataViewJoin[]
 }
 
 const defaultTemplateContextState: TemplateContextState = {
@@ -185,6 +187,7 @@ const defaultTemplateContextState: TemplateContextState = {
   templatePermissions: [],
   templateStages: [],
   actions: [],
+  dataViewJoins: [],
 }
 
 const Context = createContext<TemplateContextState>(defaultTemplateContextState)
@@ -245,6 +248,7 @@ const TemplateWrapper: React.FC = () => {
         templatePermissions: (template?.templatePermissions?.nodes || []) as TemplatePermission[],
         templateStages: (template?.templateStages?.nodes || []) as TemplateStage[],
         actions: (template?.templateActions?.nodes || []) as TemplateAction[],
+        dataViewJoins: (template?.templateDataViewJoins?.nodes || []) as TemplateDataViewJoin[],
       })
       setFirstLoaded(true)
     }

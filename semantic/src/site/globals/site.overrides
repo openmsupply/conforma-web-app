@@ -2391,6 +2391,24 @@ a:hover {
   }
 }
 
+.ext-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.dv-elements {
+  border-left: 3px solid @green !important;
+}
+
+.dv-outcomes {
+  border-left: 3px solid @blue !important;
+}
+
+.dv-inaccessible {
+  border-left: 3px solid @red !important;
+}
+
 .builder-page-elements-wrapper {
   background: white;
   padding: 10px;
@@ -2457,6 +2475,44 @@ a:hover {
     border-top-left-radius: @borderRadius;
     border-top-right-radius: @borderRadius;
   }
+}
+
+// Template import
+.import-section-header-row {
+  background-color: @headersInteractiveLow;
+  h3.ui.header {
+    color: @surfacesLight;
+  }
+  td {
+    padding-top: 0.4em !important;
+    padding-bottom: 0.4em !important;
+  }
+}
+
+.import-row {
+  p {
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
+    font-size: @slightlySmallerText;
+  }
+}
+
+.import-entity-row {
+  td {
+    padding-top: 0.4em !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.import-table {
+  .jer-editor-container {
+    padding-top: 0.4em;
+  }
+}
+.import-select-row td {
+  border: none !important;
+  padding-top: 0.2em !important;
+  padding-bottom: 0.2em !important;
 }
 
 /*******************************
@@ -2559,6 +2615,7 @@ a:hover {
     p {
       word-wrap: break-word;
       max-width: 250px;
+      white-space: pre-wrap;
     }
   }
   .icon.info {
