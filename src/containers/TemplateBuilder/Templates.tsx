@@ -11,6 +11,7 @@ import { DateTime } from 'luxon'
 import { TemplateOperationsModal } from './templateOperations/TemplateOperationsModal'
 import { getVersionString } from './template/helpers'
 import { UploadButton } from '../../components/common'
+import { Link } from 'react-router-dom'
 
 type CellPropsTemplate = Template & { numberOfVersions?: number; totalApplicationCount?: number }
 type CellProps = { template: CellPropsTemplate; refetch: () => void; isExpanded: boolean }
@@ -329,6 +330,14 @@ const Templates: React.FC = () => {
               }}
               style={{ maxWidth: 350 }}
             />
+            <p className="slightly-smaller-text" style={{ textAlign: 'right' }}>
+              <a
+                href="https://github.com/msupply-foundation/conforma-server/wiki/Template-Import_Export"
+                target="_blank"
+              >
+                Docs <Icon name="external" />
+              </a>
+            </p>
           </div>
           <Table sortable stackable selectable>
             {renderHeader()}
