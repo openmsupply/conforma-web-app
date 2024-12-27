@@ -11,7 +11,6 @@ import { DateTime } from 'luxon'
 import { TemplateOperationsModal } from './templateOperations/TemplateOperationsModal'
 import { getVersionString } from './template/helpers'
 import { UploadButton } from '../../components/common'
-import { Link } from 'react-router-dom'
 
 type CellPropsTemplate = Template & { numberOfVersions?: number; totalApplicationCount?: number }
 type CellProps = { template: CellPropsTemplate; refetch: () => void; isExpanded: boolean }
