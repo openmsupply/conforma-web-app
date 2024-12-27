@@ -30,13 +30,13 @@ export const useMultiStep = <T>(defaultState: T) => {
   const setWorkflow = (steps: WorkflowStep[], initialState?: T) => {
     if (initialState) state.current = initialState
     workflow.current = steps
-    console.log('New workflow:', workflow.current)
+    // console.log('New workflow:', workflow.current)
     step.current = -1
   }
 
   const nextStep = () => {
     step.current++
-    console.log('Now running step', step.current)
+    // console.log('Now running step', step.current)
     const method = workflow.current[step.current]
     method(state.current)
   }

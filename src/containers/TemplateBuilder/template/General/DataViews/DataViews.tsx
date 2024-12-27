@@ -73,7 +73,6 @@ export const DataViewSelector: React.FC<{}> = () => {
               const matching = menuItems
                 .filter(({ code }) => code.includes(searchText))
                 .map(({ id }) => id)
-              console.log(matching)
               return data.filter((item) => matching.includes(item.value as number))
             }}
             value={menuSelection ?? ''}

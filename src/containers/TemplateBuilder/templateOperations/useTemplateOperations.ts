@@ -120,7 +120,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
 
   // Workflows
   const commitTemplate = async (template: Template | TemplateState, refetch: () => void) => {
-    console.log('Running commit workflow')
+    // console.log('Running commit workflow')
     setWorkflow([checkStep, commitStep] as WorkflowStep[], {
       ...template,
       refetch,
@@ -129,7 +129,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
   }
 
   const exportTemplate = async (template: Template, refetch: () => void) => {
-    console.log('Running Export workflow')
+    // console.log('Running Export workflow')
     setWorkflow([checkStep, warnStep, commitStep, exportStep] as WorkflowStep[], {
       ...template,
       refetch,
@@ -139,7 +139,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
   }
 
   const duplicateTemplate = async (template: Template, refetch: () => void) => {
-    console.log('Running Export workflow')
+    // console.log('Running Export workflow')
     setWorkflow([checkStep, duplicateStep] as WorkflowStep[], {
       ...template,
       refetch,
@@ -148,7 +148,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
   }
 
   const importTemplate = async (e: React.ChangeEvent<HTMLInputElement>, refetch: () => void) => {
-    console.log('Running Import workflow')
+    // console.log('Running Import workflow')
     setWorkflow([uploadStep, installStep] as WorkflowStep[], {
       id: 0,
       code: '',
@@ -165,7 +165,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
 
   const checkStep = async (state: WorkflowState) => {
     const { id } = state
-    console.log('Checking', id)
+    // console.log('Checking', id)
     setErrorAndLoadingState({ isLoading: true })
     const checkResult = await check(id)
     setErrorAndLoadingState({ isLoading: false })
@@ -178,7 +178,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
     const { committed, unconnectedDataViews = [], ready } = checkResult
     setWorkflowState({ ...state, committed, unconnectedDataViews, readyForExport: ready })
 
-    console.log('committed', committed)
+    // console.log('committed', committed)
 
     if (unconnectedDataViews.length === 0 || committed) {
       nextStep()
@@ -192,10 +192,10 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
 
   const commitStep = async (state: WorkflowState) => {
     const { id, refetch, commitType } = state
-    console.log('Committing', id)
+    // console.log('Committing', id)
 
     if (state?.committed) {
-      console.log('Already committed, going to next step')
+      // console.log('Already committed, going to next step')
       if (hasNext()) nextStep()
       return
     }
@@ -208,20 +208,20 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
       }
       setWorkflowState({ ...state, versionId })
       if (!hasNext()) {
-        console.log('No next')
+        // console.log('No next')
         showSuccess({ title: 'Template committed', message: `Version ID: ${versionId}` })
         refetch()
         return
       }
 
-      console.log('Doing next...')
+      // console.log('Doing next...')
       nextStep()
     })
   }
 
   const duplicateStep = async (state: WorkflowState) => {
     const { id, committed, refetch } = state
-    console.log('Duplicating, committed?', committed)
+    // console.log('Duplicating, committed?', committed)
     showModal(
       'duplicate',
       async (input) => {
@@ -254,7 +254,7 @@ export const useTemplateOperations = (setErrorAndLoadingState: SetErrorAndLoadin
   }
 
   const warnStep = async (state: WorkflowState) => {
-    console.log('Warning...')
+    // console.log('Warning...')
     if (state.readyForExport || !state.committed) {
       nextStep()
       return
