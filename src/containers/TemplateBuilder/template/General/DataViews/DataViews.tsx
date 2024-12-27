@@ -56,6 +56,10 @@ export const DataViewSelector: React.FC<{}> = () => {
     }
   }
 
+  const hasInaccessible = current.some((dv) => !dv.applicantAccessible && !dv.inOutputTables)
+  const hasTemplateElements = current.some((dv) => dv.inTemplateElements)
+  const hasOutputTables = current.some((dv) => dv.inOutputTables)
+
   return (
     <>
       <Header as="h3">Connected Data Views</Header>
@@ -160,6 +164,33 @@ export const DataViewSelector: React.FC<{}> = () => {
             </Label>
           </>
         ))}
+      </div>
+      <div>
+        {(hasInaccessible || hasTemplateElements || hasOutputTables) && (
+          <Header as="h4" style={{ marginBottom: 5, marginTop: 10 }}>
+            Legend
+          </Header>
+        )}
+        <div className="flex-row" style={{ gap: 10 }}>
+          {hasInaccessible && (
+            <Label
+              key="legend-inaccessible"
+              className="dv-inaccessible"
+              content="Applicant does NOT have permission to view, but is used in form elements"
+              style={{ maxWidth: 250 }}
+            />
+          )}
+          {hasTemplateElements && (
+            <Label key="legend-form" className="dv-elements" content="Used in Form elements" />
+          )}
+          {hasOutputTables && (
+            <Label
+              key="legend-output"
+              className="dv-outcomes"
+              content="Used in data output actions"
+            />
+          )}
+        </div>
       </div>
     </>
   )
