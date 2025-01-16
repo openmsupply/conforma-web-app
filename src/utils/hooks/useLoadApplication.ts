@@ -136,6 +136,7 @@ const useLoadApplication = ({ serialNumber }: UseGetApplicationProps) => {
         isProductionBuild: config.isProductionBuild,
         version: config.version,
       },
+      urlProperties: application.urlProperties ?? {},
     }
 
     const baseElements: ElementBase[] = []

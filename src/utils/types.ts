@@ -113,6 +113,7 @@ interface ApplicationDetails {
   org?: GraphQLOrg
   config?: any
   currentPageType?: PageType
+  urlProperties: Record<string, string | number | boolean>
 }
 
 type PageType = 'application' | 'summary' | 'review' | 'data' | 'dashboard' | 'admin'
