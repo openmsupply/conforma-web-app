@@ -3,13 +3,14 @@ import { useState } from 'react'
 import { useUserState } from '../../contexts/UserState'
 import { useCreateApplicationMutation } from '../../utils/generated/graphql'
 import { useRouter } from './useRouter'
+import { ParsedUrlQuery } from '../types'
 
 export interface CreateApplicationProps {
   name: string
   templateId: number
   isConfig?: boolean
   templateResponses: { templateElementId: number; value: any }[]
-  urlProperties?: Record<string, string | number | boolean>
+  urlProperties?: ParsedUrlQuery
 }
 
 const useCreateApplication = () => {

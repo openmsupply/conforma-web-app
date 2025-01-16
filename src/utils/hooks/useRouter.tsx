@@ -1,7 +1,7 @@
 import { useParams, useLocation, useHistory, useRouteMatch, match } from 'react-router-dom'
 import queryString from 'query-string'
 import { useMemo } from 'react'
-import { BasicStringObject, PageType } from '../types'
+import { BasicStringObject, PageType, ParsedUrlQuery } from '../types'
 import { isEqual } from 'lodash-es'
 
 interface RouterResult {
@@ -11,7 +11,7 @@ interface RouterResult {
   query: BasicStringObject
   updateQuery: Function
   setQuery: Function
-  getParsedUrlQuery: () => Record<string, string | number | boolean>
+  getParsedUrlQuery: () => ParsedUrlQuery
   replace: (path: string) => void
   match: match
   history: any
@@ -98,8 +98,20 @@ export function useRouter(): RouterResult {
         })
     }
 
+    // Just the url query properties, but parsed to their correct type, e.g.
+    // "name=Carl&value=3.0&alive=true"
+    //    => { name: "Carl", value: 3, valueText: "3.0" alive: true }
     const getParsedUrlQuery = () => {
-      return queryFilters
+      return Object.entries(queryFilters).reduce((acc, [key, value]) => {
+        if (value === 'true') return { ...acc, [key]: true }
+        if (value === 'false') return { ...acc, [key]: false }
+        if (!Number.isNaN(Number(value)))
+          // Save the Number form and the original text string in case it's not
+          // actually supposed to be treated as a number, then we can still
+          // access it via the "...Text" property
+          return { ...acc, [key]: Number(value), [`${key}Text`]: value }
+        return { ...acc, [key]: value }
+      }, {})
     }
 
     return {
