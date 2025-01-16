@@ -140,7 +140,7 @@ const useLoadApplication = ({ serialNumber }: UseGetApplicationProps) => {
       },
       // Current "query" shouldn't be needed in live application, but useful for
       // TemplateBuilder to simulate possible queries
-      urlProperties: { ...getParsedUrlQuery(), ...application.urlProperties } ?? {},
+      urlProperties: { ...getParsedUrlQuery(), ...application.urlProperties },
     }
 
     const baseElements: ElementBase[] = []

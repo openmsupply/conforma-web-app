@@ -20,7 +20,7 @@ const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({ option, redirec
   } = usePrefs()
 
   const [networkError, setNetworkError] = useState('')
-  const { push, query } = useRouter()
+  const { push, query, location } = useRouter()
   const { onLogin } = useUserState()
 
   // useEffect ensures isLoggedIn only runs on first mount, not re-renders
@@ -48,8 +48,16 @@ const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({ option, redirec
   const onLoginSuccess = async (loginResult: LoginPayload) => {
     const { JWT, user, templatePermissions, orgList } = loginResult
     await onLogin(JWT, user, templatePermissions, orgList)
-    if (option === 'register') push(`/application/new?type=${userRegistrationCode}`)
-    else if (option === 'reset-password') push('/application/new?type=PasswordReset')
+
+    // Make sure any custom query properties are included in the subsequent
+    // re-direct
+    const currentUrlQueryString = location.search.replace('?', '')
+    const additionalQueryString = currentUrlQueryString ? '&' + currentUrlQueryString : ''
+
+    if (option === 'register')
+      push(`/application/new?type=${userRegistrationCode}${additionalQueryString}`)
+    else if (option === 'reset-password')
+      push('/application/new?type=PasswordReset' + additionalQueryString)
     else if (option === 'redirect' && redirect) push(redirect)
   }
 
