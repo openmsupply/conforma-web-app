@@ -11,6 +11,7 @@ interface RouterResult {
   query: BasicStringObject
   updateQuery: Function
   setQuery: Function
+  getParsedUrlQuery: () => Record<string, string | number | boolean>
   replace: (path: string) => void
   match: match
   history: any
@@ -97,6 +98,10 @@ export function useRouter(): RouterResult {
         })
     }
 
+    const getParsedUrlQuery = () => {
+      return queryFilters
+    }
+
     return {
       // For convenience add push(), replace(), pathname at top level
       push: history.push,
@@ -114,6 +119,7 @@ export function useRouter(): RouterResult {
       },
       updateQuery,
       setQuery,
+      getParsedUrlQuery,
 
       // Include match, location, history objects so we have
       // access to extra React Router functionality if needed.

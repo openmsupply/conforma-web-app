@@ -22,8 +22,8 @@ const useCreateApplication = () => {
       setError(error)
     },
   })
-  const { query } = useRouter()
-  const { type, ...urlProperties } = query
+  const { getParsedUrlQuery } = useRouter()
+  const { type, ...urlProperties } = getParsedUrlQuery()
 
   const createApplication = async ({
     name,
