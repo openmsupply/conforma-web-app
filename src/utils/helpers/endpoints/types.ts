@@ -95,8 +95,12 @@ export type SnapshotKey = 'snapshot'
 export type SnapshotOptions =
   | { action: 'list'; archive?: boolean }
   | { action: 'download' | 'delete'; name: string; archive?: boolean }
-  | { action: 'upload'; template?: boolean }
-  | { action: 'take' | 'use'; name: string; options?: string; archive?: boolean }
+  | { action: 'upload' }
+  | {
+      action: 'take' | 'use'
+      name: string
+      archive?: boolean
+    }
 
 export type LookupTableKey = 'lookupTable'
 export type LookupTableOptions =

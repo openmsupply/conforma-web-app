@@ -129,10 +129,10 @@ export const updateTemplateFilterJoin: UpdateTemplateFilterJoinHelper =
   }
 
 export const updateTemplateSection: UpdateTemplateSectionHelper =
-  (setErrorAndLoadingState: SetErrorAndLoadingState, updatateTemplateSectionMutation) =>
+  (setErrorAndLoadingState: SetErrorAndLoadingState, updateTemplateSectionMutation) =>
   async (id, patch) => {
     try {
-      const result = await updatateTemplateSectionMutation({
+      const result = await updateTemplateSectionMutation({
         variables: { id, sectionPatch: patch },
       })
       return checkMutationResult(result, setErrorAndLoadingState)

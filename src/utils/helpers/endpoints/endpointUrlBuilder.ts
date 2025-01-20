@@ -148,16 +148,13 @@ const getServerUrl: GetServerUrlFunction = (endpointKey, options = undefined) =>
       const snapshotOptions = options as SnapshotOptions
       const { action } = snapshotOptions
       const isArchive = 'archive' in snapshotOptions && snapshotOptions.archive
-      const isTemplate = 'template' in snapshotOptions && snapshotOptions.template
 
       if (action === 'list')
         return `${serverREST}${endpointPath}/list${isArchive ? '?archive=true' : ''}`
 
       const name = 'name' in snapshotOptions ? snapshotOptions.name : null
-      const optionsName = 'options' in snapshotOptions ? snapshotOptions.options : null
 
-      if (action === 'upload')
-        return `${serverREST}${endpointPath}/upload${isTemplate ? '?template=true' : ''}`
+      if (action === 'upload') return `${serverREST}${endpointPath}/upload`
 
       if (!name) throw new Error('Name parameter missing in snapshot endpoint query')
 
@@ -170,10 +167,11 @@ const getServerUrl: GetServerUrlFunction = (endpointKey, options = undefined) =>
           isArchive ? '&archive=true' : ''
         }`
 
-      // Must be "take" or "use", which uses "options" file
+      // Must be "take" or "use"
       return `${serverREST}${endpointPath}/${action}?name=${name}${
-        optionsName ? `&optionsName=${optionsName}` : ''
-      }${isArchive ? '&archive=true' : ''}`
+        isArchive ? `&type=archive` : ''
+      }`
+      // Archive details are passed in Body JSON
     }
 
     case 'lookupTable': {
