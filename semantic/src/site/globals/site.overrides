@@ -1813,8 +1813,9 @@ a:hover {
     max-width: 95vw;
     padding: 10px;
     justify-content: space-between;
-    border: 1px solid @surfacesDark;
+    // border: 1px solid @surfacesDark;
     border-radius: @borderRadius;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: @surfacesWhite;
 
     .content {
