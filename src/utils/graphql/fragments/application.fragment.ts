@@ -7,5 +7,6 @@ export default gql`
     name
     outcome
     trigger
+    urlProperties
   }
 `

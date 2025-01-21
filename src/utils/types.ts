@@ -28,6 +28,7 @@ import { ErrorResponse } from './hooks/useDataViews'
 import { USER_ROLES } from './data'
 
 export {
+  type ParsedUrlQuery,
   type ApplicationDetails,
   type ApplicationElementStates,
   type ApplicationScheduledEvent as ApplicationScheduledEvents,
@@ -96,6 +97,7 @@ export {
   type BasicStringObject,
 }
 
+type ParsedUrlQuery = Record<string, string | number | boolean>
 interface ApplicationDetails {
   id: number
   template: TemplateDetails
@@ -113,6 +115,7 @@ interface ApplicationDetails {
   org?: GraphQLOrg
   config?: any
   currentPageType?: PageType
+  urlProperties: ParsedUrlQuery
 }
 
 type PageType = 'application' | 'summary' | 'review' | 'data' | 'dashboard' | 'admin'

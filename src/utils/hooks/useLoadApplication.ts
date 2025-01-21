@@ -29,6 +29,7 @@ import config from '../../config'
 import { getSectionDetails } from '../helpers/application/getSectionsDetails'
 import useTriggers from './useTriggers'
 import getServerUrl, { serverGraphQL, serverREST } from '../helpers/endpoints/endpointUrlBuilder'
+import { useRouter } from './useRouter'
 
 const graphQLEndpoint = getServerUrl('graphQL')
 const JWT = localStorage.getItem(config.localStorageJWTKey)
@@ -41,6 +42,7 @@ const useLoadApplication = ({ serialNumber }: UseGetApplicationProps) => {
   const {
     userState: { currentUser },
   } = useUserState()
+  const { getParsedUrlQuery } = useRouter()
 
   const {
     ready: triggersReady,
@@ -136,6 +138,9 @@ const useLoadApplication = ({ serialNumber }: UseGetApplicationProps) => {
         isProductionBuild: config.isProductionBuild,
         version: config.version,
       },
+      // Current "query" shouldn't be needed in live application, but useful for
+      // TemplateBuilder to simulate possible queries
+      urlProperties: { ...getParsedUrlQuery(), ...application.urlProperties },
     }
 
     const baseElements: ElementBase[] = []
