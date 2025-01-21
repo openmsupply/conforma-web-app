@@ -89,7 +89,7 @@ export const JsonEditor: React.FC<JsonEditorExtendedProps> = ({
         enableClipboard={handleCopy}
         theme={{
           container: {
-            backgroundColor: '#f9f9f9',
+            backgroundColor: '#fefefe',
             marginBottom: '1em',
           },
         }}

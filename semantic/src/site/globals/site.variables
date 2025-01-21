@@ -27,7 +27,7 @@
 @headersInteractiveLow: #4a4a4a;
 @surfacesDark: #aeaeae;
 @surfacesMed: #dcdddd;
-@surfacesLight: #f0f0f0;
+@surfacesLight: #f3f3f3;
 @surfacesWhite: #ffffff;
 //
 @interactiveHigh: #003bfe;
@@ -61,6 +61,12 @@
 @weekDayHeaderColor: rgba(0, 0, 0, 0.5);
 @selectedDayColor: rgb(153, 183, 249);
 @dateFilterLightBlue: rgb(222, 232, 254);
+
+// Box-shadows
+// From https://getcssscan.com/css-box-shadow-examples
+@loginBoxShadow: @boxShadowColor 0px -3px 10px 0px; // used in Login form
+@gridBoxShadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; // use in Dashboard templates & response containers
+@areaBoxShadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 /*------------------------
       Headers and Text
@@ -168,6 +174,7 @@
 @mobileHeaderHeight: 60px;
 @footerHeight: 75px;
 @borderRadius: 8px;
+@borderRadiusSmall: 0.5em;
 
 // Widths for various key containers
 @applicationFormWidth: 900px;
@@ -178,12 +185,6 @@
 
 // Minimums
 @minimumContainerWidth: 320px;
-
-// Box shadow -- used in Login form
-@basicBoxShadow: @boxShadowColor 0px -3px 10px 0px;
-
-// Box shadow -- used in Dashboard
-@templateBoxShadow: 0 1px 3px 0 @boxShadowColor, 0 0 0 1px @boxShadowColor;
 
 // Spacing for elements in Application Form
 @applicationViewElementSpacing: 20px;

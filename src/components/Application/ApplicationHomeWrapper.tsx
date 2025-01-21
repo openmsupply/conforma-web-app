@@ -23,7 +23,7 @@ const ApplicationHomeWrapper: React.FC<ApplicationHomeWrapperProps> = ({
   const { t } = useLanguageProvider()
   return (
     <>
-      <Container id="application-home-content">
+      <Container id="application-home-content" className="white-container-decoration">
         <Header as="h2" textAlign="center">
           {`${name} ${t('TITLE_APPLICATION_FORM')}`}
           <Header.Subheader content={title} />
