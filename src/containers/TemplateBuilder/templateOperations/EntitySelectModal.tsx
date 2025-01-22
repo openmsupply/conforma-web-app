@@ -14,6 +14,7 @@ import {
   TableCell,
   Label,
   SemanticCOLORS,
+  Message,
 } from 'semantic-ui-react'
 import { ModalState } from './useTemplateOperations'
 import { useOperationState } from '../shared/OperationContext'
@@ -270,19 +271,38 @@ const EntitySelect: React.FC<EntityProps> = ({
     setLoading(false)
   }
 
+  const anyDataDiff = Object.keys(incoming.data).length > 0 && Object.keys(current.data).length > 0
+
   return (
     <>
+      {group === 'dataTables' && (
+        <TableRow>
+          <TableCell colspan={2}>
+            <Message size="tiny" warning>
+              Note: The contents of the lookup table itself cannot be re-imported, as table data is
+              not exported with the template. However, content changes <em>are</em> reflected in the
+              checksum/modification time.
+            </Message>
+          </TableCell>
+        </TableRow>
+      )}
       <TableRow className="import-row import-entity-row">
         <TableCell className="import-cell import-incoming" verticalAlign="top">
           <Label color={labelColor}>{title}</Label>
           <p>
             Last modified: <strong>{new Date(incoming.lastModified).toLocaleString()}</strong>
           </p>
-          <JsonViewer
-            data={showFull ? fullData?.incoming ?? incoming.data : incoming.data}
-            title="incoming"
-            newest={!currentIsNewer}
-          />
+          {anyDataDiff || showFull ? (
+            <JsonViewer
+              data={showFull ? fullData?.incoming ?? incoming.data : incoming.data}
+              title="incoming"
+              newest={!currentIsNewer}
+            />
+          ) : (
+            <Message size="tiny" info>
+              No metadata changes
+            </Message>
+          )}
         </TableCell>
         <TableCell
           className="import-cell import-current"
@@ -304,31 +324,37 @@ const EntitySelect: React.FC<EntityProps> = ({
           <p>
             Last modified: <strong>{new Date(current.lastModified).toLocaleString()}</strong>
           </p>
-          <JsonViewer
-            data={showFull ? fullData?.current ?? current.data : current.data}
-            title="current"
-            newest={currentIsNewer}
-          />
+          {(anyDataDiff || showFull) && (
+            <JsonViewer
+              data={showFull ? fullData?.current ?? current.data : current.data}
+              title="current"
+              newest={currentIsNewer}
+            />
+          )}
         </TableCell>
       </TableRow>
       <TableRow className="import-row import-select-row">
         <TableCell>
-          <div className="flex-row-start-center" style={{ gap: 10 }}>
-            <p>Use this version</p>
-            <Checkbox
-              checked={currentlySelected === 'incoming'}
-              onChange={() => updateState(title, 'remove')}
-            />
-          </div>
+          {anyDataDiff && (
+            <div className="flex-row-start-center" style={{ gap: 10 }}>
+              <p>Use this version</p>
+              <Checkbox
+                checked={currentlySelected === 'incoming'}
+                onChange={() => updateState(title, 'remove')}
+              />
+            </div>
+          )}
         </TableCell>
         <TableCell>
-          <div className="flex-row-start-center" style={{ gap: 10 }}>
-            <p>Keep this version</p>
-            <Checkbox
-              checked={currentlySelected === 'current'}
-              onChange={() => updateState(title)}
-            />
-          </div>
+          {anyDataDiff && (
+            <div className="flex-row-start-center" style={{ gap: 10 }}>
+              <p>Keep this version</p>
+              <Checkbox
+                checked={currentlySelected === 'current'}
+                onChange={() => updateState(title)}
+              />
+            </div>
+          )}
         </TableCell>
       </TableRow>
     </>
