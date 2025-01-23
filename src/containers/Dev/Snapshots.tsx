@@ -166,6 +166,7 @@ const Snapshots: React.FC = () => {
     try {
       const resultJson = await postRequest({
         url: getServerUrl('snapshot', { action: 'use', name }),
+        timeout: 10 * 60, // Ten minutes
       })
 
       if (resultJson.success) {
