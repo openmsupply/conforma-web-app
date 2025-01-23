@@ -15,6 +15,7 @@ import config from '../../config'
 import axios from 'axios'
 import { useLanguageProvider } from '../../contexts/Localisation'
 import getServerUrl from '../../utils/helpers/endpoints/endpointUrlBuilder'
+import { UploadButton } from '../../components/common'
 
 const ImportCsvModal: React.FC<any> = ({
   onImportSuccess,
@@ -43,7 +44,7 @@ const ImportCsvModal: React.FC<any> = ({
       dispatch({ type: 'SET_TABLE_NAME', payload: tableLabel })
       dispatch({ type: 'SET_CODE', payload: dataViewCode })
     }
-  }, [open])
+  }, [open, dataViewCode, tableLabel])
 
   useEffect(() => {
     dispatch({
@@ -156,14 +157,19 @@ const ImportCsvModal: React.FC<any> = ({
             </Form.Field>
             <Form.Field>
               <label>{t('LABEL_FILE_UPLOAD_TITLE')}</label>
-
-              <Button as="label" htmlFor="file" type="button" animated="fade">
+              <UploadButton
+                as="label"
+                htmlFor="file"
+                type="button"
+                animated="fade"
+                handleFiles={fileChange}
+                InputProps={{ id: 'file' }}
+              >
                 <Button.Content visible>
                   <Icon name="file" />
                 </Button.Content>
                 <Button.Content hidden content={t('LABEL_FILE_UPLOAD')} />
-              </Button>
-              <input type="file" id="file" hidden onChange={(event) => fileChange(event)} />
+              </UploadButton>
               <Form.Input
                 fluid
                 label={t('LABEL_FILE_UPLOAD_CHOSEN')}

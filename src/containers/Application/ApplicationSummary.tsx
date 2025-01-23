@@ -95,7 +95,7 @@ const ApplicationSummary: React.FC<ApplicationProps> = ({
   const isSubmitted = status !== ApplicationStatus.Draft
 
   return (
-    <Container id="application-summary">
+    <Container id="application-summary" className="white-container-decoration">
       <div id="application-summary-header">
         <Header
           as="h2"

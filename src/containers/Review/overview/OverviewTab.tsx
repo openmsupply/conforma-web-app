@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Container, Header } from 'semantic-ui-react'
-import Loading from '../../../components/Loading'
+import { Loading } from '../../../components/common'
 import { useLanguageProvider } from '../../../contexts/Localisation'
 import { FullStructure } from '../../../utils/types'
 import { TimelineStageUI } from './TimelineStage'

@@ -69,9 +69,11 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
     // (e.g. by a ListBuilder) and only a selection (with no index) has been
     // provided.
     if (options[0] === 'Loading...') return
-    if (currentResponse?.selection && currentResponse?.optionIndex === undefined) {
+    if (currentResponse?.selection && currentResponse?.optionIndex === undefined)
       setSelectedIndex(getDefaultIndex(currentResponse?.selection, options))
-    }
+    // If the options list has changed, we need to update the currently selected
+    // item with the new contents (without changing the selected index)
+    else if (currentResponse?.optionIndex !== undefined) handleChange(currentResponse?.optionIndex)
   }, [options])
 
   useDefault({

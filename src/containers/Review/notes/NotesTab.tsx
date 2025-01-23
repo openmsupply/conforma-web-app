@@ -9,7 +9,7 @@ import {
   Form,
   Message,
 } from 'semantic-ui-react'
-import Loading from '../../../components/Loading'
+import { Loading } from '../../../components/common'
 import { ApplicationNote, useGetApplicationNotesQuery } from '../../../utils/generated/graphql'
 import useConfirmationModal from '../../../utils/hooks/useConfirmationModal'
 import { useUserState } from '../../../contexts/UserState'

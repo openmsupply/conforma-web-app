@@ -5,8 +5,7 @@ import {
   useGetReviewDecisionCommentQuery,
   useUpdateReviewDecisionCommentMutation,
 } from '../../utils/generated/graphql'
-import Loading from '../Loading'
-import Tooltip from '../Tooltip'
+import { Loading, Tooltip } from '../common'
 
 type ReviewCommentProps = {
   reviewDecisionId?: number

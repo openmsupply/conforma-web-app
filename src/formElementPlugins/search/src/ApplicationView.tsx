@@ -38,6 +38,7 @@ interface SearchParameters {
   textFormat: string
   displayType: 'card' | 'list' | 'input'
   default: Response | Response[]
+  searchErrorMap: Record<string, string>
 }
 
 const ApplicationView: React.FC<ApplicationViewProps> = ({
@@ -70,6 +71,7 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
     textFormat = '',
     displayType = 'card',
     default: defaultValue,
+    searchErrorMap = {},
   } = parameters as SearchParameters
 
   const {
@@ -95,6 +97,7 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
         : [currentResponse.selection]
       : []
   )
+  const [searchError, setSearchError] = useState<string>()
   const [inputError, setInputError] = useState(false)
   const [_, setIsFocused] = useState(false)
   const [resultsOpen, setResultsOpen] = useState(false)
@@ -145,8 +148,10 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
         setDebounceInput('')
         setLoading(false)
         setResultsOpen(true)
+        setSearchError(undefined)
       })
       .catch((err) => {
+        setSearchError(getMappedErrorMessage(err.message, searchErrorMap))
         console.error('Search error:', err.message)
         setDebounceInput('')
         setLoading(false)
@@ -200,6 +205,7 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
 
   const handleFocus = (e: any) => {
     setIsFocused(true)
+    setSearchError(undefined)
     if (displayType === 'input' && !loading && !inputError && searchText.length >= minCharacters)
       setResultsOpen(true)
     // This makes the component perform a new search when re-focusing (if no
@@ -244,12 +250,12 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
     isEditable,
   }
 
-  const isError = !validationState.isValid || inputError
+  const isError = !validationState.isValid || inputError || searchError
   const errorMessage = inputError
     ? inputErrorMessage
     : !validationState.isValid
     ? validationState?.validationMessage ?? t('VALIDATION_ERROR')
-    : undefined
+    : searchError
 
   return (
     <>
@@ -299,6 +305,17 @@ const getTextFormat = (textFormat: string, selection: any[]): string | undefined
     return `{${itemFields.join(', ')}}`
   })
   return strings.join(', ')
+}
+
+const getMappedErrorMessage = (
+  message: string | undefined,
+  searchErrorMap: Record<string, string>
+) => {
+  if (!message) return 'Unknown error'
+  for (const key of Object.keys(searchErrorMap)) {
+    if (message.startsWith(key)) return searchErrorMap[key]
+  }
+  return message
 }
 export interface DisplayProps {
   selection: any[]

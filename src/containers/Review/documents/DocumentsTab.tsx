@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, List, Header, Image } from 'semantic-ui-react'
-import Loading from '../../../components/Loading'
+import { Loading } from '../../../components/common'
 import { FullStructure } from '../../../utils/types'
 import { useLanguageProvider } from '../../../contexts/Localisation'
 import { useDocumentModal } from '../../../utils/hooks/useDocumentModal/useDocumentModal'

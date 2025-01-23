@@ -14,7 +14,7 @@ import useCreateReview from '../../utils/hooks/useCreateReview'
 import useRestartReview from '../../utils/hooks/useRestartReview'
 import { ReviewStatus } from '../../utils/generated/graphql'
 import useCreateFinalDecisionReview from '../../utils/hooks/useCreateMakeDecisionReview'
-import LoadingSmall from '../LoadingSmall'
+import { LoadingSmall } from '../common'
 
 const ReviewSectionRowAction: React.FC<ReviewSectionComponentProps> = (props) => {
   const { t } = useLanguageProvider()

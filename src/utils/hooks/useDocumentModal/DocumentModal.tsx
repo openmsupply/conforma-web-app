@@ -7,7 +7,7 @@ import { useDebounceCallback } from '../useDebouncedCallback'
 import { downloadFile } from '../../helpers/utilityFunctions'
 import { useLanguageProvider } from '../../../contexts/Localisation'
 import { useViewport } from '../../../contexts/ViewportState'
-import Loading from '../../../components/Loading'
+import { Loading } from '../../../components/common'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',

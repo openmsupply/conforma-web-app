@@ -98,7 +98,7 @@ export const fileSizeWithUnits = (size: number): string => {
 export const downloadFile = async (url: string, filename: string, fetchOptions: object = {}) => {
   const res = await fetch(url, fetchOptions)
   const data = await res.blob()
-  var a = document.createElement('a')
+  const a = document.createElement('a')
   a.href = window.URL.createObjectURL(data)
   a.download = filename
   a.click()

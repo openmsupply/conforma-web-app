@@ -3,7 +3,7 @@ import { Table, Message, Popup } from 'semantic-ui-react'
 import { useLanguageProvider } from '../../contexts/Localisation'
 import { ApplicationStatus, useDeleteApplicationMutation } from '../../utils/generated/graphql'
 import { ApplicationListRow, ColumnDetails, SortQuery } from '../../utils/types'
-import Loading from '../Loading'
+import { Loading } from '../common'
 import { TableCellMobileLabelWrapper } from '../../utils/tables/TableCellMobileLabelWrapper'
 import { useViewport } from '../../contexts/ViewportState'
 

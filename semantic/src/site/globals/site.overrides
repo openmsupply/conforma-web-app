@@ -231,6 +231,11 @@ a:hover {
   gap: 20px;
 }
 
+.white-container-decoration {
+  box-shadow: @areaBoxShadow;
+  border-radius: @borderRadiusSmall;
+}
+
 /*--------------------------------
    Login page
 ---------------------------------*/
@@ -249,7 +254,7 @@ a:hover {
   flex-direction: column;
   background-color: white;
   width: clamp(360px, 35%, 450px);
-  box-shadow: @basicBoxShadow;
+  box-shadow: @loginBoxShadow;
   border-radius: @borderRadius;
   padding: 20px;
 }
@@ -525,6 +530,9 @@ a:hover {
   background-color: @surfacesWhite;
   width: 800px;
   padding: 30px 50px 32px;
+  @media only screen and (min-width: @largestMobileScreen) {
+    margin-top: 1em;
+  }
   @media only screen and (max-width: @largestMobileScreen) {
     padding: 20px;
   }
@@ -1182,6 +1190,9 @@ a:hover {
   background-color: @surfacesWhite;
   width: @applicationFormWidth;
   padding: 30px 1rem 32px;
+  @media only screen and (min-width: @largestMobileScreen) {
+    margin-top: 0.5em;
+  }
 }
 
 #progress-column {
@@ -1430,8 +1441,11 @@ a:hover {
   align-items: center;
   width: @applicationSummaryWidth;
   background-color: @surfacesWhite;
-  border: 2px solid @surfacesMed;
+  // border: 2px solid @surfacesMed;
   border-radius: @borderRadius;
+  @media only screen and (min-width: @largestMobileScreen) {
+    margin-top: 0.5em;
+  }
 
   @media only screen and (max-width: @largestMobileScreen) {
     padding-left: 10px;
@@ -1473,7 +1487,7 @@ a:hover {
 
 .summary-section {
   background-color: @surfacesLight;
-  border: 2px solid @surfacesMed;
+  border: 1px solid @surfacesMed;
   border-radius: @borderRadius;
   padding: 0px;
   margin-bottom: 15px;
@@ -1546,9 +1560,10 @@ a:hover {
     padding-right: 20px;
     padding-left: 20px;
     background: @surfacesWhite;
-    border: 2px solid @surfacesMed;
+    // border: 2px solid @surfacesMed;
     border-top: none;
     margin: 0px;
+    box-shadow: @gridBoxShadow;
 
     @media only screen and (max-width: @largestMobileScreen) {
       padding-left: 10px;
@@ -1637,7 +1652,12 @@ a:hover {
   }
 
   .response-container:first-of-type {
-    border-top: 2px solid @surfacesMed;
+    // border-top: 2px solid @surfacesMed;
+  }
+
+  .response-container:not(:first-of-type) {
+    border-top: 1px solid @surfacesLight;
+    // border: 3px solid red;
   }
 
   > :first-child {
@@ -1660,7 +1680,8 @@ a:hover {
   background: @surfacesWhite;
   border-bottom-left-radius: @borderRadius;
   border-bottom-right-radius: @borderRadius;
-  border: 2px solid @surfacesMed;
+  // border: 2px solid @surfacesMed;
+  box-shadow: @gridBoxShadow;
   border-top: none;
 }
 
@@ -1813,8 +1834,9 @@ a:hover {
     max-width: 95vw;
     padding: 10px;
     justify-content: space-between;
-    border: 1px solid @surfacesDark;
+    // border: 1px solid @surfacesDark;
     border-radius: @borderRadius;
+    box-shadow: @gridBoxShadow;
     background-color: @surfacesWhite;
 
     .content {
@@ -1858,7 +1880,7 @@ a:hover {
     .admin-option {
       border-radius: @borderRadius;
       background-color: @surfacesWhite;
-      box-shadow: @templateBoxShadow;
+      border: 1px solid @surfacesDark;
       padding: 10px;
     }
   }
@@ -1877,6 +1899,7 @@ a:hover {
     margin-bottom: 5px;
     padding: 10px;
     border-radius: 8px;
+    box-shadow: @gridBoxShadow;
   }
 }
 
@@ -1949,6 +1972,7 @@ a:hover {
   .ui.dropdown {
     .clickable();
     .filterItem();
+    border: 1px solid @surfacesMed;
 
     .menu {
       top: 120%;
@@ -2391,6 +2415,24 @@ a:hover {
   }
 }
 
+.ext-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.dv-elements {
+  border-left: 3px solid @green !important;
+}
+
+.dv-outcomes {
+  border-left: 3px solid @blue !important;
+}
+
+.dv-inaccessible {
+  border-left: 3px solid @red !important;
+}
+
 .builder-page-elements-wrapper {
   background: white;
   padding: 10px;
@@ -2459,6 +2501,44 @@ a:hover {
   }
 }
 
+// Template import
+.import-section-header-row {
+  background-color: @headersInteractiveLow;
+  h3.ui.header {
+    color: @surfacesLight;
+  }
+  td {
+    padding-top: 0.4em !important;
+    padding-bottom: 0.4em !important;
+  }
+}
+
+.import-row {
+  p {
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
+    font-size: @slightlySmallerText;
+  }
+}
+
+.import-entity-row {
+  td {
+    padding-top: 0.4em !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.import-table {
+  .jer-editor-container {
+    padding-top: 0.4em;
+  }
+}
+.import-select-row td {
+  border: none !important;
+  padding-top: 0.2em !important;
+  padding-bottom: 0.2em !important;
+}
+
 /*******************************
         Document Modal
 *******************************/
@@ -2486,6 +2566,10 @@ a:hover {
 .json-editor {
   padding-top: 1em;
   .flex-column();
+}
+
+.jer-editor-container {
+  box-shadow: rgba(99, 99, 99, 0.07) 0px 2px 8px 0px;
 }
 
 /*******************************
@@ -2558,6 +2642,7 @@ a:hover {
     max-width: 350px;
     p {
       word-wrap: break-word;
+      max-width: 250px;
       white-space: pre-wrap;
     }
   }

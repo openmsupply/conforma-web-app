@@ -6,11 +6,13 @@ export async function postRequest({
   otherBody,
   url,
   headers = {},
+  timeout,
 }: {
   jsonBody?: object
   otherBody?: any
   url: string
   headers?: object
+  timeout?: number // seconds
 }) {
   const JWT = localStorage.getItem(config.localStorageJWTKey || '')
   const authHeader = JWT ? { Authorization: 'Bearer ' + JWT } : undefined
@@ -26,8 +28,10 @@ export async function postRequest({
         ...headers,
       },
       body,
+      signal: timeout ? AbortSignal.timeout(timeout * 1000) : undefined,
     })
     const responseJSON = await response.json()
+    if (response.status !== 200) throw new Error(responseJSON.message)
     return responseJSON
   } catch (err) {
     console.log(err)
@@ -50,6 +54,7 @@ export async function getRequest(endpointUrl: string, headers: object = {}) {
       },
     })
     const responseJSON = await response.json()
+    if (response.status !== 200) throw new Error(responseJSON.message)
     return responseJSON
   } catch (err) {
     console.log(err)

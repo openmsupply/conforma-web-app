@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Button,
   Icon,
@@ -22,7 +22,7 @@ import { DateTime } from 'luxon'
 import TextIO from '../TemplateBuilder/shared/TextIO'
 import { downloadFile, fileSizeWithUnits } from '../../utils/helpers/utilityFunctions'
 import { useRouter } from '../../utils/hooks/useRouter'
-import Tooltip from '../../components/Tooltip'
+import { Tooltip, UploadButton } from '../../components/common'
 import { usePrefs } from '../../contexts/SystemPrefs'
 import { BrowserNotifications } from '../../utils/browserNotifications'
 
@@ -166,6 +166,7 @@ const Snapshots: React.FC = () => {
     try {
       const resultJson = await postRequest({
         url: getServerUrl('snapshot', { action: 'use', name }),
+        timeout: 10 * 60, // Ten minutes
       })
 
       if (resultJson.success) {
@@ -658,21 +659,11 @@ const Snapshots: React.FC = () => {
   }
 
   const renderUploadSnapshot = () => {
-    const fileInputRef = useRef<HTMLInputElement>(null)
     return (
       <div>
-        <Button primary inverted onClick={() => fileInputRef?.current?.click()}>
+        <UploadButton primary inverted handleFiles={uploadSnapshot}>
           Upload <Icon name="upload" style={{ paddingLeft: 5 }} />
-        </Button>
-        <input
-          type="file"
-          ref={fileInputRef}
-          accept=".zip"
-          hidden
-          name="file"
-          multiple={false}
-          onChange={(e) => uploadSnapshot(e)}
-        />
+        </UploadButton>
       </div>
     )
   }

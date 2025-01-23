@@ -69,7 +69,7 @@ const ApplicationPage: React.FC<ApplicationProps> = ({
   } = fullStructure
 
   return (
-    <Container id="application-form">
+    <Container id="application-form" className="white-container-decoration">
       <Grid stackable>
         {!isMobile && (
           <Ref innerRef={contextRef}>

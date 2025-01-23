@@ -19,9 +19,6 @@ import useCreateApplication, {
 } from '../../../utils/hooks/useCreateApplication'
 import useGetApplicationSerial from '../../../utils/hooks/useGetApplicationSerial'
 import {
-  exportTemplate,
-  duplicateTemplate,
-  importTemplate,
   updateTemplate,
   updateTemplateFilterJoin,
   updateTemplateSection,
@@ -32,8 +29,11 @@ import {
   deleteTemplate,
 } from './OperationContextHelpers'
 import { TemplateState } from '../template/TemplateWrapper'
+import { ModalState, useTemplateOperations } from '../templateOperations/useTemplateOperations'
+import { Template } from '../useGetTemplates'
+import { ModifiedEntities } from '../templateOperations/EntitySelectModal'
 
-type Error = { message: string; error: string }
+type Error = { title: string; message: string }
 export type ErrorAndLoadingState = {
   error?: Error
   isLoading: boolean
@@ -62,9 +62,15 @@ export type UpdateTemplateStage = (id: number, patch: TemplateStagePatch) => Pro
 
 type OperationContextState = {
   fetch: (something: any) => any
-  exportTemplate: TemplatesOperation
-  duplicateTemplate: TemplatesOperation
-  importTemplate: ImportTemplate
+  commitTemplate: (template: Template | TemplateState, refetch: () => void) => Promise<void>
+  exportTemplate: (template: Template, refetch: () => void) => Promise<void>
+  duplicateTemplate: (template: Template, refetch: () => void) => Promise<void>
+  importTemplate: (e: React.ChangeEvent<HTMLInputElement>, refetch: () => void) => Promise<void>
+  getFullEntityDiff: (
+    uid: string,
+    type: keyof ModifiedEntities,
+    name: string
+  ) => Promise<{ incoming: Record<string, unknown>; current: Record<string, unknown> }>
   updateTemplate: UpdateTemplate
   deleteTemplate: DeleteTemplate
   updateTemplateFilterJoin: UpdateTemplateFilterJoin
@@ -73,6 +79,7 @@ type OperationContextState = {
   createApplication: CreateApplication
   updateApplication: UpdateApplication
   updateTemplateStage: UpdateTemplateStage
+  operationModalState: ModalState
 }
 
 const contextNotPresentError = () => {
@@ -81,8 +88,10 @@ const contextNotPresentError = () => {
 
 const defaultOperationContext: OperationContextState = {
   fetch: contextNotPresentError,
+  commitTemplate: contextNotPresentError,
   exportTemplate: contextNotPresentError,
   duplicateTemplate: contextNotPresentError,
+  getFullEntityDiff: contextNotPresentError,
   importTemplate: contextNotPresentError,
   updateTemplate: contextNotPresentError,
   deleteTemplate: contextNotPresentError,
@@ -92,6 +101,12 @@ const defaultOperationContext: OperationContextState = {
   createApplication: contextNotPresentError,
   updateApplication: contextNotPresentError,
   updateTemplateStage: contextNotPresentError,
+  operationModalState: {
+    type: 'commit',
+    isOpen: true,
+    onConfirm: async () => {},
+    close: () => {},
+  },
 }
 
 const Context = createContext(defaultOperationContext)
@@ -105,13 +120,23 @@ const OperationContext: React.FC<{ children: React.ReactNode }> = ({ children })
   const [updateApplicationMutation] = useRestartApplicationMutation()
   const [updateTemplateStageMutation] = useUpdateTemplateStageMutation()
   const [innerState, setInnerState] = useState<ErrorAndLoadingState>({ isLoading: false })
+  const {
+    commitTemplate,
+    duplicateTemplate,
+    exportTemplate,
+    importTemplate,
+    modalState,
+    getFullEntityDiff,
+  } = useTemplateOperations(setInnerState)
   const { create } = useCreateApplication()
   const { getSerialAsync } = useGetApplicationSerial()
-  const [contextState] = useState<OperationContextState>({
+  const [contextState] = useState<Omit<OperationContextState, 'operationModalState'>>({
     fetch: () => {},
-    exportTemplate: (props) => exportTemplate(props, setInnerState),
-    duplicateTemplate: (props) => duplicateTemplate(props, setInnerState),
-    importTemplate: importTemplate(setInnerState),
+    commitTemplate,
+    exportTemplate,
+    getFullEntityDiff,
+    duplicateTemplate,
+    importTemplate,
     updateTemplate: updateTemplate(setInnerState, updateTemplateMutation),
     updateTemplateFilterJoin: updateTemplateFilterJoin(
       setInnerState,
@@ -131,10 +156,10 @@ const OperationContext: React.FC<{ children: React.ReactNode }> = ({ children })
       {error ? (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Label size="large" color="red">
-            {error.message}
+            {error.title}
             <Icon name="close" onClick={resetLoading} />
           </Label>
-          <div style={{ margin: 20 }}>{error.error}</div>
+          <div style={{ margin: 20 }}>{error.message}</div>
         </div>
       ) : (
         <Loader active>Loading</Loader>
@@ -147,7 +172,7 @@ const OperationContext: React.FC<{ children: React.ReactNode }> = ({ children })
   }
 
   return (
-    <Context.Provider value={contextState}>
+    <Context.Provider value={{ ...contextState, operationModalState: modalState }}>
       {children}
       {renderExtra()}
     </Context.Provider>

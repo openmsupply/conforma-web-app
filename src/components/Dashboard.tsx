@@ -14,7 +14,7 @@ import {
 import useListTemplates from '../utils/hooks/useListTemplates'
 import usePageTitle from '../utils/hooks/usePageTitle'
 import { TemplateInList } from '../utils/types'
-import LoadingSmall from './LoadingSmall'
+import { LoadingSmall } from './common'
 import { constructOrObjectFilters } from '../utils/helpers/utilityFunctions'
 
 const Dashboard: React.FC = () => {

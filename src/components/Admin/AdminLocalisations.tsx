@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Header, Button, Checkbox, Icon } from 'semantic-ui-react'
 import { postRequest } from '../../utils/helpers/fetchMethods'
 import { LanguageOption, useLanguageProvider } from '../../contexts/Localisation'
@@ -8,11 +8,11 @@ import useConfirmationModal from '../../utils/hooks/useConfirmationModal'
 import { exportLanguages } from '../../utils/localisation/exportLanguages'
 import { importLanguages } from '../../utils/localisation/importLanguages'
 import getServerUrl from '../../utils/helpers/endpoints/endpointUrlBuilder'
+import { UploadButton } from '../common'
 
 const AdminLocalisations: React.FC = () => {
   const { refetchLanguages, languageOptionsFull: languageOptions, t } = useLanguageProvider()
   usePageTitle(t('PAGE_TITLE_LOCALISATION'))
-  const fileInputRef = useRef<any>(null)
   const [exportDisabled, setExportDisabled] = useState(true)
   const [importDisabled, setImportDisabled] = useState(true)
   const { showToast } = useToast({ position: topLeft })
@@ -158,20 +158,7 @@ const AdminLocalisations: React.FC = () => {
       </div>
       <Header as="h5">{t('LOCALISATION_IMPORT_MESSAGE')}</Header>
       <div className="flex-row-start-center" style={{ gap: 20 }}>
-        <input
-          type="file"
-          ref={fileInputRef}
-          hidden
-          name="file-upload"
-          multiple={false}
-          accept=".csv"
-          onChange={handleFileImport}
-        />
-        <Button
-          primary
-          content={t('LABEL_IMPORT')}
-          onClick={() => fileInputRef?.current?.click()}
-        />
+        <UploadButton primary content={t('LABEL_IMPORT')} handleFiles={handleFileImport} />
         <Checkbox
           checked={importDisabled}
           onChange={() => setImportDisabled(!importDisabled)}

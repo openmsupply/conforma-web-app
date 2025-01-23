@@ -7,7 +7,7 @@ import {
   ProgressArea,
 } from './Application'
 import Dashboard from './Dashboard'
-import Loading from './Loading'
+import { Loading, NoMatch } from './common'
 import { Footer } from './Main'
 import {
   ReviewContainer,
@@ -23,7 +23,6 @@ import {
   SectionWrapper,
 } from './Sections'
 import { PageElements } from './PageElements'
-import NoMatch from './NoMatch'
 
 export {
   Admin,

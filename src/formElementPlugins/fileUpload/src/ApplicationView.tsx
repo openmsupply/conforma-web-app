@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Button, Icon, List, Segment, Transition } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react'
+import { Icon, List, Segment, Transition } from 'semantic-ui-react'
 import { nanoid } from 'nanoid'
 import { ApplicationViewProps } from '../../types'
 import { TranslatePluginMethod, useLanguageProvider } from '../../../contexts/Localisation'
@@ -10,6 +10,7 @@ import getServerUrl from '../../../utils/helpers/endpoints/endpointUrlBuilder'
 import useDefault from '../../useDefault'
 import { usePrefs } from '../../../contexts/SystemPrefs'
 import { useSimpleCache } from '../../../utils/hooks/useSimpleCache'
+import { UploadButton } from '../../../components/common'
 
 export interface FileResponseData {
   uniqueId: string
@@ -72,7 +73,6 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
   )
   const [error, setError] = useState<string>()
   const [errorVisible, setErrorVisible] = useState(false)
-  const fileInputRef = useRef<any>(null)
   // FileCache is to store the actual file contents after uploading, so when the
   // user previews it again they don't have to wait for it to re-download
   const { addToCache, removeFromCache, getFromCache } = useSimpleCache<File>()
@@ -198,25 +198,14 @@ const ApplicationView: React.FC<ApplicationViewProps> = ({
       )}
       <Markdown text={description} />
       <Segment.Group>
-        {/* Dummy input button required, as Semantic Button can't
-        handle file input. Link between this input and Semantic
-        Button done with useRef(fileInputRef) */}
-        <input
-          type="file"
-          ref={fileInputRef}
-          hidden
-          name="file-upload"
-          multiple={fileCountLimit > 1 || !fileCountLimit}
-          onChange={handleFiles}
-        />
         <Segment basic textAlign="center">
           {(uploadedFiles.length < fileCountLimit || !fileCountLimit) && (
-            <Button primary disabled={!isEditable} onClick={() => fileInputRef?.current?.click()}>
+            <UploadButton primary disabled={!isEditable} handleFiles={handleFiles}>
               <Icon name="upload" />
               {uploadedFiles.length === 0
                 ? t('BUTTON_CLICK_TO_UPLOAD')
                 : t('BUTTON_UPLOAD_ANOTHER')}
-            </Button>
+            </UploadButton>
           )}
         </Segment>
         <List className="file-list" horizontal={!showDescription} verticalAlign="top">

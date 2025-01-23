@@ -243,7 +243,7 @@ When starting to create a query first check:
 - Similarly, check `utils/graphql/mutations` if you need to send data (mutation) to GraphQL.
 - If there isn't one already, create a new file that just returns the query (using the GraphQL query language).
   - The query will also defined what is returned!
-  - Use a GUI tool to see the results for your query/mutation to the GraphQL server: `http://localhost:5000/graphiql` (if the server is running on localhost:5000).
+  - Use a GUI tool to see the results for your query/mutation to the GraphQL server: `http://localhost:8080/graphiql` (if the server is running on localhost:8080).
   - Another helper is using the extension described in [here](setup/Apollo-client.md) on sections "VS code extension for typing GraphQL" to have autocomplete on the query you are writing directly on your file.
 
 After you have finished adding the query/mutation:

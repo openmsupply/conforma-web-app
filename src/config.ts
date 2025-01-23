@@ -7,13 +7,13 @@ import { version } from '../package.json'
 const remoteServer = import.meta.env.VITE_REMOTE_SERVER ?? null
 
 const remoteRestServer = remoteServer ? `${remoteServer}/server/api` : null
-const remoteGraphQLServer = remoteServer ? `${remoteServer}/graphql` : null
+const remoteGraphQLServer = remoteServer ? `${remoteServer}/server/graphql` : null
 
 const config = {
   devServerRest: remoteRestServer ?? 'http://localhost:8080/api',
-  devServerGraphQL: remoteGraphQLServer ?? 'http://localhost:5000/graphql',
+  devServerGraphQL: remoteGraphQLServer ?? 'http://localhost:8080/graphql',
   productionPathREST: '/server/api',
-  productionPathGraphQL: '/postgraphile/graphql',
+  productionPathGraphQL: '/server/graphql',
   restEndpoints: {
     // Public
     public: '/public',
@@ -47,6 +47,7 @@ const config = {
     setPrefs: '/admin/set-prefs',
     archiveFiles: '/admin/archive-files',
     setMaintenanceMode: '/admin/set-maintenance-mode',
+    templateImportExport: '/admin/template',
     // WebSocket
     serverStatus: 'server-status',
   },

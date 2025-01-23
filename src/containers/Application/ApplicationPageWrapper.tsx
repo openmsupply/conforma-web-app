@@ -62,7 +62,8 @@ const ApplicationPageWrapper: React.FC<ApplicationProps> = ({ structure }) => {
     if (
       fullStructure &&
       revalidationState.methodToCallOnRevalidation &&
-      (fullStructure?.lastValidationTimestamp || 0) > revalidationState.lastRevalidationRequest
+      (fullStructure?.lastValidationTimestamp || Infinity) >
+        revalidationState.lastRevalidationRequest
     ) {
       revalidationState.methodToCallOnRevalidation({
         firstStrictInvalidPage: fullStructure.info.firstStrictInvalidPage,

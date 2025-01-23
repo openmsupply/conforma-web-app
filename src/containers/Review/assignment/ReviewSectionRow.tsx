@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Grid, Message } from 'semantic-ui-react'
-import LoadingSmall from '../../../components/LoadingSmall'
+import { LoadingSmall } from '../../../components/common'
 import {
   ReviewSectionRowAssigned,
   ReviewSectionRowLastActionDate,

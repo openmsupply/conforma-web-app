@@ -13,11 +13,11 @@ Install Graphql-codegen tutorial: https://medium.com/make-it-heady/part-2-buildi
 - Create a new file to store common paths and configurations:
   `touch config.json`
 
-- Open `config.json` andfor now just add the localhost for back-end:
+- Open `config.json` and for now just add the localhost for back-end:
 
 ```
 {
-    "server": "http://localhost:5000/graphql"
+    "server": "http://localhost:8080/graphql"
 }
 ```
 
@@ -48,7 +48,7 @@ Install Graphql-codegen tutorial: https://medium.com/make-it-heady/part-2-buildi
 - This will launch a CLI wizard. Next, we’ll follow the steps in this list:
 
 * The application is built with React.
-* The schema is located at http://localhost:5000/graphql
+* The schema is located at http://localhost:8080/graphql
 * Set our operations and fragments location to ./src/components/\*_/_.ts so that it will search all our TypeScript files for query declarations.
 * Use the default plugins “TypeScript”, “TypeScript Operations”, “TypeScript React Apollo.”
 * Update the generated destination to src/generated/graphql.tsx (.tsx is required by the react-apollo plugin).
@@ -62,7 +62,7 @@ This will create a codegen.yml file in the root.
 
 ```
 overwrite: true
-schema: 'http://localhost:5000/graphql'
+schema: 'http://localhost:8080/graphql'
 documents:
   - './src/components/**/*.ts'
   - './src/graphql/**/*.ts'

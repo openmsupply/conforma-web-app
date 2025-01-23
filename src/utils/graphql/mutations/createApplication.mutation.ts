@@ -12,6 +12,7 @@ export default gql`
     $outcome: ApplicationOutcome = PENDING
     $trigger: Trigger = ON_APPLICATION_CREATE
     $responses: [ApplicationResponseApplicationIdFkeyApplicationResponseCreateInput!]
+    $urlProperties: JSON
   ) {
     createApplication(
       input: {
@@ -27,6 +28,7 @@ export default gql`
           outcome: $outcome
           trigger: $trigger
           applicationResponsesUsingId: { create: $responses }
+          urlProperties: $urlProperties
         }
       }
     ) {

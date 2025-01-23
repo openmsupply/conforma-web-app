@@ -82,5 +82,19 @@ export default gql`
         }
       }
     }
+    templateDataViewJoins {
+      nodes {
+        id
+        dataView {
+          identifier
+          code
+          id
+          tableName
+          title
+          permissionNames
+          priority
+        }
+      }
+    }
   }
 `

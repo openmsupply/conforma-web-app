@@ -1,9 +1,9 @@
 import React from 'react'
-import { useRouter } from '../utils/hooks/useRouter'
+import { useRouter } from '../../utils/hooks/useRouter'
 import { Container, Header, Icon, Segment } from 'semantic-ui-react'
-import { useLanguageProvider } from '../contexts/Localisation'
+import { useLanguageProvider } from '../../contexts/Localisation'
 
-const NoMatch: React.FC<{ header?: string; message?: string }> = ({ header, message }) => {
+export const NoMatch: React.FC<{ header?: string; message?: string }> = ({ header, message }) => {
   const { t } = useLanguageProvider()
   const { history } = useRouter()
   return (
@@ -25,5 +25,3 @@ const NoMatch: React.FC<{ header?: string; message?: string }> = ({ header, mess
     </Container>
   )
 }
-
-export default NoMatch

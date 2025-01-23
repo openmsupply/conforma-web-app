@@ -9,8 +9,7 @@ import {
 } from '../../../utils/types'
 import { useLanguageProvider } from '../../../contexts/Localisation'
 import { Stage } from '../../../components/Review'
-import { NoMatch } from '../../../components'
-import Loading from '../../../components/Loading'
+import { Loading, NoMatch } from '../../../components/common'
 import ReviewLevel from './ReviewLevel'
 import {
   ReviewStateProvider,

@@ -1,29 +1,16 @@
-/** @format */
-
-import React, { ReactNode, useRef } from 'react'
+import React, { ReactNode } from 'react'
 import { useState } from 'react'
-import {
-  Button,
-  Header,
-  Icon,
-  Table,
-  Label,
-  Dropdown,
-  Checkbox,
-  Confirm,
-  Input,
-} from 'semantic-ui-react'
+import { Header, Icon, Table, Label, Dropdown, Checkbox } from 'semantic-ui-react'
 import { useRouter } from '../../utils/hooks/useRouter'
-import OperationContext, { TemplateOptions, useOperationState } from './shared/OperationContext'
+import OperationContext, { useOperationState } from './shared/OperationContext'
 import TextIO from './shared/TextIO'
 import useGetTemplates, { Template, type Templates } from './useGetTemplates'
 import { useLanguageProvider } from '../../contexts/Localisation'
 import usePageTitle from '../../utils/hooks/usePageTitle'
-import config from '../../config'
-import getServerUrl from '../../utils/helpers/endpoints/endpointUrlBuilder'
 import { DateTime } from 'luxon'
-import { useToast } from '../../contexts/Toast'
-import { isTemplateUnlocked, getTemplateVersionId, getVersionString } from './template/helpers'
+import { TemplateOperationsModal } from './templateOperations/TemplateOperationsModal'
+import { getVersionString } from './template/helpers'
+import { UploadButton } from '../../components/common'
 
 type CellPropsTemplate = Template & { numberOfVersions?: number; totalApplicationCount?: number }
 type CellProps = { template: CellPropsTemplate; refetch: () => void; isExpanded: boolean }
@@ -130,83 +117,15 @@ const ViewEditButton: React.FC<CellProps> = ({ template: { id } }) => {
   )
 }
 
-const ExportButton: React.FC<CellProps> = ({ template }) => {
-  const { exportTemplate, updateTemplate } = useOperationState()
-  const { showToast } = useToast({
-    style: 'success',
-    title: 'Template exported',
-    text: `${template.code} - ${getVersionString(template)}`,
-  })
-  const JWT = localStorage.getItem(config.localStorageJWTKey)
-  const [open, setOpen] = useState(false)
-  const [commitMessage, setCommitMessage] = useState('')
-
-  const doExport = async (versionId = template.versionId) => {
-    const { code, versionHistory, id } = template
-    const snapshotName = `${code}-${versionId}_v${versionHistory.length + 1}`
-    if (await exportTemplate({ id, snapshotName })) {
-      const res = await fetch(
-        getServerUrl('snapshot', { action: 'download', name: snapshotName }),
-        {
-          headers: { Authorization: `Bearer ${JWT}` },
-        }
-      )
-      const data = await res.blob()
-      var a = document.createElement('a')
-      a.href = window.URL.createObjectURL(data)
-      a.download = `${snapshotName}.zip`
-      a.click()
-      // Delete the snapshot cos we don't want snapshots page cluttered
-      // with individual templates
-      await fetch(getServerUrl('snapshot', { action: 'delete', name: snapshotName }), {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${JWT}` },
-      })
-      showToast()
-    } else showToast({ style: 'error', title: 'Problem exporting template' })
-  }
-
+const ExportButton: React.FC<CellProps> = ({ template, refetch }) => {
+  const { exportTemplate } = useOperationState()
   return (
     <div key="export">
-      <Confirm
-        open={open}
-        // Prevent click in Input from closing modal
-        onClick={(e: any) => e.stopPropagation()}
-        content={
-          <div style={{ padding: 10, gap: 10 }} className="flex-column">
-            <h2>Commit and export template?</h2>
-            <p>
-              By exporting this template now, you will be committing the current version. To make
-              any further changes, you will need to duplicate it and start a new template version.
-            </p>
-            <div className="flex-row-start-center" style={{ gap: 10 }}>
-              <label>Please provide a commit message:</label>
-              <Input
-                value={commitMessage}
-                onChange={(e) => setCommitMessage(e.target.value)}
-                style={{ width: '60%' }}
-              />
-            </div>
-          </div>
-        }
-        onCancel={() => setOpen(false)}
-        onConfirm={async () => {
-          const versionId = getTemplateVersionId()
-          await updateTemplate(template as any, {
-            versionId,
-            versionComment: commitMessage,
-            versionTimestamp: DateTime.now().toISO(),
-          })
-          setOpen(false)
-          await doExport(versionId)
-        }}
-      />
       <div
         className="clickable"
-        onClick={async (e) => {
+        onClick={(e) => {
           e.stopPropagation()
-          if (isTemplateUnlocked(template)) setOpen(true)
-          else doExport()
+          exportTemplate(template, refetch)
         }}
       >
         <Icon className="clickable" key="export" name="sign-out" />
@@ -216,117 +135,18 @@ const ExportButton: React.FC<CellProps> = ({ template }) => {
 }
 
 const DuplicateButton: React.FC<CellProps> = ({ template, refetch }) => {
-  const { updateTemplate, duplicateTemplate } = useOperationState()
-  const [open, setOpen] = useState(false)
-  const [selectedType, setSelectedType] = useState<'version' | 'template'>('version')
-  const [newCode, setNewCode] = useState('')
-  const [codeError, setCodeError] = useState(false)
-  const [commitCurrent, setCommitCurrent] = useState(isTemplateUnlocked(template))
-  const [commitMessage, setCommitMessage] = useState('')
-  const { showToast } = useToast({ style: 'success' })
-
-  const { code, versionId } = template
-  const snapshotName = `${code}-${versionId}`
-
+  const { duplicateTemplate } = useOperationState()
   return (
     <div key="duplicate">
       <div
         className="clickable"
         onClick={async (e) => {
           e.stopPropagation()
-          setOpen(true)
+          duplicateTemplate(template, refetch)
         }}
       >
         <Icon className="clickable" key="export" name="copy" />
       </div>
-      <Confirm
-        open={open}
-        // Prevent click in Input from closing modal
-        onClick={(e: any) => e.stopPropagation()}
-        content={
-          <div style={{ padding: 10, gap: 10 }} className="flex-column">
-            <h2>Duplicate template</h2>
-            <p>
-              Do you want to create a new template version or a whole new template type based on
-              this template?
-            </p>
-            <p>(New template will start with an empty version history)</p>
-            <Dropdown
-              selection
-              options={[
-                { key: 'version', value: 'version', text: 'Version' },
-                { key: 'template', value: 'template', text: 'Template' },
-              ]}
-              value={selectedType}
-              onChange={(_, { value }) => setSelectedType(value as 'version' | 'template')}
-            />
-            {selectedType === 'template' && (
-              <div className="flex-row-start-center" style={{ gap: 10 }}>
-                <label>New template code:</label>
-                <Input
-                  value={newCode}
-                  onChange={(e) => {
-                    setCodeError(false)
-                    setNewCode(e.target.value)
-                  }}
-                  error={codeError}
-                />
-              </div>
-            )}
-            {isTemplateUnlocked(template) && (
-              <Checkbox
-                label="Commit current version?"
-                checked={commitCurrent}
-                onChange={(_) => setCommitCurrent(!commitCurrent)}
-              />
-            )}
-            {commitCurrent && (
-              <div className="flex-row-start-center" style={{ gap: 10 }}>
-                <label>Commit message:</label>
-                <Input
-                  value={commitMessage}
-                  onChange={(e) => setCommitMessage(e.target.value)}
-                  style={{ width: '80%' }}
-                />
-              </div>
-            )}
-          </div>
-        }
-        onCancel={() => setOpen(false)}
-        onConfirm={async () => {
-          if (selectedType === 'template' && newCode === '') {
-            setCodeError(true)
-            return
-          }
-          if (commitCurrent)
-            await updateTemplate(template as any, {
-              versionId: getTemplateVersionId(),
-              versionComment: commitMessage,
-              versionTimestamp: DateTime.now().toISO(),
-            })
-          setOpen(false)
-          const templateOptions: TemplateOptions = {
-            resetVersion: commitCurrent || !isTemplateUnlocked(template),
-          }
-          if (selectedType === 'template') templateOptions.newCode = newCode
-          if (
-            await duplicateTemplate({
-              id: template.id,
-              snapshotName,
-              templates: templateOptions,
-            })
-          ) {
-            showToast({
-              title:
-                selectedType === 'template'
-                  ? 'New template created'
-                  : 'New template version created',
-              text: `${selectedType === 'template' ? newCode : template.code}`,
-            })
-            await refetch()
-          }
-        }}
-      />
     </div>
   )
 }
@@ -342,9 +162,8 @@ type SortColumn = 'name' | 'code' | 'category' | 'status' | 'dashboard'
 const Templates: React.FC = () => {
   const { t } = useLanguageProvider()
   const [expandedTemplates, setExpandedTemplates] = useState<string[]>([])
-  const fileInputRef = useRef<HTMLInputElement>(null)
   const { templates, refetch } = useGetTemplates()
-  const { importTemplate } = useOperationState()
+  const { importTemplate, operationModalState } = useOperationState()
   const { query, updateQuery } = useRouter()
   const [hideInactive, setHideInactive] = useState(query.hideInactive === 'true')
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
@@ -429,22 +248,16 @@ const Templates: React.FC = () => {
   )
 
   const renderImportButton = () => (
-    <>
-      <input
-        type="file"
-        ref={fileInputRef}
-        accept=".zip"
-        hidden
-        name="file"
-        multiple={false}
-        onChange={async (e) => {
-          if (await importTemplate(e)) refetch()
-        }}
-      />
-      <Button inverted primary onClick={() => fileInputRef?.current?.click()}>
-        Import
-      </Button>
-    </>
+    <UploadButton
+      inverted
+      primary
+      handleFiles={async (e) => {
+        importTemplate(e, refetch)
+      }}
+      InputProps={{ accept: '.zip' }}
+    >
+      Import
+    </UploadButton>
   )
 
   const sortedTemplates = sortTemplates(
@@ -455,6 +268,7 @@ const Templates: React.FC = () => {
 
   return (
     <div className="template-builder-templates">
+      <TemplateOperationsModal {...operationModalState} />
       <div key="top-bar" className="top-bar">
         <Header as="h3">Templates / Procedures</Header>
         <div className="flex-grow-1" />
@@ -515,6 +329,14 @@ const Templates: React.FC = () => {
               }}
               style={{ maxWidth: 350 }}
             />
+            <p className="slightly-smaller-text" style={{ textAlign: 'right' }}>
+              <a
+                href="https://github.com/msupply-foundation/conforma-server/wiki/Template-Import-Export"
+                target="_blank"
+              >
+                Docs <Icon name="external" />
+              </a>
+            </p>
           </div>
           <Table sortable stackable selectable>
             {renderHeader()}

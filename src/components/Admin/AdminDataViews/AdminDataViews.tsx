@@ -24,7 +24,7 @@ import { nanoid } from 'nanoid'
 import { useAdminDataViewConfig } from './useAdminDataViewConfig'
 import config from '../../../config'
 import { JsonData } from 'json-edit-react'
-import Loading from '../../Loading'
+import { Loading } from '../../common'
 
 const JsonEditor = React.lazy(() => import('../JsonEditor/JsonEditor'))
 
@@ -45,7 +45,17 @@ export const AdminDataViews: React.FC = () => {
 
   return (
     <div id="data-view-config-panel" className="flex-column" style={{ gap: 15 }}>
-      <Header>{t('DATA_VIEW_CONFIG_HEADER')}</Header>
+      <div className="flex-row-space-between-center">
+        <Header>{t('DATA_VIEW_CONFIG_HEADER')}</Header>
+        <p className="slightly-smaller-text">
+          <a
+            href="https://github.com/msupply-foundation/conforma-server/wiki/Data-View"
+            target="_blank"
+          >
+            Docs <Icon name="external" />
+          </a>
+        </p>
+      </div>
       <div className="flex-row-space-between-center">
         <Dropdown
           selection

@@ -251,6 +251,7 @@ export type ActionQueueApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -603,10 +604,10 @@ export type ActionQueueTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -619,6 +620,8 @@ export type ActionQueueTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -838,6 +841,7 @@ export type ActivityLogApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -1175,6 +1179,7 @@ export type Application = Node & {
   triggerQueues: TriggerQueuesConnection;
   /** Reads and enables pagination through a set of `TriggerSchedule`. */
   triggerSchedules: TriggerSchedulesConnection;
+  urlProperties?: Maybe<Scalars['JSON']['output']>;
   /** Reads a single `UserList` that is related to this `Application`. */
   user?: Maybe<UserList>;
   /** Reads and enables pagination through a set of `UserApplicationJoin`. */
@@ -1497,6 +1502,8 @@ export type ApplicationCondition = {
   templateId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `trigger` field. */
   trigger?: InputMaybe<Trigger>;
+  /** Checks for equality with the object’s `urlProperties` field. */
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `userId` field. */
   userId?: InputMaybe<Scalars['Int']['input']>;
 };
@@ -1623,6 +1630,8 @@ export type ApplicationFilter = {
   triggerSchedules?: InputMaybe<ApplicationToManyTriggerScheduleFilter>;
   /** Some related `triggerSchedules` exist. */
   triggerSchedulesExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `urlProperties` field. */
+  urlProperties?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `user` relation. */
   user?: InputMaybe<UserListFilter>;
   /** Filter by the object’s `userApplicationJoins` relation. */
@@ -1675,6 +1684,7 @@ export type ApplicationInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -2049,6 +2059,7 @@ export type ApplicationNoteApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -3136,6 +3147,7 @@ export type ApplicationOrgIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -3302,6 +3314,7 @@ export type ApplicationPatch = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -3393,6 +3406,7 @@ export type ApplicationResponseApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -3898,6 +3912,7 @@ export type ApplicationReviewerActionApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -4228,6 +4243,7 @@ export type ApplicationStageHistoryApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -5180,6 +5196,7 @@ export type ApplicationTemplateIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -5249,10 +5266,10 @@ export type ApplicationTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -5265,6 +5282,8 @@ export type ApplicationTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -5539,6 +5558,8 @@ export enum ApplicationsOrderBy {
   TemplateIdDesc = 'TEMPLATE_ID_DESC',
   TriggerAsc = 'TRIGGER_ASC',
   TriggerDesc = 'TRIGGER_DESC',
+  UrlPropertiesAsc = 'URL_PROPERTIES_ASC',
+  UrlPropertiesDesc = 'URL_PROPERTIES_DESC',
   UserIdAsc = 'USER_ID_ASC',
   UserIdDesc = 'USER_ID_DESC'
 }
@@ -7544,8 +7565,6 @@ export type CreateFilePayload = {
   fileEdge?: Maybe<FilesEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
 };
 
 
@@ -8173,6 +8192,43 @@ export type CreateTemplateCategoryPayloadTemplateCategoryEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateCategoriesOrderBy>>;
 };
 
+/** All input for the create `TemplateDataViewJoin` mutation. */
+export type CreateTemplateDataViewJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `TemplateDataViewJoin` to be created by this mutation. */
+  templateDataViewJoin: TemplateDataViewJoinInput;
+};
+
+/** The output of our create `TemplateDataViewJoin` mutation. */
+export type CreateTemplateDataViewJoinPayload = {
+  __typename?: 'CreateTemplateDataViewJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateDataViewJoin` that was created by this mutation. */
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** An edge for our `TemplateDataViewJoin`. May be used by Relay 1. */
+  templateDataViewJoinEdge?: Maybe<TemplateDataViewJoinsEdge>;
+};
+
+
+/** The output of our create `TemplateDataViewJoin` mutation. */
+export type CreateTemplateDataViewJoinPayloadTemplateDataViewJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
 /** All input for the create `TemplateElement` mutation. */
 export type CreateTemplateElementInput = {
   /**
@@ -8206,6 +8262,43 @@ export type CreateTemplateElementPayload = {
 /** The output of our create `TemplateElement` mutation. */
 export type CreateTemplateElementPayloadTemplateElementEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+/** All input for the create `TemplateFileJoin` mutation. */
+export type CreateTemplateFileJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The `TemplateFileJoin` to be created by this mutation. */
+  templateFileJoin: TemplateFileJoinInput;
+};
+
+/** The output of our create `TemplateFileJoin` mutation. */
+export type CreateTemplateFileJoinPayload = {
+  __typename?: 'CreateTemplateFileJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateFileJoin` that was created by this mutation. */
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** An edge for our `TemplateFileJoin`. May be used by Relay 1. */
+  templateFileJoinEdge?: Maybe<TemplateFileJoinsEdge>;
+};
+
+
+/** The output of our create `TemplateFileJoin` mutation. */
+export type CreateTemplateFileJoinPayloadTemplateFileJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** All input for the create `TemplateFilterJoin` mutation. */
@@ -8725,6 +8818,7 @@ export type DataChangelogApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -9109,11 +9203,13 @@ export enum DataChangelogsOrderBy {
 
 export type DataTable = Node & {
   __typename?: 'DataTable';
+  checksum?: Maybe<Scalars['String']['output']>;
   dataViewCode?: Maybe<Scalars['String']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   fieldMap?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['Int']['output'];
   isLookupTable?: Maybe<Scalars['Boolean']['output']>;
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   tableName: Scalars['String']['output'];
@@ -9421,6 +9517,7 @@ export type DataTableAdverseDrugReactionApplicatioApplicationIdFkeyApplicationCr
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -9901,6 +9998,8 @@ export enum DataTableAtcCodesOrderBy {
  * for equality and combined with a logical ‘and.’
  */
 export type DataTableCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `dataViewCode` field. */
   dataViewCode?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `displayName` field. */
@@ -9911,6 +10010,8 @@ export type DataTableCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isLookupTable` field. */
   isLookupTable?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `tableName` field. */
   tableName?: InputMaybe<Scalars['String']['input']>;
 };
@@ -10216,6 +10317,8 @@ export type DataTableEthnicityPatch = {
 export type DataTableFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataTableFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `dataViewCode` field. */
   dataViewCode?: InputMaybe<StringFilter>;
   /** Filter by the object’s `displayName` field. */
@@ -10226,6 +10329,8 @@ export type DataTableFilter = {
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isLookupTable` field. */
   isLookupTable?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<DataTableFilter>;
   /** Checks for any expressions in this list. */
@@ -10236,11 +10341,13 @@ export type DataTableFilter = {
 
 /** An input for mutations affecting `DataTable` */
 export type DataTableInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   dataViewCode?: InputMaybe<Scalars['String']['input']>;
   displayName?: InputMaybe<Scalars['String']['input']>;
   fieldMap?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLookupTable?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   tableName: Scalars['String']['input'];
 };
 
@@ -10324,6 +10431,7 @@ export type DataTableLicenseApplicationJoinApplicationIdFkeyApplicationCreateInp
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -10881,11 +10989,13 @@ export enum DataTableManufacturersOrderBy {
 
 /** Represents an update to a `DataTable`. Fields that are set will be updated. */
 export type DataTablePatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   dataViewCode?: InputMaybe<Scalars['String']['input']>;
   displayName?: InputMaybe<Scalars['String']['input']>;
   fieldMap?: InputMaybe<Scalars['JSON']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLookupTable?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   tableName?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -11031,6 +11141,7 @@ export type DataTablePermitMedicalApplicationJoinApplicationIdFkeyApplicationCre
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -11880,6 +11991,7 @@ export type DataTableProductApplicationJoinApplicationIdFkeyApplicationCreateInp
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -12662,6 +12774,7 @@ export type DataTableProvisionalProductApplicationApplicationIdFkeyApplicationCr
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -13635,6 +13748,8 @@ export type DataTablesEdge = {
 
 /** Methods to use when ordering `DataTable`. */
 export enum DataTablesOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   DataViewCodeAsc = 'DATA_VIEW_CODE_ASC',
   DataViewCodeDesc = 'DATA_VIEW_CODE_DESC',
   DisplayNameAsc = 'DISPLAY_NAME_ASC',
@@ -13645,6 +13760,8 @@ export enum DataTablesOrderBy {
   IdDesc = 'ID_DESC',
   IsLookupTableAsc = 'IS_LOOKUP_TABLE_ASC',
   IsLookupTableDesc = 'IS_LOOKUP_TABLE_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -13654,6 +13771,7 @@ export enum DataTablesOrderBy {
 
 export type DataView = Node & {
   __typename?: 'DataView';
+  checksum?: Maybe<Scalars['String']['output']>;
   code: Scalars['String']['output'];
   defaultFilterString?: Maybe<Scalars['String']['output']>;
   defaultSortColumn?: Maybe<Scalars['String']['output']>;
@@ -13665,6 +13783,7 @@ export type DataView = Node & {
   filterIncludeColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   id: Scalars['Int']['output'];
   identifier: Scalars['String']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   menuName?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
@@ -13679,12 +13798,27 @@ export type DataView = Node & {
   tableSearchColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   tableViewExcludeColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   tableViewIncludeColumns?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Reads and enables pagination through a set of `TemplateDataViewJoin`. */
+  templateDataViewJoins: TemplateDataViewJoinsConnection;
   title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type DataViewTemplateDataViewJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateDataViewJoinCondition>;
+  filter?: InputMaybe<TemplateDataViewJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
 };
 
 export type DataViewColumnDefinition = Node & {
   __typename?: 'DataViewColumnDefinition';
   additionalFormatting?: Maybe<Scalars['JSON']['output']>;
+  checksum?: Maybe<Scalars['String']['output']>;
   columnName: Scalars['String']['output'];
   elementParameters?: Maybe<Scalars['JSON']['output']>;
   elementTypePluginCode?: Maybe<Scalars['String']['output']>;
@@ -13693,6 +13827,7 @@ export type DataViewColumnDefinition = Node & {
   filterParameters?: Maybe<Scalars['JSON']['output']>;
   hideIfNull?: Maybe<Scalars['Boolean']['output']>;
   id: Scalars['Int']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   sortColumn?: Maybe<Scalars['String']['output']>;
@@ -13708,6 +13843,8 @@ export type DataViewColumnDefinition = Node & {
 export type DataViewColumnDefinitionCondition = {
   /** Checks for equality with the object’s `additionalFormatting` field. */
   additionalFormatting?: InputMaybe<Scalars['JSON']['input']>;
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `columnName` field. */
   columnName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `elementParameters` field. */
@@ -13724,6 +13861,8 @@ export type DataViewColumnDefinitionCondition = {
   hideIfNull?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `sortColumn` field. */
   sortColumn?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `tableName` field. */
@@ -13740,6 +13879,8 @@ export type DataViewColumnDefinitionFilter = {
   additionalFormatting?: InputMaybe<JsonFilter>;
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataViewColumnDefinitionFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `columnName` field. */
   columnName?: InputMaybe<StringFilter>;
   /** Filter by the object’s `elementParameters` field. */
@@ -13756,6 +13897,8 @@ export type DataViewColumnDefinitionFilter = {
   hideIfNull?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<DataViewColumnDefinitionFilter>;
   /** Checks for any expressions in this list. */
@@ -13773,6 +13916,7 @@ export type DataViewColumnDefinitionFilter = {
 /** An input for mutations affecting `DataViewColumnDefinition` */
 export type DataViewColumnDefinitionInput = {
   additionalFormatting?: InputMaybe<Scalars['JSON']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   columnName: Scalars['String']['input'];
   elementParameters?: InputMaybe<Scalars['JSON']['input']>;
   elementTypePluginCode?: InputMaybe<Scalars['String']['input']>;
@@ -13781,6 +13925,7 @@ export type DataViewColumnDefinitionInput = {
   filterParameters?: InputMaybe<Scalars['JSON']['input']>;
   hideIfNull?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   sortColumn?: InputMaybe<Scalars['String']['input']>;
   tableName?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -13790,6 +13935,7 @@ export type DataViewColumnDefinitionInput = {
 /** Represents an update to a `DataViewColumnDefinition`. Fields that are set will be updated. */
 export type DataViewColumnDefinitionPatch = {
   additionalFormatting?: InputMaybe<Scalars['JSON']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   columnName?: InputMaybe<Scalars['String']['input']>;
   elementParameters?: InputMaybe<Scalars['JSON']['input']>;
   elementTypePluginCode?: InputMaybe<Scalars['String']['input']>;
@@ -13798,6 +13944,7 @@ export type DataViewColumnDefinitionPatch = {
   filterParameters?: InputMaybe<Scalars['JSON']['input']>;
   hideIfNull?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   sortColumn?: InputMaybe<Scalars['String']['input']>;
   tableName?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -13830,6 +13977,8 @@ export type DataViewColumnDefinitionsEdge = {
 export enum DataViewColumnDefinitionsOrderBy {
   AdditionalFormattingAsc = 'ADDITIONAL_FORMATTING_ASC',
   AdditionalFormattingDesc = 'ADDITIONAL_FORMATTING_DESC',
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   ColumnNameAsc = 'COLUMN_NAME_ASC',
   ColumnNameDesc = 'COLUMN_NAME_DESC',
   ElementParametersAsc = 'ELEMENT_PARAMETERS_ASC',
@@ -13846,6 +13995,8 @@ export enum DataViewColumnDefinitionsOrderBy {
   HideIfNullDesc = 'HIDE_IF_NULL_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -13864,6 +14015,8 @@ export enum DataViewColumnDefinitionsOrderBy {
  * for equality and combined with a logical ‘and.’
  */
 export type DataViewCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `code` field. */
   code?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `defaultFilterString` field. */
@@ -13886,6 +14039,8 @@ export type DataViewCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `identifier` field. */
   identifier?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `menuName` field. */
   menuName?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `permissionNames` field. */
@@ -13914,10 +14069,22 @@ export type DataViewCondition = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** The fields on `dataView` to look up the row to connect. */
+export type DataViewDataViewIdentifierKeyConnect = {
+  identifier: Scalars['String']['input'];
+};
+
+/** The fields on `dataView` to look up the row to delete. */
+export type DataViewDataViewIdentifierKeyDelete = {
+  identifier: Scalars['String']['input'];
+};
+
 /** A filter to be used against `DataView` object types. All fields are combined with a logical ‘and.’ */
 export type DataViewFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<DataViewFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `code` field. */
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `defaultFilterString` field. */
@@ -13940,6 +14107,8 @@ export type DataViewFilter = {
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `identifier` field. */
   identifier?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `menuName` field. */
   menuName?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -13968,12 +14137,17 @@ export type DataViewFilter = {
   tableViewExcludeColumns?: InputMaybe<StringListFilter>;
   /** Filter by the object’s `tableViewIncludeColumns` field. */
   tableViewIncludeColumns?: InputMaybe<StringListFilter>;
+  /** Filter by the object’s `templateDataViewJoins` relation. */
+  templateDataViewJoins?: InputMaybe<DataViewToManyTemplateDataViewJoinFilter>;
+  /** Some related `templateDataViewJoins` exist. */
+  templateDataViewJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `title` field. */
   title?: InputMaybe<StringFilter>;
 };
 
 /** An input for mutations affecting `DataView` */
 export type DataViewInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   defaultFilterString?: InputMaybe<Scalars['String']['input']>;
   defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
@@ -13985,6 +14159,7 @@ export type DataViewInput = {
   filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   id?: InputMaybe<Scalars['Int']['input']>;
   identifier: Scalars['String']['input'];
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   menuName?: InputMaybe<Scalars['String']['input']>;
   permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   priority?: InputMaybe<Scalars['Int']['input']>;
@@ -13997,11 +14172,57 @@ export type DataViewInput = {
   tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DataViewNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `dataView` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DataViewNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `dataView` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** The fields on `dataView` to look up the row to update. */
+export type DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingDataViewIdentifierKeyUpdate = {
+  identifier: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `dataView` being updated. */
+  patch: UpdateDataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+};
+
+/** The fields on `dataView` to look up the row to update. */
+export type DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingOutcomeDisplayPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `dataView` being updated. */
+  patch: UpdateDataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+};
+
+/** The fields on `dataView` to look up the row to connect. */
+export type DataViewOutcomeDisplayPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `dataView` to look up the row to delete. */
+export type DataViewOutcomeDisplayPkeyDelete = {
+  id: Scalars['Int']['input'];
 };
 
 /** Represents an update to a `DataView`. Fields that are set will be updated. */
 export type DataViewPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   defaultFilterString?: InputMaybe<Scalars['String']['input']>;
   defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
@@ -14013,6 +14234,7 @@ export type DataViewPatch = {
   filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   id?: InputMaybe<Scalars['Int']['input']>;
   identifier?: InputMaybe<Scalars['String']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   menuName?: InputMaybe<Scalars['String']['input']>;
   permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   priority?: InputMaybe<Scalars['Int']['input']>;
@@ -14025,7 +14247,18 @@ export type DataViewPatch = {
   tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** A filter to be used against many `TemplateDataViewJoin` object types. All fields are combined with a logical ‘and.’ */
+export type DataViewToManyTemplateDataViewJoinFilter = {
+  /** Every related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** No related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** Some related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateDataViewJoinFilter>;
 };
 
 /** A connection to a list of `DataView` values. */
@@ -14052,6 +14285,8 @@ export type DataViewsEdge = {
 
 /** Methods to use when ordering `DataView`. */
 export enum DataViewsOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   CodeAsc = 'CODE_ASC',
   CodeDesc = 'CODE_DESC',
   DefaultFilterStringAsc = 'DEFAULT_FILTER_STRING_ASC',
@@ -14074,6 +14309,8 @@ export enum DataViewsOrderBy {
   IdentifierDesc = 'IDENTIFIER_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   MenuNameAsc = 'MENU_NAME_ASC',
   MenuNameDesc = 'MENU_NAME_DESC',
   Natural = 'NATURAL',
@@ -16053,8 +16290,6 @@ export type DeleteFilePayload = {
   fileEdge?: Maybe<FilesEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
 };
 
 
@@ -16917,6 +17152,65 @@ export type DeleteTemplateCategoryPayloadTemplateCategoryEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateCategoriesOrderBy>>;
 };
 
+/** All input for the `deleteTemplateDataViewJoinByNodeId` mutation. */
+export type DeleteTemplateDataViewJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateDataViewJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteTemplateDataViewJoinByTemplateIdAndDataViewId` mutation. */
+export type DeleteTemplateDataViewJoinByTemplateIdAndDataViewIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `deleteTemplateDataViewJoin` mutation. */
+export type DeleteTemplateDataViewJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `TemplateDataViewJoin` mutation. */
+export type DeleteTemplateDataViewJoinPayload = {
+  __typename?: 'DeleteTemplateDataViewJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  deletedTemplateDataViewJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateDataViewJoin` that was deleted by this mutation. */
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** An edge for our `TemplateDataViewJoin`. May be used by Relay 1. */
+  templateDataViewJoinEdge?: Maybe<TemplateDataViewJoinsEdge>;
+};
+
+
+/** The output of our delete `TemplateDataViewJoin` mutation. */
+export type DeleteTemplateDataViewJoinPayloadTemplateDataViewJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
 /** All input for the `deleteTemplateElementByNodeId` mutation. */
 export type DeleteTemplateElementByNodeIdInput = {
   /**
@@ -16973,6 +17267,65 @@ export type DeleteTemplateElementPayload = {
 /** The output of our delete `TemplateElement` mutation. */
 export type DeleteTemplateElementPayloadTemplateElementEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+/** All input for the `deleteTemplateFileJoinByNodeId` mutation. */
+export type DeleteTemplateFileJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateFileJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** All input for the `deleteTemplateFileJoinByTemplateIdAndFileId` mutation. */
+export type DeleteTemplateFileJoinByTemplateIdAndFileIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `deleteTemplateFileJoin` mutation. */
+export type DeleteTemplateFileJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+};
+
+/** The output of our delete `TemplateFileJoin` mutation. */
+export type DeleteTemplateFileJoinPayload = {
+  __typename?: 'DeleteTemplateFileJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  deletedTemplateFileJoinNodeId?: Maybe<Scalars['ID']['output']>;
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateFileJoin` that was deleted by this mutation. */
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** An edge for our `TemplateFileJoin`. May be used by Relay 1. */
+  templateFileJoinEdge?: Maybe<TemplateFileJoinsEdge>;
+};
+
+
+/** The output of our delete `TemplateFileJoin` mutation. */
+export type DeleteTemplateFileJoinPayloadTemplateFileJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** All input for the `deleteTemplateFilterJoinByNodeId` mutation. */
@@ -17727,6 +18080,7 @@ export type FakePublicApplicationForeignKey0ApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
   verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
@@ -18226,6 +18580,7 @@ export type File = Node & {
   applicationResponseId?: Maybe<Scalars['Int']['output']>;
   applicationSerial?: Maybe<Scalars['String']['output']>;
   archivePath?: Maybe<Scalars['String']['output']>;
+  checksum?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   filePath: Scalars['String']['output'];
   fileSize?: Maybe<Scalars['BigInt']['output']>;
@@ -18233,19 +18588,31 @@ export type File = Node & {
   isExternalReferenceDoc: Scalars['Boolean']['output'];
   isInternalReferenceDoc: Scalars['Boolean']['output'];
   isOutputDoc: Scalars['Boolean']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   mimetype?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   originalFilename: Scalars['String']['output'];
   submitted?: Maybe<Scalars['Boolean']['output']>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
-  templateId?: Maybe<Scalars['Int']['output']>;
+  /** Reads and enables pagination through a set of `TemplateFileJoin`. */
+  templateFileJoins: TemplateFileJoinsConnection;
   thumbnailPath?: Maybe<Scalars['String']['output']>;
   timestamp: Scalars['Datetime']['output'];
   toBeDeleted: Scalars['Boolean']['output'];
   uniqueId: Scalars['String']['output'];
   userId?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type FileTemplateFileJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateFileJoinCondition>;
+  filter?: InputMaybe<TemplateFileJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** The `applicationNote` to be created by this mutation. */
@@ -18270,6 +18637,7 @@ export type FileApplicationNoteIdFkeyFileCreateInput = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18277,11 +18645,11 @@ export type FileApplicationNoteIdFkeyFileCreateInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18360,6 +18728,7 @@ export type FileApplicationResponseIdFkeyFileCreateInput = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18367,11 +18736,11 @@ export type FileApplicationResponseIdFkeyFileCreateInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18459,6 +18828,7 @@ export type FileApplicationSerialFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -18473,6 +18843,7 @@ export type FileApplicationSerialFkeyFileCreateInput = {
   applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18480,11 +18851,11 @@ export type FileApplicationSerialFkeyFileCreateInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18558,6 +18929,8 @@ export type FileCondition = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `archivePath` field. */
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `description` field. */
   description?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `filePath` field. */
@@ -18572,14 +18945,14 @@ export type FileCondition = {
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks for equality with the object’s `isOutputDoc` field. */
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `mimetype` field. */
   mimetype?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `originalFilename` field. */
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `submitted` field. */
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Checks for equality with the object’s `templateId` field. */
-  templateId?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `thumbnailPath` field. */
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `timestamp` field. */
@@ -18636,6 +19009,8 @@ export type FileFilter = {
   applicationSerial?: InputMaybe<StringFilter>;
   /** Filter by the object’s `archivePath` field. */
   archivePath?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `description` field. */
   description?: InputMaybe<StringFilter>;
   /** Filter by the object’s `filePath` field. */
@@ -18650,6 +19025,8 @@ export type FileFilter = {
   isInternalReferenceDoc?: InputMaybe<BooleanFilter>;
   /** Filter by the object’s `isOutputDoc` field. */
   isOutputDoc?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `mimetype` field. */
   mimetype?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -18660,12 +19037,10 @@ export type FileFilter = {
   originalFilename?: InputMaybe<StringFilter>;
   /** Filter by the object’s `submitted` field. */
   submitted?: InputMaybe<BooleanFilter>;
-  /** Filter by the object’s `template` relation. */
-  template?: InputMaybe<TemplateFilter>;
-  /** A related `template` exists. */
-  templateExists?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Filter by the object’s `templateId` field. */
-  templateId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `templateFileJoins` relation. */
+  templateFileJoins?: InputMaybe<FileToManyTemplateFileJoinFilter>;
+  /** Some related `templateFileJoins` exist. */
+  templateFileJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `thumbnailPath` field. */
   thumbnailPath?: InputMaybe<StringFilter>;
   /** Filter by the object’s `timestamp` field. */
@@ -18687,6 +19062,7 @@ export type FileInput = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath: Scalars['String']['input'];
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18694,11 +19070,11 @@ export type FileInput = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename: Scalars['String']['input'];
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18785,24 +19161,24 @@ export type FileOnFileForFileApplicationSerialFkeyUsingFileUniqueIdKeyUpdate = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type FileOnFileForFileTemplateIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `template` to be connected. */
+export type FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be connected. */
   nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `template` being updated. */
-  patch: TemplatePatch;
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
 };
 
 /** The fields on `file` to look up the row to update. */
-export type FileOnFileForFileTemplateIdFkeyUsingFilePkeyUpdate = {
+export type FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFilePkeyUpdate = {
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `file` being updated. */
-  patch: UpdateFileOnFileForFileTemplateIdFkeyPatch;
+  patch: UpdateFileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
 };
 
 /** The fields on `file` to look up the row to update. */
-export type FileOnFileForFileTemplateIdFkeyUsingFileUniqueIdKeyUpdate = {
+export type FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFileUniqueIdKeyUpdate = {
   /** An object where the defined keys will be set on the `file` being updated. */
-  patch: UpdateFileOnFileForFileTemplateIdFkeyPatch;
+  patch: UpdateFileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
   uniqueId: Scalars['String']['input'];
 };
 
@@ -18815,6 +19191,7 @@ export type FilePatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -18822,11 +19199,11 @@ export type FilePatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -18834,115 +19211,14 @@ export type FilePatch = {
   userId?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** The `file` to be created by this mutation. */
-export type FileTemplateIdFkeyFileCreateInput = {
-  applicationNoteId?: InputMaybe<Scalars['Int']['input']>;
-  applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
-  applicationResponseId?: InputMaybe<Scalars['Int']['input']>;
-  applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
-  applicationSerial?: InputMaybe<Scalars['String']['input']>;
-  applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
-  archivePath?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  filePath: Scalars['String']['input'];
-  fileSize?: InputMaybe<Scalars['BigInt']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
-  isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
-  isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
-  mimetype?: InputMaybe<Scalars['String']['input']>;
-  originalFilename: Scalars['String']['input'];
-  submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
-  thumbnailPath?: InputMaybe<Scalars['String']['input']>;
-  timestamp?: InputMaybe<Scalars['Datetime']['input']>;
-  toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
-  uniqueId: Scalars['String']['input'];
-  userId?: InputMaybe<Scalars['Int']['input']>;
-};
-
-/** Input for the nested mutation of `template` in the `FileInput` mutation. */
-export type FileTemplateIdFkeyInput = {
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  connectByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyConnect>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  connectById?: InputMaybe<TemplateTemplatePkeyConnect>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<TemplateNodeIdConnect>;
-  /** A `TemplateInput` object that will be created and connected to this object. */
-  create?: InputMaybe<FileTemplateIdFkeyTemplateCreateInput>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  deleteByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyDelete>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  deleteById?: InputMaybe<TemplateTemplatePkeyDelete>;
-  /** The primary key(s) for `template` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<TemplateNodeIdDelete>;
-  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
-  updateByCodeAndVersionId?: InputMaybe<TemplateOnFileForFileTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate>;
-  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
-  updateById?: InputMaybe<TemplateOnFileForFileTemplateIdFkeyUsingTemplatePkeyUpdate>;
-  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<FileOnFileForFileTemplateIdFkeyNodeIdUpdate>;
-};
-
-/** Input for the nested mutation of `file` in the `TemplateInput` mutation. */
-export type FileTemplateIdFkeyInverseInput = {
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  connectById?: InputMaybe<Array<FileFilePkeyConnect>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  connectByNodeId?: InputMaybe<Array<FileNodeIdConnect>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  connectByUniqueId?: InputMaybe<Array<FileFileUniqueIdKeyConnect>>;
-  /** A `FileInput` object that will be created and connected to this object. */
-  create?: InputMaybe<Array<FileTemplateIdFkeyFileCreateInput>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  deleteById?: InputMaybe<Array<FileFilePkeyDelete>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  deleteByNodeId?: InputMaybe<Array<FileNodeIdDelete>>;
-  /** The primary key(s) for `file` for the far side of the relationship. */
-  deleteByUniqueId?: InputMaybe<Array<FileFileUniqueIdKeyDelete>>;
-  /** Flag indicating whether all other `file` records that match this relationship should be removed. */
-  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
-  updateById?: InputMaybe<Array<FileOnFileForFileTemplateIdFkeyUsingFilePkeyUpdate>>;
-  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
-  updateByNodeId?: InputMaybe<Array<TemplateOnFileForFileTemplateIdFkeyNodeIdUpdate>>;
-  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
-  updateByUniqueId?: InputMaybe<Array<FileOnFileForFileTemplateIdFkeyUsingFileUniqueIdKeyUpdate>>;
-};
-
-/** The `template` to be created by this mutation. */
-export type FileTemplateIdFkeyTemplateCreateInput = {
-  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
-  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
-  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
-  code: Scalars['String']['input'];
-  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
-  icon?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  namePlural?: InputMaybe<Scalars['String']['input']>;
-  parentVersionId?: InputMaybe<Scalars['String']['input']>;
-  priority?: InputMaybe<Scalars['Int']['input']>;
-  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
-  serialPattern?: InputMaybe<Scalars['String']['input']>;
-  startMessage?: InputMaybe<Scalars['JSON']['input']>;
-  status?: InputMaybe<TemplateStatus>;
-  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
-  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
-  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
-  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
-  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
-  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
-  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
-  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
-  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
-  versionComment?: InputMaybe<Scalars['String']['input']>;
-  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
-  versionId: Scalars['String']['input'];
-  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+/** A filter to be used against many `TemplateFileJoin` object types. All fields are combined with a logical ‘and.’ */
+export type FileToManyTemplateFileJoinFilter = {
+  /** Every related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateFileJoinFilter>;
+  /** No related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateFileJoinFilter>;
+  /** Some related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateFileJoinFilter>;
 };
 
 /** A connection to a list of `File` values. */
@@ -18977,6 +19253,8 @@ export enum FilesOrderBy {
   ApplicationSerialDesc = 'APPLICATION_SERIAL_DESC',
   ArchivePathAsc = 'ARCHIVE_PATH_ASC',
   ArchivePathDesc = 'ARCHIVE_PATH_DESC',
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   DescriptionAsc = 'DESCRIPTION_ASC',
   DescriptionDesc = 'DESCRIPTION_DESC',
   FilePathAsc = 'FILE_PATH_ASC',
@@ -18991,6 +19269,8 @@ export enum FilesOrderBy {
   IsInternalReferenceDocDesc = 'IS_INTERNAL_REFERENCE_DOC_DESC',
   IsOutputDocAsc = 'IS_OUTPUT_DOC_ASC',
   IsOutputDocDesc = 'IS_OUTPUT_DOC_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   MimetypeAsc = 'MIMETYPE_ASC',
   MimetypeDesc = 'MIMETYPE_DESC',
   Natural = 'NATURAL',
@@ -19000,8 +19280,6 @@ export enum FilesOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
   SubmittedAsc = 'SUBMITTED_ASC',
   SubmittedDesc = 'SUBMITTED_DESC',
-  TemplateIdAsc = 'TEMPLATE_ID_ASC',
-  TemplateIdDesc = 'TEMPLATE_ID_DESC',
   ThumbnailPathAsc = 'THUMBNAIL_PATH_ASC',
   ThumbnailPathDesc = 'THUMBNAIL_PATH_DESC',
   TimestampAsc = 'TIMESTAMP_ASC',
@@ -19016,8 +19294,10 @@ export enum FilesOrderBy {
 
 export type Filter = Node & {
   __typename?: 'Filter';
+  checksum?: Maybe<Scalars['String']['output']>;
   code: Scalars['String']['output'];
   id: Scalars['Int']['output'];
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   query?: Maybe<Scalars['JSON']['output']>;
@@ -19041,10 +19321,14 @@ export type FilterTemplateFilterJoinsArgs = {
 
 /** A condition to be used against `Filter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type FilterCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `code` field. */
   code?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `query` field. */
   query?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `title` field. */
@@ -19057,10 +19341,14 @@ export type FilterCondition = {
 export type FilterFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<FilterFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `code` field. */
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<FilterFilter>;
   /** Checks for any expressions in this list. */
@@ -19099,8 +19387,10 @@ export type FilterFilterPkeyDelete = {
 
 /** An input for mutations affecting `Filter` */
 export type FilterInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -19143,8 +19433,10 @@ export type FilterOnTemplateFilterJoinForTemplateFilterJoinFilterIdFkeyUsingFilt
 
 /** Represents an update to a `Filter`. Fields that are set will be updated. */
 export type FilterPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -19185,10 +19477,14 @@ export type FiltersEdge = {
 
 /** Methods to use when ordering `Filter`. */
 export enum FiltersOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   CodeAsc = 'CODE_ASC',
   CodeDesc = 'CODE_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -19383,8 +19679,12 @@ export type Mutation = {
   createTemplateAction?: Maybe<CreateTemplateActionPayload>;
   /** Creates a single `TemplateCategory`. */
   createTemplateCategory?: Maybe<CreateTemplateCategoryPayload>;
+  /** Creates a single `TemplateDataViewJoin`. */
+  createTemplateDataViewJoin?: Maybe<CreateTemplateDataViewJoinPayload>;
   /** Creates a single `TemplateElement`. */
   createTemplateElement?: Maybe<CreateTemplateElementPayload>;
+  /** Creates a single `TemplateFileJoin`. */
+  createTemplateFileJoin?: Maybe<CreateTemplateFileJoinPayload>;
   /** Creates a single `TemplateFilterJoin`. */
   createTemplateFilterJoin?: Maybe<CreateTemplateFilterJoinPayload>;
   /** Creates a single `TemplatePermission`. */
@@ -19667,12 +19967,24 @@ export type Mutation = {
   deleteTemplateCategoryByCode?: Maybe<DeleteTemplateCategoryPayload>;
   /** Deletes a single `TemplateCategory` using its globally unique id. */
   deleteTemplateCategoryByNodeId?: Maybe<DeleteTemplateCategoryPayload>;
+  /** Deletes a single `TemplateDataViewJoin` using a unique key. */
+  deleteTemplateDataViewJoin?: Maybe<DeleteTemplateDataViewJoinPayload>;
+  /** Deletes a single `TemplateDataViewJoin` using its globally unique id. */
+  deleteTemplateDataViewJoinByNodeId?: Maybe<DeleteTemplateDataViewJoinPayload>;
+  /** Deletes a single `TemplateDataViewJoin` using a unique key. */
+  deleteTemplateDataViewJoinByTemplateIdAndDataViewId?: Maybe<DeleteTemplateDataViewJoinPayload>;
   /** Deletes a single `TemplateElement` using a unique key. */
   deleteTemplateElement?: Maybe<DeleteTemplateElementPayload>;
   /** Deletes a single `TemplateElement` using its globally unique id. */
   deleteTemplateElementByNodeId?: Maybe<DeleteTemplateElementPayload>;
   /** Deletes a single `TemplateElement` using a unique key. */
   deleteTemplateElementByTemplateCodeAndCodeAndTemplateVersion?: Maybe<DeleteTemplateElementPayload>;
+  /** Deletes a single `TemplateFileJoin` using a unique key. */
+  deleteTemplateFileJoin?: Maybe<DeleteTemplateFileJoinPayload>;
+  /** Deletes a single `TemplateFileJoin` using its globally unique id. */
+  deleteTemplateFileJoinByNodeId?: Maybe<DeleteTemplateFileJoinPayload>;
+  /** Deletes a single `TemplateFileJoin` using a unique key. */
+  deleteTemplateFileJoinByTemplateIdAndFileId?: Maybe<DeleteTemplateFileJoinPayload>;
   /** Deletes a single `TemplateFilterJoin` using a unique key. */
   deleteTemplateFilterJoin?: Maybe<DeleteTemplateFilterJoinPayload>;
   /** Deletes a single `TemplateFilterJoin` using its globally unique id. */
@@ -19976,12 +20288,24 @@ export type Mutation = {
   updateTemplateCategoryByCode?: Maybe<UpdateTemplateCategoryPayload>;
   /** Updates a single `TemplateCategory` using its globally unique id and a patch. */
   updateTemplateCategoryByNodeId?: Maybe<UpdateTemplateCategoryPayload>;
+  /** Updates a single `TemplateDataViewJoin` using a unique key and a patch. */
+  updateTemplateDataViewJoin?: Maybe<UpdateTemplateDataViewJoinPayload>;
+  /** Updates a single `TemplateDataViewJoin` using its globally unique id and a patch. */
+  updateTemplateDataViewJoinByNodeId?: Maybe<UpdateTemplateDataViewJoinPayload>;
+  /** Updates a single `TemplateDataViewJoin` using a unique key and a patch. */
+  updateTemplateDataViewJoinByTemplateIdAndDataViewId?: Maybe<UpdateTemplateDataViewJoinPayload>;
   /** Updates a single `TemplateElement` using a unique key and a patch. */
   updateTemplateElement?: Maybe<UpdateTemplateElementPayload>;
   /** Updates a single `TemplateElement` using its globally unique id and a patch. */
   updateTemplateElementByNodeId?: Maybe<UpdateTemplateElementPayload>;
   /** Updates a single `TemplateElement` using a unique key and a patch. */
   updateTemplateElementByTemplateCodeAndCodeAndTemplateVersion?: Maybe<UpdateTemplateElementPayload>;
+  /** Updates a single `TemplateFileJoin` using a unique key and a patch. */
+  updateTemplateFileJoin?: Maybe<UpdateTemplateFileJoinPayload>;
+  /** Updates a single `TemplateFileJoin` using its globally unique id and a patch. */
+  updateTemplateFileJoinByNodeId?: Maybe<UpdateTemplateFileJoinPayload>;
+  /** Updates a single `TemplateFileJoin` using a unique key and a patch. */
+  updateTemplateFileJoinByTemplateIdAndFileId?: Maybe<UpdateTemplateFileJoinPayload>;
   /** Updates a single `TemplateFilterJoin` using a unique key and a patch. */
   updateTemplateFilterJoin?: Maybe<UpdateTemplateFilterJoinPayload>;
   /** Updates a single `TemplateFilterJoin` using its globally unique id and a patch. */
@@ -20384,8 +20708,20 @@ export type MutationCreateTemplateCategoryArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateTemplateDataViewJoinArgs = {
+  input: CreateTemplateDataViewJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateTemplateElementArgs = {
   input: CreateTemplateElementInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateTemplateFileJoinArgs = {
+  input: CreateTemplateFileJoinInput;
 };
 
 
@@ -21236,6 +21572,24 @@ export type MutationDeleteTemplateCategoryByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateDataViewJoinArgs = {
+  input: DeleteTemplateDataViewJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateDataViewJoinByNodeIdArgs = {
+  input: DeleteTemplateDataViewJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateDataViewJoinByTemplateIdAndDataViewIdArgs = {
+  input: DeleteTemplateDataViewJoinByTemplateIdAndDataViewIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteTemplateElementArgs = {
   input: DeleteTemplateElementInput;
 };
@@ -21250,6 +21604,24 @@ export type MutationDeleteTemplateElementByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteTemplateElementByTemplateCodeAndCodeAndTemplateVersionArgs = {
   input: DeleteTemplateElementByTemplateCodeAndCodeAndTemplateVersionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateFileJoinArgs = {
+  input: DeleteTemplateFileJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateFileJoinByNodeIdArgs = {
+  input: DeleteTemplateFileJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTemplateFileJoinByTemplateIdAndFileIdArgs = {
+  input: DeleteTemplateFileJoinByTemplateIdAndFileIdInput;
 };
 
 
@@ -22166,6 +22538,24 @@ export type MutationUpdateTemplateCategoryByNodeIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateDataViewJoinArgs = {
+  input: UpdateTemplateDataViewJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateDataViewJoinByNodeIdArgs = {
+  input: UpdateTemplateDataViewJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateDataViewJoinByTemplateIdAndDataViewIdArgs = {
+  input: UpdateTemplateDataViewJoinByTemplateIdAndDataViewIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTemplateElementArgs = {
   input: UpdateTemplateElementInput;
 };
@@ -22180,6 +22570,24 @@ export type MutationUpdateTemplateElementByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTemplateElementByTemplateCodeAndCodeAndTemplateVersionArgs = {
   input: UpdateTemplateElementByTemplateCodeAndCodeAndTemplateVersionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateFileJoinArgs = {
+  input: UpdateTemplateFileJoinInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateFileJoinByNodeIdArgs = {
+  input: UpdateTemplateFileJoinByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTemplateFileJoinByTemplateIdAndFileIdArgs = {
+  input: UpdateTemplateFileJoinByTemplateIdAndFileIdInput;
 };
 
 
@@ -22378,6 +22786,7 @@ export type NotificationApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -22931,6 +23340,7 @@ export type OrganisationApplicationJoinApplicationIdFkeyApplicationCreateInput =
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -24185,9 +24595,11 @@ export type PermissionJoinPermissionNameIdFkeyPermissionJoinCreateInput = {
 
 /** The `permissionName` to be created by this mutation. */
 export type PermissionJoinPermissionNameIdFkeyPermissionNameCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -24236,9 +24648,11 @@ export enum PermissionJoinsOrderBy {
 
 export type PermissionName = Node & {
   __typename?: 'PermissionName';
+  checksum?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isSystemOrgPermission?: Maybe<Scalars['Boolean']['output']>;
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
@@ -24280,12 +24694,16 @@ export type PermissionNameTemplatePermissionsArgs = {
  * tested for equality and combined with a logical ‘and.’
  */
 export type PermissionNameCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `description` field. */
   description?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `id` field. */
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isSystemOrgPermission` field. */
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `name` field. */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `permissionPolicyId` field. */
@@ -24296,12 +24714,16 @@ export type PermissionNameCondition = {
 export type PermissionNameFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<PermissionNameFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `description` field. */
   description?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isSystemOrgPermission` field. */
   isSystemOrgPermission?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Filter by the object’s `name` field. */
   name?: InputMaybe<StringFilter>;
   /** Negates the expression. */
@@ -24326,9 +24748,11 @@ export type PermissionNameFilter = {
 
 /** An input for mutations affecting `PermissionName` */
 export type PermissionNameInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -24416,9 +24840,11 @@ export type PermissionNameOnTemplatePermissionForTemplatePermissionPermissionNam
 
 /** Represents an update to a `PermissionName`. Fields that are set will be updated. */
 export type PermissionNamePatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -24498,9 +24924,11 @@ export type PermissionNamePermissionPolicyIdFkeyInverseInput = {
 
 /** The `permissionName` to be created by this mutation. */
 export type PermissionNamePermissionPolicyIdFkeyPermissionNameCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyToPermissionPolicyId?: InputMaybe<PermissionNamePermissionPolicyIdFkeyInput>;
@@ -24563,12 +24991,16 @@ export type PermissionNamesEdge = {
 
 /** Methods to use when ordering `PermissionName`. */
 export enum PermissionNamesOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   DescriptionAsc = 'DESCRIPTION_ASC',
   DescriptionDesc = 'DESCRIPTION_DESC',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
   IsSystemOrgPermissionAsc = 'IS_SYSTEM_ORG_PERMISSION_ASC',
   IsSystemOrgPermissionDesc = 'IS_SYSTEM_ORG_PERMISSION_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
   Natural = 'NATURAL',
@@ -25498,12 +25930,24 @@ export type Query = Node & {
   templateCategoryByCode?: Maybe<TemplateCategory>;
   /** Reads a single `TemplateCategory` using its globally unique `ID`. */
   templateCategoryByNodeId?: Maybe<TemplateCategory>;
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** Reads a single `TemplateDataViewJoin` using its globally unique `ID`. */
+  templateDataViewJoinByNodeId?: Maybe<TemplateDataViewJoin>;
+  templateDataViewJoinByTemplateIdAndDataViewId?: Maybe<TemplateDataViewJoin>;
+  /** Reads and enables pagination through a set of `TemplateDataViewJoin`. */
+  templateDataViewJoins?: Maybe<TemplateDataViewJoinsConnection>;
   templateElement?: Maybe<TemplateElement>;
   /** Reads a single `TemplateElement` using its globally unique `ID`. */
   templateElementByNodeId?: Maybe<TemplateElement>;
   templateElementByTemplateCodeAndCodeAndTemplateVersion?: Maybe<TemplateElement>;
   /** Reads and enables pagination through a set of `TemplateElement`. */
   templateElements?: Maybe<TemplateElementsConnection>;
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** Reads a single `TemplateFileJoin` using its globally unique `ID`. */
+  templateFileJoinByNodeId?: Maybe<TemplateFileJoin>;
+  templateFileJoinByTemplateIdAndFileId?: Maybe<TemplateFileJoin>;
+  /** Reads and enables pagination through a set of `TemplateFileJoin`. */
+  templateFileJoins?: Maybe<TemplateFileJoinsConnection>;
   templateFilterJoin?: Maybe<TemplateFilterJoin>;
   /** Reads a single `TemplateFilterJoin` using its globally unique `ID`. */
   templateFilterJoinByNodeId?: Maybe<TemplateFilterJoin>;
@@ -27436,6 +27880,38 @@ export type QueryTemplateCategoryByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinByTemplateIdAndDataViewIdArgs = {
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateDataViewJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateDataViewJoinCondition>;
+  filter?: InputMaybe<TemplateDataViewJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryTemplateElementArgs = {
   id: Scalars['Int']['input'];
 };
@@ -27465,6 +27941,38 @@ export type QueryTemplateElementsArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinByNodeIdArgs = {
+  nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinByTemplateIdAndFileIdArgs = {
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTemplateFileJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateFileJoinCondition>;
+  filter?: InputMaybe<TemplateFileJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 
@@ -27914,6 +28422,7 @@ export type ReviewApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -28107,6 +28616,7 @@ export type ReviewAssignmentApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -29333,10 +29843,10 @@ export type ReviewAssignmentTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -29349,6 +29859,8 @@ export type ReviewAssignmentTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -31893,11 +32405,10 @@ export type Template = Node & {
   canApplicantMakeChanges?: Maybe<Scalars['Boolean']['output']>;
   code: Scalars['String']['output'];
   dashboardRestrictions?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** Reads and enables pagination through a set of `File`. */
-  files: FilesConnection;
   icon?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isLinear?: Maybe<Scalars['Boolean']['output']>;
+  linkedEntityData?: Maybe<Scalars['JSON']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   namePlural?: Maybe<Scalars['String']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -31915,6 +32426,10 @@ export type Template = Node & {
   /** Reads a single `TemplateCategory` that is related to this `Template`. */
   templateCategory?: Maybe<TemplateCategory>;
   templateCategoryId?: Maybe<Scalars['Int']['output']>;
+  /** Reads and enables pagination through a set of `TemplateDataViewJoin`. */
+  templateDataViewJoins: TemplateDataViewJoinsConnection;
+  /** Reads and enables pagination through a set of `TemplateFileJoin`. */
+  templateFileJoins: TemplateFileJoinsConnection;
   /** Reads and enables pagination through a set of `TemplateFilterJoin`. */
   templateFilterJoins: TemplateFilterJoinsConnection;
   /** Reads and enables pagination through a set of `TemplatePermission`. */
@@ -31956,18 +32471,6 @@ export type TemplateApplicationsArgs = {
 };
 
 
-export type TemplateFilesArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  condition?: InputMaybe<FileCondition>;
-  filter?: InputMaybe<FileFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<FilesOrderBy>>;
-};
-
-
 export type TemplateReviewAssignmentsArgs = {
   after?: InputMaybe<Scalars['Cursor']['input']>;
   before?: InputMaybe<Scalars['Cursor']['input']>;
@@ -31989,6 +32492,30 @@ export type TemplateTemplateActionsArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Array<TemplateActionsOrderBy>>;
+};
+
+
+export type TemplateTemplateDataViewJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateDataViewJoinCondition>;
+  filter?: InputMaybe<TemplateDataViewJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
+
+export type TemplateTemplateFileJoinsArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  condition?: InputMaybe<TemplateFileJoinCondition>;
+  filter?: InputMaybe<TemplateFileJoinFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 
@@ -32263,10 +32790,10 @@ export type TemplateActionTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -32279,6 +32806,8 @@ export type TemplateActionTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -32363,6 +32892,8 @@ export type TemplateCategoriesEdge = {
 
 /** Methods to use when ordering `TemplateCategory`. */
 export enum TemplateCategoriesOrderBy {
+  ChecksumAsc = 'CHECKSUM_ASC',
+  ChecksumDesc = 'CHECKSUM_DESC',
   CodeAsc = 'CODE_ASC',
   CodeDesc = 'CODE_DESC',
   IconAsc = 'ICON_ASC',
@@ -32371,6 +32902,8 @@ export enum TemplateCategoriesOrderBy {
   IdDesc = 'ID_DESC',
   IsSubmenuAsc = 'IS_SUBMENU_ASC',
   IsSubmenuDesc = 'IS_SUBMENU_DESC',
+  LastModifiedAsc = 'LAST_MODIFIED_ASC',
+  LastModifiedDesc = 'LAST_MODIFIED_DESC',
   Natural = 'NATURAL',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
@@ -32384,10 +32917,12 @@ export enum TemplateCategoriesOrderBy {
 
 export type TemplateCategory = Node & {
   __typename?: 'TemplateCategory';
+  checksum?: Maybe<Scalars['String']['output']>;
   code: Scalars['String']['output'];
   icon?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isSubmenu?: Maybe<Scalars['Boolean']['output']>;
+  lastModified?: Maybe<Scalars['Datetime']['output']>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID']['output'];
   priority?: Maybe<Scalars['Int']['output']>;
@@ -32414,6 +32949,8 @@ export type TemplateCategoryTemplatesArgs = {
  * tested for equality and combined with a logical ‘and.’
  */
 export type TemplateCategoryCondition = {
+  /** Checks for equality with the object’s `checksum` field. */
+  checksum?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `code` field. */
   code?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `icon` field. */
@@ -32422,6 +32959,8 @@ export type TemplateCategoryCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isSubmenu` field. */
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `lastModified` field. */
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   /** Checks for equality with the object’s `priority` field. */
   priority?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `title` field. */
@@ -32434,6 +32973,8 @@ export type TemplateCategoryCondition = {
 export type TemplateCategoryFilter = {
   /** Checks for all expressions in this list. */
   and?: InputMaybe<Array<TemplateCategoryFilter>>;
+  /** Filter by the object’s `checksum` field. */
+  checksum?: InputMaybe<StringFilter>;
   /** Filter by the object’s `code` field. */
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `icon` field. */
@@ -32442,6 +32983,8 @@ export type TemplateCategoryFilter = {
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isSubmenu` field. */
   isSubmenu?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `lastModified` field. */
+  lastModified?: InputMaybe<DatetimeFilter>;
   /** Negates the expression. */
   not?: InputMaybe<TemplateCategoryFilter>;
   /** Checks for any expressions in this list. */
@@ -32460,10 +33003,12 @@ export type TemplateCategoryFilter = {
 
 /** An input for mutations affecting `TemplateCategory` */
 export type TemplateCategoryInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -32506,10 +33051,12 @@ export type TemplateCategoryOnTemplateForTemplateTemplateCategoryIdFkeyUsingTemp
 
 /** Represents an update to a `TemplateCategory`. Fields that are set will be updated. */
 export type TemplateCategoryPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -32563,6 +33110,8 @@ export type TemplateCondition = {
   id?: InputMaybe<Scalars['Int']['input']>;
   /** Checks for equality with the object’s `isLinear` field. */
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks for equality with the object’s `linkedEntityData` field. */
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   /** Checks for equality with the object’s `name` field. */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Checks for equality with the object’s `namePlural` field. */
@@ -32590,6 +33139,368 @@ export type TemplateCondition = {
   /** Checks for equality with the object’s `versionTimestamp` field. */
   versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
 };
+
+export type TemplateDataViewJoin = Node & {
+  __typename?: 'TemplateDataViewJoin';
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  dataViewId: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  templateId: Scalars['Int']['output'];
+};
+
+/**
+ * A condition to be used against `TemplateDataViewJoin` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type TemplateDataViewJoinCondition = {
+  /** Checks for equality with the object’s `dataViewId` field. */
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `templateId` field. */
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `dataView` to be created by this mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyDataViewCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
+  code: Scalars['String']['input'];
+  defaultFilterString?: InputMaybe<Scalars['String']['input']>;
+  defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
+  detailViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  detailViewHeaderColumn: Scalars['String']['input'];
+  detailViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  filterExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  identifier: Scalars['String']['input'];
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
+  menuName?: InputMaybe<Scalars['String']['input']>;
+  permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  rawDataExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rawDataIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rowRestrictions?: InputMaybe<Scalars['JSON']['input']>;
+  showLinkedApplications?: InputMaybe<Scalars['Boolean']['input']>;
+  submenu?: InputMaybe<Scalars['String']['input']>;
+  tableName: Scalars['String']['input'];
+  tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Input for the nested mutation of `dataView` in the `TemplateDataViewJoinInput` mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyInput = {
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  connectById?: InputMaybe<DataViewOutcomeDisplayPkeyConnect>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  connectByIdentifier?: InputMaybe<DataViewDataViewIdentifierKeyConnect>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<DataViewNodeIdConnect>;
+  /** A `DataViewInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyDataViewCreateInput>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  deleteById?: InputMaybe<DataViewOutcomeDisplayPkeyDelete>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  deleteByIdentifier?: InputMaybe<DataViewDataViewIdentifierKeyDelete>;
+  /** The primary key(s) for `dataView` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<DataViewNodeIdDelete>;
+  /** The primary key(s) and patch data for `dataView` for the far side of the relationship. */
+  updateById?: InputMaybe<DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingOutcomeDisplayPkeyUpdate>;
+  /** The primary key(s) and patch data for `dataView` for the far side of the relationship. */
+  updateByIdentifier?: InputMaybe<DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingDataViewIdentifierKeyUpdate>;
+  /** The primary key(s) and patch data for `dataView` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `templateDataViewJoin` in the `DataViewInput` mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyInverseInput = {
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyConnect>>;
+  /** A `TemplateDataViewJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateDataViewJoinDataViewIdFkeyTemplateDataViewJoinCreateInput>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyDelete>>;
+  /** Flag indicating whether all other `templateDataViewJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<DataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate>>;
+};
+
+/** The `templateDataViewJoin` to be created by this mutation. */
+export type TemplateDataViewJoinDataViewIdFkeyTemplateDataViewJoinCreateInput = {
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** A filter to be used against `TemplateDataViewJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateDataViewJoinFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<TemplateDataViewJoinFilter>>;
+  /** Filter by the object’s `dataView` relation. */
+  dataView?: InputMaybe<DataViewFilter>;
+  /** Filter by the object’s `dataViewId` field. */
+  dataViewId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<TemplateDataViewJoinFilter>>;
+  /** Filter by the object’s `template` relation. */
+  template?: InputMaybe<TemplateFilter>;
+  /** Filter by the object’s `templateId` field. */
+  templateId?: InputMaybe<IntFilter>;
+};
+
+/** An input for mutations affecting `TemplateDataViewJoin` */
+export type TemplateDataViewJoinInput = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type TemplateDataViewJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type TemplateDataViewJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `dataView` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `dataView` being updated. */
+  patch: DataViewPatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate = {
+  dataViewId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `template` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: TemplatePatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to update. */
+export type TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate = {
+  dataViewId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** Represents an update to a `TemplateDataViewJoin`. Fields that are set will be updated. */
+export type TemplateDataViewJoinPatch = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to connect. */
+export type TemplateDataViewJoinTemplateDataViewJoinPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to delete. */
+export type TemplateDataViewJoinTemplateDataViewJoinPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to connect. */
+export type TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyConnect = {
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** The fields on `templateDataViewJoin` to look up the row to delete. */
+export type TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyDelete = {
+  dataViewId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** Input for the nested mutation of `template` in the `TemplateDataViewJoinInput` mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyInput = {
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectById?: InputMaybe<TemplateTemplatePkeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<TemplateNodeIdConnect>;
+  /** A `TemplateInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyTemplateCreateInput>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteById?: InputMaybe<TemplateTemplatePkeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<TemplateNodeIdDelete>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByCodeAndVersionId?: InputMaybe<TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateById?: InputMaybe<TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplatePkeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `templateDataViewJoin` in the `TemplateInput` mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyInverseInput = {
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  connectByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyConnect>>;
+  /** A `TemplateDataViewJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateDataViewJoinTemplateIdFkeyTemplateDataViewJoinCreateInput>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinPkeyDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateDataViewJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateDataViewJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinTemplateDataViewJoinTemplateIdDataViewIdKeyDelete>>;
+  /** Flag indicating whether all other `templateDataViewJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateDataViewJoin` for the far side of the relationship. */
+  updateByTemplateIdAndDataViewId?: InputMaybe<Array<TemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateDataViewJoinTemplateIdDataViewIdKeyUpdate>>;
+};
+
+/** The `template` to be created by this mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyTemplateCreateInput = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code: Scalars['String']['input'];
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId: Scalars['String']['input'];
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The `templateDataViewJoin` to be created by this mutation. */
+export type TemplateDataViewJoinTemplateIdFkeyTemplateDataViewJoinCreateInput = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** A connection to a list of `TemplateDataViewJoin` values. */
+export type TemplateDataViewJoinsConnection = {
+  __typename?: 'TemplateDataViewJoinsConnection';
+  /** A list of edges which contains the `TemplateDataViewJoin` and cursor to aid in pagination. */
+  edges: Array<TemplateDataViewJoinsEdge>;
+  /** A list of `TemplateDataViewJoin` objects. */
+  nodes: Array<Maybe<TemplateDataViewJoin>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `TemplateDataViewJoin` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `TemplateDataViewJoin` edge in the connection. */
+export type TemplateDataViewJoinsEdge = {
+  __typename?: 'TemplateDataViewJoinsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `TemplateDataViewJoin` at the end of the edge. */
+  node?: Maybe<TemplateDataViewJoin>;
+};
+
+/** Methods to use when ordering `TemplateDataViewJoin`. */
+export enum TemplateDataViewJoinsOrderBy {
+  DataViewIdAsc = 'DATA_VIEW_ID_ASC',
+  DataViewIdDesc = 'DATA_VIEW_ID_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  TemplateIdAsc = 'TEMPLATE_ID_ASC',
+  TemplateIdDesc = 'TEMPLATE_ID_DESC'
+}
 
 export type TemplateElement = Node & {
   __typename?: 'TemplateElement';
@@ -33106,6 +34017,366 @@ export enum TemplateElementsOrderBy {
   VisibilityConditionDesc = 'VISIBILITY_CONDITION_DESC'
 }
 
+export type TemplateFileJoin = Node & {
+  __typename?: 'TemplateFileJoin';
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  fileId: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID']['output'];
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  templateId: Scalars['Int']['output'];
+};
+
+/**
+ * A condition to be used against `TemplateFileJoin` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type TemplateFileJoinCondition = {
+  /** Checks for equality with the object’s `fileId` field. */
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Checks for equality with the object’s `templateId` field. */
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The `file` to be created by this mutation. */
+export type TemplateFileJoinFileIdFkeyFileCreateInput = {
+  applicationNoteId?: InputMaybe<Scalars['Int']['input']>;
+  applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
+  applicationResponseId?: InputMaybe<Scalars['Int']['input']>;
+  applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
+  applicationSerial?: InputMaybe<Scalars['String']['input']>;
+  applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
+  archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  filePath: Scalars['String']['input'];
+  fileSize?: InputMaybe<Scalars['BigInt']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
+  mimetype?: InputMaybe<Scalars['String']['input']>;
+  originalFilename: Scalars['String']['input'];
+  submitted?: InputMaybe<Scalars['Boolean']['input']>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
+  thumbnailPath?: InputMaybe<Scalars['String']['input']>;
+  timestamp?: InputMaybe<Scalars['Datetime']['input']>;
+  toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
+  uniqueId: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** Input for the nested mutation of `file` in the `TemplateFileJoinInput` mutation. */
+export type TemplateFileJoinFileIdFkeyInput = {
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  connectById?: InputMaybe<FileFilePkeyConnect>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<FileNodeIdConnect>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  connectByUniqueId?: InputMaybe<FileFileUniqueIdKeyConnect>;
+  /** A `FileInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateFileJoinFileIdFkeyFileCreateInput>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  deleteById?: InputMaybe<FileFilePkeyDelete>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<FileNodeIdDelete>;
+  /** The primary key(s) for `file` for the far side of the relationship. */
+  deleteByUniqueId?: InputMaybe<FileFileUniqueIdKeyDelete>;
+  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
+  updateById?: InputMaybe<FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFilePkeyUpdate>;
+  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate>;
+  /** The primary key(s) and patch data for `file` for the far side of the relationship. */
+  updateByUniqueId?: InputMaybe<FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingFileUniqueIdKeyUpdate>;
+};
+
+/** Input for the nested mutation of `templateFileJoin` in the `FileInput` mutation. */
+export type TemplateFileJoinFileIdFkeyInverseInput = {
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyConnect>>;
+  /** A `TemplateFileJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateFileJoinFileIdFkeyTemplateFileJoinCreateInput>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyDelete>>;
+  /** Flag indicating whether all other `templateFileJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<FileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate>>;
+};
+
+/** The `templateFileJoin` to be created by this mutation. */
+export type TemplateFileJoinFileIdFkeyTemplateFileJoinCreateInput = {
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** A filter to be used against `TemplateFileJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateFileJoinFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<TemplateFileJoinFilter>>;
+  /** Filter by the object’s `file` relation. */
+  file?: InputMaybe<FileFilter>;
+  /** Filter by the object’s `fileId` field. */
+  fileId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<TemplateFileJoinFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<TemplateFileJoinFilter>>;
+  /** Filter by the object’s `template` relation. */
+  template?: InputMaybe<TemplateFilter>;
+  /** Filter by the object’s `templateId` field. */
+  templateId?: InputMaybe<IntFilter>;
+};
+
+/** An input for mutations affecting `TemplateFileJoin` */
+export type TemplateFileJoinInput = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type TemplateFileJoinNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type TemplateFileJoinNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be deleted. */
+  nodeId: Scalars['ID']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `file` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `file` being updated. */
+  patch: FilePatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate = {
+  fileId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `template` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: TemplatePatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinPkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
+};
+
+/** The fields on `templateFileJoin` to look up the row to update. */
+export type TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate = {
+  fileId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** Represents an update to a `TemplateFileJoin`. Fields that are set will be updated. */
+export type TemplateFileJoinPatch = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** The fields on `templateFileJoin` to look up the row to connect. */
+export type TemplateFileJoinTemplateFileJoinPkeyConnect = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateFileJoin` to look up the row to delete. */
+export type TemplateFileJoinTemplateFileJoinPkeyDelete = {
+  id: Scalars['Int']['input'];
+};
+
+/** The fields on `templateFileJoin` to look up the row to connect. */
+export type TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyConnect = {
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** The fields on `templateFileJoin` to look up the row to delete. */
+export type TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyDelete = {
+  fileId: Scalars['Int']['input'];
+  templateId: Scalars['Int']['input'];
+};
+
+/** Input for the nested mutation of `template` in the `TemplateFileJoinInput` mutation. */
+export type TemplateFileJoinTemplateIdFkeyInput = {
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectById?: InputMaybe<TemplateTemplatePkeyConnect>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<TemplateNodeIdConnect>;
+  /** A `TemplateInput` object that will be created and connected to this object. */
+  create?: InputMaybe<TemplateFileJoinTemplateIdFkeyTemplateCreateInput>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByCodeAndVersionId?: InputMaybe<TemplateTemplateCodeVersionIdKeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteById?: InputMaybe<TemplateTemplatePkeyDelete>;
+  /** The primary key(s) for `template` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<TemplateNodeIdDelete>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByCodeAndVersionId?: InputMaybe<TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateById?: InputMaybe<TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplatePkeyUpdate>;
+  /** The primary key(s) and patch data for `template` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `templateFileJoin` in the `TemplateInput` mutation. */
+export type TemplateFileJoinTemplateIdFkeyInverseInput = {
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdConnect>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  connectByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyConnect>>;
+  /** A `TemplateFileJoinInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<TemplateFileJoinTemplateIdFkeyTemplateFileJoinCreateInput>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinPkeyDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<TemplateFileJoinNodeIdDelete>>;
+  /** The primary key(s) for `templateFileJoin` for the far side of the relationship. */
+  deleteByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinTemplateFileJoinTemplateIdFileIdKeyDelete>>;
+  /** Flag indicating whether all other `templateFileJoin` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateById?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinPkeyUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<Array<TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate>>;
+  /** The primary key(s) and patch data for `templateFileJoin` for the far side of the relationship. */
+  updateByTemplateIdAndFileId?: InputMaybe<Array<TemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateFileJoinTemplateIdFileIdKeyUpdate>>;
+};
+
+/** The `template` to be created by this mutation. */
+export type TemplateFileJoinTemplateIdFkeyTemplateCreateInput = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code: Scalars['String']['input'];
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId: Scalars['String']['input'];
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** The `templateFileJoin` to be created by this mutation. */
+export type TemplateFileJoinTemplateIdFkeyTemplateFileJoinCreateInput = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** A connection to a list of `TemplateFileJoin` values. */
+export type TemplateFileJoinsConnection = {
+  __typename?: 'TemplateFileJoinsConnection';
+  /** A list of edges which contains the `TemplateFileJoin` and cursor to aid in pagination. */
+  edges: Array<TemplateFileJoinsEdge>;
+  /** A list of `TemplateFileJoin` objects. */
+  nodes: Array<Maybe<TemplateFileJoin>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `TemplateFileJoin` you could get from the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** A `TemplateFileJoin` edge in the connection. */
+export type TemplateFileJoinsEdge = {
+  __typename?: 'TemplateFileJoinsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']['output']>;
+  /** The `TemplateFileJoin` at the end of the edge. */
+  node?: Maybe<TemplateFileJoin>;
+};
+
+/** Methods to use when ordering `TemplateFileJoin`. */
+export enum TemplateFileJoinsOrderBy {
+  FileIdAsc = 'FILE_ID_ASC',
+  FileIdDesc = 'FILE_ID_DESC',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  Natural = 'NATURAL',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC',
+  TemplateIdAsc = 'TEMPLATE_ID_ASC',
+  TemplateIdDesc = 'TEMPLATE_ID_DESC'
+}
+
 /** A filter to be used against `Template` object types. All fields are combined with a logical ‘and.’ */
 export type TemplateFilter = {
   /** Filter by the object’s `actionQueues` relation. */
@@ -33124,16 +34395,14 @@ export type TemplateFilter = {
   code?: InputMaybe<StringFilter>;
   /** Filter by the object’s `dashboardRestrictions` field. */
   dashboardRestrictions?: InputMaybe<StringListFilter>;
-  /** Filter by the object’s `files` relation. */
-  files?: InputMaybe<TemplateToManyFileFilter>;
-  /** Some related `files` exist. */
-  filesExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `icon` field. */
   icon?: InputMaybe<StringFilter>;
   /** Filter by the object’s `id` field. */
   id?: InputMaybe<IntFilter>;
   /** Filter by the object’s `isLinear` field. */
   isLinear?: InputMaybe<BooleanFilter>;
+  /** Filter by the object’s `linkedEntityData` field. */
+  linkedEntityData?: InputMaybe<JsonFilter>;
   /** Filter by the object’s `name` field. */
   name?: InputMaybe<StringFilter>;
   /** Filter by the object’s `namePlural` field. */
@@ -33168,6 +34437,14 @@ export type TemplateFilter = {
   templateCategoryExists?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `templateCategoryId` field. */
   templateCategoryId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `templateDataViewJoins` relation. */
+  templateDataViewJoins?: InputMaybe<TemplateToManyTemplateDataViewJoinFilter>;
+  /** Some related `templateDataViewJoins` exist. */
+  templateDataViewJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter by the object’s `templateFileJoins` relation. */
+  templateFileJoins?: InputMaybe<TemplateToManyTemplateFileJoinFilter>;
+  /** Some related `templateFileJoins` exist. */
+  templateFileJoinsExist?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `templateFilterJoins` relation. */
   templateFilterJoins?: InputMaybe<TemplateToManyTemplateFilterJoinFilter>;
   /** Some related `templateFilterJoins` exist. */
@@ -33246,8 +34523,10 @@ export type TemplateFilterJoinFilter = {
 
 /** The `filter` to be created by this mutation. */
 export type TemplateFilterJoinFilterIdFkeyFilterCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -33427,10 +34706,10 @@ export type TemplateFilterJoinTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -33443,6 +34722,8 @@ export type TemplateFilterJoinTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -33504,10 +34785,10 @@ export type TemplateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -33520,6 +34801,8 @@ export type TemplateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -33590,29 +34873,6 @@ export type TemplateOnApplicationForApplicationTemplateIdFkeyUsingTemplatePkeyUp
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type TemplateOnFileForFileTemplateIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `file` to be connected. */
-  nodeId: Scalars['ID']['input'];
-  /** An object where the defined keys will be set on the `file` being updated. */
-  patch: FilePatch;
-};
-
-/** The fields on `template` to look up the row to update. */
-export type TemplateOnFileForFileTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate = {
-  code: Scalars['String']['input'];
-  /** An object where the defined keys will be set on the `template` being updated. */
-  patch: UpdateTemplateOnFileForFileTemplateIdFkeyPatch;
-  versionId: Scalars['String']['input'];
-};
-
-/** The fields on `template` to look up the row to update. */
-export type TemplateOnFileForFileTemplateIdFkeyUsingTemplatePkeyUpdate = {
-  id: Scalars['Int']['input'];
-  /** An object where the defined keys will be set on the `template` being updated. */
-  patch: UpdateTemplateOnFileForFileTemplateIdFkeyPatch;
-};
-
-/** The globally unique `ID` look up for the row to update. */
 export type TemplateOnReviewAssignmentForReviewAssignmentTemplateIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `reviewAssignment` to be connected. */
   nodeId: Scalars['ID']['input'];
@@ -33656,6 +34916,52 @@ export type TemplateOnTemplateActionForTemplateActionTemplateIdFkeyUsingTemplate
   id: Scalars['Int']['input'];
   /** An object where the defined keys will be set on the `template` being updated. */
   patch: UpdateTemplateOnTemplateActionForTemplateActionTemplateIdFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateDataViewJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate = {
+  code: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+  versionId: Scalars['String']['input'];
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyUsingTemplatePkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `templateFileJoin` to be connected. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplateCodeVersionIdKeyUpdate = {
+  code: Scalars['String']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
+  versionId: Scalars['String']['input'];
+};
+
+/** The fields on `template` to look up the row to update. */
+export type TemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyUsingTemplatePkeyUpdate = {
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `template` being updated. */
+  patch: UpdateTemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch;
 };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -33803,10 +35109,10 @@ export type TemplatePatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -33819,6 +35125,8 @@ export type TemplatePatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -33841,7 +35149,7 @@ export type TemplatePermission = Node & {
   nodeId: Scalars['ID']['output'];
   /** Reads a single `PermissionName` that is related to this `TemplatePermission`. */
   permissionName?: Maybe<PermissionName>;
-  permissionNameId?: Maybe<Scalars['Int']['output']>;
+  permissionNameId: Scalars['Int']['output'];
   restrictions?: Maybe<Scalars['JSON']['output']>;
   stageNumber?: Maybe<Scalars['Int']['output']>;
   /** Reads a single `Template` that is related to this `TemplatePermission`. */
@@ -33894,8 +35202,6 @@ export type TemplatePermissionFilter = {
   or?: InputMaybe<Array<TemplatePermissionFilter>>;
   /** Filter by the object’s `permissionName` relation. */
   permissionName?: InputMaybe<PermissionNameFilter>;
-  /** A related `permissionName` exists. */
-  permissionNameExists?: InputMaybe<Scalars['Boolean']['input']>;
   /** Filter by the object’s `permissionNameId` field. */
   permissionNameId?: InputMaybe<IntFilter>;
   /** Filter by the object’s `restrictions` field. */
@@ -34026,9 +35332,11 @@ export type TemplatePermissionPermissionNameIdFkeyInverseInput = {
 
 /** The `permissionName` to be created by this mutation. */
 export type TemplatePermissionPermissionNameIdFkeyPermissionNameCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -34101,10 +35409,10 @@ export type TemplatePermissionTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -34117,6 +35425,8 @@ export type TemplatePermissionTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -34406,10 +35716,10 @@ export type TemplateSectionTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -34422,6 +35732,8 @@ export type TemplateSectionTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -35041,10 +36353,10 @@ export type TemplateStageTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -35057,6 +36369,8 @@ export type TemplateStageTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -35246,10 +36560,12 @@ export type TemplateTemplateCategoryIdFkeyInverseInput = {
 
 /** The `templateCategory` to be created by this mutation. */
 export type TemplateTemplateCategoryIdFkeyTemplateCategoryCreateInput = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code: Scalars['String']['input'];
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -35263,10 +36579,10 @@ export type TemplateTemplateCategoryIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -35278,6 +36594,8 @@ export type TemplateTemplateCategoryIdFkeyTemplateCreateInput = {
   submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -35331,16 +36649,6 @@ export type TemplateToManyApplicationFilter = {
   some?: InputMaybe<ApplicationFilter>;
 };
 
-/** A filter to be used against many `File` object types. All fields are combined with a logical ‘and.’ */
-export type TemplateToManyFileFilter = {
-  /** Every related `File` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  every?: InputMaybe<FileFilter>;
-  /** No related `File` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  none?: InputMaybe<FileFilter>;
-  /** Some related `File` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-  some?: InputMaybe<FileFilter>;
-};
-
 /** A filter to be used against many `ReviewAssignment` object types. All fields are combined with a logical ‘and.’ */
 export type TemplateToManyReviewAssignmentFilter = {
   /** Every related `ReviewAssignment` matches the filter criteria. All fields are combined with a logical ‘and.’ */
@@ -35359,6 +36667,26 @@ export type TemplateToManyTemplateActionFilter = {
   none?: InputMaybe<TemplateActionFilter>;
   /** Some related `TemplateAction` matches the filter criteria. All fields are combined with a logical ‘and.’ */
   some?: InputMaybe<TemplateActionFilter>;
+};
+
+/** A filter to be used against many `TemplateDataViewJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateToManyTemplateDataViewJoinFilter = {
+  /** Every related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** No related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateDataViewJoinFilter>;
+  /** Some related `TemplateDataViewJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateDataViewJoinFilter>;
+};
+
+/** A filter to be used against many `TemplateFileJoin` object types. All fields are combined with a logical ‘and.’ */
+export type TemplateToManyTemplateFileJoinFilter = {
+  /** Every related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  every?: InputMaybe<TemplateFileJoinFilter>;
+  /** No related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  none?: InputMaybe<TemplateFileJoinFilter>;
+  /** Some related `TemplateFileJoin` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+  some?: InputMaybe<TemplateFileJoinFilter>;
 };
 
 /** A filter to be used against many `TemplateFilterJoin` object types. All fields are combined with a logical ‘and.’ */
@@ -35447,6 +36775,8 @@ export enum TemplatesOrderBy {
   IdDesc = 'ID_DESC',
   IsLinearAsc = 'IS_LINEAR_ASC',
   IsLinearDesc = 'IS_LINEAR_DESC',
+  LinkedEntityDataAsc = 'LINKED_ENTITY_DATA_ASC',
+  LinkedEntityDataDesc = 'LINKED_ENTITY_DATA_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
   NamePluralAsc = 'NAME_PLURAL_ASC',
@@ -35593,6 +36923,7 @@ export type TriggerQueueApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -35960,6 +37291,7 @@ export type TriggerScheduleApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -36212,10 +37544,10 @@ export type TriggerScheduleTemplateIdFkeyTemplateCreateInput = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code: Scalars['String']['input'];
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -36228,6 +37560,8 @@ export type TriggerScheduleTemplateIdFkeyTemplateCreateInput = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -38417,8 +39751,6 @@ export type UpdateFilePayload = {
   fileEdge?: Maybe<FilesEdge>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Template` that is related to this `File`. */
-  template?: Maybe<Template>;
 };
 
 
@@ -39347,6 +40679,70 @@ export type UpdateTemplateCategoryPayloadTemplateCategoryEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateCategoriesOrderBy>>;
 };
 
+/** All input for the `updateTemplateDataViewJoinByNodeId` mutation. */
+export type UpdateTemplateDataViewJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateDataViewJoin` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `TemplateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** All input for the `updateTemplateDataViewJoinByTemplateIdAndDataViewId` mutation. */
+export type UpdateTemplateDataViewJoinByTemplateIdAndDataViewIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  dataViewId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `updateTemplateDataViewJoin` mutation. */
+export type UpdateTemplateDataViewJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateDataViewJoin` being updated. */
+  patch: TemplateDataViewJoinPatch;
+};
+
+/** The output of our update `TemplateDataViewJoin` mutation. */
+export type UpdateTemplateDataViewJoinPayload = {
+  __typename?: 'UpdateTemplateDataViewJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `DataView` that is related to this `TemplateDataViewJoin`. */
+  dataView?: Maybe<DataView>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateDataViewJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateDataViewJoin` that was updated by this mutation. */
+  templateDataViewJoin?: Maybe<TemplateDataViewJoin>;
+  /** An edge for our `TemplateDataViewJoin`. May be used by Relay 1. */
+  templateDataViewJoinEdge?: Maybe<TemplateDataViewJoinsEdge>;
+};
+
+
+/** The output of our update `TemplateDataViewJoin` mutation. */
+export type UpdateTemplateDataViewJoinPayloadTemplateDataViewJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateDataViewJoinsOrderBy>>;
+};
+
 /** All input for the `updateTemplateElementByNodeId` mutation. */
 export type UpdateTemplateElementByNodeIdInput = {
   /**
@@ -39408,6 +40804,70 @@ export type UpdateTemplateElementPayload = {
 /** The output of our update `TemplateElement` mutation. */
 export type UpdateTemplateElementPayloadTemplateElementEdgeArgs = {
   orderBy?: InputMaybe<Array<TemplateElementsOrderBy>>;
+};
+
+/** All input for the `updateTemplateFileJoinByNodeId` mutation. */
+export type UpdateTemplateFileJoinByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The globally unique `ID` which will identify a single `TemplateFileJoin` to be updated. */
+  nodeId: Scalars['ID']['input'];
+  /** An object where the defined keys will be set on the `TemplateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+};
+
+/** All input for the `updateTemplateFileJoinByTemplateIdAndFileId` mutation. */
+export type UpdateTemplateFileJoinByTemplateIdAndFileIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  fileId: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+  templateId: Scalars['Int']['input'];
+};
+
+/** All input for the `updateTemplateFileJoin` mutation. */
+export type UpdateTemplateFileJoinInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  /** An object where the defined keys will be set on the `TemplateFileJoin` being updated. */
+  patch: TemplateFileJoinPatch;
+};
+
+/** The output of our update `TemplateFileJoin` mutation. */
+export type UpdateTemplateFileJoinPayload = {
+  __typename?: 'UpdateTemplateFileJoinPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** Reads a single `File` that is related to this `TemplateFileJoin`. */
+  file?: Maybe<File>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Template` that is related to this `TemplateFileJoin`. */
+  template?: Maybe<Template>;
+  /** The `TemplateFileJoin` that was updated by this mutation. */
+  templateFileJoin?: Maybe<TemplateFileJoin>;
+  /** An edge for our `TemplateFileJoin`. May be used by Relay 1. */
+  templateFileJoinEdge?: Maybe<TemplateFileJoinsEdge>;
+};
+
+
+/** The output of our update `TemplateFileJoin` mutation. */
+export type UpdateTemplateFileJoinPayloadTemplateFileJoinEdgeArgs = {
+  orderBy?: InputMaybe<Array<TemplateFileJoinsOrderBy>>;
 };
 
 /** All input for the `updateTemplateFilterJoinByNodeId` mutation. */
@@ -40045,6 +41505,7 @@ export type UserApplicationJoinApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41152,6 +42613,7 @@ export type VerificationApplicationIdFkeyApplicationCreateInput = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41662,6 +43124,7 @@ export type UpdateApplicationOnActionQueueForActionQueueApplicationIdFkeyPatch =
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41704,6 +43167,7 @@ export type UpdateApplicationOnActivityLogForActivityLogApplicationIdFkeyPatch =
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41745,6 +43209,7 @@ export type UpdateApplicationOnApplicationForApplicationOrgIdFkeyPatch = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41786,6 +43251,7 @@ export type UpdateApplicationOnApplicationForApplicationTemplateIdFkeyPatch = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41828,6 +43294,7 @@ export type UpdateApplicationOnApplicationForFakePublicApplicationForeignKey0Pat
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
   verificationsUsingId?: InputMaybe<VerificationApplicationIdFkeyInverseInput>;
@@ -41869,6 +43336,7 @@ export type UpdateApplicationOnApplicationNoteForApplicationNoteApplicationIdFke
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41911,6 +43379,7 @@ export type UpdateApplicationOnApplicationResponseForApplicationResponseApplicat
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41953,6 +43422,7 @@ export type UpdateApplicationOnApplicationReviewerActionForApplicationReviewerAc
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -41995,6 +43465,7 @@ export type UpdateApplicationOnApplicationStageHistoryForApplicationStageHistory
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42037,6 +43508,7 @@ export type UpdateApplicationOnDataChangelogForDataChangelogApplicationIdFkeyPat
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42079,6 +43551,7 @@ export type UpdateApplicationOnDataTableAdverseDrugReactionApplicationJoinForDat
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42121,6 +43594,7 @@ export type UpdateApplicationOnDataTableLicenseApplicationJoinForDataTableLicens
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42163,6 +43637,7 @@ export type UpdateApplicationOnDataTablePermitMedicalApplicationJoinForDataTable
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42205,6 +43680,7 @@ export type UpdateApplicationOnDataTableProductApplicationJoinForDataTableProduc
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42247,6 +43723,7 @@ export type UpdateApplicationOnDataTableProvisionalProductApplicationJoinForData
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42289,6 +43766,7 @@ export type UpdateApplicationOnFileForFileApplicationSerialFkeyPatch = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42331,6 +43809,7 @@ export type UpdateApplicationOnNotificationForNotificationApplicationIdFkeyPatch
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42373,6 +43852,7 @@ export type UpdateApplicationOnOrganisationApplicationJoinForOrganisationApplica
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42415,6 +43895,7 @@ export type UpdateApplicationOnReviewAssignmentForReviewAssignmentApplicationIdF
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42457,6 +43938,7 @@ export type UpdateApplicationOnReviewForReviewApplicationIdFkeyPatch = {
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42499,6 +43981,7 @@ export type UpdateApplicationOnTriggerQueueForTriggerQueueApplicationIdFkeyPatch
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42541,6 +44024,7 @@ export type UpdateApplicationOnTriggerScheduleForTriggerScheduleApplicationIdFke
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42583,6 +44067,7 @@ export type UpdateApplicationOnUserApplicationJoinForUserApplicationJoinApplicat
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42625,6 +44110,7 @@ export type UpdateApplicationOnVerificationForVerificationApplicationIdFkeyPatch
   trigger?: InputMaybe<Trigger>;
   triggerQueuesUsingId?: InputMaybe<TriggerQueueApplicationIdFkeyInverseInput>;
   triggerSchedulesUsingId?: InputMaybe<TriggerScheduleApplicationIdFkeyInverseInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
   userApplicationJoinsUsingId?: InputMaybe<UserApplicationJoinApplicationIdFkeyInverseInput>;
   userId?: InputMaybe<Scalars['Int']['input']>;
   userListToUserId?: InputMaybe<FakePublicApplicationForeignKey0Input>;
@@ -42981,6 +44467,37 @@ export type UpdateDataTableProvisionalProductOnDataTableProvisionalProductApplic
   tradeName?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** An object where the defined keys will be set on the `dataView` being updated. */
+export type UpdateDataViewOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  defaultFilterString?: InputMaybe<Scalars['String']['input']>;
+  defaultSortColumn?: InputMaybe<Scalars['String']['input']>;
+  detailViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  detailViewHeaderColumn?: InputMaybe<Scalars['String']['input']>;
+  detailViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  filterExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filterIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
+  menuName?: InputMaybe<Scalars['String']['input']>;
+  permissionNames?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  rawDataExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rawDataIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  rowRestrictions?: InputMaybe<Scalars['JSON']['input']>;
+  showLinkedApplications?: InputMaybe<Scalars['Boolean']['input']>;
+  submenu?: InputMaybe<Scalars['String']['input']>;
+  tableName?: InputMaybe<Scalars['String']['input']>;
+  tableSearchColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewExcludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tableViewIncludeColumns?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInverseInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
 /** An object where the defined keys will be set on the `file` being updated. */
 export type UpdateFileOnFileForFileApplicationNoteIdFkeyPatch = {
   applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
@@ -42989,6 +44506,7 @@ export type UpdateFileOnFileForFileApplicationNoteIdFkeyPatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -42996,11 +44514,11 @@ export type UpdateFileOnFileForFileApplicationNoteIdFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43016,6 +44534,7 @@ export type UpdateFileOnFileForFileApplicationResponseIdFkeyPatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -43023,11 +44542,11 @@ export type UpdateFileOnFileForFileApplicationResponseIdFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43043,6 +44562,7 @@ export type UpdateFileOnFileForFileApplicationSerialFkeyPatch = {
   applicationResponseToApplicationResponseId?: InputMaybe<FileApplicationResponseIdFkeyInput>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -43050,11 +44570,11 @@ export type UpdateFileOnFileForFileApplicationSerialFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateId?: InputMaybe<Scalars['Int']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43063,7 +44583,7 @@ export type UpdateFileOnFileForFileApplicationSerialFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `file` being updated. */
-export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
+export type UpdateFileOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch = {
   applicationNoteId?: InputMaybe<Scalars['Int']['input']>;
   applicationNoteToApplicationNoteId?: InputMaybe<FileApplicationNoteIdFkeyInput>;
   applicationResponseId?: InputMaybe<Scalars['Int']['input']>;
@@ -43071,6 +44591,7 @@ export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
   applicationSerial?: InputMaybe<Scalars['String']['input']>;
   applicationToApplicationSerial?: InputMaybe<FileApplicationSerialFkeyInput>;
   archivePath?: InputMaybe<Scalars['String']['input']>;
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   filePath?: InputMaybe<Scalars['String']['input']>;
   fileSize?: InputMaybe<Scalars['BigInt']['input']>;
@@ -43078,10 +44599,11 @@ export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
   isExternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isInternalReferenceDoc?: InputMaybe<Scalars['Boolean']['input']>;
   isOutputDoc?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   mimetype?: InputMaybe<Scalars['String']['input']>;
   originalFilename?: InputMaybe<Scalars['String']['input']>;
   submitted?: InputMaybe<Scalars['Boolean']['input']>;
-  templateToTemplateId?: InputMaybe<FileTemplateIdFkeyInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinFileIdFkeyInverseInput>;
   thumbnailPath?: InputMaybe<Scalars['String']['input']>;
   timestamp?: InputMaybe<Scalars['Datetime']['input']>;
   toBeDeleted?: InputMaybe<Scalars['Boolean']['input']>;
@@ -43091,8 +44613,10 @@ export type UpdateFileOnFileForFileTemplateIdFkeyPatch = {
 
 /** An object where the defined keys will be set on the `filter` being updated. */
 export type UpdateFilterOnTemplateFilterJoinForTemplateFilterJoinFilterIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   query?: InputMaybe<Scalars['JSON']['input']>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -43408,9 +44932,11 @@ export type UpdatePermissionJoinOnPermissionJoinForPermissionJoinPermissionNameI
 
 /** An object where the defined keys will be set on the `permissionName` being updated. */
 export type UpdatePermissionNameOnPermissionJoinForPermissionJoinPermissionNameIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -43420,9 +44946,11 @@ export type UpdatePermissionNameOnPermissionJoinForPermissionJoinPermissionNameI
 
 /** An object where the defined keys will be set on the `permissionName` being updated. */
 export type UpdatePermissionNameOnPermissionNameForPermissionNamePermissionPolicyIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyToPermissionPolicyId?: InputMaybe<PermissionNamePermissionPolicyIdFkeyInput>;
@@ -43431,9 +44959,11 @@ export type UpdatePermissionNameOnPermissionNameForPermissionNamePermissionPolic
 
 /** An object where the defined keys will be set on the `permissionName` being updated. */
 export type UpdatePermissionNameOnTemplatePermissionForTemplatePermissionPermissionNameIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSystemOrgPermission?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   permissionJoinsUsingId?: InputMaybe<PermissionJoinPermissionNameIdFkeyInverseInput>;
   permissionPolicyId?: InputMaybe<Scalars['Int']['input']>;
@@ -44083,14 +45613,32 @@ export type UpdateTemplateActionOnTemplateActionForTemplateActionTemplateIdFkeyP
 
 /** An object where the defined keys will be set on the `templateCategory` being updated. */
 export type UpdateTemplateCategoryOnTemplateForTemplateTemplateCategoryIdFkeyPatch = {
+  checksum?: InputMaybe<Scalars['String']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isSubmenu?: InputMaybe<Scalars['Boolean']['input']>;
+  lastModified?: InputMaybe<Scalars['Datetime']['input']>;
   priority?: InputMaybe<Scalars['Int']['input']>;
   templatesUsingId?: InputMaybe<TemplateTemplateCategoryIdFkeyInverseInput>;
   title?: InputMaybe<Scalars['String']['input']>;
   uiLocation?: InputMaybe<Array<InputMaybe<UiLocation>>>;
+};
+
+/** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+export type UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinDataViewIdFkeyPatch = {
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `templateDataViewJoin` being updated. */
+export type UpdateTemplateDataViewJoinOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch = {
+  dataViewId?: InputMaybe<Scalars['Int']['input']>;
+  dataViewToDataViewId?: InputMaybe<TemplateDataViewJoinDataViewIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInput>;
 };
 
 /** An object where the defined keys will be set on the `templateElement` being updated. */
@@ -44167,6 +45715,22 @@ export type UpdateTemplateElementOnTemplateElementForTemplateElementSectionIdFke
   visibilityCondition?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+/** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+export type UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinFileIdFkeyPatch = {
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateId?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `templateFileJoin` being updated. */
+export type UpdateTemplateFileJoinOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch = {
+  fileId?: InputMaybe<Scalars['Int']['input']>;
+  fileToFileId?: InputMaybe<TemplateFileJoinFileIdFkeyInput>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  templateToTemplateId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInput>;
+};
+
 /** An object where the defined keys will be set on the `templateFilterJoin` being updated. */
 export type UpdateTemplateFilterJoinOnTemplateFilterJoinForTemplateFilterJoinFilterIdFkeyPatch = {
   filterToFilterId?: InputMaybe<TemplateFilterJoinFilterIdFkeyInput>;
@@ -44190,10 +45754,10 @@ export type UpdateTemplateOnActionQueueForActionQueueTemplateIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44206,6 +45770,8 @@ export type UpdateTemplateOnActionQueueForActionQueueTemplateIdFkeyPatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44224,10 +45790,10 @@ export type UpdateTemplateOnApplicationForApplicationTemplateIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44240,40 +45806,8 @@ export type UpdateTemplateOnApplicationForApplicationTemplateIdFkeyPatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
-  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
-  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
-  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
-  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
-  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
-  versionComment?: InputMaybe<Scalars['String']['input']>;
-  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
-  versionId?: InputMaybe<Scalars['String']['input']>;
-  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
-};
-
-/** An object where the defined keys will be set on the `template` being updated. */
-export type UpdateTemplateOnFileForFileTemplateIdFkeyPatch = {
-  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
-  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
-  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
-  code?: InputMaybe<Scalars['String']['input']>;
-  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
-  icon?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  namePlural?: InputMaybe<Scalars['String']['input']>;
-  parentVersionId?: InputMaybe<Scalars['String']['input']>;
-  priority?: InputMaybe<Scalars['Int']['input']>;
-  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
-  serialPattern?: InputMaybe<Scalars['String']['input']>;
-  startMessage?: InputMaybe<Scalars['JSON']['input']>;
-  status?: InputMaybe<TemplateStatus>;
-  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
-  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
-  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
-  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44292,10 +45826,10 @@ export type UpdateTemplateOnReviewAssignmentForReviewAssignmentTemplateIdFkeyPat
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44308,6 +45842,8 @@ export type UpdateTemplateOnReviewAssignmentForReviewAssignmentTemplateIdFkeyPat
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44326,10 +45862,10 @@ export type UpdateTemplateOnTemplateActionForTemplateActionTemplateIdFkeyPatch =
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44342,6 +45878,80 @@ export type UpdateTemplateOnTemplateActionForTemplateActionTemplateIdFkeyPatch =
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId?: InputMaybe<Scalars['String']['input']>;
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** An object where the defined keys will be set on the `template` being updated. */
+export type UpdateTemplateOnTemplateDataViewJoinForTemplateDataViewJoinTemplateIdFkeyPatch = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
+  templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
+  templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
+  templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
+  templateStagesUsingId?: InputMaybe<TemplateStageTemplateIdFkeyInverseInput>;
+  triggerSchedulesUsingId?: InputMaybe<TriggerScheduleTemplateIdFkeyInverseInput>;
+  versionComment?: InputMaybe<Scalars['String']['input']>;
+  versionHistory?: InputMaybe<Scalars['JSON']['input']>;
+  versionId?: InputMaybe<Scalars['String']['input']>;
+  versionTimestamp?: InputMaybe<Scalars['Datetime']['input']>;
+};
+
+/** An object where the defined keys will be set on the `template` being updated. */
+export type UpdateTemplateOnTemplateFileJoinForTemplateFileJoinTemplateIdFkeyPatch = {
+  actionQueuesUsingId?: InputMaybe<ActionQueueTemplateIdFkeyInverseInput>;
+  applicationsUsingId?: InputMaybe<ApplicationTemplateIdFkeyInverseInput>;
+  canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  namePlural?: InputMaybe<Scalars['String']['input']>;
+  parentVersionId?: InputMaybe<Scalars['String']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  reviewAssignmentsUsingId?: InputMaybe<ReviewAssignmentTemplateIdFkeyInverseInput>;
+  serialPattern?: InputMaybe<Scalars['String']['input']>;
+  startMessage?: InputMaybe<Scalars['JSON']['input']>;
+  status?: InputMaybe<TemplateStatus>;
+  submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
+  templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
+  templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
+  templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44360,10 +45970,10 @@ export type UpdateTemplateOnTemplateFilterJoinForTemplateFilterJoinTemplateIdFke
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44376,6 +45986,8 @@ export type UpdateTemplateOnTemplateFilterJoinForTemplateFilterJoinTemplateIdFke
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44394,10 +46006,10 @@ export type UpdateTemplateOnTemplateForTemplateTemplateCategoryIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44409,6 +46021,8 @@ export type UpdateTemplateOnTemplateForTemplateTemplateCategoryIdFkeyPatch = {
   submissionMessage?: InputMaybe<Scalars['JSON']['input']>;
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44427,10 +46041,10 @@ export type UpdateTemplateOnTemplatePermissionForTemplatePermissionTemplateIdFke
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44443,6 +46057,8 @@ export type UpdateTemplateOnTemplatePermissionForTemplatePermissionTemplateIdFke
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44461,10 +46077,10 @@ export type UpdateTemplateOnTemplateSectionForTemplateSectionTemplateIdFkeyPatch
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44477,6 +46093,8 @@ export type UpdateTemplateOnTemplateSectionForTemplateSectionTemplateIdFkeyPatch
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44495,10 +46113,10 @@ export type UpdateTemplateOnTemplateStageForTemplateStageTemplateIdFkeyPatch = {
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44511,6 +46129,8 @@ export type UpdateTemplateOnTemplateStageForTemplateStageTemplateIdFkeyPatch = {
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44529,10 +46149,10 @@ export type UpdateTemplateOnTriggerScheduleForTriggerScheduleTemplateIdFkeyPatch
   canApplicantMakeChanges?: InputMaybe<Scalars['Boolean']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   dashboardRestrictions?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filesUsingId?: InputMaybe<FileTemplateIdFkeyInverseInput>;
   icon?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
   isLinear?: InputMaybe<Scalars['Boolean']['input']>;
+  linkedEntityData?: InputMaybe<Scalars['JSON']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   namePlural?: InputMaybe<Scalars['String']['input']>;
   parentVersionId?: InputMaybe<Scalars['String']['input']>;
@@ -44545,6 +46165,8 @@ export type UpdateTemplateOnTriggerScheduleForTriggerScheduleTemplateIdFkeyPatch
   templateActionsUsingId?: InputMaybe<TemplateActionTemplateIdFkeyInverseInput>;
   templateCategoryId?: InputMaybe<Scalars['Int']['input']>;
   templateCategoryToTemplateCategoryId?: InputMaybe<TemplateTemplateCategoryIdFkeyInput>;
+  templateDataViewJoinsUsingId?: InputMaybe<TemplateDataViewJoinTemplateIdFkeyInverseInput>;
+  templateFileJoinsUsingId?: InputMaybe<TemplateFileJoinTemplateIdFkeyInverseInput>;
   templateFilterJoinsUsingId?: InputMaybe<TemplateFilterJoinTemplateIdFkeyInverseInput>;
   templatePermissionsUsingId?: InputMaybe<TemplatePermissionTemplateIdFkeyInverseInput>;
   templateSectionsUsingId?: InputMaybe<TemplateSectionTemplateIdFkeyInverseInput>;
@@ -44781,7 +46403,7 @@ export type UpdateVerificationOnVerificationForVerificationApplicationIdFkeyPatc
   uniqueId?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ApplicationFragment = { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null };
+export type ApplicationFragment = { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null };
 
 export type ApplicationResponseFragmentFragment = { __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null };
 
@@ -44793,7 +46415,7 @@ export type DataViewColumnDefinitionFragmentFragment = { __typename?: 'DataViewC
 
 export type ElementFragmentFragment = { __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability };
 
-export type FullTemplateFragment = { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } };
+export type FullTemplateFragment = { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId: number, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateDataViewJoins: { __typename?: 'TemplateDataViewJoinsConnection', nodes: Array<{ __typename?: 'TemplateDataViewJoin', id: number, dataView?: { __typename?: 'DataView', identifier: string, code: string, id: number, tableName: string, title?: string | null, permissionNames?: Array<string | null> | null, priority?: number | null } | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } };
 
 export type OrganisationFragment = { __typename?: 'Organisation', id: number, name?: string | null, address?: string | null, registration?: string | null, logoUrl?: string | null };
 
@@ -44822,10 +46444,11 @@ export type CreateApplicationMutationVariables = Exact<{
   outcome?: InputMaybe<ApplicationOutcome>;
   trigger?: InputMaybe<Trigger>;
   responses?: InputMaybe<Array<ApplicationResponseApplicationIdFkeyApplicationResponseCreateInput> | ApplicationResponseApplicationIdFkeyApplicationResponseCreateInput>;
+  urlProperties?: InputMaybe<Scalars['JSON']['input']>;
 }>;
 
 
-export type CreateApplicationMutation = { __typename?: 'Mutation', createApplication?: { __typename?: 'CreateApplicationPayload', application?: { __typename?: 'Application', userId?: number | null, orgId?: number | null, id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, template?: { __typename?: 'Template', code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, versionId: string, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null } | null } | null };
+export type CreateApplicationMutation = { __typename?: 'Mutation', createApplication?: { __typename?: 'CreateApplicationPayload', application?: { __typename?: 'Application', userId?: number | null, orgId?: number | null, id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null, template?: { __typename?: 'Template', code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, versionId: string, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null } | null } | null };
 
 export type CreateNoteMutationVariables = Exact<{
   applicationId: Scalars['Int']['input'];
@@ -44925,7 +46548,7 @@ export type RestartApplicationMutationVariables = Exact<{
 }>;
 
 
-export type RestartApplicationMutation = { __typename?: 'Mutation', updateApplicationBySerial?: { __typename?: 'UpdateApplicationPayload', application?: { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, applicationResponses: { __typename?: 'ApplicationResponsesConnection', nodes: Array<{ __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null } | null> } } | null } | null };
+export type RestartApplicationMutation = { __typename?: 'Mutation', updateApplicationBySerial?: { __typename?: 'UpdateApplicationPayload', application?: { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null, applicationResponses: { __typename?: 'ApplicationResponsesConnection', nodes: Array<{ __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null } | null> } } | null } | null };
 
 export type SubmitReviewMutationVariables = Exact<{
   reviewId: Scalars['Int']['input'];
@@ -44956,7 +46579,7 @@ export type UpdateTemplateMutationVariables = Exact<{
 }>;
 
 
-export type UpdateTemplateMutation = { __typename?: 'Mutation', updateTemplate?: { __typename?: 'UpdateTemplatePayload', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null } | null };
+export type UpdateTemplateMutation = { __typename?: 'Mutation', updateTemplate?: { __typename?: 'UpdateTemplatePayload', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId: number, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateDataViewJoins: { __typename?: 'TemplateDataViewJoinsConnection', nodes: Array<{ __typename?: 'TemplateDataViewJoin', id: number, dataView?: { __typename?: 'DataView', identifier: string, code: string, id: number, tableName: string, title?: string | null, permissionNames?: Array<string | null> | null, priority?: number | null } | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null } | null };
 
 export type UpdateTemplateFilterJoinMutationVariables = Exact<{
   id: Scalars['Int']['input'];
@@ -44989,7 +46612,7 @@ export type UpdateApplicationMutationVariables = Exact<{
 }>;
 
 
-export type UpdateApplicationMutation = { __typename?: 'Mutation', updateApplicationBySerial?: { __typename?: 'UpdateApplicationPayload', application?: { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null } | null } | null };
+export type UpdateApplicationMutation = { __typename?: 'Mutation', updateApplicationBySerial?: { __typename?: 'UpdateApplicationPayload', application?: { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null } | null } | null };
 
 export type UpdateResponseMutationVariables = Exact<{
   id: Scalars['Int']['input'];
@@ -45112,7 +46735,7 @@ export type GetApplicationQueryVariables = Exact<{
 }>;
 
 
-export type GetApplicationQuery = { __typename?: 'Query', applicationBySerial?: { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, template?: { __typename?: 'Template', code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, versionId: string, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', number?: number | null, title?: string | null, id: number, description?: string | null, colour?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', name: string, number: number, description?: string | null, singleReviewerAllSections: boolean } | null> } } | null> }, previewActions: { __typename?: 'TemplateActionsConnection', totalCount: number }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null, user?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null, org?: { __typename?: 'Organisation', id: number, name?: string | null, address?: string | null, registration?: string | null, logoUrl?: string | null } | null, triggerSchedules: { __typename?: 'TriggerSchedulesConnection', nodes: Array<{ __typename?: 'TriggerSchedule', id: number, timeScheduled: any, eventCode?: string | null, isActive?: boolean | null } | null> } } | null, applicationStageStatusLatests?: { __typename?: 'ApplicationStageStatusLatestsConnection', nodes: Array<{ __typename?: 'ApplicationStageStatusLatest', stage?: string | null, stageId?: number | null, stageColour?: string | null, status?: ApplicationStatus | null, stageNumber?: number | null, statusHistoryTimeCreated?: any | null, stageHistoryTimeCreated?: any | null } | null> } | null };
+export type GetApplicationQuery = { __typename?: 'Query', applicationBySerial?: { __typename?: 'Application', id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null, template?: { __typename?: 'Template', code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, versionId: string, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', number?: number | null, title?: string | null, id: number, description?: string | null, colour?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', name: string, number: number, description?: string | null, singleReviewerAllSections: boolean } | null> } } | null> }, previewActions: { __typename?: 'TemplateActionsConnection', totalCount: number }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null, user?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null, org?: { __typename?: 'Organisation', id: number, name?: string | null, address?: string | null, registration?: string | null, logoUrl?: string | null } | null, triggerSchedules: { __typename?: 'TriggerSchedulesConnection', nodes: Array<{ __typename?: 'TriggerSchedule', id: number, timeScheduled: any, eventCode?: string | null, isActive?: boolean | null } | null> } } | null, applicationStageStatusLatests?: { __typename?: 'ApplicationStageStatusLatestsConnection', nodes: Array<{ __typename?: 'ApplicationStageStatusLatest', stage?: string | null, stageId?: number | null, stageColour?: string | null, status?: ApplicationStatus | null, stageNumber?: number | null, statusHistoryTimeCreated?: any | null, stageHistoryTimeCreated?: any | null } | null> } | null };
 
 export type GetFilteredApplicationCountQueryVariables = Exact<{
   filter?: InputMaybe<ApplicationListShapeFilter>;
@@ -45149,7 +46772,7 @@ export type GetHistoryForApplicantQueryVariables = Exact<{
 }>;
 
 
-export type GetHistoryForApplicantQuery = { __typename?: 'Query', templateElementByTemplateCodeAndCodeAndTemplateVersion?: { __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability, reviewResponses: { __typename?: 'ReviewResponsesConnection', nodes: Array<{ __typename?: 'ReviewResponse', id: number, applicationResponseId?: number | null, decision?: ReviewResponseDecision | null, comment?: string | null, stageNumber?: number | null, status?: ReviewResponseStatus | null, timeUpdated?: any | null, originalReviewResponseId?: number | null, reviewResponseLinkId?: number | null, templateElementId?: number | null, review?: { __typename?: 'Review', stageNumber?: number | null, id: number, status?: ReviewStatus | null, levelNumber?: number | null, reviewer?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, applicationResponse?: { __typename?: 'ApplicationResponse', id: number, templateElementId: number } | null } | null> }, applicationResponses: { __typename?: 'ApplicationResponsesConnection', nodes: Array<{ __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, application?: { __typename?: 'Application', stageNumber?: number | null, id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, user?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null } | null> } } | null };
+export type GetHistoryForApplicantQuery = { __typename?: 'Query', templateElementByTemplateCodeAndCodeAndTemplateVersion?: { __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability, reviewResponses: { __typename?: 'ReviewResponsesConnection', nodes: Array<{ __typename?: 'ReviewResponse', id: number, applicationResponseId?: number | null, decision?: ReviewResponseDecision | null, comment?: string | null, stageNumber?: number | null, status?: ReviewResponseStatus | null, timeUpdated?: any | null, originalReviewResponseId?: number | null, reviewResponseLinkId?: number | null, templateElementId?: number | null, review?: { __typename?: 'Review', stageNumber?: number | null, id: number, status?: ReviewStatus | null, levelNumber?: number | null, reviewer?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, applicationResponse?: { __typename?: 'ApplicationResponse', id: number, templateElementId: number } | null } | null> }, applicationResponses: { __typename?: 'ApplicationResponsesConnection', nodes: Array<{ __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, application?: { __typename?: 'Application', stageNumber?: number | null, id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null, user?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null } | null> } } | null };
 
 export type GetHistoryForReviewerQueryVariables = Exact<{
   serial: Scalars['String']['input'];
@@ -45160,7 +46783,7 @@ export type GetHistoryForReviewerQueryVariables = Exact<{
 }>;
 
 
-export type GetHistoryForReviewerQuery = { __typename?: 'Query', templateElementByTemplateCodeAndCodeAndTemplateVersion?: { __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability, reviewResponses: { __typename?: 'ReviewResponsesConnection', nodes: Array<{ __typename?: 'ReviewResponse', id: number, applicationResponseId?: number | null, decision?: ReviewResponseDecision | null, comment?: string | null, stageNumber?: number | null, status?: ReviewResponseStatus | null, timeUpdated?: any | null, originalReviewResponseId?: number | null, reviewResponseLinkId?: number | null, templateElementId?: number | null, review?: { __typename?: 'Review', stageNumber?: number | null, id: number, status?: ReviewStatus | null, levelNumber?: number | null, reviewer?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, applicationResponse?: { __typename?: 'ApplicationResponse', id: number, templateElementId: number } | null } | null> }, applicationResponses: { __typename?: 'ApplicationResponsesConnection', nodes: Array<{ __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, application?: { __typename?: 'Application', stageNumber?: number | null, id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, user?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null } | null> } } | null };
+export type GetHistoryForReviewerQuery = { __typename?: 'Query', templateElementByTemplateCodeAndCodeAndTemplateVersion?: { __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability, reviewResponses: { __typename?: 'ReviewResponsesConnection', nodes: Array<{ __typename?: 'ReviewResponse', id: number, applicationResponseId?: number | null, decision?: ReviewResponseDecision | null, comment?: string | null, stageNumber?: number | null, status?: ReviewResponseStatus | null, timeUpdated?: any | null, originalReviewResponseId?: number | null, reviewResponseLinkId?: number | null, templateElementId?: number | null, review?: { __typename?: 'Review', stageNumber?: number | null, id: number, status?: ReviewStatus | null, levelNumber?: number | null, reviewer?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, applicationResponse?: { __typename?: 'ApplicationResponse', id: number, templateElementId: number } | null } | null> }, applicationResponses: { __typename?: 'ApplicationResponsesConnection', nodes: Array<{ __typename?: 'ApplicationResponse', id: number, isValid?: boolean | null, value?: any | null, stageNumber?: number | null, templateElementId: number, evaluatedParameters?: any | null, timeUpdated?: any | null, application?: { __typename?: 'Application', stageNumber?: number | null, id: number, serial?: string | null, name?: string | null, outcome?: ApplicationOutcome | null, trigger?: Trigger | null, urlProperties?: any | null, user?: { __typename?: 'UserList', id?: number | null, username?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null } | null } | null, templateElement?: { __typename?: 'TemplateElement', code: string } | null } | null> } } | null };
 
 export type GetLookupTableStructureByIdQueryVariables = Exact<{
   lookupTableID: Scalars['Int']['input'];
@@ -45278,7 +46901,7 @@ export type GetFullTemplateInfoQueryVariables = Exact<{
 }>;
 
 
-export type GetFullTemplateInfoQuery = { __typename?: 'Query', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId?: number | null, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null };
+export type GetFullTemplateInfoQuery = { __typename?: 'Query', template?: { __typename?: 'Template', nodeId: string, versionId: string, versionTimestamp?: any | null, parentVersionId?: string | null, versionComment?: string | null, versionHistory?: any | null, code: string, id: number, name?: string | null, status?: TemplateStatus | null, namePlural?: string | null, isLinear?: boolean | null, canApplicantMakeChanges?: boolean | null, startMessage?: any | null, submissionMessage?: any | null, serialPattern?: string | null, icon?: string | null, dashboardRestrictions?: Array<string | null> | null, priority?: number | null, configApplications: { __typename?: 'ApplicationsConnection', nodes: Array<{ __typename?: 'Application', serial?: string | null, id: number } | null> }, templateSections: { __typename?: 'TemplateSectionsConnection', nodes: Array<{ __typename?: 'TemplateSection', id: number, title?: string | null, index?: number | null, code?: string | null, templateElementsBySectionId: { __typename?: 'TemplateElementsConnection', nodes: Array<{ __typename?: 'TemplateElement', id: number, code: string, index?: number | null, title?: string | null, elementTypePluginCode?: string | null, category?: TemplateElementCategory | null, visibilityCondition?: any | null, isRequired?: any | null, isEditable?: any | null, validation?: any | null, validationMessage?: string | null, helpText?: string | null, initialValue?: any | null, parameters?: any | null, reviewability: Reviewability } | null> } } | null> }, templateActions: { __typename?: 'TemplateActionsConnection', nodes: Array<{ __typename?: 'TemplateAction', code?: string | null, actionCode?: string | null, condition?: any | null, eventCode?: string | null, id: number, parameterQueries?: any | null, sequence?: number | null, trigger?: Trigger | null, description?: string | null, templateId: number } | null> }, templatePermissions: { __typename?: 'TemplatePermissionsConnection', nodes: Array<{ __typename?: 'TemplatePermission', allowedSections?: Array<string | null> | null, canMakeFinalDecision: boolean, canSelfAssign: boolean, id: number, levelNumber?: number | null, restrictions?: any | null, stageNumber?: number | null, permissionNameId: number, permissionName?: { __typename?: 'PermissionName', id: number, name?: string | null, permissionPolicyId?: number | null, permissionPolicy?: { __typename?: 'PermissionPolicy', defaultRestrictions?: any | null, description?: string | null, name?: string | null, id: number, rules?: any | null, type?: PermissionPolicyType | null } | null } | null } | null> }, templateStages: { __typename?: 'TemplateStagesConnection', nodes: Array<{ __typename?: 'TemplateStage', id: number, number?: number | null, colour?: string | null, title?: string | null, description?: string | null, templateStageReviewLevelsByStageId: { __typename?: 'TemplateStageReviewLevelsConnection', nodes: Array<{ __typename?: 'TemplateStageReviewLevel', description?: string | null, id: number, name: string, number: number, singleReviewerAllSections: boolean } | null> } } | null> }, templateDataViewJoins: { __typename?: 'TemplateDataViewJoinsConnection', nodes: Array<{ __typename?: 'TemplateDataViewJoin', id: number, dataView?: { __typename?: 'DataView', identifier: string, code: string, id: number, tableName: string, title?: string | null, permissionNames?: Array<string | null> | null, priority?: number | null } | null } | null> }, templateCategory?: { __typename?: 'TemplateCategory', id: number, code: string, title?: string | null, icon?: string | null, uiLocation?: Array<UiLocation | null> | null, isSubmenu?: boolean | null, priority?: number | null } | null, templateFilterJoins: { __typename?: 'TemplateFilterJoinsConnection', nodes: Array<{ __typename?: 'TemplateFilterJoin', id: number, filter?: { __typename?: 'Filter', id: number, code: string, query?: any | null, title?: string | null, userRole?: PermissionPolicyType | null } | null } | null> }, applications: { __typename?: 'ApplicationsConnection', totalCount: number } } | null };
 
 export type GetPermissionStatisticsQueryVariables = Exact<{
   id: Scalars['Int']['input'];
@@ -45310,6 +46933,7 @@ export const ApplicationFragmentDoc = gql`
   name
   outcome
   trigger
+  urlProperties
 }
     `;
 export const ApplicationResponseFragmentFragmentDoc = gql`
@@ -45573,6 +47197,20 @@ export const FullTemplateFragmentDoc = gql`
       }
     }
   }
+  templateDataViewJoins {
+    nodes {
+      id
+      dataView {
+        identifier
+        code
+        id
+        tableName
+        title
+        permissionNames
+        priority
+      }
+    }
+  }
 }
     ${TemplateFragmentFragmentDoc}
 ${SectionFragmentDoc}
@@ -45630,9 +47268,9 @@ export const TemplateStageFragmentDoc = gql`
 }
     `;
 export const CreateApplicationDocument = gql`
-    mutation createApplication($name: String!, $isConfig: Boolean = false, $serial: String, $templateId: Int!, $userId: Int, $orgId: Int, $sessionId: String!, $outcome: ApplicationOutcome = PENDING, $trigger: Trigger = ON_APPLICATION_CREATE, $responses: [ApplicationResponseApplicationIdFkeyApplicationResponseCreateInput!]) {
+    mutation createApplication($name: String!, $isConfig: Boolean = false, $serial: String, $templateId: Int!, $userId: Int, $orgId: Int, $sessionId: String!, $outcome: ApplicationOutcome = PENDING, $trigger: Trigger = ON_APPLICATION_CREATE, $responses: [ApplicationResponseApplicationIdFkeyApplicationResponseCreateInput!], $urlProperties: JSON) {
   createApplication(
-    input: {application: {isConfig: $isConfig, name: $name, serial: $serial, templateId: $templateId, userId: $userId, orgId: $orgId, sessionId: $sessionId, isActive: true, outcome: $outcome, trigger: $trigger, applicationResponsesUsingId: {create: $responses}}}
+    input: {application: {isConfig: $isConfig, name: $name, serial: $serial, templateId: $templateId, userId: $userId, orgId: $orgId, sessionId: $sessionId, isActive: true, outcome: $outcome, trigger: $trigger, applicationResponsesUsingId: {create: $responses}, urlProperties: $urlProperties}}
   ) {
     application {
       userId
@@ -45677,6 +47315,7 @@ export type CreateApplicationMutationFn = Apollo.MutationFunction<CreateApplicat
  *      outcome: // value for 'outcome'
  *      trigger: // value for 'trigger'
  *      responses: // value for 'responses'
+ *      urlProperties: // value for 'urlProperties'
  *   },
  * });
  */

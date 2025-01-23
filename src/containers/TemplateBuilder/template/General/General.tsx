@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Confirm, Header, Icon, Input, Table } from 'semantic-ui-react'
-
-import {
-  TemplateStatus,
-  useGetTemplatesAvailableForCodeQuery,
-} from '../../../../utils/generated/graphql'
+import { Button, Header, Icon, Table } from 'semantic-ui-react'
+import { TemplateStatus } from '../../../../utils/generated/graphql'
 import { useLanguageProvider } from '../../../../contexts/Localisation'
 import ButtonWithFallback from '../../shared/ButtonWidthFallback'
 import Markdown from '../../../../utils/helpers/semanticReactMarkdown'
@@ -23,23 +19,22 @@ import { DateTime } from 'luxon'
 import { useRouter } from '../../../../utils/hooks/useRouter'
 import useConfirmationModal from '../../../../utils/hooks/useConfirmationModal'
 import { useToast } from '../../../../contexts/Toast'
-import { getVersionString, getTemplateVersionId, isTemplateUnlocked } from '../helpers'
+import { getVersionString, isTemplateUnlocked } from '../helpers'
 import NumberIO from '../../shared/NumberIO'
+import { TemplateOperationsModal } from '../../templateOperations/TemplateOperationsModal'
+import { DataViewSelector } from './DataViews/DataViews'
+import { FileSelector } from './Files/Files'
 
 const General: React.FC = () => {
   const { t } = useLanguageProvider()
   const { replace } = useRouter()
-  const { updateTemplate, deleteTemplate } = useOperationState()
+  const { updateTemplate, deleteTemplate, commitTemplate, operationModalState } =
+    useOperationState()
   const { structure } = useApplicationState()
-  const { template } = useTemplateState()
+  const { template, refetch } = useTemplateState()
   const { canEdit, isDraft, applicationCount } = template
-  const { refetch: refetchAvailable } = useGetTemplatesAvailableForCodeQuery({
-    variables: { code: template.code },
-  })
   const { showToast } = useToast({ style: 'success' })
   const [isMessageConfigOpen, setIsMessageConfigOpen] = useState(false)
-  const [commitConfirmOpen, setCommitConfirmOpen] = useState(false)
-  const [commitMessage, setCommitMessage] = useState('')
 
   const { ConfirmModal: DeleteConfirm, showModal: confirmDelete } = useConfirmationModal({
     type: 'warning',
@@ -63,6 +58,7 @@ const General: React.FC = () => {
   return (
     <div className="flex-column-center-start">
       <MakeAvailableConfirm />
+      <TemplateOperationsModal {...operationModalState} />
       <div className="flex-row flex-gap-10">
         <ButtonWithFallback
           title={t('TEMPLATE_GEN_BUTTON_AVAILABLE')}
@@ -85,18 +81,13 @@ const General: React.FC = () => {
           title={t('TEMPLATE_GEN_BUTTON_DRAFT')}
           disabledMessage={t('TEMPLATE_GEN_BUTTON_DRAFT_DISABLED')}
           disabled={!canSetDraft}
-          onClick={async () => {
-            if (await updateTemplate(template, { status: TemplateStatus.Draft })) refetchAvailable()
-          }}
+          onClick={async () => updateTemplate(template, { status: TemplateStatus.Draft })}
         />
         <ButtonWithFallback
           title="Disable"
           disabledMessage="Already disabled"
           disabled={!canSetDisabled}
-          onClick={async () => {
-            if (await updateTemplate(template, { status: TemplateStatus.Disabled }))
-              refetchAvailable()
-          }}
+          onClick={async () => updateTemplate(template, { status: TemplateStatus.Disabled })}
         />
       </div>
       <div className="spacer-10" />
@@ -180,8 +171,9 @@ const General: React.FC = () => {
         setNumber={(number) => updateTemplate(template, { priority: number })}
       />
       <Category />
-
       <Filters />
+      <DataViewSelector />
+      <FileSelector />
 
       {/* MESSAGES */}
       <div className="spacer-20" />
@@ -214,41 +206,6 @@ const General: React.FC = () => {
       {/* VERSION HISTORY */}
       <div className="spacer-20" />
       <div className="spacer-20" />
-      <Confirm
-        open={commitConfirmOpen}
-        // Prevent click in Input from closing modal
-        onClick={(e: any) => e.stopPropagation()}
-        content={
-          <div style={{ padding: 10, gap: 10 }} className="flex-column">
-            <h2>Commit version?</h2>
-            <p>
-              This will create a permanent template version that can no longer be modified. To make
-              any further changes, you will need to duplicate it and create a new version.
-            </p>
-            <div className="flex-row-start-center" style={{ gap: 10 }}>
-              <label>Please provide a commit message:</label>
-              <Input
-                value={commitMessage}
-                onChange={(e) => setCommitMessage(e.target.value)}
-                style={{ width: '60%' }}
-              />
-            </div>
-          </div>
-        }
-        onCancel={() => setCommitConfirmOpen(false)}
-        onConfirm={async () => {
-          const versionId = getTemplateVersionId()
-          if (
-            await updateTemplate(template as any, {
-              versionId,
-              versionComment: commitMessage,
-              versionTimestamp: DateTime.now().toISO(),
-            })
-          )
-            await refetchAvailable()
-          setCommitConfirmOpen(false)
-        }}
-      />
       <Header className="no-margin-no-padding" as="h3">
         Version History
       </Header>
@@ -285,7 +242,9 @@ const General: React.FC = () => {
                       primary
                       inverted
                       size="small"
-                      onClick={() => setCommitConfirmOpen(true)}
+                      onClick={() => {
+                        commitTemplate(template, refetch)
+                      }}
                     >
                       Commit now
                     </Button>

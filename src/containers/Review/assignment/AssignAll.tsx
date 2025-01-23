@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Dropdown, Label } from 'semantic-ui-react'
-import Tooltip from '../../../components/Tooltip'
+import { Tooltip } from '../../../components/common'
 import { useLanguageProvider } from '../../../contexts/Localisation'
 import { useUserState } from '../../../contexts/UserState'
 import { AssignmentDetails } from '../../../utils/types'

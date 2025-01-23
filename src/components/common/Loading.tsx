@@ -1,8 +1,8 @@
 import React from 'react'
 import { Loader, Segment } from 'semantic-ui-react'
-import { useLanguageProvider } from '../contexts/Localisation'
+import { useLanguageProvider } from '../../contexts/Localisation'
 
-const Loading: React.FC = () => {
+export const Loading: React.FC = () => {
   const { t } = useLanguageProvider()
   return (
     <Segment basic style={{ height: '50vh' }}>
@@ -12,5 +12,3 @@ const Loading: React.FC = () => {
     </Segment>
   )
 }
-
-export default Loading

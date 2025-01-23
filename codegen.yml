@@ -1,6 +1,6 @@
 overwrite: true
 watch: false
-schema: 'http://localhost:5000/graphql'
+schema: 'http://localhost:8080/graphql'
 documents:
   - './src/components/**/*.ts'
   - './src/utils/graphql/**/*.ts'

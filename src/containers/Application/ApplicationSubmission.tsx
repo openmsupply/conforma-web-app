@@ -35,11 +35,6 @@ const ApplicationSubmission: React.FC<ApplicationProps> = ({ structure }) => {
     structure,
   })
 
-  // Check if application not submitted and redirect to the summary page
-  // Note: The summary page has its own redirection logic to a specific page (with invalid items).
-  if (status === ApplicationStatus.Draft || status === ApplicationStatus.ChangesRequired)
-    push(`/application/${serialNumber}/summary`)
-
   // Evaluate submission message
   useEffect(() => {
     if (!fullStructure || !fullStructure?.responsesByCode) return
@@ -53,6 +48,11 @@ const ApplicationSubmission: React.FC<ApplicationProps> = ({ structure }) => {
       setSubmissionMessageEvaluated(result as string)
     })
   }, [fullStructure])
+
+  // Check if application not submitted and redirect to the summary page
+  // Note: The summary page has its own redirection logic to a specific page (with invalid items).
+  if (status === ApplicationStatus.Draft || status === ApplicationStatus.ChangesRequired)
+    push(`/application/${serialNumber}/summary`)
 
   return (
     <Container id="application-summary">

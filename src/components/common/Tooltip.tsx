@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icon, Popup, SemanticCOLORS, SemanticICONS } from 'semantic-ui-react'
-import MarkdownBlock from '../utils/helpers/semanticReactMarkdown'
+import MarkdownBlock from '../../utils/helpers/semanticReactMarkdown'
 
 interface TooltipProps {
   message: string
@@ -14,7 +14,7 @@ interface TooltipProps {
   iconStyle?: object
 }
 
-const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: React.FC<TooltipProps> = ({
   message,
   triggerEvent = 'click',
   icon = 'help circle',
@@ -41,5 +41,3 @@ const Tooltip: React.FC<TooltipProps> = ({
     />
   )
 }
-
-export default Tooltip
