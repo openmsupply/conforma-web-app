@@ -485,6 +485,9 @@ export default {
   SERVER_OFFLINE: 'Server offline!',
   SERVER_OFFLINE_TEXT:
     'Server connection has been unexpectedly interrupted. We will attempt to re-connect, but you will be re-directed to a holding page in 30 seconds if not successful.',
+  SERVER_VERSION_MISMATCH: 'New version available',
+  SERVER_VERSION_MISMATCH_TEXT:
+    'A newer version of the Conforma web app has been detected. Your browser will automatically refresh in 5 seconds...',
   STATUS_SUBMITTED: 'Submitted',
   STATUS_DRAFT: 'Draft',
   STATUS_CHANGES_REQUIRED: 'Changes required',

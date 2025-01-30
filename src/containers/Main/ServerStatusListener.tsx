@@ -28,6 +28,8 @@ interface RedirectStatus {
 // "immediate" -- means notification came on first load, so we redirect
 // immediately before user even sees the site
 
+const frontendVersion = config.version
+
 export const ServerStatusListener: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { t } = useLanguageProvider()
   const {
@@ -71,6 +73,19 @@ export const ServerStatusListener: React.FC<{ children: React.ReactNode }> = ({ 
       const data = JSON.parse(message.data)
       console.log('Message', data)
       if (typeof data !== 'object') return
+      // Version check -- force reload if different to server version:
+      if (data.version && data.version !== frontendVersion) {
+        console.log('New version:', data.version)
+        console.log('Reloading...')
+        showToast({
+          title: t('SERVER_VERSION_MISMATCH'),
+          text: t('SERVER_VERSION_MISMATCH_TEXT'),
+          style: 'warning',
+        })
+        setTimeout(() => location.reload(), 5_000)
+      }
+
+      // Maintenance Mode
       if (data.maintenanceMode === false) {
         window.clearTimeout(timerId.current)
         timerId.current = undefined
