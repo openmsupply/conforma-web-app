@@ -16,11 +16,12 @@ interface Preferences {
   googleAnalyticsId?: string
   siteHost?: string
   userRegistrationCode?: string
-  style?: { headerBgColor?: string }
+  style?: Record<string, object>
   helpLinks?: { text: string; link: string }[]
   footerText?: string
   footerLogoId?: string
   logoutAfterInactivity: number
+  publicUrlMap?: Record<string, string>
 }
 interface PrefsState {
   preferences: Preferences
