@@ -12,8 +12,7 @@ const AuthenticatedContent: React.FC = () => {
 
   // If there is a sessionId in the URL, then need to login as nonRegistered
   // before continuing
-  if (query.sessionId && !isLoggedIn())
-    return <NonRegisteredLogin option="redirect" redirect={pathname + search} />
+  if (query.sessionId && !isLoggedIn()) return <NonRegisteredLogin redirect={pathname + search} />
 
   if (isLoggedIn()) return <SiteLayout />
 

@@ -4,6 +4,7 @@ import { getRequest } from '../utils/helpers/fetchMethods'
 import getServerUrl from '../utils/helpers/endpoints/endpointUrlBuilder'
 // @ts-ignore -- no types declarations available
 import Css from 'json-to-css'
+import { ParsedUrlQuery } from '../utils/types'
 
 interface Preferences {
   paginationPresets?: number[]
@@ -21,7 +22,7 @@ interface Preferences {
   footerText?: string
   footerLogoId?: string
   logoutAfterInactivity: number
-  publicUrlMap?: Record<string, string>
+  publicUrlMap?: Record<string, string | { code: string; urlQuery: ParsedUrlQuery }>
 }
 interface PrefsState {
   preferences: Preferences

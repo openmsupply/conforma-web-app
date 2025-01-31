@@ -12,6 +12,7 @@ import { usePrefs } from '../../contexts/SystemPrefs'
 import { trackerTestMode } from './Tracker'
 import { ViewportStateProvider } from '../../contexts/ViewportState'
 import { ServerStatusListener } from './ServerStatusListener'
+import { ParsedUrlQuery } from '../../utils/types'
 
 const AppWrapper: React.FC = () => {
   const { error, loading } = useLanguageProvider()
@@ -37,26 +38,35 @@ const AppWrapper: React.FC = () => {
     ])
   }
 
+  const publicUrls = getPublicUrls(preferences?.publicUrlMap)
+
   return (
     <Router>
       <ViewportStateProvider>
         <UserProvider>
           <ServerStatusListener>
             <Switch>
-              <Route exact path="/login">
-                <Login />
-              </Route>
+              {publicUrls.map(({ url, templateCode, urlQuery }) => (
+                <Route key={url} exact path={`/${url}`}>
+                  <NonRegisteredLogin templateCode={templateCode} urlQuery={urlQuery} />
+                </Route>
+              ))}
               <Route exact path="/register">
-                <NonRegisteredLogin option="register" />
+                <NonRegisteredLogin
+                  templateCode={preferences.userRegistrationCode ?? 'UserRegistration'}
+                />
               </Route>
               <Route exact path="/reset-password">
-                <NonRegisteredLogin option="reset-password" />
+                <NonRegisteredLogin templateCode="PasswordReset" />
               </Route>
               <Route exact path="/verify">
                 <Verify />
               </Route>
               <Route exact path="/logout">
                 <Logout />
+              </Route>
+              <Route exact path="/login">
+                <Login />
               </Route>
               <Route>
                 <AuthenticatedContent />
@@ -75,4 +85,14 @@ const Logout: React.FC = () => {
   const { logout } = useUserState()
   logout()
   return null
+}
+
+const getPublicUrls = (
+  urlPrefs?: Record<string, string | { code: string; urlQuery: ParsedUrlQuery }>
+) => {
+  if (!urlPrefs) return []
+  return Object.entries(urlPrefs).map(([url, value]) => {
+    if (typeof value === 'string') return { url, templateCode: value }
+    return { url, templateCode: value.code, urlQuery: value.urlQuery }
+  })
 }

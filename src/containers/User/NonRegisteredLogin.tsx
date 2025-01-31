@@ -4,20 +4,22 @@ import isLoggedIn from '../../utils/helpers/loginCheck'
 import { attemptLogin } from '../../utils/helpers/attemptLogin'
 import { useUserState } from '../../contexts/UserState'
 import { useLanguageProvider } from '../../contexts/Localisation'
-import { LoginPayload } from '../../utils/types'
+import { LoginPayload, ParsedUrlQuery } from '../../utils/types'
 import config from '../../config'
-import { usePrefs } from '../../contexts/SystemPrefs'
+import queryString from 'query-string'
 
 interface NonRegisteredLoginProps {
-  option: 'register' | 'reset-password' | 'redirect'
+  templateCode?: string
+  urlQuery?: ParsedUrlQuery
   redirect?: string
 }
 
-const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({ option, redirect }) => {
+const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({
+  templateCode,
+  urlQuery,
+  redirect,
+}) => {
   const { t } = useLanguageProvider()
-  const {
-    preferences: { userRegistrationCode },
-  } = usePrefs()
 
   const [networkError, setNetworkError] = useState('')
   const { push, query, location } = useRouter()
@@ -27,13 +29,13 @@ const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({ option, redirec
   useEffect(() => {
     // Don't let a logged in user go to register page, but they can go to
     // "reset-password"
-    if (option === 'reset-password') return
+    if (templateCode === 'PasswordReset') return
     if (isLoggedIn()) push('/')
   }, [])
 
   useEffect(() => {
-    // Log in as 'nonRegistered' user to be able to apply for User Registration
-    // form or reset password
+    // Log in as 'nonRegistered' user to be able to apply for publicly available
+    // templates (e.g. PasswordReset, UserRegistration)
 
     attemptLogin({
       username: config.nonRegisteredUser,
@@ -46,19 +48,28 @@ const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({ option, redirec
   }, [])
 
   const onLoginSuccess = async (loginResult: LoginPayload) => {
+    console.log('Logged in again')
     const { JWT, user, templatePermissions, orgList } = loginResult
+    console.log('TOKEN', JWT)
     await onLogin(JWT, user, templatePermissions, orgList)
 
     // Make sure any custom query properties are included in the subsequent
     // re-direct
-    const currentUrlQueryString = location.search.replace('?', '')
-    const additionalQueryString = currentUrlQueryString ? '&' + currentUrlQueryString : ''
+    const urlQueryString = location.search.replace('?', '')
+    const originalQueryString = urlQueryString ? '&' + urlQueryString : ''
 
-    if (option === 'register')
-      push(`/application/new?type=${userRegistrationCode}${additionalQueryString}`)
-    else if (option === 'reset-password')
-      push('/application/new?type=PasswordReset' + additionalQueryString)
-    else if (option === 'redirect' && redirect) push(redirect)
+    const queryStringFromPrefs = queryString.stringify(urlQuery ?? {})
+
+    const fullQueryString = queryStringFromPrefs
+      ? `${originalQueryString}&${queryStringFromPrefs}`
+      : originalQueryString
+
+    if (redirect) {
+      push(redirect)
+      return
+    }
+
+    push(`/application/new?type=${templateCode}${fullQueryString}`)
   }
 
   if (networkError) return <p>{networkError}</p>
