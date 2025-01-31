@@ -23,20 +23,18 @@ const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({
 
   const [networkError, setNetworkError] = useState('')
   const { push, query, location } = useRouter()
-  const { onLogin } = useUserState()
-
-  // useEffect ensures isLoggedIn only runs on first mount, not re-renders
-  useEffect(() => {
-    // Don't let a logged in user go to register page, but they can go to
-    // "reset-password"
-    if (templateCode === 'PasswordReset') return
-    if (isLoggedIn()) push('/')
-  }, [])
+  const { onLogin, userState } = useUserState()
 
   useEffect(() => {
+    // Don't let a logged in user go to NonRegistered content
+    const username = userState.currentUser?.username
+    if (isLoggedIn() && username !== config.nonRegisteredUser) {
+      push('/')
+      return
+    }
+
     // Log in as 'nonRegistered' user to be able to apply for publicly available
     // templates (e.g. PasswordReset, UserRegistration)
-
     attemptLogin({
       username: config.nonRegisteredUser,
       password: '',
@@ -48,9 +46,7 @@ const NonRegisteredLogin: React.FC<NonRegisteredLoginProps> = ({
   }, [])
 
   const onLoginSuccess = async (loginResult: LoginPayload) => {
-    console.log('Logged in again')
     const { JWT, user, templatePermissions, orgList } = loginResult
-    console.log('TOKEN', JWT)
     await onLogin(JWT, user, templatePermissions, orgList)
 
     // Make sure any custom query properties are included in the subsequent
