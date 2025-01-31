@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from '../../utils/hooks/useRouter'
 import { Link } from 'react-router-dom'
 import { Header, Icon, Segment, Container } from 'semantic-ui-react'
@@ -20,13 +20,20 @@ const Verify: React.FC = () => {
   } = useRouter()
   const [isLoading, setIsLoading] = useState(true)
   const [verification, setVerification] = useState<Verification>()
+  const done = useRef(false)
 
   const verifyUrl = getServerUrl('verify', { uid })
 
   useEffect(() => {
     getRequest(verifyUrl).then((result) => {
-      setVerification(result)
-      setIsLoading(false)
+      // Effect runs twice in Development, which gets a "false" result on second
+      // time, so we use the mutable "done" ref to only allow "verification"
+      // state to be updated once.
+      if (!done.current) {
+        done.current = true
+        setVerification(result)
+        setIsLoading(false)
+      }
     })
   }, [])
 
