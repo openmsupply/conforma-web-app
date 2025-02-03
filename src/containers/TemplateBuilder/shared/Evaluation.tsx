@@ -5,7 +5,7 @@ import { useUserState } from '../../../contexts/UserState'
 import Markdown from '../../../utils/helpers/semanticReactMarkdown'
 import { FullStructure } from '../../../utils/types'
 import TextIO from './TextIO'
-import { EvaluatorNode, FigTreeError, isFigTreeError, truncateString } from 'fig-tree-evaluator'
+import { EvaluatorNode, isFigTreeError, truncateString } from 'fig-tree-evaluator'
 import { FigTreeEditor } from 'fig-tree-builder-react'
 import FigTree from '../../../figTreeEvaluator'
 import { getFigTreeSummary } from '../../../figTreeEvaluator/FigTree'
@@ -21,6 +21,7 @@ type EvaluationProps = {
   updateKey?: (key: string) => void
   deleteKey?: () => void
   type?: 'FormElement' | 'Action'
+  canEdit: boolean
 }
 
 type EvaluationHeaderProps = {
@@ -56,6 +57,7 @@ const Evaluation: React.FC<EvaluationProps> = ({
   updateKey,
   deleteKey,
   type,
+  canEdit,
 }) => {
   const {
     userState: { currentUser },
@@ -114,6 +116,7 @@ const Evaluation: React.FC<EvaluationProps> = ({
               expression={evaluation}
               figTree={FigTree}
               objectData={data as Record<string, unknown>}
+              restrictEdit={!canEdit}
               onUpdate={({ newData }) => {
                 setEvaluation(newData)
               }}

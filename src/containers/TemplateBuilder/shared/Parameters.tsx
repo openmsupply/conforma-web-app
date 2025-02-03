@@ -136,6 +136,7 @@ export const Parameters: React.FC<ParametersProps> = ({
                     type={type}
                     currentElementCode={currentElementCode}
                     label={key}
+                    canEdit={canEdit}
                   />
                 ))}
             </div>
