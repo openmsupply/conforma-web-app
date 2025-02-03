@@ -113,7 +113,7 @@ const Evaluation: React.FC<EvaluationProps> = ({
             <FigTreeEditor
               expression={evaluation}
               figTree={FigTree}
-              objectData={data as object}
+              objectData={data as Record<string, unknown>}
               onUpdate={({ newData }) => {
                 setEvaluation(newData)
               }}
@@ -137,7 +137,7 @@ const Evaluation: React.FC<EvaluationProps> = ({
                   maxWidth: 650,
                 })
               }}
-              rootName="expression"
+              rootName=""
               rootFontSize="14px"
               collapse={3}
             />

@@ -49,7 +49,6 @@ const serverWebSocket = serverREST
 
 const getServerUrl: GetServerUrlFunction = (endpointKey, options = undefined) => {
   if (endpointKey === 'graphQL') return serverGraphQL
-  if (endpointKey === 'REST') return serverREST
   const endpointPath = restEndpoints[endpointKey]
 
   switch (endpointKey) {
