@@ -6,7 +6,7 @@ import Markdown from '../../../utils/helpers/semanticReactMarkdown'
 import { FullStructure } from '../../../utils/types'
 import TextIO from './TextIO'
 import { EvaluatorNode, isFigTreeError, truncateString } from 'fig-tree-evaluator'
-import { FigTreeEditor } from 'fig-tree-builder-react'
+import { FigTreeEditor } from 'fig-tree-editor-react'
 import FigTree from '../../../figTreeEvaluator'
 import { getFigTreeSummary } from '../../../figTreeEvaluator/FigTree'
 import { topMiddle, useToast } from '../../../contexts/Toast'
@@ -114,12 +114,10 @@ const Evaluation: React.FC<EvaluationProps> = ({
           <div className="flex-row-space-between" style={{ gap: '1.5em' }}>
             <FigTreeEditor
               expression={evaluation}
+              setExpression={setEvaluation}
               figTree={FigTree}
               objectData={data as Record<string, unknown>}
-              restrictEdit={!canEdit}
-              onUpdate={({ newData }) => {
-                setEvaluation(newData)
-              }}
+              restrictEdit={false}
               onEvaluate={(result) =>
                 showToast({
                   text: truncateString(String(result)),
