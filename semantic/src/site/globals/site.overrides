@@ -2467,6 +2467,10 @@ a:hover {
     align-items: flex-start;
     justify-content: space-between;
   }
+  .jer-editor-container {
+    width: max-content;
+    margin-bottom: 1em;
+  }
 }
 
 .config-modal {
@@ -2479,6 +2483,7 @@ a:hover {
     .flex-column-center-center();
     padding: 20px;
     border-radius: @borderRadius !important;
+    max-width: 100vw;
   }
   .config-modal-info {
     background-color: @surfacesWhite !important;
