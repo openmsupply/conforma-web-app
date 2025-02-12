@@ -1,4 +1,4 @@
-// This file should be identical to the back-end "evaluatorFunctions.ts". It
+// This file should be identical to the back-end "customFunctions.ts". It
 // allows us to preview the "objectFunctions" operator in the Template Builder
 // Actions config
 
