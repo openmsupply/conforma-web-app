@@ -8,7 +8,7 @@ import {
   TemplateDetails,
   UseGetApplicationProps,
 } from '../types'
-import FigTree from '../../figTreeEvaluator'
+import { FigTree } from '../../FigTreeEvaluator'
 import { useUserState } from '../../contexts/UserState'
 import {
   ApplicationStageStatusAll,

@@ -6,12 +6,11 @@ import {
   User,
 } from '../../../utils/types'
 import { TemplateElement, TemplateElementCategory } from '../../../utils/generated/graphql'
-import FigTree from '../../../figTreeEvaluator'
+import { FigTree } from '../../../FigTreeEvaluator'
 
 import { evaluateElements } from '../../../utils/helpers/evaluateElements'
 import { defaultEvaluatedElement } from '../../../utils/hooks/useLoadApplication'
 import { ListItem } from './types'
-import functions from '../../../figTreeEvaluator/functions'
 import { substituteValues } from '../../../utils/helpers/utilityFunctions'
 import { EvaluatorNode } from 'fig-tree-evaluator'
 
@@ -122,7 +121,6 @@ export const buildElements = async (
     responses: combineResponses(allResponses, currentInputResponses),
     currentUser,
     applicationData,
-    functions,
   }
 
   const evaluatedElements = await evaluateElements(elements, evaluationOptions, evaluationObjects)

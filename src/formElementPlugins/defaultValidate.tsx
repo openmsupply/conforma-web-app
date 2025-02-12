@@ -1,5 +1,5 @@
 import { EvaluatorNode, FigTreeOptions } from 'fig-tree-evaluator'
-import FigTree from '../figTreeEvaluator'
+import { FigTree } from '../FigTreeEvaluator'
 import { ValidationState } from './types'
 
 const defaultValidate = async (

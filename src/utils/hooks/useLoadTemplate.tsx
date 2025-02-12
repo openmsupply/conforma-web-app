@@ -6,7 +6,7 @@ import {
   TemplateSection,
   useGetTemplateQuery,
 } from '../generated/graphql'
-import FigTree from '../../figTreeEvaluator'
+import { FigTree } from '../../FigTreeEvaluator'
 import { useUserState } from '../../contexts/UserState'
 import { getTemplateSections } from '../helpers/application/getSectionsDetails'
 import { TemplateDetails } from '../types'

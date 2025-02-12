@@ -90,7 +90,6 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
             maxWidth: 650,
           })
         }}
-        // enableClipboard={handleCopy}
       />
       <div className="flex-row-space-between">
         <p className={`clickable nav-button ${!canUndo ? 'invisible' : ''}`}>
@@ -105,13 +104,6 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
             <Icon name="arrow alternate circle right" />
           </a>
         </p>
-        {/* <Button
-          primary
-          // disabled={!isDirty}
-          // loading={isSaving}
-          content={t('BUTTON_SAVE')}
-          // onClick={handleSave}
-        /> */}
       </div>
     </div>
   )

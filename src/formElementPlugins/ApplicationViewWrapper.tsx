@@ -6,15 +6,14 @@ import { useUpdateResponseMutation } from '../utils/generated/graphql'
 import { LooseString, ResponseFull, ElementPluginParameters } from '../utils/types'
 import { useUserState } from '../contexts/UserState'
 import validate from './defaultValidate'
-import FigTree from '../figTreeEvaluator'
+import { FigTree } from '../FigTreeEvaluator'
 import { isEqual } from 'lodash-es'
 import { Form, Icon } from 'semantic-ui-react'
 import Markdown from '../utils/helpers/semanticReactMarkdown'
 import { useFormElementUpdateTracker } from '../contexts/FormElementUpdateTrackerState'
 import { useLanguageProvider } from '../contexts/Localisation'
 import { SemanticICONS } from 'semantic-ui-react'
-import functions from '../figTreeEvaluator/functions'
-import { isFigTreeExpression } from '../figTreeEvaluator/FigTree'
+import { isFigTreeExpression } from '../FigTreeEvaluator/FigTree'
 import { EvaluatorNode, FigTreeOptions } from 'fig-tree-evaluator'
 
 export const DEFAULT_LOADING_VALUE = 'Loading...'
@@ -110,7 +109,7 @@ const ApplicationViewWrapper: React.FC<ApplicationViewWrapperProps> = (props) =>
       isStrictPage,
       responses,
       evaluationParameters: {
-        data: { responses, currentUser, applicationData, functions },
+        data: { responses, currentUser, applicationData },
       },
       currentResponse,
     })

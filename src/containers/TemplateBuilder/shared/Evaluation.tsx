@@ -4,10 +4,12 @@ import { Accordion, Icon, Label } from 'semantic-ui-react'
 import { useUserState } from '../../../contexts/UserState'
 import { FullStructure } from '../../../utils/types'
 import TextIO from './TextIO'
-import { EvaluatorNode } from 'fig-tree-evaluator'
-import FigTree from '../../../figTreeEvaluator'
-import { getFigTreeSummary } from '../../../figTreeEvaluator/FigTree'
+import { EvaluatorNode, truncateString } from 'fig-tree-evaluator'
+import { FigTree } from '../../../FigTreeEvaluator'
+import { getFigTreeSummary } from '../../../FigTreeEvaluator/FigTree'
 import { EvaluationEditor } from '../../../components/common/EvaluationEditor'
+import { useLanguageProvider } from '../../../contexts/Localisation'
+import { Position, useToast } from '../../../contexts/Toast'
 
 type EvaluationProps = {
   evaluation: EvaluatorNode
@@ -55,6 +57,8 @@ const Evaluation: React.FC<EvaluationProps> = ({
   type,
   canEdit,
 }) => {
+  const { t } = useLanguageProvider()
+  const { showToast } = useToast()
   const {
     userState: { currentUser },
   } = useUserState()
@@ -126,6 +130,23 @@ const Evaluation: React.FC<EvaluationProps> = ({
                   restrictDelete={true}
                   restrictAdd={true}
                   theme={{ container: ['transparent', { fontSize: '13px', padding: 0 }] }}
+                  enableClipboard={({ key, value, type, stringValue }) => {
+                    const text =
+                      typeof value === 'object' && value !== null
+                        ? t('CLIPBOARD_COPIED_ITEMS', {
+                            name: key,
+                            count: Object.keys(value).length,
+                          })
+                        : truncateString(stringValue)
+                    showToast({
+                      title: t(
+                        type === 'value' ? 'CLIPBOARD_COPIED_VALUE' : 'CLIPBOARD_COPIED_PATH'
+                      ),
+                      text,
+                      style: 'info',
+                      position: Position.bottomLeft,
+                    })
+                  }}
                 />
               </div>
             )}
@@ -135,23 +156,5 @@ const Evaluation: React.FC<EvaluationProps> = ({
     </Accordion>
   )
 }
-
-// const formatResult = (result: unknown) => {
-//   switch (typeof result) {
-//     case 'boolean':
-//     case 'number':
-//       return undefined
-//     case 'object':
-//       if (result === null)
-//         return (
-//           <code>
-//             <strong>NULL</strong>
-//           </code>
-//         )
-//       return <pre>{truncateString(JSON.stringify(result, null, 2), RESULT_STRING_CHAR_LIMIT)}</pre>
-//     default:
-//       return <Markdown text={truncateString(String(result), RESULT_STRING_CHAR_LIMIT)} />
-//   }
-// }
 
 export default Evaluation

@@ -15,6 +15,7 @@ import {
   GetApplicationDataOptions,
   ArchiveOptions,
   FigTreeFragmentsEndpoint,
+  FigTreeFragmentsOptions,
 } from './types'
 
 const { VITE_USE_DEV_SERVER } = import.meta.env
@@ -232,12 +233,12 @@ const getServerUrl: GetServerUrlFunction = (endpointKey, options = undefined) =>
         case 'getLinkedFiles':
           return `${serverREST}${endpointPath}/get-linked-files/${id}`
       }
-      break
     }
 
     case 'figTreeFragments': {
-      const { frontOrBack } = options as FigTreeFragmentsEndpoint[1]
-      return `${serverREST}${endpointPath}/${frontOrBack}`
+      const { frontOrBack } = options as FigTreeFragmentsOptions
+      const queryString = frontOrBack === 'backEnd' ? '?backEnd=true' : '?frontEnd=true'
+      return `${serverREST}${endpointPath}${queryString}`
     }
 
     case 'getApplicationData': {

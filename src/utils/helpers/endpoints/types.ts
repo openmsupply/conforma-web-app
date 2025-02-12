@@ -148,10 +148,8 @@ export type TemplateOptions =
 export type ArchiveKey = 'archiveFiles'
 export type ArchiveOptions = { days: number }
 
-export type FigTreeFragmentsEndpoint = [
-  endpoint: 'figTreeFragments',
-  options: { frontOrBack: 'front' | 'back' }
-]
+export type FigTreeFragmentsKey = 'figTreeFragments'
+export type FigTreeFragmentsOptions = { frontOrBack: 'frontEnd' | 'backEnd' }
 
 export type GetServerUrlFunction = ((endpointKey: BasicEndpoint) => string) &
   ((endpointKey: 'graphQL') => string) &
@@ -169,4 +167,5 @@ export type GetServerUrlFunction = ((endpointKey: BasicEndpoint) => string) &
   ((endpointKey: LookupTableKey, options: LookupTableOptions) => string) &
   ((endpointKey: TemplateKey, options: TemplateOptions) => string) &
   ((endpointKey: ArchiveKey, options: ArchiveOptions) => string) &
-  ((endpointKey: GetApplicationDataKey, options: GetApplicationDataOptions) => string)
+  ((endpointKey: GetApplicationDataKey, options: GetApplicationDataOptions) => string) &
+  ((endpointKey: FigTreeFragmentsKey, options: FigTreeFragmentsOptions) => string)

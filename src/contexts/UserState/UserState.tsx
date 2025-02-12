@@ -8,9 +8,7 @@ import { usePrefs } from '../SystemPrefs'
 import { useLanguageProvider } from '../Localisation'
 import { LOCAL_STORAGE_EXPIRY_KEY, LoginInactivityTimer } from './LoginInactivityTimer'
 import { clearLocalStorageExcept } from '../../utils/helpers/utilityFunctions'
-import FigTree from '../../figTreeEvaluator'
-import getServerUrl from '../../utils/helpers/endpoints/endpointUrlBuilder'
-import { FragmentNode } from 'fig-tree-evaluator'
+import { FigTree, loadFragments } from '../../FigTreeEvaluator'
 
 type UserState = {
   currentUser: User | null
@@ -196,6 +194,12 @@ export function UserProvider({ children }: UserProviderProps) {
   )
 }
 
+/**
+ * To use and set the state of the user from anywhere in the app
+ * - @returns an object with a reducer function `setUserState` and the `userState`
+ */
+export const useUserState = () => useContext(UserContext)
+
 // Updates the global FigTree object with user token and refreshes available
 // Fragments
 export const updateFigTree = async (JWT: string) => {
@@ -204,21 +208,5 @@ export const updateFigTree = async (JWT: string) => {
       Authorization: `Bearer ${JWT}`,
     },
   })
-  try {
-    if (FigTree.getFragments().length === 0) {
-      const fragments = (await FigTree.evaluate({
-        operator: 'GET',
-        url: getServerUrl('figTreeFragments', { frontOrBack: 'front' }),
-      })) as Record<string, FragmentNode>
-      FigTree.updateOptions({ fragments })
-    }
-  } catch (e) {
-    console.error("Couldn't update FigTree fragments", (e as Error).message)
-  }
+  loadFragments('frontEnd')
 }
-
-/**
- * To use and set the state of the user from anywhere in the app
- * - @returns an object with a reducer function `setUserState` and the `userState`
- */
-export const useUserState = () => useContext(UserContext)

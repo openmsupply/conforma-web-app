@@ -6,7 +6,7 @@ import { useUserState } from '../../../contexts/UserState'
 import { useLanguageProvider } from '../../../contexts/Localisation'
 import { postRequest } from '../../../utils/helpers/fetchMethods'
 import getServerUrl from '../../../utils/helpers/endpoints/endpointUrlBuilder'
-import functions from '../../../figTreeEvaluator/functions'
+import functions from '../../../FigTreeEvaluator/customFunctions'
 
 const ApplicationView: React.FC<ApplicationViewProps> = ({
   element,

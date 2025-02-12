@@ -9,8 +9,9 @@ import {
   OperatorNode,
   truncateString,
 } from 'fig-tree-evaluator'
-import functions from './functions'
+import { functions } from './customFunctions'
 import getServerUrl, { serverREST } from '../utils/helpers/endpoints/endpointUrlBuilder'
+import { getRequest } from '../utils/helpers/fetchMethods'
 
 // A single global instance which is passed around through the whole app
 
@@ -27,6 +28,15 @@ export const FigTree = new FigTreeEvaluator({
   // we're sure all evaluator queries have been updated.
   supportDeprecatedValueNodes: true,
 })
+
+// @ts-ignore
+FigTree.id = String(Math.random())
+
+export const loadFragments = async (type: 'frontEnd' | 'backEnd') => {
+  getRequest(getServerUrl('figTreeFragments', { frontOrBack: type })).then((fragments) => {
+    FigTree.updateOptions({ fragments })
+  })
+}
 
 export const isFigTreeExpression = (input: EvaluatorNode) => {
   if (isOperatorNode(input) || isFragmentNode(input)) return true

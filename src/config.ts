@@ -22,6 +22,7 @@ const config = {
     login: '/public/login',
     file: '/public/file',
     verify: '/public/verify',
+    figTreeFragments: '/public/fragments',
     // Auth required
     loginOrg: '/login-org',
     userInfo: '/user-info',
@@ -37,7 +38,6 @@ const config = {
     lookupTable: '/lookup-table',
     localisation: '/localisation',
     files: '/files',
-    figTreeFragments: '/fig-tree-fragments',
     // Admin
     admin: '/admin',
     // updateRowPolicies: '/admin/updateRowPolicies', //-- not currently called by front-end

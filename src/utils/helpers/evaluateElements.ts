@@ -1,6 +1,5 @@
 import { EvaluatorNode } from 'fig-tree-evaluator'
-import FigTree from '../../figTreeEvaluator'
-import { isFigTreeExpression } from '../../figTreeEvaluator/FigTree'
+import { FigTree, isFigTreeExpression } from '../../FigTreeEvaluator'
 import {
   EvaluatedElement,
   ResponsesByCode,

@@ -1,3 +1,1 @@
-import { FigTree } from './FigTree'
-
-export default FigTree
+export * from './FigTree'
