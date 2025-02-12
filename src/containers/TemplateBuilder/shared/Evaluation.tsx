@@ -112,7 +112,7 @@ const Evaluation: React.FC<EvaluationProps> = ({
               setExpression={setEvaluation}
               figTree={FigTree}
               objectData={data as Record<string, unknown>}
-              restrictEdit={!canEdit}
+              canEdit={canEdit}
             />
             {data && (
               <div className="object-properties-container">

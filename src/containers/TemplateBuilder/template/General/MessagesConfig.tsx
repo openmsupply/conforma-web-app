@@ -64,6 +64,9 @@ const MessagesConfig: React.FC<MessagesConfigProps> = ({ isOpen, onClose }) => {
             currentElementCode={''}
             evaluation={state[key]}
             setEvaluation={(evaluation) => setState({ ...state, [key]: evaluation })}
+            // Always editable, as this component only renders when template is
+            // editable
+            canEdit
           />
         ))}
         <div className="spacer-20" />
@@ -74,7 +77,6 @@ const MessagesConfig: React.FC<MessagesConfigProps> = ({ isOpen, onClose }) => {
             disabledMessage={disabledMessage}
             onClick={updateMessage}
           />
-          ˀ
           <ButtonWithFallback title="Cancel" onClick={onClose} />
         </div>
       </div>

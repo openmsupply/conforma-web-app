@@ -333,6 +333,7 @@ const ElementConfig: React.FC<ElementConfigProps> = ({ element, onClose }) => {
                   markNeedsUpdate()
                 }}
                 type="FormElement"
+                canEdit={canEdit}
               />
             ))}
           </div>

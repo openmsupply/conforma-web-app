@@ -2,15 +2,16 @@ import React from 'react'
 import useUndo from 'use-undo'
 import Markdown from '../../utils/helpers/semanticReactMarkdown'
 import { FigTreeEditor, FigTreeEditorProps } from 'fig-tree-editor-react'
-import { EvaluatorNode, isFigTreeError, truncateString } from 'fig-tree-evaluator'
+import { isFigTreeError, truncateString, dequal, EvaluatorNode } from 'fig-tree-evaluator'
 import { Position, topMiddle, useToast } from '../../contexts/Toast'
-import { Button, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import { useLanguageProvider } from '../../contexts/Localisation'
 
 const RESULT_STRING_CHAR_LIMIT = 500
 
 interface EvaluatorProps extends Omit<FigTreeEditorProps, 'onEvaluate'> {
   toastPosition?: Position
+  canEdit: boolean
 }
 
 export const EvaluationEditor: React.FC<EvaluatorProps> = ({
@@ -19,7 +20,7 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
   figTree,
   objectData,
   toastPosition = topMiddle,
-  restrictEdit,
+  canEdit,
   ...figTreeEditorProps
 }) => {
   const { t } = useLanguageProvider()
@@ -27,17 +28,43 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
     useUndo(expression)
   const { showToast } = useToast({ position: toastPosition })
 
+  const handleUpdate = (newData: EvaluatorNode) => {
+    // This somewhat clunky bit of logic handles the fact that when FigTree
+    // expressions are loaded from the database, the keys are often in an
+    // undesirable order (alphabetical, which puts "children" before
+    // "operator"). The FigTree Editor's internal "validate" function handles
+    // this, and puts the keys in a better order for presentation, but it adds
+    // an item to the Undo queue in doing so. By distinguishing between "strict"
+    // and "loose" equality, we can update the state *without* adding to the
+    // queue by using the "reset" method rather than "setData" in this case.
+
+    // Strict => key order must be the same
+    const isStrictlyEqual = JSON.stringify(newData) === JSON.stringify(currentData)
+    // Loose => key order not considered
+    const isLooselyEqual = dequal(newData, currentData)
+
+    if (isLooselyEqual && !isStrictlyEqual) {
+      reset(newData)
+      return
+    }
+
+    if (isStrictlyEqual) return
+
+    setExpression(newData)
+    setData(newData)
+  }
+
   return (
     <div className="fig-tree-container">
       <FigTreeEditor
         {...figTreeEditorProps}
         expression={currentData}
-        setExpression={(data) => {
-          if (JSON.stringify(data) !== JSON.stringify(expression)) setData(data)
-        }}
+        setExpression={handleUpdate}
         figTree={figTree}
         objectData={objectData as Record<string, unknown>}
-        restrictEdit={restrictEdit}
+        restrictEdit={!canEdit}
+        restrictAdd={!canEdit}
+        restrictDelete={!canEdit}
         rootName=""
         // rootFontSize="14px"
         collapse={3}
@@ -78,13 +105,13 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
             <Icon name="arrow alternate circle right" />
           </a>
         </p>
-        <Button
+        {/* <Button
           primary
           // disabled={!isDirty}
           // loading={isSaving}
           content={t('BUTTON_SAVE')}
           // onClick={handleSave}
-        />
+        /> */}
       </div>
     </div>
   )
