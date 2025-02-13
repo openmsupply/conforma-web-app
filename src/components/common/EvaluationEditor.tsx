@@ -57,6 +57,9 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
   return (
     <div className="fig-tree-container">
       <FigTreeEditor
+        collapse={3}
+        minWidth={600}
+        rootName=""
         {...figTreeEditorProps}
         expression={currentData}
         setExpression={handleUpdate}
@@ -65,10 +68,6 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
         restrictEdit={!canEdit}
         restrictAdd={!canEdit}
         restrictDelete={!canEdit}
-        rootName=""
-        // rootFontSize="14px"
-        collapse={3}
-        minWidth={600}
         collapseAnimationTime={0}
         onEvaluate={(result) =>
           showToast({
@@ -91,20 +90,22 @@ export const EvaluationEditor: React.FC<EvaluatorProps> = ({
           })
         }}
       />
-      <div className="flex-row-space-between">
-        <p className={`clickable nav-button ${!canUndo ? 'invisible' : ''}`}>
-          <a onClick={undo}>
-            <Icon name="arrow alternate circle left" />
-            <strong>{t('BUTTON_UNDO')}</strong>
-          </a>
-        </p>
-        <p className={`clickable nav-button ${!canRedo ? 'invisible' : ''}`}>
-          <a onClick={redo}>
-            <strong>{t('BUTTON_REDO')}</strong>
-            <Icon name="arrow alternate circle right" />
-          </a>
-        </p>
-      </div>
+      {(canUndo || canRedo) && (
+        <div className="flex-row-space-between">
+          <p className={`clickable nav-button ${!canUndo ? 'invisible' : ''}`}>
+            <a onClick={undo}>
+              <Icon name="arrow alternate circle left" />
+              <strong>{t('BUTTON_UNDO')}</strong>
+            </a>
+          </p>
+          <p className={`clickable nav-button ${!canRedo ? 'invisible' : ''}`}>
+            <a onClick={redo}>
+              <strong>{t('BUTTON_REDO')}</strong>
+              <Icon name="arrow alternate circle right" />
+            </a>
+          </p>
+        </div>
+      )}
     </div>
   )
 }

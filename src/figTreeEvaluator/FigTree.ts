@@ -8,7 +8,7 @@ import {
   isOperatorNode,
   OperatorNode,
   truncateString,
-} from 'fig-tree-evaluator'
+} from 'fig-tree-editor-react'
 import { functions } from './customFunctions'
 import getServerUrl, { serverREST } from '../utils/helpers/endpoints/endpointUrlBuilder'
 import { getRequest } from '../utils/helpers/fetchMethods'

@@ -4,13 +4,16 @@ import { FullStructure } from '../../../utils/types'
 import { useActionState } from '../template/Actions/Actions'
 import CheckboxIO from './CheckboxIO'
 import TextIO from '../shared/TextIO'
-import Evaluation from './Evaluation'
-import JsonIO from './JsonIO'
+import Evaluation, { ObjectDataDisplay } from './Evaluation'
 import { EvaluatorNode } from 'fig-tree-evaluator'
+import { FigTree } from '../../../FigTreeEvaluator'
+import { EvaluationEditor } from '../../../components/common/EvaluationEditor'
+import { useUserState } from '../../../contexts/UserState'
 
 export type ParametersType = {
   [key: string]: EvaluatorNode
 }
+
 type ParametersProps = {
   parameters: ParametersType
   currentElementCode: string
@@ -32,9 +35,26 @@ export const Parameters: React.FC<ParametersProps> = ({
   optionalParameters,
   type,
 }) => {
+  const {
+    userState: { currentUser },
+  } = useUserState()
   const { applicationData } = useActionState()
-  const [asGui, setAsGui] = useState(true)
+  const [showCombined, setShowCombined] = useState(false)
   const [isActive, setIsActive] = useState(false)
+
+  const objectData =
+    type === 'Action'
+      ? { applicationData }
+      : type === 'FormElement'
+      ? {
+          responses: {
+            ...fullStructure?.responsesByCode,
+            thisResponse: fullStructure?.responsesByCode?.[currentElementCode]?.text,
+          },
+          currentUser,
+          applicationData: { ...fullStructure?.info, currentPageType: 'application' },
+        }
+      : undefined
 
   return (
     <Accordion
@@ -84,9 +104,13 @@ export const Parameters: React.FC<ParametersProps> = ({
               )}
               <div className="config-container-outline">
                 <div className="flex-row flex-gap-20">
-                  <CheckboxIO title="Show As GUI" value={asGui} setValue={setAsGui} />
+                  <CheckboxIO
+                    title="Show combined parameters"
+                    value={showCombined}
+                    setValue={setShowCombined}
+                  />
                   <div className="spacer-10" />
-                  {asGui && (
+                  {!showCombined && (
                     <Button
                       primary
                       inverted
@@ -99,19 +123,21 @@ export const Parameters: React.FC<ParametersProps> = ({
                     </Button>
                   )}
                 </div>
-                {!asGui && (
-                  <div className="long">
-                    <JsonIO
-                      isPropUpdated={true}
-                      object={parameters}
-                      label=""
-                      setObject={(value) => setParameters(value as ParametersType)}
+                {showCombined && (
+                  <div className="flex-row-space-between" style={{ gap: '1em' }}>
+                    <EvaluationEditor
+                      figTree={FigTree}
+                      expression={parameters}
+                      setExpression={setParameters as (d: EvaluatorNode) => void}
+                      canEdit={canEdit}
+                      collapse={1}
+                      objectData={objectData}
                     />
+                    <ObjectDataDisplay objectData={objectData} />
                   </div>
                 )}
               </div>
-
-              {asGui &&
+              {!showCombined &&
                 Object.entries(parameters).map(([key, value]) => (
                   <Evaluation
                     setEvaluation={(value: any) => setParameters({ ...parameters, [key]: value })}
@@ -131,12 +157,9 @@ export const Parameters: React.FC<ParametersProps> = ({
                     }
                     key={key}
                     evaluation={value}
-                    fullStructure={fullStructure}
-                    applicationData={applicationData}
-                    type={type}
-                    currentElementCode={currentElementCode}
                     label={key}
                     canEdit={canEdit}
+                    objectData={objectData}
                   />
                 ))}
             </div>

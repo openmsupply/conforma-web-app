@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { JsonEditor as ReactJson } from 'json-edit-react'
 import { Accordion, Icon, Label } from 'semantic-ui-react'
-import { useUserState } from '../../../contexts/UserState'
-import { FullStructure } from '../../../utils/types'
 import TextIO from './TextIO'
 import { EvaluatorNode, truncateString } from 'fig-tree-evaluator'
 import { FigTree } from '../../../FigTreeEvaluator'
@@ -13,14 +11,11 @@ import { Position, useToast } from '../../../contexts/Toast'
 
 type EvaluationProps = {
   evaluation: EvaluatorNode
-  currentElementCode: string
   setEvaluation: (evaluation: EvaluatorNode) => void
-  fullStructure?: FullStructure // for Form Elements
-  applicationData?: any // for Actions
   label: string
   updateKey?: (key: string) => void
   deleteKey?: () => void
-  type?: 'FormElement' | 'Action'
+  objectData?: Record<string, unknown>
   canEdit: boolean
 }
 
@@ -49,33 +44,12 @@ const Evaluation: React.FC<EvaluationProps> = ({
   evaluation,
   setEvaluation,
   label,
-  currentElementCode,
-  fullStructure,
-  applicationData,
   updateKey,
   deleteKey,
-  type,
   canEdit,
+  objectData,
 }) => {
-  const { t } = useLanguageProvider()
-  const { showToast } = useToast()
-  const {
-    userState: { currentUser },
-  } = useUserState()
   const [isActive, setIsActive] = useState(false)
-  const data =
-    type === 'Action'
-      ? { applicationData }
-      : type === 'FormElement'
-      ? {
-          responses: {
-            ...fullStructure?.responsesByCode,
-            thisResponse: fullStructure?.responsesByCode?.[currentElementCode]?.text,
-          },
-          currentUser,
-          applicationData: { ...fullStructure?.info, currentPageType: 'application' },
-        }
-      : undefined
 
   return (
     <Accordion className="evaluation-container">
@@ -110,50 +84,61 @@ const Evaluation: React.FC<EvaluationProps> = ({
       </Accordion.Title>
       {isActive && (
         <Accordion.Content className="evaluation-container-content" active={isActive}>
-          <div className="flex-row-space-between" style={{ gap: '1.5em' }}>
+          <div className="flex-row-space-between" style={{ gap: '1em' }}>
             <EvaluationEditor
               expression={evaluation}
               setExpression={setEvaluation}
               figTree={FigTree}
-              objectData={data as Record<string, unknown>}
+              objectData={objectData}
               canEdit={canEdit}
             />
-            {data && (
-              <div className="object-properties-container">
-                <ReactJson
-                  data={data}
-                  rootName="data"
-                  collapse={1}
-                  indent={2}
-                  maxWidth={450}
-                  restrictEdit={true}
-                  restrictDelete={true}
-                  restrictAdd={true}
-                  theme={{ container: ['transparent', { fontSize: '13px', padding: 0 }] }}
-                  enableClipboard={({ key, value, type, stringValue }) => {
-                    const text =
-                      typeof value === 'object' && value !== null
-                        ? t('CLIPBOARD_COPIED_ITEMS', {
-                            name: key,
-                            count: Object.keys(value).length,
-                          })
-                        : truncateString(stringValue)
-                    showToast({
-                      title: t(
-                        type === 'value' ? 'CLIPBOARD_COPIED_VALUE' : 'CLIPBOARD_COPIED_PATH'
-                      ),
-                      text,
-                      style: 'info',
-                      position: Position.bottomLeft,
-                    })
-                  }}
-                />
-              </div>
-            )}
+            <ObjectDataDisplay objectData={objectData} />
           </div>
         </Accordion.Content>
       )}
     </Accordion>
+  )
+}
+
+interface ObjectDataDisplayProps {
+  objectData?: Record<string, unknown>
+}
+
+export const ObjectDataDisplay: React.FC<ObjectDataDisplayProps> = ({ objectData }) => {
+  const { t } = useLanguageProvider()
+  const { showToast } = useToast()
+
+  if (!objectData) return null
+
+  return (
+    <div className="object-properties-container">
+      <ReactJson
+        data={objectData}
+        rootName="data"
+        collapse={1}
+        indent={2}
+        maxWidth={450}
+        restrictEdit={true}
+        restrictDelete={true}
+        restrictAdd={true}
+        theme={{ container: ['transparent', { fontSize: '13px', padding: 0 }] }}
+        enableClipboard={({ key, value, type, stringValue }) => {
+          const text =
+            typeof value === 'object' && value !== null
+              ? t('CLIPBOARD_COPIED_ITEMS', {
+                  name: key,
+                  count: Object.keys(value).length,
+                })
+              : truncateString(stringValue)
+          showToast({
+            title: t(type === 'value' ? 'CLIPBOARD_COPIED_VALUE' : 'CLIPBOARD_COPIED_PATH'),
+            text,
+            style: 'info',
+            position: Position.bottomLeft,
+          })
+        }}
+      />
+    </div>
   )
 }
 

@@ -2454,8 +2454,8 @@ a:hover {
   border-radius: @borderRadius;
   border: 1px solid @indicatorColor;
   padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
   margin: 2px;
   background-color: @surfacesWhite;
   .evaluation-container-title {
@@ -2571,10 +2571,20 @@ a:hover {
 .json-editor {
   padding-top: 1em;
   .flex-column();
+
+  .jer-editor-container {
+    box-shadow: rgba(99, 99, 99, 0.07) 0px 2px 8px 0px;
+  }
 }
 
-.jer-editor-container {
-  box-shadow: rgba(99, 99, 99, 0.07) 0px 2px 8px 0px;
+/*******************************
+        Fig-Tree JSON Editor
+*******************************/
+
+.fig-tree-container {
+  .jer-editor-container {
+    width: auto;
+  }
 }
 
 /*******************************

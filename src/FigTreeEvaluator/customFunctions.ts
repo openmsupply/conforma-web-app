@@ -2,6 +2,7 @@
 // allows us to preview the "objectFunctions" operator in the Template Builder
 // Actions config
 
+import { FunctionDefinition } from 'fig-tree-editor-react'
 import { DateTime, Duration } from 'luxon'
 
 interface FilterOptions {
@@ -30,7 +31,7 @@ const dateFormats = {
   hugeDateTime: DateTime.DATETIME_HUGE,
 }
 
-export const functions: Record<string, any> = {
+export const functions: Record<string, FunctionDefinition> = {
   filterArray: {
     function: (valuesArray: unknown[], options: FilterOptions) => {
       const { key, rule = 'exclude', values } = options
