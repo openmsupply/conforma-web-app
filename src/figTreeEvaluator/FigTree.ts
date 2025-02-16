@@ -47,6 +47,7 @@ export const isFigTreeExpression = (input: EvaluatorNode) => {
   return false
 }
 
+// Text summary of the type of node for parameters UI
 export const getFigTreeSummary = (expression: EvaluatorNode) => {
   if (isOperatorNode(expression))
     return { type: 'Operator', operator: (expression as OperatorNode)['operator'] }
