@@ -2904,14 +2904,6 @@ fbjs@^3.0.0:
     setimmediate "^1.0.5"
     ua-parser-js "^1.0.35"
 
-fig-tree-evaluator@^2.17.0:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/fig-tree-evaluator/-/fig-tree-evaluator-2.17.0.tgz#a8b29c6671b3dae74857eef511f8d0e681c60740"
-  integrity sha512-mHNtSnIFIJW8sGQFOa8l1psEyYVnCYrJNDihf/AFW0UN3uCj/8C/qvNWo1ZDUjdHKToMdG8r1eUu+ZxLa+9UIQ==
-  dependencies:
-    dequal "^2.0.3"
-    object-property-extractor "^1.0.12"
-
 figures@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-3.2.0.tgz#625c18bd293c604dc4a8ddb2febf0c88341746af"
@@ -4162,11 +4154,6 @@ object-property-assigner@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/object-property-assigner/-/object-property-assigner-1.3.5.tgz#f5037ff73b7b015a42e4059c3ff5c84017413ca2"
   integrity sha512-DIzHzNSTnpoG8QPQCDNrHa6O3vLMhktK3Igirqpk523UYIVe8JNCKcn5C9WyLQxJc58EGsAIiiEu10gqPrud8w==
-
-object-property-extractor@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/object-property-extractor/-/object-property-extractor-1.0.12.tgz#d3824be4a01e8d4489d3cdcbd1dfc45828d1ad97"
-  integrity sha512-X6rMK1O6O3EU4O06BtATezWKr+5idX6Yo0PndVqr8NlED3Eoa2YE+VKQgQL4EK0+vh+YA83Sjj9Nsi/PuXXeDQ==
 
 object-property-extractor@^1.0.13:
   version "1.0.13"

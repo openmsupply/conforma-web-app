@@ -103,14 +103,10 @@ export function useRouter(): RouterResult {
     //    => { name: "Carl", value: 3, valueText: "3.0" alive: true }
     const getParsedUrlQuery = () => {
       return Object.entries(queryFilters).reduce((acc, [key, value]) => {
-        if (value === 'true') return { ...acc, [key]: true }
-        if (value === 'false') return { ...acc, [key]: false }
-        if (!Number.isNaN(Number(value)))
-          // Save the Number form and the original text string in case it's not
-          // actually supposed to be treated as a number, then we can still
-          // access it via the "...Text" property
-          return { ...acc, [key]: Number(value), [`${key}Text`]: value }
-        return { ...acc, [key]: value }
+        const typedVal = getTypedValue(value as string)
+        const returnValue: Record<string, unknown> = { ...acc, [key]: typedVal }
+        if (!Number.isNaN(Number(value))) returnValue[`${key}Text`] = value
+        return returnValue
       }, {})
     }
 
@@ -158,4 +154,15 @@ const getCurrentPageType = (pathname: string) => {
     default:
       return 'dashboard'
   }
+}
+
+const getTypedValue = (
+  value: string
+): string | boolean | number | Array<string | boolean | number> => {
+  const split = value.split(',')
+  if (split.length > 1) return split.map((val) => getTypedValue(val)) as string[]
+  if (value === 'true') return true
+  if (value === 'false') return false
+  if (!Number.isNaN(Number(value))) return Number(value)
+  return value
 }
